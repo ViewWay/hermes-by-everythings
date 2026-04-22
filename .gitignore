@@ -1,0 +1,11 @@
+node_modules/
+target/
+.git/
+*.log
+.DS_Store
+.ralph.pid
+.ralph-stats.json
+logs/
+tasks/
+prd.json
+progress.md
