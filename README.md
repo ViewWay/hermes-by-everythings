@@ -6,7 +6,7 @@
 [![Forks](https://img.shields.io/github/forks/ViewWay/hermes-by-everythings?style=flat)](https://github.com/ViewWay/hermes-by-everythings/network/members)
 [![Contributors](https://img.shields.io/github/contributors/ViewWay/hermes-by-everythings?style=flat)](https://github.com/ViewWay/hermes-by-everythings/graphs/contributors)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-2.2.0-green.svg)](https://github.com/ViewWay/hermes-by-everythings/releases)
+[![Version](https://img.shields.io/badge/version-3.1.0-green.svg)](https://github.com/ViewWay/hermes-by-everythings/releases)
 ![Shell](https://img.shields.io/badge/-Shell-4EAA25?logo=gnu-bash&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
 ![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white)
@@ -134,6 +134,46 @@ Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [
 | **console.log 警告** | 提交前 | 检测遗留调试语句 |
 | **PR 创建提示** | gh pr create 后 | 输出 PR URL + review 命令 |
 | **Git push 提醒** | git push 前 | 提示 review 变更 |
+
+---
+
+## 📁 文件结构
+
+```
+hermes-by-everythings/
+├── README.md          # 项目主文档
+├── CHANGELOG.md       # 变更日志
+├── LICENSE            # 许可证
+├── CLAUDE.md          # 核心上下文
+├── SKILLS.md          # ⭐ 轻量级路由表 (2KB)
+│
+├── skills/            # 🎯 统一技能目录
+│   ├── active/        #   活跃技能
+│   ├── agents/        #   10 个 agent 定义
+│   ├── rules/         #   8 个规则定义
+│   └── templates/     #   6 个模板
+│
+├── docs/              # 📚 文档目录
+│   ├── reports/       #   11 个优化报告
+│   ├── architecture/  #   9 个架构文档
+│   ├── guides/        #   2 个使用指南
+│   ├── adr/           #   5 个 ADR
+│   └── research/      #   研究文档
+│
+├── scripts/           # 🔧 脚本目录
+│   ├── core/          #   核心脚本 (hooks, ralph, test)
+│   ├── ai/            #   AI 功能 (2 个)
+│   ├── cache/         #   缓存系统
+│   ├── dashboard/     #   监控面板 (2 个)
+│   ├── performance/   #   性能优化 (2 个)
+│   └── recovery/      #   错误恢复
+│
+├── tests/             # 测试
+├── themes/            # 主题配置
+└── schemas/           # Schema 定义
+```
+
+**Token 效率**: SKILLS.md 仅 2KB (vs 原 SKILL.md 15KB，86% 优化)
 
 ---
 
@@ -547,7 +587,7 @@ bash scripts/test/validate-prompts.sh
 
 ## 更新日志
 
-### v2.2.0 (2026-05-02) - Phase 2 优化完成
+### v3.1.0 (2026-05-02) - Phase 2 优化完成
 
 **新增**:
 - ✅ 完整的文档体系（CLAUDE.md + ADR + 多级文档）

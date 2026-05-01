@@ -6,7 +6,7 @@
 [![Forks](https://img.shields.io/github/forks/ViewWay/hermes-by-everythings?style=flat)](https://github.com/ViewWay/hermes-by-everythings/network/members)
 [![Contributors](https://img.shields.io/github/contributors/ViewWay/hermes-by-everythings?style=flat)](https://github.com/ViewWay/hermes-by-everythings/graphs/contributors)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-2.2.0-green.svg)](https://github.com/ViewWay/hermes-by-everythings/releases)
+[![Version](https://img.shields.io/badge/version-3.1.0-green.svg)](https://github.com/ViewWay/hermes-by-everythings/releases)
 
 > **9 个专业代理** | **13 个核心技能** | **15 个快捷命令** | **8 个规则文件** | **Ralph 自主循环**
 
@@ -81,6 +81,46 @@ Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [
 /hbe:checkpoint     # 保存进度快照
 /hbe:learn          # 模式学习提取
 ```
+
+---
+
+## 📁 文件结构
+
+```
+hermes-by-everythings/
+├── README.md          # 项目主文档
+├── CHANGELOG.md       # 变更日志
+├── LICENSE            # 许可证
+├── CLAUDE.md          # 核心上下文
+├── SKILLS.md          # ⭐ 轻量级路由表 (2KB)
+│
+├── skills/            # 🎯 统一技能目录
+│   ├── active/        #   活跃技能
+│   ├── agents/        #   10 个 agent 定义
+│   ├── rules/         #   8 个规则定义
+│   └── templates/     #   6 个模板
+│
+├── docs/              # 📚 文档目录
+│   ├── reports/       #   11 个优化报告
+│   ├── architecture/  #   9 个架构文档
+│   ├── guides/        #   2 个使用指南
+│   ├── adr/           #   5 个 ADR
+│   └── research/      #   研究文档
+│
+├── scripts/           # 🔧 脚本目录
+│   ├── core/          #   核心脚本
+│   ├── ai/            #   AI 功能
+│   ├── cache/         #   缓存系统
+│   ├── dashboard/     #   监控面板
+│   ├── performance/   #   性能优化
+│   └── recovery/      #   错误恢复
+│
+├── tests/             # 测试
+├── themes/            # 主题配置
+└── schemas/           # Schema 定义
+```
+
+**Token 效率**: SKILLS.md 仅 2KB (vs 原 SKILL.md 15KB，86% 优化)
 
 ---
 
