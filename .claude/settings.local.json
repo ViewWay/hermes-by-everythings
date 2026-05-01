@@ -26,7 +26,15 @@
       "Bash(sed -i.tmp 's|references/agents/|skills/agents/|g' README.md)",
       "Bash(sed -i.tmp 's|SKILL\\\\.md|SKILLS.md|g' README.md)",
       "Bash(sed -i.tmp 's|references/agents/|skills/agents/|g' CLAUDE.md)",
-      "Bash(sed -i.tmp 's|references/rules/|skills/rules/|g' CLAUDE.md)"
+      "Bash(sed -i.tmp 's|references/rules/|skills/rules/|g' CLAUDE.md)",
+      "Bash(chmod +x scripts/hooks/*.js)",
+      "Bash(chmod +x *)",
+      "Bash(node *)",
+      "Bash(xargs -I {} basename {})",
+      "Bash(awk '{print $9, $5}')",
+      "Bash(bash /tmp/git-add-commands.sh)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ]
   }
 }

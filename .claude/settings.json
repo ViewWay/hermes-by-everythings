@@ -9,6 +9,27 @@
     ]
   },
   "hooks": {
+    "SessionStart": [
+      {
+        "name": "memory-session-start",
+        "command": "node scripts/hooks/session-start.js",
+        "description": "Initialize memory system for new session"
+      }
+    ],
+    "PostToolUse": [
+      {
+        "name": "memory-post-tool",
+        "command": "node scripts/hooks/post-tool.js",
+        "description": "Capture tool usage observations"
+      }
+    ],
+    "SessionEnd": [
+      {
+        "name": "memory-session-end",
+        "command": "node scripts/hooks/session-end.js",
+        "description": "Generate session summary and update memory"
+      }
+    ],
     "pre:bash": [
       {
         "name": "gateguard-fact-force",

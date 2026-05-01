@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "skills": {
+    "frontend-slides": {
+      "name": "Frontend Slides",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=frontend-slides",
+      "source": "skillhub",
+      "version": "2.0.2"
+    },
+    "diagram-generator": {
+      "name": "diagram-generator",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=diagram-generator",
+      "source": "skillhub",
+      "version": "1.1.1"
+    },
+    "diagram": {
+      "name": "Diagram",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=diagram",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "frontend-design-ultimate": {
+      "name": "Frontend Design Ultimate",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=frontend-design-ultimate",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "ui-ux-pro-max": {
+      "name": "UI/UX Pro Max",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=ui-ux-pro-max",
+      "source": "skillhub",
+      "version": "0.1.0"
+    },
+    "code-review": {
+      "name": "Code Review",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=code-review",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "security-auditor": {
+      "name": "Security Auditor",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=security-auditor",
+      "source": "skillhub",
+      "version": "1.0.0"
+    }
+  }
+}
