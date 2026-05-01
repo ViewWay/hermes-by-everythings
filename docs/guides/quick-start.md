@@ -47,9 +47,10 @@ bash install.sh
 应该看到：
 ```
 ✓ HBE 系统验证通过
-✓ 9 个 Agent 可用
+✓ 10 个 Agent 可用
 ✓ 13 个 Skill 可用
 ✓ 15 个 Command 可用
+✓ Orchestrator 编排系统可用
 ```
 
 ---
@@ -95,6 +96,9 @@ HBE 将：
 ## 常用命令
 
 ```bash
+# 多Agent编排（推荐用于复杂项目）
+/hbe:orchestrate [项目描述]
+
 # 规划功能
 /hbe:plan [功能描述]
 
@@ -118,10 +122,11 @@ HBE 将：
 
 ## 下一步
 
-1. 阅读 [完整用户指南](user-guide.md)
-2. 了解 [Agent 列表](../skills/agents/)
-3. 探索 [Skill 列表](../skills/)
-4. 查看 [示例](../examples/)
+1. 阅读 [Orchestrator 教程](ORCHESTRATOR-TUTORIAL.md) - 学习多Agent编排
+2. 阅读 [完整用户指南](user-guide.md)
+3. 了解 [Agent 列表](../../skills/agents/)
+4. 探索 [Skill 列表](../../skills/)
+5. 查看 [示例](../../examples/)
 
 ---
 
@@ -133,5 +138,5 @@ HBE 将：
 
 ---
 
-**版本**: 2.1.0
+**版本**: 3.2.0
 **更新**: 2026-05-02

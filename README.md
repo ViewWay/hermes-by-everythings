@@ -6,7 +6,7 @@
 [![Forks](https://img.shields.io/github/forks/ViewWay/hermes-by-everythings?style=flat)](https://github.com/ViewWay/hermes-by-everythings/network/members)
 [![Contributors](https://img.shields.io/github/contributors/ViewWay/hermes-by-everythings?style=flat)](https://github.com/ViewWay/hermes-by-everythings/graphs/contributors)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-3.1.0-green.svg)](https://github.com/ViewWay/hermes-by-everythings/releases)
+[![Version](https://img.shields.io/badge/version-3.2.0-green.svg)](https://github.com/ViewWay/hermes-by-everythings/releases)
 ![Shell](https://img.shields.io/badge/-Shell-4EAA25?logo=gnu-bash&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
 ![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white)
@@ -19,7 +19,7 @@
 ![PHP](https://img.shields.io/badge/-PHP-777BB4?logo=php&logoColor=white)
 ![Swift](https://img.shields.io/badge/-Swift-F05138?logo=swift&logoColor=white)
 
-> **9 专业代理** | **13 核心技能** | **15 快捷命令** | **8 规则文件** | **Ralph 自主循环**
+> **10 专业代理** | **13 核心技能** | **15 快捷命令** | **8 规则文件** | **Ralph 自主循环** | **Orchestrator 编排**
 
 ---
 
@@ -45,10 +45,11 @@ Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [
 
 ## 核心特性
 
-### 🤖 专业代理（9 个）
+### 🤖 专业代理（10 个）
 
 | 代理 | 命令 | 说明 | 专长 |
 |------|------|------|------|
+| **orchestrator** | `/hbe:orchestrate` | 多Agent编排 | 任务分解、批量开发、质量闭环、Agent resume |
 | **planner** | `/hbe:plan` | 实现规划 | 需求分析、任务拆解、风险评估 |
 | **architect** | `/hbe:architect` | 架构设计 | 系统设计、组件职责、数据模型 |
 | **code-reviewer** | `/hbe:review` | 代码审查 | 质量检查、性能优化、安全审查 |
@@ -181,7 +182,26 @@ hermes-by-everythings/
 
 ### 安装
 
-#### 方式 1: 手动安装（推荐）
+#### 方式 1: 使用 skillhub（推荐）
+
+```bash
+npm install -g @anthropics/skillhub
+skillhub install hermes-by-everythings
+```
+
+#### 方式 2: 使用安装脚本（跨平台）
+
+```bash
+git clone https://github.com/ViewWay/hermes-by-everythings.git
+cd hermes-by-everythings
+
+# 选择适合平台的脚本
+bash install.sh        # macOS/Linux
+python3 install.py     # 跨平台（推荐）
+powershell install.ps1  # Windows
+```
+
+#### 方式 3: 手动安装（开发模式）
 
 ```bash
 # 1. 克隆仓库
@@ -194,19 +214,7 @@ ln -s $(pwd)/hermes-by-everythings ~/.claude/skills/hermes-by-everythings
 ls -la ~/.claude/skills/hermes-by-everythings
 ```
 
-#### 方式 2: 自动安装（推荐）
-
-```bash
-cd hermes-by-everythings
-bash install.sh
-```
-
-#### 方式 3: Marketplace（发布后可用）
-
-```bash
-/plugin marketplace add anthropics/claude-code
-claude skill add ViewWay/hermes-by-everythings
-```
+📖 **详细安装指南**: [docs/guides/INSTALLATION.md](docs/guides/INSTALLATION.md)
 
 ### 验证安装
 
@@ -216,14 +224,31 @@ claude skill add ViewWay/hermes-by-everythings
 /hbe:verify --system
 ```
 
+预期输出：
+```
+✓ HBE 系统验证通过
+✓ 10 个 Agent 可用
+✓ 13 个 Skill 可用
+✓ 15 个 Command 可用
+✓ Orchestrator 编排系统可用
+```
+
+### 📚 学习资源
+
+- **[安装指南](docs/guides/INSTALLATION.md)** - 完整的安装教程和故障排除
+- **[快速开始](docs/guides/quick-start.md)** - 5分钟上手指南
+- **[Agent教程](docs/guides/agents/)** - 10个Agent的详细使用教程
+- **[Orchestrator教程](docs/guides/ORCHESTRATOR-TUTORIAL.md)** - 多Agent编排系统教程
+- **[文档索引](docs/INDEX.md)** - 完整的文档导航
+
 应该看到：
 
 ```
 ✓ HBE 系统验证通过
-✓ 9 个 Agent 可用
+✓ 10 个 Agent 可用
 ✓ 13 个 Skill 可用
 ✓ 15 个 Command 可用
-✓ 8 个 Rule 文件可用
+✓ Orchestrator 编排系统可用
 ✓ Ralph 自主循环就绪
 ```
 
@@ -262,6 +287,47 @@ HBE 将：
 1. 检查代码质量
 2. 识别潜在问题
 3. 提供改进建议
+
+---
+
+## 📖 文档导航
+
+> **快速查找**: [完整文档索引](docs/INDEX.md) | [安装指南](docs/guides/INSTALLATION.md) | [Agent教程](docs/guides/agents/) | [中文文档](README.zh-CN.md)
+
+### 核心文档
+
+| 文档 | 说明 | 适用对象 |
+|------|------|----------|
+| **[安装指南](docs/guides/INSTALLATION.md)** | 完整安装教程（skillhub/git/manual） | 所有用户 |
+| **[快速开始](docs/guides/quick-start.md)** | 5分钟上手指南 | 所有用户 |
+| **[Agent教程](docs/guides/agents/)** | 10个Agent详细使用教程 | 开发者 |
+| **[Orchestrator教程](docs/guides/ORCHESTRATOR-TUTORIAL.md)** | 多Agent编排系统教程 | 开发者 |
+| **[集成指南](docs/ORCHESTRATOR-GUIDE.md)** | Orchestrator深度集成 | 架构师 |
+| **[文档索引](docs/INDEX.md)** | 完整的文档导航 | 所有用户 |
+| **[变更日志](CHANGELOG.md)** | 版本更新历史 | 维护者 |
+
+### 按主题查找
+
+**核心概念**:
+- [Agent系统](skills/agents/) - 10个专业Agent
+- [Skill系统](SKILL-INDEX.md) - 技能索引和路由
+- [Orchestrator](docs/ORCHESTRATOR-GUIDE.md) - 多Agent编排
+- [Ralph循环](skills/active/ralph-loop.md) - 自主执行系统
+- [Memory系统](docs/MEMORY-SYSTEM.md) - 持久化记忆
+
+**开发工作流**:
+- [TDD工作流](skills/active/tdd-workflow.md) - 测试驱动开发
+- [Agent教程](docs/guides/agents/) - 10个Agent使用教程
+- [代码审查](docs/guides/agents/CODE-REVIEWER.md) - 代码质量检查
+- [安全审查](docs/guides/agents/SECURITY-REVIEWER.md) - 安全漏洞扫描
+- [重构清理](docs/guides/agents/REFACTOR-CLEANER.md) - 死代码清理
+- [E2E测试](docs/guides/agents/E2E-RUNNER.md) - 端到端测试
+
+**报告和参考**:
+- [agentdesign集成报告](docs/reports/AGENTDESIGN-INTEGRATION.md) - 最新集成
+- [文档更新报告](docs/reports/DOCUMENTATION-UPDATE-2026-05-02.md) - 文档变更
+- [脚本迁移报告](docs/reports/SCRIPT-MIGRATION.md) - 跨平台脚本
+- [上下文优化](docs/CONTEXT-OPTIMIZATION.md) - Token优化
 
 ---
 

@@ -31,7 +31,8 @@ show_banner() {
     echo "║       Hermes-by-Everything v$VERSION 安装程序                    ║"
     echo "║                                                               ║"
     echo "║       多平台多语言编码增强套件                                   ║"
-    echo "║       9 Agent + 13 Skill + 15 Command + 8 Rules               ║"
+    echo "║       10 Agent + 13 Skill + 15 Command + 8 Rules              ║"
+    echo "║       Ralph + Orchestrator 编排系统                             ║"
     echo "║                                                               ║"
     echo "╚═══════════════════════════════════════════════════════════════╝"
     echo ""
@@ -54,6 +55,105 @@ detect_platform() {
             echo "unknown"
             ;;
     esac
+}
+
+# 选择安装方法
+choose_install_method() {
+    echo ""
+    echo "选择安装方法:"
+    echo "  1) skillhub (推荐 - 如果已安装skillhub)"
+    echo "  2) git clone (标准方法)"
+    echo "  3) manual (已下载，仅创建链接)"
+    echo "  4) symlink (开发模式，当前目录链接)"
+    echo ""
+    read -p "输入选择 [1-4]: " choice
+
+    case $choice in
+        1)
+            echo "skillhub"
+            ;;
+        2)
+            echo "git"
+            ;;
+        3)
+            echo "manual"
+            ;;
+        4)
+            echo "symlink"
+            ;;
+        *)
+            log_error "无效选择"
+            exit 1
+            ;;
+    esac
+}
+
+# 通过 skillhub 安装
+install_via_skillhub() {
+    log "通过 skillhub 安装..."
+
+    if ! command -v skillhub &> /dev/null; then
+        log_error "skillhub 未安装"
+        log_info "先安装 skillhub: npm install -g @anthropics/skillhub"
+        exit 1
+    fi
+
+    skillhub install hermes-by-everythings
+    log_success "通过 skillhub 安装完成"
+}
+
+# 通过 git 安装
+install_via_git() {
+    log "通过 git clone 安装..."
+
+    # 清理临时目录
+    rm -rf "$TEMP_DIR"
+    mkdir -p "$TEMP_DIR"
+
+    # 克隆仓库
+    log "从 $REPO_URL 克隆..."
+    git clone "$REPO_URL" "$TEMP_DIR"
+
+    # 创建目标目录
+    mkdir -p "$INSTALL_DIR"
+
+    # 移动到目标
+    log "安装到 $INSTALL_DIR/$PROJECT_NAME..."
+    if [ -d "$INSTALL_DIR/$PROJECT_NAME" ]; then
+        log_warning "发现现有安装，正在备份..."
+        mv "$INSTALL_DIR/$PROJECT_NAME" "$INSTALL_DIR/$PROJECT_NAME.backup.$(date +%s)"
+    fi
+
+    mv "$TEMP_DIR" "$INSTALL_DIR/$PROJECT_NAME"
+
+    # 清理
+    rm -rf "$TEMP_DIR"
+
+    log_success "通过 git 安装完成"
+}
+
+# 手动安装
+install_via_manual() {
+    log "手动安装（输入路径）..."
+
+    read -p "输入 hermes-by-everythings 的路径: " source_path
+
+    if [ ! -d "$source_path" ]; then
+        log_error "目录未找到: $source_path"
+        exit 1
+    fi
+
+    # 创建符号链接
+    mkdir -p "$INSTALL_DIR"
+    cd "$INSTALL_DIR"
+
+    if [ -L "$PROJECT_NAME" ]; then
+        log_warning "删除现有符号链接..."
+        rm "$PROJECT_NAME"
+    fi
+
+    ln -s "$source_path" "$INSTALL_DIR/$PROJECT_NAME"
+    log_success "符号链接已创建: $INSTALL_DIR/$PROJECT_NAME -> $source_path"
 }
 
 # 检测 Claude Code 安装
@@ -187,11 +287,11 @@ show_next_steps() {
 # 主函数
 main() {
     show_banner
-    
+
     # 检测平台
     local platform=$(detect_platform)
     log "检测到平台: $platform"
-    
+
     # 检测 Claude Code
     local claude=$(detect_claude_code)
     if [ -n "$claude" ]; then
@@ -199,16 +299,47 @@ main() {
     else
         log_warning "未检测到 Claude Code，部分功能可能不可用"
     fi
-    
+
     echo ""
-    
-    # 执行安装步骤
-    create_directories
-    install_skills
+
+    # 检查依赖
+    if ! command -v git &> /dev/null; then
+        log_error "git 未安装，请先安装 git"
+        exit 1
+    fi
+
+    # 选择安装方法
+    local method=$(choose_install_method)
+    log "选择的方法: $method"
+
+    echo ""
+
+    # 根据方法执行安装
+    case $method in
+        skillhub)
+            install_via_skillhub
+            ;;
+        git)
+            install_via_git
+            ;;
+        manual)
+            install_via_manual
+            ;;
+        symlink)
+            # 创建符号链接（开发模式）
+            log "开发模式安装（符号链接）..."
+            create_directories
+            install_skills
+            ;;
+    esac
+
+    echo ""
+
+    # 配置 hooks
     configure_hooks
-    
+
     echo ""
-    
+
     # 验证安装
     if verify_installation; then
         show_next_steps

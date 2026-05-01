@@ -6,9 +6,9 @@
 [![Forks](https://img.shields.io/github/forks/ViewWay/hermes-by-everythings?style=flat)](https://github.com/ViewWay/hermes-by-everythings/network/members)
 [![Contributors](https://img.shields.io/github/contributors/ViewWay/hermes-by-everythings?style=flat)](https://github.com/ViewWay/hermes-by-everythings/graphs/contributors)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-3.1.0-green.svg)](https://github.com/ViewWay/hermes-by-everythings/releases)
+[![Version](https://img.shields.io/badge/version-3.2.0-green.svg)](https://github.com/ViewWay/hermes-by-everythings/releases)
 
-> **9 个专业代理** | **13 个核心技能** | **15 个快捷命令** | **8 个规则文件** | **Ralph 自主循环**
+> **10 个专业代理** | **13 个核心技能** | **15 个快捷命令** | **8 个规则文件** | **Ralph 自主循环** | **Orchestrator 编排**
 
 ---
 
@@ -32,10 +32,11 @@ Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [
 
 ## 核心特性
 
-### 🤖 专业代理（9 个）
+### 🤖 专业代理（10 个）
 
 | 代理 | 命令 | 说明 |
 |------|------|------|
+| **orchestrator** | `/hbe:orchestrate` | 多Agent编排 |
 | **planner** | `/hbe:plan` | 实现规划 |
 | **architect** | `/hbe:architect` | 架构设计 |
 | **code-reviewer** | `/hbe:review` | 代码审查 |
@@ -128,17 +129,36 @@ hermes-by-everythings/
 
 ### 安装
 
+**方式 1: 使用 skillhub（推荐）**
+
+```bash
+npm install -g @anthropics/skillhub
+skillhub install hermes-by-everythings
+```
+
+**方式 2: 使用安装脚本（跨平台）**
+
+```bash
+git clone https://github.com/ViewWay/hermes-by-everythings.git
+cd hermes-by-everythings
+
+# 选择适合平台的脚本
+bash install.sh        # macOS/Linux
+python3 install.py     # 跨平台（推荐）
+powershell install.ps1  # Windows
+```
+
+**方式 3: 手动安装（开发模式）**
+
 ```bash
 # 克隆仓库
 git clone https://github.com/ViewWay/hermes-by-everythings.git
 
 # 创建软链接
 ln -s $(pwd)/hermes-by-everythings ~/.claude/skills/hermes-by-everythings
-
-# 或自动安装
-cd hermes-by-everythings
-bash install.sh
 ```
+
+📖 **详细安装指南**: [docs/guides/INSTALLATION.md](docs/guides/INSTALLATION.md)
 
 ### 验证安装
 

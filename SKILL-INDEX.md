@@ -73,6 +73,22 @@
 | x02 | orchestrate | orchestrate | 3.3KB | P1 |
 | x03 | continuous-learning | learn, 学习 | 5.8KB | P1 |
 
+### 🎭 Agents（智能体）
+
+| ID | Name | 触发关键词 | Token | 优先级 |
+|----|------|-----------|-------|--------|
+| g01 | orchestrator | orchestrator, 编排 | 12.5KB | P0 |
+| g02 | planner | planner, 规划 | 4.4KB | P0 |
+| g03 | architect | architect, 架构 | 9.3KB | P0 |
+| g04 | code-reviewer | review, 审查 | 5.4KB | P0 |
+| g05 | security-reviewer | security, 安全 | 5.4KB | P0 |
+| g06 | tdd-guide | tdd, 测试驱动 | 8.5KB | P0 |
+| g07 | build-error-resolver | build fix, 构建修复 | 7.9KB | P1 |
+| g08 | refactor-cleaner | refactor, 重构 | 5.6KB | P1 |
+| g09 | doc-updater | docs, 文档 | 5.3KB | P2 |
+| g10 | e2e-runner | e2e, 端到端 | 5.9KB | P1 |
+| g11 | continuous-learning | learn, 学习 | 11.3KB | P1 |
+
 ---
 
 ## Token 优化效果
@@ -93,13 +109,15 @@
 
 ### 按任务类型
 
-| 任务 | 推荐 Skill |
-|------|-----------|
-| 新功能开发 | a02-planner, c01-tdd |
-| 代码审查 | c02-review, c05-security |
-| 构建失败 | c03-build-fix |
-| 架构设计 | a01-architect, a03-tech-stack |
-| 自主开发 | x01-ralph, x02-orchestrate |
+| 任务 | 推荐 Skill / Agent |
+|------|-------------------|
+| 大型项目编排 | g01-orchestrator（主Agent） |
+| 新功能开发 | g02-planner, g03-architect, g06-tdd-guide |
+| 代码审查 | g04-code-reviewer, g05-security-reviewer |
+| 构建失败 | g07-build-error-resolver |
+| 架构设计 | g03-architect |
+| 自主开发 | g01-orchestrator, x01-ralph |
+| 重构清理 | g08-refactor-cleaner |
 
 ### 按文件类型
 
