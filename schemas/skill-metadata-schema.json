@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://hermes-by-everythings/schemas/skill-metadata",
+  "title": "Skill Metadata",
+  "description": "Skill 文件 YAML frontmatter 元数据格式",
+  "type": "object",
+  "required": ["name", "id", "category", "version", "priority"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Skill 名称"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][0-9]{2}$",
+      "description": "Skill ID (分类字母 + 2位数字)"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["core", "architecture", "testing", "docs", "autonomous", "platform"],
+      "description": "Skill 分类"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "版本号 (语义化版本)"
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["P0", "P1", "P2", "P3"],
+      "description": "优先级 (P0=关键, P3=低)"
+    },
+    "triggers": {
+      "type": "object",
+      "properties": {
+        "keywords": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "file_patterns": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "git_events": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "token_size": {
+      "type": "integer",
+      "description": "预估 token 数量"
+    },
+    "interaction": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["confirm", "qa", "progressive", "auto"]
+        },
+        "checkpoints": {
+          "type": "boolean"
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

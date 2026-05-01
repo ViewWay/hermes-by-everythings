@@ -1,0 +1,41 @@
+{
+  "version": "1.0.0",
+  "description": "HBE 项目级配置 - 覆盖用户配置",
+  
+  "project": {
+    "name": "hermes-by-everythings",
+    "type": "plugin",
+    "testFramework": "jest",
+    "buildTool": "npm",
+    "language": "TypeScript"
+  },
+  
+  "overrides": {
+    "defaultModel": "sonnet",
+    "autoConfirm": false,
+    "maxParallelTasks": 3
+  },
+  
+  "paths": {
+    "tests": "tests/**/*.test.ts",
+    "source": "src/**/*.ts",
+    "docs": "docs/**/*.md",
+    "config": ".claude/config/*.json"
+  },
+  
+  "rules": {
+    "testCoverage": 80,
+    "maxLineLength": 120,
+    "enforceTypes": true
+  },
+  
+  "hooks": {
+    "preCommit": [
+      "run-tests",
+      "code-review"
+    ],
+    "prePush": [
+      "full-verification"
+    ]
+  }
+}

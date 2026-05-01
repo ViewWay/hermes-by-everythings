@@ -1,0 +1,60 @@
+{
+  "name": "hermes-by-everythings",
+  "version": "2.0.0",
+  "description": "多平台多语言编码增强套件。9 Agent + 13 Skill + 15 Command + 8 Rules + Ralph 自主循环。支持 TS/Python/Rust/Go/Java/C#/Ruby/PHP/Swift/Kotlin，兼容 Claude Code/OpenCode/OpenClaw/Hermes。",
+  "author": "ViewWay",
+  "repository": "https://github.com/ViewWay/hermes-by-everythings",
+  "license": "MIT",
+  "keywords": [
+    "coding-enhancement",
+    "multi-language",
+    "multi-platform",
+    "tdd",
+    "code-review",
+    "security-review",
+    "ralph",
+    "autonomous-coding",
+    "multi-agent"
+  ],
+  "categories": [
+    "development",
+    "testing",
+    "security",
+    "code-quality"
+  ],
+  "compatibility": {
+    "platforms": ["claude-code", "opencode", "openclaw", "hermes"],
+    "os": ["macos", "windows", "linux"],
+    "languages": ["typescript", "javascript", "python", "rust", "go", "java", "kotlin", "csharp", "ruby", "php", "swift"]
+  },
+  "entry": "SKILL.md",
+  "commands": [
+    "/hbe:plan",
+    "/hbe:architect",
+    "/hbe:tdd",
+    "/hbe:review",
+    "/hbe:security",
+    "/hbe:build-fix",
+    "/hbe:e2e",
+    "/hbe:refactor",
+    "/hbe:docs",
+    "/hbe:prd",
+    "/hbe:verify",
+    "/hbe:orchestrate",
+    "/hbe:ralph",
+    "/hbe:checkpoint",
+    "/hbe:learn",
+    "/hbe:eval"
+  ],
+  "agents": [
+    "planner",
+    "architect",
+    "code-reviewer",
+    "security-reviewer",
+    "tdd-guide",
+    "build-error-resolver",
+    "e2e-runner",
+    "refactor-cleaner",
+    "doc-updater"
+  ]
+}

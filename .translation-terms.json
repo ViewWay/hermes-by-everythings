@@ -1,0 +1,60 @@
+{
+  "version": "1.0.0",
+  "description": "HBE 技术术语翻译映射表",
+  "techTerms": {
+    "技能": "skill",
+    "代理": "agent",
+    "钩子": "hook",
+    "命令": "command",
+    "规则": "rule",
+    "自主循环": "autonomous loop",
+    "代码审查": "code review",
+    "测试驱动开发": "TDD",
+    "架构设计": "architecture design",
+    "技术栈选型": "tech stack selection",
+    "重构": "refactor",
+    "构建修复": "build fix",
+    "端到端测试": "E2E testing",
+    "安全审查": "security review",
+    "文档同步": "doc sync",
+    "模式学习": "pattern learning"
+  },
+  "commands": {
+    "规划": "plan",
+    "审查": "review",
+    "重构": "refactor",
+    "修复": "fix",
+    "测试": "test",
+    "验证": "verify",
+    "编排": "orchestrate",
+    "学习": "learn",
+    "恢复": "resume"
+  },
+  "preserveOriginal": [
+    "/hbe:*",
+    "tokens",
+    "agents",
+    "skills",
+    "hooks",
+    "Ralph",
+    "TDD",
+    "E2E",
+    "API",
+    "JSON",
+    "YAML",
+    "CLI",
+    "IDE",
+    "CI/CD"
+  ],
+  "commonPhrases": {
+    "帮我": "Please",
+    "请": "Please",
+    "创建": "Create",
+    "实现": "Implement",
+    "分析": "Analyze",
+    "检查": "Check",
+    "优化": "Optimize",
+    "生成": "Generate",
+    "更新": "Update"
+  }
+}

@@ -1,19 +1,131 @@
 ---
 name: hermes-by-everythings
 description: >
-  Hermes 终极编码增强套件。整合 everything-claude-code + ralph 最佳能力。
+  多平台多语言编码增强套件。整合 everything-claude-code + ralph 最佳能力。
   9 Agent + 13 Skill + 15 Command + 8 Rules + Ralph 自主循环 + Hooks 自动化。
+  支持 TypeScript/Python/Rust/Go/Java/C#/Ruby/PHP/Swift/Kotlin。
+  兼容 Claude Code/OpenCode/OpenClaw/Hermes，macOS/Windows/Linux。
   命令前缀: /hbe:xxx，可按阶段使用也可全流程跑通。
-version: 1.0.0
+version: 2.0.0
 trigger: >
   用户输入 /hbe: 后跟子命令，或提到 hbe、hermes-by-everythings、
   自主编码、ralph 循环、全流程开发。
+keywords:
+  - hermes-by-everythings
+  - hbe
+  - coding-enhancement
+  - multi-language
+  - multi-platform
+  - ralph
+  - tdd
+  - code-review
+  - security-review
 ---
 
-# Hermes by Everything's — 终极编码增强套件
+# Hermes by Everything's — 多平台多语言编码增强套件
 
 整合 [everything-claude-code](https://github.com/affaan-m/everything-claude-code) 和 [ralph](https://github.com/snarktank/ralph) 的最佳能力，
-在 Hermes 平台上实现 Claude Code 级别的自主编码能力。
+支持 10 种主流语言、4 个 AI 编码平台、3 种操作系统。
+
+---
+
+## 安装
+
+### 快速开始（所有平台通用）
+
+```bash
+git clone https://github.com/ViewWay/hermes-by-everythings.git
+```
+
+然后按你的平台选择安装方式。
+
+### Claude Code
+
+**方式 1: 手动安装（立即可用）**
+```bash
+# 复制到 Claude Code skills 目录
+cp -r hermes-by-everythings ~/.claude/skills/hermes-by-everythings
+
+# 或软链接（开发时推荐，改动实时生效）
+ln -s $(pwd)/hermes-by-everythings ~/.claude/skills/hermes-by-everythings
+```
+
+**方式 2: Plugin Marketplace（需先发布）**
+```bash
+/plugin marketplace add anthropics/claude-code
+claude skill add ViewWay/hermes-by-everythings
+```
+
+验证：在 Claude Code 中输入 `/hbe:plan 测试规划功能`
+
+### Hermes Agent
+
+Hermes 使用 [agentskills.io](https://agentskills.io) 开放标准，本 skill 的 SKILL.md 直接兼容。
+
+**方式 1: 手动安装（立即可用）**
+```bash
+# 复制到 Hermes skills 目录
+cp -r hermes-by-everythings ~/.hermes/skills/hermes-by-everythings
+
+# 或软链接（开发时推荐）
+ln -s $(pwd)/hermes-by-everythings ~/.hermes/skills/hermes-by-everythings
+```
+
+**方式 2: Skills Hub（需先发布到 skills.sh 注册表）**
+```bash
+# 发布后可用
+hermes skills install ViewWay/hermes-by-everythings
+# 或在 agent 内
+/skills install ViewWay/hermes-by-everythings
+```
+
+验证：在 Hermes 中输入 `/hbe:plan 测试规划功能`
+
+### OpenClaw (ClawHub)
+
+```bash
+# 手动安装（立即可用）
+cp -r hermes-by-everythings ~/.openclaw/skills/hermes-by-everythings
+
+# ClawHub Marketplace（需先发布）
+clawhub install skill hermes-by-everythings
+```
+
+### OpenCode
+
+```bash
+cp -r hermes-by-everythings ~/.opencode/skills/hermes-by-everythings
+```
+
+### 发布到市场
+
+要让远程安装命令生效，需要完成以下步骤：
+
+| 市场 | 发布方式 | 文档 |
+|------|----------|------|
+| Claude Code Marketplace | `.claude-plugin/marketplace.json` + 推送到 GitHub | [docs](https://code.claude.com/docs) |
+| Hermes Skills Hub | 发布到 [skills.sh](https://skills.sh) 注册表 | [agentskills.io](https://agentskills.io) |
+| ClawHub | `clawhub publish` 命令 | [openclaw.ai](https://openclaw.ai/) |
+| SkillHub | 提交到 [agentskillshub.dev](https://agentskillshub.dev) | 官网注册 |
+
+---
+
+## 支持的语言
+
+| 语言 | 框架 | 构建 | 测试 | 详细适配 |
+|------|------|------|------|----------|
+| TypeScript/JavaScript | React, Next.js, Vue, Svelte, NestJS, Express | tsc/esbuild/turbo | vitest/jest | references/language-adapter.md |
+| Python | Django, FastAPI, Flask, PyTorch | setuptools/hatch | pytest | references/language-adapter.md |
+| Rust | Axum, Actix, Rocket, Tokio | cargo | cargo test | references/language-adapter.md |
+| Go | Gin, Echo, Fiber | go build | go test | references/language-adapter.md |
+| Java | Spring Boot, Quarkus, Micronaut | maven/gradle | junit | references/language-adapter.md |
+| Kotlin | Ktor, Android | gradle | kotest | references/language-adapter.md |
+| C#/.NET | ASP.NET Core, Blazor | dotnet build | xunit/nunit | references/language-adapter.md |
+| Ruby | Rails, Sinatra | rake | rspec | references/language-adapter.md |
+| PHP | Laravel, Symfony | composer | phpunit/pest | references/language-adapter.md |
+| Swift | Vapor, Hummingbird | swift build | xctest | references/language-adapter.md |
+
+完整工具链映射见 references/language-adapter.md。验证脚本自动检测项目语言。
 
 ---
 
@@ -114,8 +226,13 @@ trigger: >
 | L3 编排 | 多 Agent 流水线 | references/orchestration.md | 全流程时 |
 | L4 模板 | PRD/Handoff/Progress | templates/* | 生成输出时 |
 | L5 脚本 | 验证循环/日志查看 | scripts/* | 验证阶段 |
+| L6 适配 | 平台适配 + 语言适配 | references/platform-adapter.md, references/language-adapter.md | 跨平台/多语言时 |
 
-加载方式: `skill_view(name="hermes-by-everythings", file_path="references/agents/planner.md")`
+**加载方式（按平台）**:
+- Hermes: `skill_view(name="hermes-by-everythings", file_path="references/agents/planner.md")`
+- Claude Code: 使用 Read 工具读取 `references/agents/planner.md`
+- 其他: 直接将 prompt 文件内容注入上下文
+- 详见 references/platform-adapter.md
 
 ---
 
@@ -279,13 +396,15 @@ skill_view(name="hermes-by-everythings", file_path="references/agents/NAME.md")
 4. 同步创建空 progress.md
 5. 格式参考: templates/prd-json.json
 
-### /hbe:verify — 五阶段验证循环
+### /hbe:verify — 五阶段验证循环（多语言）
 
-Phase 1 Build — cargo build 或 npm run build
-Phase 2 Type Check — cargo clippy 或 npx tsc --noEmit
-Phase 3 Lint — cargo fmt --check 或 npx eslint
-Phase 4 Test — cargo test 或 npx vitest run
-Phase 5 Security — 检查硬编码密钥、不安全依赖
+自动检测项目语言，运行对应工具链:
+
+Phase 1 Build — cargo build / go build / mvn compile / dotnet build / ...
+Phase 2 Type Check — cargo clippy / go vet / mypy / npx tsc --noEmit / ...
+Phase 3 Lint — golangci-lint / ruff / clippy / eslint / rubocop / ...
+Phase 4 Test — cargo test / go test / pytest / vitest / rspec / phpunit / ...
+Phase 5 Security — 密钥检测 + 语言特定安全扫描
 
 任一阶段失败则 STOP，修复后从 Phase 1 重新开始。
 
@@ -297,24 +416,32 @@ Phase 5 Security — 检查硬编码密钥、不安全依赖
 4. 下一个读取 handoff 继续执行
 5. 最终聚合为完整报告
 
-### /hbe:ralph — 自主执行循环
+### /hbe:ralph — 自主执行循环（Token 优化版）
 
-初始化:
+初始化（仅首次）:
 - 检查 prd.json 是否存在，不存在 → 先运行 /hbe:prd
 - 检查 progress.md 是否存在，不存在 → 创建空文件
+- 记录文件 hash 缓存，避免重复读取
 
 循环（WHILE iterations < max_iterations）:
-1. 读取 prd.json，选最高优先级 passes=false 的 story
-2. git checkout -b ralph/FEATURE-NAME 或使用已有分支
-3. TDD 实现: RED → GREEN → REFACTOR
-4. 运行完整验证循环 (/hbe:verify)
-5. 全部通过 → git add -A && git commit
-6. 更新 prd.json story.passes = true
-7. 追加进度到 progress.md
+1. 读取 prd.json → **只读第一个 passes=false 的 story**（不读全部）
+2. **按需加载 agent prompt** → 只读 TDD 阶段需要的 tdd-guide.md
+3. git checkout -b ralph/FEATURE-NAME 或使用已有分支
+4. TDD 实现: RED → GREEN → REFACTOR
+5. **增量验证** → 分析 `git diff --name-only`，根据变更类型选择验证阶段:
+   - 只改测试 → Test
+   - 改业务代码 → Build → TypeCheck → Test
+   - 新增文件 → 全部 5 阶段
+6. 全部通过 → git add -A && git commit
+7. 更新 prd.json story.passes = true
+8. **压缩摘要** → 追加结构化摘要到 progress.md（非完整 handoff）
 
 结束:
 - 输出统计: 完成数/总数、耗时、token 估算
 - 如有未完成 story，列出剩余项
+
+Token 优化详见 references/token-optimizer.md。
+预估: 优化后 10 次迭代 100-180k tokens（优化前 200-400k，节省 ~55%）。
 
 ### /hbe:checkpoint — 进度快照
 
@@ -361,24 +488,24 @@ Ralph 模式在项目根目录生成的文件：
 
 ---
 
-## 与 Hermes 原生能力集成
+## 平台兼容性
 
-| HBE 能力 | Hermes 原生映射 |
-|----------|-----------------|
-| Agent 角色切换 | delegate_task 子代理或本地 prompt 切换 |
-| 多 Agent 编排 | delegate_task(tasks=[...]) 并行子代理 |
-| 验证循环 | terminal() + execute_code() |
-| PRD 管理 | read_file / write_file |
-| 进度追踪 | write_file + todo() |
-| 持续学习 | skill_manage + memory |
-| 自主循环 | execute_code 循环 + todo 跟踪 |
-| Hook 检查 | 流程步骤模拟 |
-| 后台任务 | terminal(background=true) + process() |
-| 日志查看 | process(action="log") |
+HBE 支持 macOS/Windows/Linux，兼容 Claude Code、OpenCode、OpenClaw、Hermes 四个平台。
+Agent prompt 和规则文件是平台无关的纯文本。
 
----
+| HBE 能力 | Hermes | Claude Code | OpenCode | OpenClaw |
+|----------|--------|-------------|----------|----------|
+| Agent 加载 | skill_view() | Read 工具 | 文件读取 | 文件读取 |
+| 并行执行 | delegate_task() | Agent 并行 | 并行调用 | 并行调用 |
+| Shell 执行 | terminal() | Bash 工具 | Shell 工具 | Shell 工具 |
+| 文件管理 | read/write_file | Read/Write/Edit | 文件工具 | 文件工具 |
+| 任务追踪 | todo() | TaskCreate/Update | 任务管理 | 任务管理 |
 
-## Hermes 独有增强（超出 Claude Code 原版）
+完整适配指南见 references/platform-adapter.md。
+
+### Hermes 增强能力
+
+以下能力仅在 Hermes 平台可用:
 
 | 能力 | 说明 |
 |------|------|
@@ -386,7 +513,6 @@ Ralph 模式在项目根目录生成的文件：
 | memory 持久化记忆 | 跨会话记住项目知识 |
 | skill_manage 动态技能 | 运行时创建/更新 skill |
 | cronjob 定时任务 | 定时触发 /hbe:ralph 自主开发 |
-| todo 任务追踪 | 实时可视化进度 |
 | execute_code 批量操作 | 一次执行多个工具调用 + 中间逻辑 |
 | 多平台通知 | 微信/Telegram/飞书/Discord 推送 |
 | browser 内置浏览器 | 无需外部 MCP 做 UI 验证 |
@@ -400,8 +526,8 @@ Ralph 模式在项目根目录生成的文件：
 |------|-------------|
 | 单命令（如 /hbe:plan） | 5-15k input + 2-5k output |
 | 三阶段流水线 | 30-50k total |
-| Ralph 1 次迭代 | 20-40k |
-| Ralph 全流程（10 次） | 200-400k |
+| Ralph 1 次迭代（优化后） | 10-18k |
+| Ralph 全流程 10 次（优化后） | 100-180k |
 | 完整 feature 工作流 | 50-80k |
 | 安全审查 + 修复 | 15-30k |
 

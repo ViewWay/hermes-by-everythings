@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(chmod +x /Users/yimiliya/github/hermes-by-everythings/tests/validate-prompts.sh)",
+      "Bash(bash /Users/yimiliya/github/hermes-by-everythings/tests/validate-prompts.sh --verbose)",
+      "Bash(bash /Users/yimiliya/github/hermes-by-everythings/tests/validate-prompts.sh)",
+      "Read(//Users/yimiliya/.hermes/skills/**)",
+      "Read(//Users/yimiliya/.claude/skills/**)",
+      "Read(//Users/yimiliya/.openclaw/skills/**)",
+      "Read(//Users/yimiliya/.opencode/**)",
+      "Bash(hermes skills *)",
+      "Bash(ln -sf /Users/yimiliya/github/hermes-by-everythings ~/.claude/skills/hermes-by-everythings)",
+      "Bash(ln -sf /Users/yimiliya/github/hermes-by-everythings ~/.openclaw/skills/hermes-by-everythings)",
+      "Bash(mkdir -p ~/.opencode/skills)",
+      "Bash(ln -sf /Users/yimiliya/github/hermes-by-everythings ~/.opencode/skills/hermes-by-everythings)",
+      "Bash(ln -s /Users/yimiliya/github/hermes-by-everythings __TRACKED_VAR__/.hermes/skills/devops/hermes-by-everythings)",
+      "Bash(rm -f __TRACKED_VAR__/.claude/skills/hermes-by-everythings)",
+      "Bash(ln -s /Users/yimiliya/github/hermes-by-everythings __TRACKED_VAR__/.claude/skills/hermes-by-everythings)",
+      "Bash(ln -s /Users/yimiliya/github/hermes-by-everythings __TRACKED_VAR__/.openclaw/skills/hermes-by-everythings)",
+      "Bash(ln -s /Users/yimiliya/github/hermes-by-everythings __TRACKED_VAR__/.opencode/skills/hermes-by-everythings)",
+      "Bash(curl *)",
+      "Bash(pandoc -f html -t markdown)",
+      "Bash(lynx -dump -stdin)",
+      "Bash(sed -i.tmp 's|references/rules/|skills/rules/|g' README.md)",
+      "Bash(sed -i.tmp 's|references/agents/|skills/agents/|g' README.md)",
+      "Bash(sed -i.tmp 's|SKILL\\\\.md|SKILLS.md|g' README.md)",
+      "Bash(sed -i.tmp 's|references/agents/|skills/agents/|g' CLAUDE.md)",
+      "Bash(sed -i.tmp 's|references/rules/|skills/rules/|g' CLAUDE.md)"
+    ]
+  }
+}

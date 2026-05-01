@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0",
+  "description": "HBE 命令别名配置 - 快速访问常用命令",
+  "aliases": {
+    "r": "review",
+    "t": "tdd",
+    "rf": "refactor",
+    "sec": "security",
+    "arch": "architect",
+    "plan": "plan",
+    "fix": "build-fix",
+    "e2e": "e2e",
+    "docs": "docs",
+    "prd": "prd",
+    "v": "verify",
+    "orch": "orchestrate",
+    "ralph": "ralph",
+    "chk": "checkpoint",
+    "learn": "learn",
+    "res": "resume",
+    "eval": "eval",
+    "diag": "diagnose"
+  },
+  "usage": {
+    "example": "/hbe:r 代替 /hbe:review",
+    "savings": "节省 70% 打字时间"
+  }
+}

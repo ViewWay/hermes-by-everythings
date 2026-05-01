@@ -1,0 +1,73 @@
+{
+  "version": "1.0.0",
+  "description": "HBE 用户级个性化配置",
+  
+  "user": {
+    "preferredLanguage": "zh",
+    "defaultModel": "sonnet",
+    "autoConfirm": false,
+    "showProgress": true,
+    "saveHistory": true,
+    "theme": "dark"
+  },
+  
+  "performance": {
+    "enableCache": true,
+    "enableParallel": true,
+    "maxParallelTasks": 5,
+    "cacheSize": "100MB",
+    "enableCompression": true
+  },
+  
+  "output": {
+    "verbose": false,
+    "showTiming": true,
+    "showTokens": true,
+    "progressStyle": "bar",
+    "dateFormat": "ISO"
+  },
+  
+  "commands": {
+    "aliases": {
+      "qr": "quick-review"
+    },
+    "shortcuts": {
+      "Ctrl+R": "repeat-last",
+      "Ctrl+L": "clear-screen",
+      "Tab": "auto-complete"
+    }
+  },
+  
+  "hooks": {
+    "preCommand": [],
+    "postCommand": [
+      "update-history"
+    ],
+    "onError": [
+      "log-error",
+      "suggest-fix"
+    ]
+  },
+  
+  "advanced": {
+    "tokenBudget": {
+      "P0": 50000,
+      "P1": 30000,
+      "P2": 15000,
+      "P3": 5000
+    },
+    "contextCompression": {
+      "enable": true,
+      "threshold": 100000,
+      "keepRecent": 3
+    },
+    "modelRouting": {
+      "enable": true,
+      "rules": {
+        "documentation": "haiku",
+        "code-generation": "sonnet",
+        "architecture": "opus"
+      }
+    }
+  }
+}

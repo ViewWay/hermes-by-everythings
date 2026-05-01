@@ -1,0 +1,167 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "Read(*)",
+      "Write(*)",
+      "Edit(*)",
+      "Agent(*)"
+    ]
+  },
+  "hooks": {
+    "pre:bash": [
+      {
+        "name": "gateguard-fact-force",
+        "command": "node scripts/hooks/pre-bash-dispatcher.js",
+        "description": "GateGuard: Enforce fact presentation before commands"
+      }
+    ],
+    "post:session": [
+      {
+        "name": "auto-learn",
+        "command": "bash scripts/hooks/auto-learn.sh",
+        "description": "自动提取会话模式并更新知识库",
+        "run": "background"
+      }
+    ],
+    "pre:git:push": [
+      {
+        "name": "pre-push-review",
+        "command": "bash scripts/hooks/pre-push-review.sh",
+        "description": "Git push 前建议代码审查"
+      }
+    ],
+    "post:git:commit": [
+      {
+        "name": "post-commit-learn",
+        "command": "bash scripts/hooks/post-commit-learn.sh",
+        "description": "提交后自动学习模式",
+        "run": "background"
+      }
+    ],
+    "post:edit": [
+      {
+        "name": "file-type-detect",
+        "command": "bash scripts/hooks/file-type-detect.sh",
+        "description": "检测文件类型并建议相关命令",
+        "run": "background",
+        "condition": "ext in ts,tsx,py,rs,go,java,kt,cs,rb,php,swift,js"
+      }
+    ],
+    "post:build:error": [
+      {
+        "name": "auto-build-fix",
+        "command": "hbe:build-fix --auto",
+        "description": "构建失败时自动触发修复"
+      }
+    ],
+    "post:test:fail": [
+      {
+        "name": "auto-test-fix",
+        "command": "hbe:tdd --fix",
+        "description": "测试失败时自动触发 TDD 修复"
+      }
+    ]
+  },
+  "triggers": {
+    "keywords": [
+      "hbe",
+      "hermes",
+      "hermes-by-everythings",
+      "自主编码",
+      "autonomous coding",
+      "ralph",
+      "ralph 循环",
+      "全流程开发",
+      "full workflow",
+      "tdd",
+      "test-driven development",
+      "代码审查",
+      "code review",
+      "安全审查",
+      "security review"
+    ],
+    "filePatterns": {
+      ".ts": [
+        "TypeScript 类型检查",
+        "运行测试"
+      ],
+      ".tsx": [
+        "React 组件测试",
+        "类型检查"
+      ],
+      ".py": [
+        "Python 类型检查 (mypy)",
+        "Lint 检查 (ruff)"
+      ],
+      ".rs": [
+        "Cargo 检查 (clippy)",
+        "运行测试"
+      ],
+      "test": [
+        "运行测试",
+        "测试覆盖率"
+      ],
+      "package.json": [
+        "依赖审查",
+        "安全审计"
+      ]
+    },
+    "gitEvents": {
+      "pre-commit": [
+        "代码审查",
+        "安全检查"
+      ],
+      "pre-push": [
+        "完整验证循环",
+        "运行所有测试"
+      ],
+      "pr-created": [
+        "安全审查",
+        "代码审查"
+      ]
+    },
+    "failures": {
+      "build": "hbe:build-fix",
+      "test": "hbe:tdd",
+      "type-check": "hbe:fix-types"
+    }
+  },
+  "learning": {
+    "enabled": true,
+    "autoExtract": true,
+    "minQualityScore": 70,
+    "patternRepetitionThreshold": 3,
+    "storage": {
+      "memoryDir": "memory",
+      "skillsDir": "skills",
+      "statsFile": "learning-stats.json"
+    },
+    "triggers": {
+      "onSessionEnd": true,
+      "onRalphIteration": true,
+      "onErrorFix": true,
+      "onUserConfirmation": true,
+      "onPatternRepetition": true
+    }
+  },
+  "context": {
+    "strategy": "layered",
+    "compressionThreshold": 100000,
+    "compressionTrigger": "session_rounds > 20 or context_size > 100k",
+    "keepFresh": [
+      "CLAUDE.md",
+      "prd.json",
+      "progress.md"
+    ]
+  },
+  "ralph": {
+    "autoStart": false,
+    "maxIterations": 50,
+    "checkpointInterval": 5,
+    "resumeOnInterrupt": true,
+    "progressFile": ".ralph-state.json",
+    "checkpointFile": ".ralph-checkpoint.json",
+    "logFile": ".ralph-log.jsonl"
+  }
+}

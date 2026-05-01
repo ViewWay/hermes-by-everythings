@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://hermes-by-everythings/schemas/interactive-state",
+  "title": "Interactive Session State",
+  "description": "交互式会话状态持久化格式",
+  "type": "object",
+  "required": ["sessionId", "task", "status", "updatedAt"],
+  "properties": {
+    "sessionId": {
+      "type": "string",
+      "description": "会话唯一标识 (YYYYMMDD-HHMMSS)"
+    },
+    "task": {
+      "type": "string",
+      "description": "任务名称"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["running", "paused", "completed", "failed"]
+    },
+    "completed": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "current": {
+      "type": "string"
+    },
+    "pending": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "filesProcessed": { "type": "integer" },
+        "filesRemaining": { "type": "integer" },
+        "errors": { "type": "array", "items": { "type": "string" } },
+        "warnings": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
