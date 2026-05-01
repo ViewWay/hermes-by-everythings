@@ -258,7 +258,7 @@
 
 ### 增强文件（1 个）
 
-4. ✅ `references/agents/architect.md` - 增强 Architect Agent
+4. ✅ `skills/agents/architect.md` - 增强 Architect Agent
 
 ### 关键提升
 

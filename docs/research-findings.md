@@ -108,7 +108,7 @@ hermes-by-everythings/
 
 ### 🔄 Phase 3: 增强触发机制
 
-建议增强 SKILL.md 的 frontmatter：
+建议增强 SKILLS.md 的 frontmatter：
 
 ```yaml
 ---

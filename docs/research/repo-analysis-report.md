@@ -44,7 +44,7 @@ skills/
 ├── CONTEXT.md         # 项目上下文
 ├── README.md          # 总目录（链接到所有技能）
 ├── skills/engineering/README.md  # 分类目录
-└── skills/engineering/diagnose/SKILL.md  # 具体技能
+└── skills/engineering/diagnose/SKILLS.md  # 具体技能
 ```
 
 **优势**：
@@ -58,7 +58,7 @@ skills/
 1. 在顶层 README.md 有引用
 2. 在 `.claude-plugin/plugin.json` 有条目
 3. 在分类 README.md 有描述
-4. 链接到其 SKILL.md
+4. 链接到其 SKILLS.md
 
 **优势**：
 - 强制标准化
@@ -113,7 +113,7 @@ docs/adr/
 #### ✅ 2.2 技能模板
 
 ```markdown
-template/SKILL.md
+template/SKILLS.md
 ```
 
 **优势**：

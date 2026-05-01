@@ -26,7 +26,7 @@ HBE 的 agent prompt 和规则文件是平台无关的纯文本。
 Hermes 提供原生能力，直接使用 API:
 
 ```
-skill_view(name="hermes-by-everythings", file_path="references/agents/planner.md")
+skill_view(name="hermes-by-everythings", file_path="skills/agents/planner.md")
 delegate_task(tasks=[{ prompt: "...", agent: "security-reviewer" }])
 terminal(background=true, command="/hbe:ralph")
 process(action="poll")
@@ -38,7 +38,7 @@ macOS/Windows/Linux 原生支持:
 
 ```
 # 加载 agent — Read 工具读取文件
-Read("references/agents/planner.md")
+Read("skills/agents/planner.md")
 
 # 并行 — 在一个消息中启动多个 Agent 调用
 # 后台 — Bash(command="...", run_in_background=true)
@@ -59,7 +59,7 @@ OpenCode 使用类似的工具集:
 # 记忆 — 项目级配置文件
 ```
 
-安装: 将项目复制到 OpenCode 的 skill 目录，配置 SKILL.md 路径。
+安装: 将项目复制到 OpenCode 的 skill 目录，配置 SKILLS.md 路径。
 
 ### OpenClaw
 
@@ -79,7 +79,7 @@ OpenClaw 使用类似的文件操作:
 
 | OS | 分隔符 | 示例 |
 |----|--------|------|
-| macOS/Linux | `/` | `references/agents/planner.md` |
+| macOS/Linux | `/` | `skills/agents/planner.md` |
 | Windows | `\` 或 `/` | `references\agents\planner.md` |
 
 所有路径在 HBE 中统一使用 `/`。Windows 平台加载时应自动转换。

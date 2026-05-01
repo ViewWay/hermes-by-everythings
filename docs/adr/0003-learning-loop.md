@@ -82,4 +82,4 @@ memory/
 ## 参考资料
 
 - [everything-claude-code](https://github.com/affaan-m/everything-claude-code) - /learn 命令参考
-- [continuous-learning](../../references/agents/continuous-learning.md) - 学习系统文档
+- [continuous-learning](../../skills/agents/continuous-learning.md) - 学习系统文档

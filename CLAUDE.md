@@ -150,7 +150,7 @@ HBE v2.4+ 引入交互式执行引擎，提供可控、透明的执行体验：
 }
 ```
 
-详见：`references/interactive/interactive-execution-engine.md`
+详见：`docs/architecture/interactive-execution-engine.md`
 
 ---
 
