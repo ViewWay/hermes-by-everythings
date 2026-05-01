@@ -126,8 +126,8 @@ git log --oneline -5
 
 ## Related Agents
 
-- [Agent 1](../references/agents/agent1.md)
-- [Agent 2](../references/agents/agent2.md)
+- [Agent 1](../agents/agent1.md)
+- [Agent 2](../agents/agent2.md)
 
 ## References
 

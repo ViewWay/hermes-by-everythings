@@ -70,7 +70,7 @@ examples:
 ## See Also
 
 - [Related Skill](../skills/related-skill/SKILL.md)
-- [Related Agent](../references/agents/related-agent.md)
+- [Related Agent](../agents/related-agent.md)
 
 ---
 
