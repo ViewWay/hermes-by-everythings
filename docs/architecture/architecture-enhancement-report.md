@@ -86,7 +86,7 @@
 
 ### 1. 技术栈选择决策树 ✅
 
-**新增文件**: `references/tech-stack-selection.md`
+**新增文件**: `docs/architecture/tech-stack-selection.md` (已迁移)
 
 **核心内容**:
 - 8 种项目类型的技术栈推荐
@@ -252,7 +252,7 @@
 
 ### 新增文件（3 个）
 
-1. ✅ `references/tech-stack-selection.md` - 技术栈选择决策树
+1. ✅ `docs/architecture/tech-stack-selection.md` (已迁移) - 技术栈选择决策树
 2. ✅ `docs/architecture-capability-assessment.md` - 能力评估报告
 3. ✅ `docs/architecture-enhancement-report.md` - 增强报告（本文件）
 

@@ -49,7 +49,7 @@ bash scripts/test/test-all.sh
 ## Architecture
 
 ```
-references/
+skills/
 ├── agents/           # Agent definitions
 ├── interactive/      # Interactive engine specs
 └── rules/            # Guiding principles
@@ -107,7 +107,7 @@ undo           - Undo last step
 }
 ```
 
-See: `references/interactive/interactive-execution-engine.md`
+See: `skills/interactive/interactive-execution-engine.md`
 
 ---
 

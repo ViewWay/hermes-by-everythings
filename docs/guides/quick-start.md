@@ -119,8 +119,8 @@ HBE 将：
 ## 下一步
 
 1. 阅读 [完整用户指南](user-guide.md)
-2. 了解 [Agent 列表](../references/agents/)
-3. 探索 [Skill 列表](../references/skills/)
+2. 了解 [Agent 列表](../skills/agents/)
+3. 探索 [Skill 列表](../skills/)
 4. 查看 [示例](../examples/)
 
 ---

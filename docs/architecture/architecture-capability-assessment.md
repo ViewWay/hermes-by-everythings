@@ -159,7 +159,7 @@ HBE 使用 ADR 记录架构决策，包含：
 
 **目标**: 为不同项目类型提供技术栈推荐。
 
-**实现**: 创建 `references/tech-stack-selection.md`
+**实现**: 创建 `docs/architecture/tech-stack-selection.md` (已迁移)
 
 ```markdown
 # 技术栈选择决策树
@@ -235,7 +235,7 @@ HBE 使用 ADR 记录架构决策，包含：
 
 **目标**: 评估技术栈的成本和效益。
 
-**实现**: 创建 `references/cost-evaluation.md`
+**实现**: 创建 创建成本评估文档
 
 ```markdown
 # 技术栈成本评估
@@ -282,7 +282,7 @@ HBE 使用 ADR 记录架构决策，包含：
 
 **目标**: 提供不同行业的技术栈推荐。
 
-**实现**: 创建 `references/industry-best-practices.md`
+**实现**: 创建 创建行业最佳实践文档
 
 ```markdown
 # 行业技术栈最佳实践
@@ -335,7 +335,7 @@ HBE 使用 ADR 记录架构决策，包含：
 ### 短期（1-2 周）
 
 1. ✅ **创建技术栈选择决策树**
-   - 文件: `references/tech-stack-selection.md`
+   - 文件: `docs/architecture/tech-stack-selection.md` (已迁移)
    - 内容: 项目类型 → 技术栈映射
 
 2. ✅ **增强 architect.md**
@@ -345,11 +345,11 @@ HBE 使用 ADR 记录架构决策，包含：
 ### 中期（1-2 月）
 
 3. ✅ **创建成本评估框架**
-   - 文件: `references/cost-evaluation.md`
+   - 文件: 创建成本评估文档
    - 内容: 开发/运营/机会成本评估
 
 4. ✅ **创建行业最佳实践**
-   - 文件: `references/industry-best-practices.md`
+   - 文件: 创建行业最佳实践文档
    - 内容: 金融/电商/初创等行业推荐
 
 ### 长期（3-6 月）
