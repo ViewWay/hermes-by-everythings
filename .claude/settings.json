@@ -11,76 +11,59 @@
   "hooks": {
     "SessionStart": [
       {
-        "name": "memory-session-start",
-        "command": "node scripts/hooks/session-start.js",
-        "description": "Initialize memory system for new session"
-      }
-    ],
-    "PostToolUse": [
-      {
-        "name": "memory-post-tool",
-        "command": "node scripts/hooks/post-tool.js",
-        "description": "Capture tool usage observations"
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hooks/session-start.js"
+          }
+        ]
       }
     ],
     "SessionEnd": [
       {
-        "name": "memory-session-end",
-        "command": "node scripts/hooks/session-end.js",
-        "description": "Generate session summary and update memory"
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hooks/session-end.js"
+          },
+          {
+            "type": "command",
+            "command": "bash scripts/hooks/auto-learn.sh"
+          }
+        ]
       }
     ],
-    "pre:bash": [
+    "PostToolUse": [
       {
-        "name": "gateguard-fact-force",
-        "command": "node scripts/hooks/pre-bash-dispatcher.js",
-        "description": "GateGuard: Enforce fact presentation before commands"
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash scripts/hooks/file-type-detect.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hooks/post-tool.js"
+          }
+        ]
       }
     ],
-    "post:session": [
+    "PreToolUse": [
       {
-        "name": "auto-learn",
-        "command": "bash scripts/hooks/auto-learn.sh",
-        "description": "自动提取会话模式并更新知识库",
-        "run": "background"
-      }
-    ],
-    "pre:git:push": [
-      {
-        "name": "pre-push-review",
-        "command": "bash scripts/hooks/pre-push-review.sh",
-        "description": "Git push 前建议代码审查"
-      }
-    ],
-    "post:git:commit": [
-      {
-        "name": "post-commit-learn",
-        "command": "bash scripts/hooks/post-commit-learn.sh",
-        "description": "提交后自动学习模式",
-        "run": "background"
-      }
-    ],
-    "post:edit": [
-      {
-        "name": "file-type-detect",
-        "command": "bash scripts/hooks/file-type-detect.sh",
-        "description": "检测文件类型并建议相关命令",
-        "run": "background",
-        "condition": "ext in ts,tsx,py,rs,go,java,kt,cs,rb,php,swift,js"
-      }
-    ],
-    "post:build:error": [
-      {
-        "name": "auto-build-fix",
-        "command": "hbe:build-fix --auto",
-        "description": "构建失败时自动触发修复"
-      }
-    ],
-    "post:test:fail": [
-      {
-        "name": "auto-test-fix",
-        "command": "hbe:tdd --fix",
-        "description": "测试失败时自动触发 TDD 修复"
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hooks/pre-bash-dispatcher.js"
+          }
+        ]
       }
     ]
   },

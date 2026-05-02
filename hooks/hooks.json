@@ -1,0 +1,78 @@
+{
+  "version": "3.2.0",
+  "description": "HBE hooks - 自动化工作流和安全检查",
+  
+  "SessionStart": [
+    {
+      "name": "session-memory-loader",
+      "description": "加载会话记忆和项目上下文",
+      "script": "node scripts/hooks/session-loader.js",
+      "enabled": true
+    }
+  ],
+
+  "PreToolUse": [
+    {
+      "name": "security-check",
+      "description": "工具使用前的安全检查",
+      "script": "node scripts/hooks/security-check.js",
+      "tools": ["Bash", "Write", "Edit"],
+      "enabled": true
+    },
+    {
+      "name": "cost-tracker",
+      "description": "追踪token使用和成本",
+      "script": "node scripts/hooks/cost-tracker.js",
+      "enabled": true
+    }
+  ],
+
+  "PostToolUse": [
+    {
+      "name": "memory-logger",
+      "description": "记录重要操作到记忆",
+      "script": "node scripts/hooks/memory-logger.js",
+      "tools": ["Write", "Edit"],
+      "enabled": true
+    }
+  ],
+
+  "Stop": [
+    {
+      "name": "session-saver",
+      "description": "保存会话状态和总结",
+      "script": "node scripts/hooks/session-saver.js",
+      "enabled": true
+    },
+    {
+      "name": "pattern-extractor",
+      "description": "提取可复用模式",
+      "script": "node scripts/hooks/pattern-extractor.js",
+      "enabled": true
+    }
+  ],
+
+  "PreBash": [
+    {
+      "name": "bash-validator",
+      "description": "验证bash命令的安全性",
+      "script": "node scripts/hooks/bash-validator.js",
+      "enabled": true
+    }
+  ],
+
+  "PostBash": [
+    {
+      "name": "error-detector",
+      "description": "检测命令错误并提供建议",
+      "script": "node scripts/hooks/error-detector.js",
+      "enabled": true
+    }
+  ],
+
+  "settings": {
+    "hookTimeout": 5000,
+    "failOnError": false,
+    "logLevel": "info"
+  }
+}

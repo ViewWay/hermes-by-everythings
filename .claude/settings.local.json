@@ -34,7 +34,16 @@
       "Bash(awk '{print $9, $5}')",
       "Bash(bash /tmp/git-add-commands.sh)",
       "Bash(git commit *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(git remote *)",
+      "Bash(cat)",
+      "Bash(~/.claude/skills/hermes-by-everythings/.claude/commands/validate.sh)",
+      "Bash(mkdir -p .claude/rules)",
+      "Bash(cp /Users/yimiliya/.claude/plugins/cache/everything-claude-code/everything-claude-code/2.0.0-rc.1/.claude/rules/everything-claude-code-guardrails.md .claude/rules/)",
+      "Bash(mkdir -p .claude/skills/hermes-by-everythings)",
+      "Bash(cp /Users/yimiliya/.claude/plugins/marketplaces/everything-claude-code/scripts/lib/*.js /Users/yimiliya/github/hermes-by-everythings/scripts/lib/)",
+      "Bash(cp /Users/yimiliya/.claude/plugins/marketplaces/everything-claude-code/scripts/lib/install /Users/yimiliya/github/hermes-by-everythings/scripts/lib/)",
+      "Bash(cp /Users/yimiliya/.claude/plugins/marketplaces/everything-claude-code/scripts/lib/install-targets /Users/yimiliya/github/hermes-by-everythings/scripts/lib/)"
     ]
   }
 }

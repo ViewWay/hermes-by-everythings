@@ -6,7 +6,7 @@
 [![Forks](https://img.shields.io/github/forks/ViewWay/hermes-by-everythings?style=flat)](https://github.com/ViewWay/hermes-by-everythings/network/members)
 [![Contributors](https://img.shields.io/github/contributors/ViewWay/hermes-by-everythings?style=flat)](https://github.com/ViewWay/hermes-by-everythings/graphs/contributors)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-3.2.0-green.svg)](https://github.com/ViewWay/hermes-by-everythings/releases)
+[![Version](https://img.shields.io/badge/version-3.3.0-green.svg)](https://github.com/ViewWay/hermes-by-everythings/releases)
 ![Shell](https://img.shields.io/badge/-Shell-4EAA25?logo=gnu-bash&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
 ![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white)
@@ -653,7 +653,7 @@ bash scripts/test/validate-prompts.sh
 
 ## 更新日志
 
-### v3.1.0 (2026-05-02) - Phase 2 优化完成
+### v3.3.0 (2026-05-02) - Phase 2 优化完成
 
 **新增**:
 - ✅ 完整的文档体系（CLAUDE.md + ADR + 多级文档）

@@ -1,0 +1,71 @@
+{
+  "name": "hermes-by-everythings",
+  "version": "3.3.0",
+  "description": "中文编码增强套件 - 基于 ECC v2.0,提供 30+ 专业代理、完整测试框架和自主闭环学习系统",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "claude-code",
+    "ai",
+    "agents",
+    "skills",
+    "chinese",
+    "中文",
+    "coding-assistance",
+    "code-review",
+    "tdd",
+    "automation",
+    "testing",
+    "ralph",
+    "orchestrator",
+    "continuous-learning"
+  ],
+  "author": {
+    "name": "ViewWay",
+    "url": "https://github.com/ViewWay/hermes-by-everythings"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ViewWay/hermes-by-everythings.git"
+  },
+  "homepage": "https://github.com/ViewWay/hermes-by-everythings#readme",
+  "bugs": {
+    "url": "https://github.com/ViewWay/hermes-by-everythings/issues"
+  },
+  "files": [
+    "skills/",
+    ".claude/commands/",
+    ".claude/rules/",
+    ".claude/config/",
+    ".claude/settings.json",
+    "scripts/",
+    "tests/",
+    "CLAUDE.md",
+    "AGENTS.md",
+    "README.md",
+    "CHANGELOG.md",
+    "SKILL.md"
+  ],
+  "bin": {
+    "hbe": "scripts/hbe.js",
+    "hbe-install": "scripts/install.sh"
+  },
+  "scripts": {
+    "postinstall": "echo '\\n  🎉 Hermes-by-Everything\\'s v3.3.0 installed!\\n  📚 Docs: https://github.com/ViewWay/hermes-by-everythings\\n  🚀 Run: hbe --help\\n'",
+    "test": "bash tests/scripts/test-all.sh --fast",
+    "test:full": "bash tests/scripts/test-all.sh",
+    "test:agents": "bash tests/scripts/test-agents.sh",
+    "test:skills": "bash tests/scripts/test-skills.sh",
+    "test:docs": "bash tests/scripts/test-docs.sh",
+    "install": "bash scripts/install.sh",
+    "update": "bash scripts/update.sh",
+    "status": "node scripts/hbe.js status"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

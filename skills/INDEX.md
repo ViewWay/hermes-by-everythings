@@ -2,7 +2,7 @@
 
 > Hermes-by-Everything 所有技能的完整索引
 > 
-> **更新**: 2026-05-02 (v3.1.0)
+> **更新**: 2026-05-02 (v3.3.0)
 
 ---
 
@@ -22,6 +22,8 @@
 | **Code Reviewer** | [code-reviewer.md](agents/code-reviewer.md) | 代码审查 | 代码质量检查 |
 | **Security Reviewer** | [security-reviewer.md](agents/security-reviewer.md) | 安全审查 | 安全漏洞扫描 |
 | **TDD Guide** | [tdd-guide.md](agents/tdd-guide.md) | TDD 指导 | 测试驱动开发 |
+| **Silent Failure Hunter** | [silent-failure-hunter.md](agents/silent-failure-hunter.md) | 静默失败检测 | 错误处理审查 |
+| **Comment Analyzer** | [comment-analyzer.md](agents/comment-analyzer.md) | 注释分析 | 代码注释审查 |
 
 ### 测试与构建
 
@@ -29,6 +31,8 @@
 |-------|------|------|----------|
 | **E2E Runner** | [e2e-runner.md](agents/e2e-runner.md) | E2E 测试 | 端到端测试 |
 | **Build Resolver** | [build-error-resolver.md](agents/build-error-resolver.md) | 构建修复 | 构建错误诊断 |
+| **Rust Build Resolver** | [rust-build-resolver.md](agents/rust-build-resolver.md) | Rust 构建修复 | Cargo 构建错误 |
+| **PyTorch Build Resolver** | [pytorch-build-resolver.md](agents/pytorch-build-resolver.md) | PyTorch 修复 | 训练运行时错误 |
 
 ### 优化与维护
 
@@ -36,6 +40,34 @@
 |-------|------|------|----------|
 | **Refactor Cleaner** | [refactor-cleaner.md](agents/refactor-cleaner.md) | 重构清理 | 死代码清理 |
 | **Doc Updater** | [doc-updater.md](agents/doc-updater.md) | 文档更新 | 文档同步 |
+| **Harness Optimizer** | [harness-optimizer.md](agents/harness-optimizer.md) | Harness 优化 | 配置优化 |
+| **Performance Optimizer** | [performance-optimizer.md](agents/performance-optimizer.md) | 性能优化 | 性能调优 |
+| **SEO Specialist** | [seo-specialist.md](agents/seo-specialist.md) | SEO 优化 | 搜索引擎优化 |
+
+### 分析与探索
+
+| Agent | 文件 | 描述 | 使用场景 |
+|-------|------|------|----------|
+| **Code Explorer** | [code-explorer.md](agents/code-explorer.md) | 代码探索 | 深度代码分析 |
+| **Docs Lookup** | [docs-lookup.md](agents/docs-lookup.md) | 文档查询 | API/库文档 |
+| **Database Reviewer** | [database-reviewer.md](agents/database-reviewer.md) | 数据库审查 | PostgreSQL 优化 |
+| **Type Design Analyzer** | [type-design-analyzer.md](agents/type-design-analyzer.md) | 类型设计分析 | 类型系统审查 |
+
+### 执行与编排
+
+| Agent | 文件 | 描述 | 使用场景 |
+|-------|------|------|----------|
+| **Loop Operator** | [loop-operator.md](agents/loop-operator.md) | 循环操作 | 自主循环管理 |
+
+### 语言审查
+
+| Agent | 文件 | 描述 | 使用场景 |
+|-------|------|------|----------|
+| **Python Reviewer** | [python-reviewer.md](agents/python-reviewer.md) | Python 审查 | Python 项目 |
+| **TypeScript Reviewer** | [typescript-reviewer.md](agents/typescript-reviewer.md) | TypeScript/JS 审查 | TS/JS 项目 |
+| **Go Reviewer** | [go-reviewer.md](agents/go-reviewer.md) | Go 审查 | Go 项目 |
+| **Flutter Reviewer** | [flutter-reviewer.md](agents/flutter-reviewer.md) | Flutter 审查 | Flutter 项目 |
+| **Rust Reviewer** | [rust-reviewer.md](agents/rust-reviewer.md) | Rust 审查 | Rust 项目 |
 
 ### 学习系统
 
@@ -99,4 +131,4 @@
 ---
 
 **维护**: HBE 团队  
-**版本**: v3.1.0
+**版本**: v3.3.0

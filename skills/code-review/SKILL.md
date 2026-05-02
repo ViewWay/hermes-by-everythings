@@ -1,8 +1,15 @@
 ---
 name: code-review
+description: Systematic code review patterns covering security, performance, maintainability, correctness, and testing
+trigger: "/hbe:review"
+keywords:
+  - code review
+  - 代码审查
+  - quality check
+  - 质量检查
+  - PR review
 model: reasoning
 category: testing
-description: Systematic code review patterns covering security, performance, maintainability, correctness, and testing — with severity levels, structured feedback guidance, review process, and anti-patterns to avoid. Use when reviewing PRs, establishing review standards, or improving review quality.
 version: 1.0
 ---
 

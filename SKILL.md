@@ -2,14 +2,12 @@
 name: hermes-by-everythings
 description: >
   多平台多语言编码增强套件。整合 everything-claude-code + ralph 最佳能力。
-  9 Agent + 13 Skill + 15 Command + 8 Rules + Ralph 自主循环 + Hooks 自动化。
+  36 Agent + 241+ Skill + 16 Command + 77+ Rule + Ralph 自主循环 + Hooks 自动化。
   支持 TypeScript/Python/Rust/Go/Java/C#/Ruby/PHP/Swift/Kotlin。
   兼容 Claude Code/OpenCode/OpenClaw/Hermes，macOS/Windows/Linux。
   命令前缀: /hbe:xxx，可按阶段使用也可全流程跑通。
-version: 2.0.0
-trigger: >
-  用户输入 /hbe: 后跟子命令，或提到 hbe、hermes-by-everythings、
-  自主编码、ralph 循环、全流程开发。
+version: 3.3.0
+trigger: "/hbe:,hbe,hermes,hermes-by-everythings,autonomous coding,ralph,full workflow,tdd,code review,security review"
 keywords:
   - hermes-by-everythings
   - hbe

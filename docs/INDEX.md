@@ -200,7 +200,7 @@ hermes-by-everythings/
 
 ### 按更新时间查找
 
-- **2026-05-02** (v3.2.0):
+- **2026-05-02** (v3.3.0):
   - [Orchestrator教程](guides/ORCHESTRATOR-TUTORIAL.md) - 新增
   - [Orchestrator集成指南](ORCHESTRATOR-GUIDE.md) - 新增
   - [agentdesign集成报告](reports/AGENTDESIGN-INTEGRATION.md) - 新增

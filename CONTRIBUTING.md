@@ -24,9 +24,10 @@
 ```bash
 # 1. Fork 仓库
 # 2. Clone 你的 fork
+# 2. Clone 你的 fork
 git clone https://github.com/YOUR_USERNAME/hermes-by-everythings.git
 
-# 3. 添加 upstream
+# 3. 添加 upstream（主仓库）
 git remote add upstream https://github.com/ViewWay/hermes-by-everythings.git
 ```
 
