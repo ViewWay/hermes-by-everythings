@@ -6,7 +6,7 @@
 [![Forks](https://img.shields.io/github/forks/ViewWay/hermes-by-everythings?style=flat)](https://github.com/ViewWay/hermes-by-everythings/network/members)
 [![Contributors](https://img.shields.io/github/contributors/ViewWay/hermes-by-everythings?style=flat)](https://github.com/ViewWay/hermes-by-everythings/graphs/contributors)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-3.2.0-green.svg)](https://github.com/ViewWay/hermes-by-everythings/releases)
+[![Version](https://img.shields.io/badge/version-3.3.0-green.svg)](https://github.com/ViewWay/hermes-by-everythings/releases)
 
 > **10 个专业代理** | **13 个核心技能** | **15 个快捷命令** | **8 个规则文件** | **Ralph 自主循环** | **Orchestrator 编排**
 

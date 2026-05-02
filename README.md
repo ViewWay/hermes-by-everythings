@@ -653,25 +653,39 @@ bash scripts/test/validate-prompts.sh
 
 ## 更新日志
 
-### v3.3.0 (2026-05-02) - Phase 2 优化完成
+### v3.3.0 (2026-05-02) - 市场安装 + 完整测试框架
 
-**新增**:
-- ✅ 完整的文档体系（CLAUDE.md + ADR + 多级文档）
-- ✅ 技能状态管理（active/experimental/deprecated）
-- ✅ 技能放置策略文档
-- ✅ 测试套件（test-all.sh, test-skills.sh, validate-prompts.sh）
-- ✅ Ralph 日志系统（ralph.sh）
-- ✅ 自动化安装脚本（install.sh）
-- ✅ 技能模板（skill/agent/command）
-- ✅ 包管理器检测（detect-pm.sh）
+**重大更新**：
+- ✅ **npm 市场支持** - 可通过 `npm install -g hermes-by-everythings` 安装
+- ✅ **完整测试框架** - 44 个测试，覆盖 agents/skills/documentation  
+- ✅ **HBE CLI 工具** - `npx hbe status/agents/skills/test` 命令
+- ✅ **智能安装脚本** - 自动检测 Claude Code，一键安装
 
-**优化**:
-- 📈 文档完整性: 70% → 95% (+25%)
-- 📈 技能管理: 60% → 90% (+30%)
-- 📈 测试覆盖: 0% → 80% (+80%)
-- 📈 用户体验: 70% → 95% (+25%)
+**新增 Agents** (17 个 ECC agents)：
+- **P0 关键** (5): loop-operator, python-reviewer, typescript-reviewer, go-reviewer, harness-optimizer
+- **P1 重要** (4): code-explorer, docs-lookup, performance-optimizer, database-reviewer  
+- **P2 增强** (5): flutter-reviewer, rust-reviewer, rust-build-resolver, pytorch-build-resolver, type-design-analyzer
+- **P3 专用** (3): silent-failure-hunter, seo-specialist, comment-analyzer
 
-详见 [PHASE2-COMPLETION.md](PHASE2-COMPLETION.md)。
+**新增 Hooks** (65+ 文件)：
+- 会话管理 (7): session-start-bootstrap, session-end-marker, session-activity-tracker
+- 质量门控 (5): quality-gate, design-quality-check, check-console-log, doc-file-warning, config-protection
+- 自动化 (8): bash-hook-dispatcher, plugin-hook-bootstrap, governance-capture, observe-runner
+- 后编辑处理 (4): post-edit-accumulator, post-edit-console-warn, post-edit-format, post-edit-typecheck
+- Git 集成 (3): pre-bash-commit-quality, pre-bash-git-push-reminder, post-bash-pr-created
+
+**文档更新**：
+- ✅ AGENTS.md - 完整的 36 个 agents 目录
+- ✅ COMMANDS-QUICK-REF.md - 命令快速参考
+- ✅ CHANGELOG.md - v3.3.0 详细变更记录
+- ✅ docs/marketplace/ - 市场安装指南
+- ✅ docs/testing/ - 测试框架文档
+
+**项目整洁**：
+- ✅ 删除所有备份文件
+- ✅ 添加 .npmignore 和 .gitignore
+- ✅ 统一版本号到 v3.3.0
+- ✅ 更新仓库地址到 ViewWay/hermes-by-everythings
 
 ### v2.1.0 (2026-05-02) - Phase 1 优化完成
 
