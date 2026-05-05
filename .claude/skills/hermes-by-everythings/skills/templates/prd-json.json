@@ -1,0 +1,49 @@
+{
+  "project": "[项目名称]",
+  "branchName": "ralph/[feature-name-kebab-case]",
+  "description": "[功能描述]",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "[Story 标题]",
+      "description": "作为 [角色]，我希望 [功能]，以便 [价值]",
+      "priority": 1,
+      "passes": false,
+      "acceptanceCriteria": [
+        "验证条件 1",
+        "验证条件 2",
+        "Typecheck 通过",
+        "Lint 通过",
+        "测试覆盖率 >= 80%"
+      ],
+      "files": [
+        "path/to/expected/file1",
+        "path/to/expected/file2"
+      ],
+      "testFiles": [
+        "path/to/test/file1.test.ts"
+      ],
+      "notes": "[额外说明]"
+    },
+    {
+      "id": "US-002",
+      "title": "[Story 标题]",
+      "description": "作为 [角色]，我希望 [功能]，以便 [价值]",
+      "priority": 2,
+      "passes": false,
+      "acceptanceCriteria": [
+        "验证条件 1"
+      ],
+      "files": [],
+      "testFiles": [],
+      "notes": ""
+    }
+  ],
+  "qualityRequirements": {
+    "typecheck": true,
+    "lint": true,
+    "testCoverage": 80,
+    "noConsoleLog": true,
+    "noHardcodedSecrets": true
+  }
+}

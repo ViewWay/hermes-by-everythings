@@ -1,0 +1,75 @@
+\documentclass[10pt, aspectratio=169]{beamer}
+\usetheme{metropolis}
+\usepackage{appendixnumberbeamer}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\title{Your Paper Title}
+\subtitle{Conference Name, Year}
+\author{Author One \and Author Two}
+\institute{Institution}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{Introduction}
+\begin{frame}{Problem Statement}
+  \begin{itemize}
+    \item Context and motivation
+    \item Key challenge
+    \item Our contribution
+  \end{itemize}
+\end{frame}
+
+\section{Method}
+\begin{frame}{Our Approach}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item Key idea
+        \item Component A
+        \item Component B
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \centering
+      Figure placeholder
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\section{Experiments}
+\begin{frame}{Main Results}
+  \centering
+  \begin{tabular}{lcc}
+    \toprule
+    Method & Accuracy & F1 \\
+    \midrule
+    Baseline & 85.2 & 83.1 \\
+    \textbf{Ours} & \textbf{92.1} & \textbf{90.5} \\
+    \bottomrule
+  \end{tabular}
+\end{frame}
+
+\section{Conclusion}
+\begin{frame}{Summary}
+  \begin{itemize}
+    \item Contribution 1
+    \item Contribution 2
+    \item Future work
+  \end{itemize}
+\end{frame}
+
+\appendix
+\begin{frame}{Backup: Additional Results}
+  Additional details for Q\&A.
+\end{frame}
+\end{document}

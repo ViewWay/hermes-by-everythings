@@ -10,7 +10,7 @@ description: |
   - "/hbe:orchestrate" 命令触发
   - 检测到 PRD 或复杂开发计划时
 
-tools: Read, Write, Edit, Bash, Agent, TaskCreate
+tools: ["Read", "Write", "Edit", "Bash", "Agent", "TaskCreate"]
 model: inherit
 permissionMode: acceptEdits
 memory: project
@@ -18,6 +18,10 @@ skills:
   - planner
   - architect
 ---
+
+## Mission
+
+Coordinate multiple sub-agents through a disciplined orchestration loop — plan, develop, verify (code/security/test), and iterate — while keeping main-agent context lean.
 
 # Orchestrator Agent — 主智能体 (编排者)
 

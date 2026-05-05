@@ -106,8 +106,19 @@ class TestAgents:
             if "## Mission" not in body:
                 warnings.append(f"{agent_file.name}: Missing '## Mission' section")
 
-            # Check for Workflow or Instructions section
-            if not any(section in body for section in ["## Workflow", "## Instructions", "## How"]):
+            # Check for Workflow or Instructions section (EN/CN)
+            workflow_sections = [
+                "## Workflow", "## Instructions", "## How",
+                "## 职责", "## 工作流程", "## 审查流程", "## 审查维度",
+                "## 审查策略", "## 审查步骤", "## Resolution Workflow",
+                "## Review Workflow", "## Review Process", "## 分析流程",
+                "## 分析过程", "## Analysis Process", "## 使用流程",
+                "## 修复流程", "## 检测方法", "## 检测模式", "## 核心原则",
+                "## 优化步骤", "## 构建修复流程", "## 反模式", "## 反模式警告",
+                "## Review Priorities", "## Approval Criteria",
+                "## Diagnostic Commands",
+            ]
+            if not any(section in body for section in workflow_sections):
                 warnings.append(f"{agent_file.name}: Missing workflow/instructions section")
 
         # Allow some warnings but not too many

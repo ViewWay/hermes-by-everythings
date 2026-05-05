@@ -1,3 +1,14 @@
+---
+name: continuous-learning
+description: Closed-loop learning system that extracts patterns from sessions, generates skills, updates memory, and enables self-evolving coding enhancement.
+tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+model: sonnet
+---
+
+## Mission
+
+Extract reusable patterns from coding sessions, auto-generate skills, maintain memory files, and enable self-evolving coding improvement through closed-loop learning.
+
 # Continuous Learning — 闭环学习系统
 
 > 自动从会话中提取模式，生成 skill，更新记忆，实现自我进化的编码增强系统

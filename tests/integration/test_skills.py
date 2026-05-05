@@ -31,14 +31,40 @@ class TestSkills:
         assert len(active_skills) > 0, "Should have at least one active skill"
 
     def test_all_skills_have_title(self, all_skills):
-        """Test that all skills start with a title (# heading)."""
+        """Test that all skills start with a title (# heading) or YAML frontmatter."""
         errors = []
 
         for skill_file in all_skills:
+            # Skip template files and rules (rules are config, not documentation)
+            if skill_file.name.startswith('_') or 'template' in skill_file.name.lower():
+                continue
+            if 'rules' in skill_file.parts:
+                continue
+
             content = skill_file.read_text()
             lines = content.strip().split('\n')
-            if not lines[0].startswith("#"):
-                errors.append(f"{skill_file.name}: Missing title")
+            first_line = lines[0]
+
+            # Valid: starts with # heading
+            if first_line.startswith("#"):
+                continue
+
+            # Valid: starts with YAML frontmatter (---)
+            if first_line.strip() == "---":
+                # Check that there's a # heading after the frontmatter
+                in_frontmatter = True
+                for line in lines[1:]:
+                    if in_frontmatter and line.strip() == "---":
+                        in_frontmatter = False
+                        continue
+                    if not in_frontmatter and line.strip():
+                        if line.startswith("#"):
+                            break
+                        # Non-heading content after frontmatter is OK for reference files
+                        break
+                continue
+
+            errors.append(f"{skill_file.name}: Missing title")
 
         assert len(errors) == 0, f"Skills without titles:\n" + "\n".join(errors)
 

@@ -57,6 +57,7 @@
 
 | Agent | 文件 | 描述 | 使用场景 |
 |-------|------|------|----------|
+| **Orchestrator** | [orchestrator.md](agents/orchestrator.md) | 多Agent编排 | 任务分解、批量开发 |
 | **Loop Operator** | [loop-operator.md](agents/loop-operator.md) | 循环操作 | 自主循环管理 |
 
 ### 语言审查
@@ -68,6 +69,27 @@
 | **Go Reviewer** | [go-reviewer.md](agents/go-reviewer.md) | Go 审查 | Go 项目 |
 | **Flutter Reviewer** | [flutter-reviewer.md](agents/flutter-reviewer.md) | Flutter 审查 | Flutter 项目 |
 | **Rust Reviewer** | [rust-reviewer.md](agents/rust-reviewer.md) | Rust 审查 | Rust 项目 |
+| **Java Reviewer** | [java-reviewer.md](agents/java-reviewer.md) | Java 审查 | Java 项目 |
+| **Kotlin Reviewer** | [kotlin-reviewer.md](agents/kotlin-reviewer.md) | Kotlin 审查 | Kotlin 项目 |
+| **C# Reviewer** | [csharp-reviewer.md](agents/csharp-reviewer.md) | C# 审查 | .NET 项目 |
+| **C++ Reviewer** | [cpp-reviewer.md](agents/cpp-reviewer.md) | C++ 审查 | C/C++ 项目 |
+
+### 语言构建修复
+
+| Agent | 文件 | 描述 | 使用场景 |
+|-------|------|------|----------|
+| **Rust Build Resolver** | [rust-build-resolver.md](agents/rust-build-resolver.md) | Rust 构建修复 | Cargo 构建错误 |
+| **Java Build Resolver** | [java-build-resolver.md](agents/java-build-resolver.md) | Java 构建修复 | Maven/Gradle 错误 |
+| **Kotlin Build Resolver** | [kotlin-build-resolver.md](agents/kotlin-build-resolver.md) | Kotlin 构建修复 | Kotlin 编译错误 |
+| **C++ Build Resolver** | [cpp-build-resolver.md](agents/cpp-build-resolver.md) | C++ 构建修复 | CMake/Make 错误 |
+| **Dart Build Resolver** | [dart-build-resolver.md](agents/dart-build-resolver.md) | Dart 构建修复 | Flutter/Dart 编译 |
+| **PyTorch Build Resolver** | [pytorch-build-resolver.md](agents/pytorch-build-resolver.md) | PyTorch 修复 | 训练运行时错误 |
+
+### 研究与学术
+
+| Agent | 文件 | 描述 | 使用场景 |
+|-------|------|------|----------|
+| **Academic Researcher** | [academic-researcher.md](agents/academic-researcher.md) | 学术研究 | 论文写作、文献综述 |
 
 ### 学习系统
 
