@@ -1,6 +1,6 @@
 ---
 name: hbe-learn
-description: Extract reusable patterns from session into skills
+description: 从会话中提取可复用模式，生成技能 / Extract reusable patterns from session into skills
 allowed_tools: ["Read", "Write", "Edit", "Bash"]
 ---
 

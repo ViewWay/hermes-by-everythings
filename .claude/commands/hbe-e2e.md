@@ -1,6 +1,6 @@
 ---
 name: hbe-e2e
-description: End-to-end testing with Playwright for critical user flows
+description: 端到端测试，覆盖关键用户流程 / End-to-end testing with Playwright for critical user flows
 allowed_tools: ["Read", "Write", "Edit", "Bash", "Agent"]
 ---
 

@@ -489,7 +489,7 @@ User: modify k=v      → Adjust configuration
 |---|---|---|
 | 37 Agents | FR-01 | `skills/agents/*.md` |
 | 32 Skills | FR-02 | `skills/*/SKILL.md` |
-| 17 Commands | FR-03 | `.claude/commands/hbe:*.md` |
+| 18 Commands | FR-03 | `.claude/commands/hbe:*.md` |
 | 42+ Hooks | FR-04 | `scripts/hooks/*.js` |
 | 8 Rules | FR-05 | `.claude/rules/*.md` |
 | Ralph Loop | FR-06 | `scripts/core/ralph/ralph.js` |
@@ -1260,7 +1260,7 @@ Agent(
 
 | 版本 | 日期 | 变更 |
 |---|---|---|
-| 1.0.0 | 2026-04-20 | 初始版本：10 代理、13 技能、15 命令 |
+| 1.0.0 | 2026-04-20 | 初始版本：10 代理、13 技能、18 命令 |
 | 2.0.0 | 2026-04-25 | 新增 Ralph 循环、交互引擎、上下文优化 |
 | 3.0.0 | 2026-04-30 | 新增 27 个语言审查代理，扩展至 32 技能 |
 | 3.1.0 | 2026-05-01 | 新增学术研究技能包（v1.0） |

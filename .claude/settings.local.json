@@ -43,7 +43,12 @@
       "Bash(mkdir -p .claude/skills/hermes-by-everythings)",
       "Bash(cp /Users/yimiliya/.claude/plugins/marketplaces/everything-claude-code/scripts/lib/*.js /Users/yimiliya/github/hermes-by-everythings/scripts/lib/)",
       "Bash(cp /Users/yimiliya/.claude/plugins/marketplaces/everything-claude-code/scripts/lib/install /Users/yimiliya/github/hermes-by-everythings/scripts/lib/)",
-      "Bash(cp /Users/yimiliya/.claude/plugins/marketplaces/everything-claude-code/scripts/lib/install-targets /Users/yimiliya/github/hermes-by-everythings/scripts/lib/)"
+      "Bash(cp /Users/yimiliya/.claude/plugins/marketplaces/everything-claude-code/scripts/lib/install-targets /Users/yimiliya/github/hermes-by-everythings/scripts/lib/)",
+      "Bash(sed -i '' 's|description: System architecture design and scalability planning|description: 系统架构设计与可扩展性规划 / System architecture design and scalability planning|' hbe-architect.md)",
+      "Bash(sed -i '' 's|description: Fix build and compilation errors with minimal changes|description: 构建与编译错误修复，最小化变更 / Fix build and compilation errors with minimal changes|' hbe-build-fix.md)",
+      "Bash(sed -i '' 's|description: Save progress snapshot for resumable work sessions|description: 保存进度快照，支持会话恢复 / Save progress snapshot for resumable work sessions|' hbe-checkpoint.md)",
+      "Bash(sed -i '' 's|description: Update documentation and codemaps|description: 更新文档与代码地图 / Update documentation and codemaps|' hbe-docs.md)",
+      "Bash(sed -i '' 's|description: End-to-end testing with Playwright for critical user flows|description: 端到端测试，覆盖关键用户流程 / End-to-end testing with Playwright for critical user flows|' hbe-e2e.md)"
     ]
   }
 }

@@ -1,6 +1,6 @@
 ---
 name: hbe-eval
-description: Evaluation-driven development with pass@k metrics
+description: 评估驱动开发，pass@k 指标度量 / Evaluation-driven development with pass@k metrics
 allowed_tools: ["Read", "Write", "Edit", "Bash", "Agent"]
 ---
 

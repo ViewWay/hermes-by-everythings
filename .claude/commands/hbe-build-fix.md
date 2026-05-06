@@ -1,6 +1,6 @@
 ---
 name: hbe-build-fix
-description: Fix build and compilation errors with minimal changes
+description: 构建与编译错误修复，最小化变更 / Fix build and compilation errors with minimal changes
 allowed_tools: ["Read", "Write", "Edit", "Bash"]
 ---
 

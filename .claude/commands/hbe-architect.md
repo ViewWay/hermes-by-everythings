@@ -1,6 +1,6 @@
 ---
 name: hbe-architect
-description: System architecture design and scalability planning
+description: 系统架构设计与可扩展性规划 / System architecture design and scalability planning
 allowed_tools: ["Read", "Bash"]
 ---
 

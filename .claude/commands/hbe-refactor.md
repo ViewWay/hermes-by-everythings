@@ -1,6 +1,6 @@
 ---
 name: hbe-refactor
-description: Remove dead code and improve structure
+description: 清理死代码，优化代码结构 / Remove dead code and improve structure
 allowed_tools: ["Read", "Write", "Edit", "Bash"]
 ---
 

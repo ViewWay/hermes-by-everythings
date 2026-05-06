@@ -1,6 +1,6 @@
 ---
 name: hbe-prd
-description: Generate structured PRD (Product Requirements Document)
+description: 生成结构化产品需求文档 PRD / Generate structured Product Requirements Document
 allowed_tools: ["Read", "Write", "Edit"]
 ---
 

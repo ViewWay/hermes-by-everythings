@@ -19,7 +19,7 @@
 ![PHP](https://img.shields.io/badge/-PHP-777BB4?logo=php&logoColor=white)
 ![Swift](https://img.shields.io/badge/-Swift-F05138?logo=swift&logoColor=white)
 
-> **10 专业代理** | **13 核心技能** | **15 快捷命令** | **8 规则文件** | **Ralph 自主循环** | **Orchestrator 编排**
+> **10 专业代理** | **13 核心技能** | **18 快捷命令** | **8 规则文件** | **Ralph 自主循环** | **Orchestrator 编排**
 
 ---
 
@@ -35,7 +35,7 @@
 
 **多平台多语言编码增强套件 - 整合 everything-claude-code 和 ralph 的最佳能力**
 
-Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [everything-claude-code](https://github.com/affaan-m/everything-claude-code) 的全面能力和 [ralph](https://github.com/snarktank/ralph) 的自主循环特性。它提供 9 个专业代理、13 个核心技能、15 个快捷命令、8 个规则文件，以及突破上下文限制的 Ralph 自主执行系统。
+Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [everything-claude-code](https://github.com/affaan-m/everything-claude-code) 的全面能力和 [ralph](https://github.com/snarktank/ralph) 的自主循环特性。它提供 9 个专业代理、13 个核心技能、18 个快捷命令、8 个规则文件，以及突破上下文限制的 Ralph 自主执行系统。
 
 支持 **10 种主流编程语言**（TypeScript/JavaScript、Python、Rust、Go、Java、Kotlin、C#、Ruby、PHP、Swift），兼容 **4 个 AI 编码平台**（Claude Code、Hermes、OpenCode、OpenClaw），运行在 **3 种操作系统**（macOS、Windows、Linux）上。
 
@@ -86,6 +86,7 @@ Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [
 /hbe:tdd            # TDD 开发流程
 /hbe:review         # 代码审查
 /hbe:security       # 安全审查
+hbe-scan         # 统一安全扫描 (SAST/SCA/密钥/复杂度)
 /hbe:build-fix      # 构建修复
 /hbe:e2e            # E2E 测试生成
 /hbe:refactor       # 重构清理
@@ -229,7 +230,7 @@ ls -la ~/.claude/skills/hermes-by-everythings
 ✓ HBE 系统验证通过
 ✓ 10 个 Agent 可用
 ✓ 13 个 Skill 可用
-✓ 15 个 Command 可用
+✓ 18 个 Command 可用
 ✓ Orchestrator 编排系统可用
 ```
 
@@ -247,7 +248,7 @@ ls -la ~/.claude/skills/hermes-by-everythings
 ✓ HBE 系统验证通过
 ✓ 10 个 Agent 可用
 ✓ 13 个 Skill 可用
-✓ 15 个 Command 可用
+✓ 18 个 Command 可用
 ✓ Orchestrator 编排系统可用
 ✓ Ralph 自主循环就绪
 ```
@@ -702,7 +703,7 @@ bash scripts/test/validate-prompts.sh
 
 - 9 个专业代理
 - 13 个核心技能
-- 15 个快捷命令
+- 18 个快捷命令
 - 8 个规则文件
 - Ralph 自主循环
 

@@ -102,6 +102,7 @@
 /hbe:plan        # 调用 planner
 /hbe:tdd         # 调用 tdd-guide
 /hbe:security    # 调用 security-reviewer
+hbe-scan         # 调用 scanner (SAST/SCA/密钥/复杂度)
 ```
 
 ### 通过编排使用

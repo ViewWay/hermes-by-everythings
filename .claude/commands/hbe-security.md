@@ -1,6 +1,6 @@
 ---
 name: hbe-security
-description: Security vulnerability scanning (OWASP Top 10)
+description: 安全漏洞扫描 (OWASP Top 10) / Security vulnerability scanning
 allowed_tools: ["Read", "Bash", "Grep"]
 ---
 
@@ -22,3 +22,6 @@ Identify security vulnerabilities before they reach production.
 
 ## Output
 Vulnerability report with severity levels and fix recommendations.
+
+## See Also
+For comprehensive scanning (SAST/SCA/secrets/complexity), use `/hbe-scan`.

@@ -1,6 +1,6 @@
 ---
 name: hbe-tdd
-description: Test-driven development workflow (RED → GREEN → REFACTOR)
+description: 测试驱动开发工作流 (RED → GREEN → REFACTOR) / Test-driven development workflow
 allowed_tools: ["Read", "Write", "Edit", "Bash"]
 ---
 

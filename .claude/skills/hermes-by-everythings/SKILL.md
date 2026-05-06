@@ -2,7 +2,7 @@
 name: hermes-by-everythings
 description: >
   多平台多语言编码增强套件。整合 ECC + Ralph 最佳能力。
-  16 Command + 11 Agent + 自动化 Hooks + 学习系统。
+  18 Command + 11 Agent + 自动化 Hooks + 学习系统。
   支持 TypeScript/Python/Rust/Go/Java/Kotlin 等10种语言。
 trigger: "/hbe:,hbe,hermes,hermes-by-everythings,autonomous coding,ralph"
 keywords:
@@ -20,6 +20,20 @@ version: 3.3.0
 
 多平台多语言编码增强套件，提供完整的开发工作流支持。
 
+## 安装
+
+HBE 包含 5 个组件，**全部安装才能获得完整功能**。推荐使用安装脚本：
+
+```bash
+cd hermes-by-everythings
+bash scripts/install.sh        # 完整安装
+bash scripts/install.sh --link # 开发模式（软链接）
+bash scripts/install.sh --verify # 验证安装
+bash scripts/install.sh --uninstall # 卸载
+```
+
+> 仅复制 Skill 目录会缺失 Commands/Rules/Hooks，约 60% 功能不可用。
+
 ## 快速开始
 
 ### 核心命令
@@ -36,8 +50,9 @@ version: 3.3.0
 /hbe:verify              # 五阶段验证
 
 # 代码质量
-/hbe:review              # 代码审查 ⭐
+/hbe:review              # 代码审查
 /hbe:security            # 安全审查
+/hbe:scan                # 统一安全扫描 (SAST/SCA/密钥/复杂度)
 /hbe:refactor            # 重构清理
 
 # 自动化

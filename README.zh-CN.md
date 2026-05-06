@@ -8,7 +8,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-3.3.0-green.svg)](https://github.com/ViewWay/hermes-by-everythings/releases)
 
-> **10 个专业代理** | **13 个核心技能** | **15 个快捷命令** | **8 个规则文件** | **Ralph 自主循环** | **Orchestrator 编排**
+> **10 个专业代理** | **13 个核心技能** | **18 个快捷命令** | **8 个规则文件** | **Ralph 自主循环** | **Orchestrator 编排**
 
 ---
 
@@ -71,6 +71,7 @@ Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [
 /hbe:tdd            # TDD 开发流程
 /hbe:review         # 代码审查
 /hbe:security       # 安全审查
+hbe-scan         # 统一安全扫描 (SAST/SCA/密钥/复杂度)
 /hbe:build-fix      # 构建修复
 /hbe:e2e            # E2E 测试生成
 /hbe:refactor       # 重构清理

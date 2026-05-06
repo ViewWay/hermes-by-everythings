@@ -1,6 +1,6 @@
 ---
 name: hbe-docs
-description: Update documentation and codemaps
+description: 更新文档与代码地图 / Update documentation and codemaps
 allowed_tools: ["Read", "Write", "Edit", "Bash"]
 ---
 

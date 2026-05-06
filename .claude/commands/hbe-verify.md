@@ -1,6 +1,6 @@
 ---
 name: hbe-verify
-description: Five-phase verification loop (Build, TypeCheck, Lint, Test, Security)
+description: 五阶段验证循环 (构建→类型检查→Lint→测试→安全) / Five-phase verification loop
 allowed_tools: ["Read", "Bash"]
 ---
 

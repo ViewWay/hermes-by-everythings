@@ -45,7 +45,7 @@
 - [Agent列表](../skills/agents/) - 所有Agent定义
 - [Agent教程](guides/agents/) - Agent使用教程
 - [技能列表](../skills/) - 所有技能说明
-- [命令参考](../SKILL-INDEX.md#-快捷命令) - 15个快捷命令
+- [命令参考](../SKILL-INDEX.md#-快捷命令) - 18个快捷命令
 
 ### 🏢 团队负责人
 

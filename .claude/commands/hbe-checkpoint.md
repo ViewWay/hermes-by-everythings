@@ -1,6 +1,6 @@
 ---
 name: hbe-checkpoint
-description: Save progress snapshot for resumable work sessions
+description: 保存进度快照，支持会话恢复 / Save progress snapshot for resumable work sessions
 allowed_tools: ["Read", "Write", "Bash"]
 ---
 

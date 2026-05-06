@@ -28,7 +28,7 @@ HBE's unique position is the **only cross-domain academic research skill pack** 
 | **Domain Coverage** | 19 disciplines |
 | **Language** | Bilingual EN/CN |
 | **License** | MIT |
-| **Infrastructure** | 10 Agents + 15 Commands + 8 Rules + Ralph Loop + Orchestrator + Memory |
+| **Infrastructure** | 10 Agents + 18 Commands + 8 Rules + Ralph Loop + Orchestrator + Memory |
 | **Install** | Git clone, symlink to `~/.claude/skills/` |
 
 ### 1.2 K-Dense (claude-scientific-skills)
@@ -146,7 +146,7 @@ HBE's unique position is the **only cross-domain academic research skill pack** 
 
 | Repo | Score | Notes |
 |---|---|---|
-| **HBE** | 5 | Ralph + Orchestrator + Memory + Context Opt + Interactive Engine + 10 Agents + 15 Commands + 8 Rules |
+| **HBE** | 5 | Ralph + Orchestrator + Memory + Context Opt + Interactive Engine + 10 Agents + 18 Commands + 8 Rules |
 | **K-Dense** | 3 | Skills + DB + web platform |
 | **Orchestra** | 4 | Two-loop + npm package |
 | **Claude Scholar** | 4 | Agents + hooks + commands |

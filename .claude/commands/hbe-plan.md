@@ -1,6 +1,6 @@
 ---
 name: hbe-plan
-description: Implementation planning for complex features
+description: 复杂功能的实现规划 / Implementation planning for complex features
 allowed_tools: ["Read", "Bash", "Grep", "Glob"]
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: hbe-orchestrate
-description: Multi-agent workflow orchestration (plan → tdd → review → security)
+description: 多 Agent 工作流编排 (plan → tdd → review → security) / Multi-agent workflow orchestration
 allowed_tools: ["Read", "Write", "Edit", "Bash", "Agent"]
 ---
 

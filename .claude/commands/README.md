@@ -8,79 +8,80 @@
 
 | 命令 | 功能 | 文件 |
 |------|------|------|
-| `/hbe:plan` | 实现规划 | hbe:plan.md |
-| `/hbe:architect` | 架构设计 | hbe:architect.md |
-| `/hbe:prd` | PRD 生成 | hbe:prd.md |
+| `/hbe-plan` | 实现规划 | hbe-plan.md |
+| `/hbe-architect` | 架构设计 | hbe-architect.md |
+| `/hbe-prd` | PRD 生成 | hbe-prd.md |
 
 ### 开发流程
 
 | 命令 | 功能 | 文件 |
 |------|------|------|
-| `/hbe:tdd` | TDD 开发 | hbe:tdd.md |
-| `/hbe:e2e` | E2E 测试 | hbe:e2e.md |
-| `/hbe:verify` | 五阶段验证 | hbe:verify.md |
+| `/hbe-tdd` | TDD 开发 | hbe-tdd.md |
+| `/hbe-e2e` | E2E 测试 | hbe-e2e.md |
+| `/hbe-verify` | 五阶段验证 | hbe-verify.md |
 
 ### 代码质量
 
 | 命令 | 功能 | 文件 |
 |------|------|------|
-| `/hbe:review` | 代码审查 | hbe:review.md |
-| `/hbe:security` | 安全审查 | hbe:security.md |
-| `/hbe:refactor` | 重构清理 | hbe:refactor.md |
+| `/hbe-review` | 代码审查 | hbe-review.md |
+| `/hbe-security` | 安全审查 | hbe-security.md |
+| `/hbe-scan` | 统一安全扫描 | hbe-scan.md |
+| `/hbe-refactor` | 重构清理 | hbe-refactor.md |
 
 ### 修复与维护
 
 | 命令 | 功能 | 文件 |
 |------|------|------|
-| `/hbe:build-fix` | 构建修复 | hbe:build-fix.md |
-| `/hbe:docs` | 文档更新 | hbe:docs.md |
+| `/hbe-build-fix` | 构建修复 | hbe-build-fix.md |
+| `/hbe-docs` | 文档更新 | hbe-docs.md |
 
 ### 自动化与编排
 
 | 命令 | 功能 | 文件 |
 |------|------|------|
-| `/hbe:orchestrate` | 多 Agent 编排 | hbe:orchestrate.md |
-| `/hbe:ralph` | 自主循环 | hbe:ralph.md |
+| `/hbe-orchestrate` | 多 Agent 编排 | hbe-orchestrate.md |
+| `/hbe-ralph` | 自主循环 | hbe-ralph.md |
 
 ### 学习与评估
 
 | 命令 | 功能 | 文件 |
 |------|------|------|
-| `/hbe:checkpoint` | 进度快照 | hbe:checkpoint.md |
-| `/hbe:learn` | 模式学习 | hbe:learn.md |
-| `/hbe:eval` | 评估驱动 | hbe:eval.md |
+| `/hbe-checkpoint` | 进度快照 | hbe-checkpoint.md |
+| `/hbe-learn` | 模式学习 | hbe-learn.md |
+| `/hbe-eval` | 评估驱动 | hbe-eval.md |
 
 ## 🚀 使用方式
 
 ### 基本使用
 
 ```
-/hbe:review
+/hbe-review
 ```
 
 ### 带参数使用
 
 ```
-/hbe:plan 实现用户认证功能
-/hbe:tdd 添加用户注册接口
+/hbe-plan 实现用户认证功能
+/hbe-tdd 添加用户注册接口
 ```
 
 ### 工作流组合
 
 ```
 # 完整功能开发流程
-/hbe:orchestrate feature
+/hbe-orchestrate feature
 
 # Bug 修复流程
-/hbe:orchestrate bugfix
+/hbe-orchestrate bugfix
 
 # 重构流程
-/hbe:orchestrate refactor
+/hbe-orchestrate refactor
 ```
 
 ## 📊 命令统计
 
-- **总命令数**: 16
+- **总命令数**: 18
 - **规划类**: 3
 - **开发类**: 3
 - **质量类**: 3
@@ -96,8 +97,8 @@
 ~/.claude/skills/hermes-by-everythings/
 ├── .claude/
 │   └── commands/          ← Claude Code 专用命令
-│       ├── hbe:plan.md
-│       ├── hbe:review.md
+│       ├── hbe-plan.md
+│       ├── hbe-review.md
 │       └── ...
 ├── skills/                ← 可复用工作流
 │   ├── code-review/
@@ -114,7 +115,7 @@
 
 - ✅ 使用 `.claude/commands/` 作为命令目录
 - ✅ 命令文件格式：`name`, `description`, `allowed_tools`
-- ✅ 支持冒号命名 (`hbe:review.md`)
+- ✅ 使用连字符命名 (\`hbe-review.md\`)
 - ✅ `skills/` 作为主要工作流表面
 - ✅ `commands/` 标记为遗留兼容层
 
@@ -131,32 +132,34 @@
 
 ```
 # 开始新功能
-/hbe:plan → /hbe:tdd → /hbe:review
+/hbe-plan → /hbe-tdd → /hbe-review
 
 # 修复构建
-/hbe:build-fix
+/hbe-build-fix
 
 # 代码审查
-/hbe:review
+/hbe-review
 
 # 安全检查
-/hbe:security
+# 统一安全扫描
+/hbe-scan
+/hbe-security
 
 # 完整验证
-/hbe:verify
+/hbe-verify
 ```
 
 ### 自动化流程
 
 ```
 # 自主开发（需要 prd.json）
-/hbe:ralph
+/hbe-ralph
 
 # 多 Agent 编排
-/hbe:orchestrate full
+/hbe-orchestrate full
 
 # 保存进度
-/hbe:checkpoint
+/hbe-checkpoint
 ```
 
 ---

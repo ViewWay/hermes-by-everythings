@@ -1,6 +1,6 @@
 ---
 name: hbe-review
-description: Code review for security, quality, and maintainability
+description: 代码审查：安全性、质量、可维护性 / Code review for security, quality, and maintainability
 allowed_tools: ["Read", "Bash", "Grep", "Glob"]
 ---
 

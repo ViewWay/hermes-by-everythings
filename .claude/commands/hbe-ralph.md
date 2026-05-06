@@ -1,6 +1,6 @@
 ---
 name: hbe-ralph
-description: Autonomous execution loop for large tasks
+description: 自主执行循环，大型任务自动化 / Autonomous execution loop for large tasks
 allowed_tools: ["Read", "Write", "Edit", "Bash", "Agent"]
 ---
 

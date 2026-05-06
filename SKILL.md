@@ -2,7 +2,7 @@
 name: hermes-by-everythings
 description: >
   多平台多语言编码增强套件。整合 everything-claude-code + ralph 最佳能力。
-  36 Agent + 241+ Skill + 16 Command + 77+ Rule + Ralph 自主循环 + Hooks 自动化。
+  36 Agent + 241+ Skill + 18 Command + 77+ Rule + Ralph 自主循环 + Hooks 自动化。
   支持 TypeScript/Python/Rust/Go/Java/C#/Ruby/PHP/Swift/Kotlin。
   兼容 Claude Code/OpenCode/OpenClaw/Hermes，macOS/Windows/Linux。
   命令前缀: /hbe:xxx，可按阶段使用也可全流程跑通。
@@ -29,82 +29,94 @@ keywords:
 
 ## 安装
 
-### 快速开始（所有平台通用）
+### 快速开始
 
 ```bash
 git clone https://github.com/ViewWay/hermes-by-everythings.git
+cd hermes-by-everythings
 ```
 
-然后按你的平台选择安装方式。
+### Claude Code（推荐安装方式）
 
-### Claude Code
+HBE 包含 5 个组件，**全部安装才能获得完整功能**：
 
-**方式 1: 手动安装（立即可用）**
+| 组件 | 安装位置 | 作用 | 缺失影响 |
+|------|----------|------|----------|
+| Skill | `~/.claude/skills/` | 技能入口 + 关键词触发 | 自动触发失效 |
+| Commands | `~/.claude/commands/` | 18 个斜杠命令 | `/hbe-review` 等全部失效 |
+| Rules | `~/.claude/rules/` | 安全护栏规则 | 护栏检查失效 |
+| Hooks | `~/.hbe/scripts/hooks/` | 自动化钩子 | 自动化失效 |
+| Settings | `~/.claude/settings.json` | 钩子注册 | 钩子不触发 |
+
+**一键安装（推荐）**：
 ```bash
-# 复制到 Claude Code skills 目录
-cp -r hermes-by-everythings ~/.claude/skills/hermes-by-everythings
-
-# 或软链接（开发时推荐，改动实时生效）
-ln -s $(pwd)/hermes-by-everythings ~/.claude/skills/hermes-by-everythings
+cd hermes-by-everythings
+bash scripts/install.sh
 ```
 
-**方式 2: Plugin Marketplace（需先发布）**
+安装脚本会自动处理全部 5 个组件，包括备份现有配置。
+
+**开发模式（软链接，改动实时生效）**：
 ```bash
-/plugin marketplace add anthropics/claude-code
-claude skill add ViewWay/hermes-by-everythings
+bash scripts/install.sh --link
 ```
 
-验证：在 Claude Code 中输入 `/hbe:plan 测试规划功能`
+**验证安装**：
+```bash
+bash scripts/install.sh --verify
+```
+
+**卸载**：
+```bash
+bash scripts/install.sh --uninstall
+```
+
+#### 手动安装（不推荐）
+
+如果不想用安装脚本，需要手动复制 5 个组件：
+
+```bash
+# 1. Skill
+cp -r .claude/skills/hermes-by-everythings ~/.claude/skills/
+
+# 2. Commands (18 个斜杠命令)
+mkdir -p ~/.claude/commands
+cp .claude/commands/hbe-*.md ~/.claude/commands/
+
+# 3. Rules (护栏规则)
+mkdir -p ~/.claude/rules
+cp .claude/rules/*.md ~/.claude/rules/
+
+# 4. Hook 脚本
+mkdir -p ~/.hbe/scripts/hooks
+cp -r scripts/hooks/* ~/.hbe/scripts/hooks/
+chmod +x ~/.hbe/scripts/hooks/*.sh 2>/dev/null || true
+[ -d scripts/lib ] && cp -r scripts/lib/* ~/.hbe/scripts/lib/
+
+# 5. 合并 Settings（将 settings.hbe.json 的 hooks 合并到你的 settings.json）
+# 见 scripts/install.sh 中的生成逻辑
+```
+
+> **警告**：仅复制 Skill 目录会缺失约 60% 功能（Commands + Rules + Hooks）。
 
 ### Hermes Agent
 
 Hermes 使用 [agentskills.io](https://agentskills.io) 开放标准，本 skill 的 SKILL.md 直接兼容。
 
-**方式 1: 手动安装（立即可用）**
 ```bash
-# 复制到 Hermes skills 目录
 cp -r hermes-by-everythings ~/.hermes/skills/hermes-by-everythings
-
-# 或软链接（开发时推荐）
+# 或软链接
 ln -s $(pwd)/hermes-by-everythings ~/.hermes/skills/hermes-by-everythings
 ```
 
-**方式 2: Skills Hub（需先发布到 skills.sh 注册表）**
-```bash
-# 发布后可用
-hermes skills install ViewWay/hermes-by-everythings
-# 或在 agent 内
-/skills install ViewWay/hermes-by-everythings
-```
-
-验证：在 Hermes 中输入 `/hbe:plan 测试规划功能`
-
-### OpenClaw (ClawHub)
+### OpenClaw / OpenCode
 
 ```bash
-# 手动安装（立即可用）
+# OpenClaw
 cp -r hermes-by-everythings ~/.openclaw/skills/hermes-by-everythings
-
-# ClawHub Marketplace（需先发布）
-clawhub install skill hermes-by-everythings
-```
-
-### OpenCode
-
-```bash
+# OpenCode
 cp -r hermes-by-everythings ~/.opencode/skills/hermes-by-everythings
 ```
-
-### 发布到市场
-
-要让远程安装命令生效，需要完成以下步骤：
-
-| 市场 | 发布方式 | 文档 |
-|------|----------|------|
-| Claude Code Marketplace | `.claude-plugin/marketplace.json` + 推送到 GitHub | [docs](https://code.claude.com/docs) |
-| Hermes Skills Hub | 发布到 [skills.sh](https://skills.sh) 注册表 | [agentskills.io](https://agentskills.io) |
-| ClawHub | `clawhub publish` 命令 | [openclaw.ai](https://openclaw.ai/) |
-| SkillHub | 提交到 [agentskillshub.dev](https://agentskillshub.dev) | 官网注册 |
 
 ---
 
@@ -161,7 +173,7 @@ cp -r hermes-by-everythings ~/.opencode/skills/hermes-by-everythings
 | project-guidelines | 内嵌 | 项目特定规范 |
 | orchestration | /hbe:orchestrate | 多 Agent 编排 |
 
-### Commands（15 个快捷命令）
+### Commands（18 个快捷命令）
 
 | 命令 | 说明 |
 |------|------|
@@ -357,6 +369,7 @@ skill_view(name="hermes-by-everythings", file_path="references/agents/NAME.md")
 3. 按严重程度分级：Critical / Warning / Suggestion
 
 ### /hbe:security — 安全审查
+| `/hbe-scan` | 统一安全扫描 (SAST/SCA/密钥/复杂度) |
 
 1. 加载 references/agents/security-reviewer.md
 2. 检查 OWASP Top 10：注入、XSS、CSRF、SSRF、密钥泄露
