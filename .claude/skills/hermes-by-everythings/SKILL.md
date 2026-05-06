@@ -22,17 +22,18 @@ version: 3.3.0
 
 ## 安装
 
-HBE 包含 5 个组件，**全部安装才能获得完整功能**。推荐使用安装脚本：
+HBE 的 Commands/Rules/Hooks 需要部署到**你的项目中**，仅安装 Skill 会缺失 60% 功能。
 
 ```bash
-cd hermes-by-everythings
-bash scripts/install.sh        # 完整安装
-bash scripts/install.sh --link # 开发模式（软链接）
-bash scripts/install.sh --verify # 验证安装
-bash scripts/install.sh --uninstall # 卸载
-```
+# 部署到目标项目（推荐）
+bash scripts/install.sh --project ~/github/my-project
+bash scripts/install.sh --project ~/github/my-project --link  # 开发模式
+bash scripts/install.sh --project ~/github/my-project --verify # 验证
+bash scripts/install.sh --project ~/github/my-project --uninstall # 卸载
 
-> 仅复制 Skill 目录会缺失 Commands/Rules/Hooks，约 60% 功能不可用。
+# 全局安装（所有项目）
+bash scripts/install.sh --global
+```
 
 ## 快速开始
 

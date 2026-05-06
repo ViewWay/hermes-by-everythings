@@ -33,71 +33,83 @@ keywords:
 
 ```bash
 git clone https://github.com/ViewWay/hermes-by-everythings.git
-cd hermes-by-everythings
 ```
 
 ### Claude Code（推荐安装方式）
 
-HBE 包含 5 个组件，**全部安装才能获得完整功能**：
+HBE 的组件需要**部署到你的项目中**，而非仅安装 Skill 目录：
 
-| 组件 | 安装位置 | 作用 | 缺失影响 |
+| 组件 | 部署位置 | 作用 | 缺失影响 |
 |------|----------|------|----------|
-| Skill | `~/.claude/skills/` | 技能入口 + 关键词触发 | 自动触发失效 |
-| Commands | `~/.claude/commands/` | 18 个斜杠命令 | `/hbe-review` 等全部失效 |
-| Rules | `~/.claude/rules/` | 安全护栏规则 | 护栏检查失效 |
-| Hooks | `~/.hbe/scripts/hooks/` | 自动化钩子 | 自动化失效 |
-| Settings | `~/.claude/settings.json` | 钩子注册 | 钩子不触发 |
+| Skill | `~/.claude/skills/` | 全局技能入口 + 关键词触发 | 自动触发失效 |
+| Commands | **`项目/.claude/commands/`** | 18 个斜杠命令 | `/hbe-review` 等全部失效 |
+| Rules | **`项目/.claude/rules/`** | 安全护栏规则 | 护栏检查失效 |
+| Hooks | **`项目/scripts/hooks/`** | 自动化钩子 | 自动化失效 |
+| Settings | **`项目/.claude/settings.json`** | 钩子注册 | 钩子不触发 |
 
-**一键安装（推荐）**：
+> Claude Code 从**项目的** `.claude/` 目录发现 commands、rules 和 settings。
+> 仅复制 Skill 到 `~/.claude/skills/` 会缺失约 60% 功能。
+
+**一键部署（推荐）**：
 ```bash
+# 方式 1: 从 HBE 仓库部署到目标项目
 cd hermes-by-everythings
-bash scripts/install.sh
+bash scripts/install.sh --project ~/github/my-project
+
+# 方式 2: 在目标项目内运行
+cd ~/github/my-project
+bash ~/.claude/skills/hermes-by-everythings/scripts/install.sh --project .
 ```
 
-安装脚本会自动处理全部 5 个组件，包括备份现有配置。
+安装脚本会自动：
+1. 安装 Skill 到 `~/.claude/skills/`（全局，用于关键词触发）
+2. 部署 Commands/Rules/Hooks/Settings 到目标项目
 
 **开发模式（软链接，改动实时生效）**：
 ```bash
-bash scripts/install.sh --link
+bash scripts/install.sh --project ~/github/my-project --link
 ```
 
 **验证安装**：
 ```bash
-bash scripts/install.sh --verify
+bash scripts/install.sh --project ~/github/my-project --verify
 ```
 
 **卸载**：
 ```bash
-bash scripts/install.sh --uninstall
+bash scripts/install.sh --project ~/github/my-project --uninstall
 ```
 
-#### 手动安装（不推荐）
+**全局安装（所有项目，`--global`）**：
+```bash
+bash scripts/install.sh --global
+```
 
-如果不想用安装脚本，需要手动复制 5 个组件：
+#### 手动部署（不推荐）
 
 ```bash
-# 1. Skill
+TARGET=~/github/my-project
+
+# 1. Skill（全局，只需一次）
 cp -r .claude/skills/hermes-by-everythings ~/.claude/skills/
 
-# 2. Commands (18 个斜杠命令)
-mkdir -p ~/.claude/commands
-cp .claude/commands/hbe-*.md ~/.claude/commands/
+# 2. Commands → 项目
+mkdir -p $TARGET/.claude/commands
+cp .claude/commands/hbe-*.md $TARGET/.claude/commands/
 
-# 3. Rules (护栏规则)
-mkdir -p ~/.claude/rules
-cp .claude/rules/*.md ~/.claude/rules/
+# 3. Rules → 项目
+mkdir -p $TARGET/.claude/rules
+cp .claude/rules/*.md $TARGET/.claude/rules/
 
-# 4. Hook 脚本
-mkdir -p ~/.hbe/scripts/hooks
-cp -r scripts/hooks/* ~/.hbe/scripts/hooks/
-chmod +x ~/.hbe/scripts/hooks/*.sh 2>/dev/null || true
-[ -d scripts/lib ] && cp -r scripts/lib/* ~/.hbe/scripts/lib/
+# 4. Hooks → 项目（使用相对路径，Claude Code 以项目根为 CWD）
+mkdir -p $TARGET/scripts/hooks
+cp -r scripts/hooks/* $TARGET/scripts/hooks/
+chmod +x $TARGET/scripts/hooks/*.sh 2>/dev/null || true
+[ -d scripts/lib ] && mkdir -p $TARGET/scripts/lib && cp -r scripts/lib/* $TARGET/scripts/lib/
 
-# 5. 合并 Settings（将 settings.hbe.json 的 hooks 合并到你的 settings.json）
-# 见 scripts/install.sh 中的生成逻辑
+# 5. 合并 Settings → 项目
+# 将 .claude/settings.hbe.json 的 hooks 合并到 $TARGET/.claude/settings.json
 ```
-
-> **警告**：仅复制 Skill 目录会缺失约 60% 功能（Commands + Rules + Hooks）。
 
 ### Hermes Agent
 
