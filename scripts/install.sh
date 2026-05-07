@@ -165,7 +165,7 @@ do_install() {
     echo "╚═══════════════════════════════════════════════════════════╝"
     echo -e "${NC}"
 
-    [ ! -d "$HBE_CLAUDE/commands" ] && { echo -e "${RED}Error: HBE source not found at ${HBE_ROOT}${NC}"; exit 1; }
+    [ ! -d "$HBE_ROOT/commands" ] && { echo -e "${RED}Error: HBE source not found at ${HBE_ROOT}${NC}"; exit 1; }
     echo -e "${GREEN}✓${NC} HBE source: ${CYAN}${HBE_ROOT}${NC}"
 
     # --- 1. Skill ---
@@ -182,7 +182,7 @@ do_install() {
     echo -e "\n${BLUE}[2/4] Commands${NC}"
     mkdir -p "$USER_CLAUDE/commands"
     local cmd_count=0
-    for src in "$HBE_CLAUDE/commands/hbe-"*.md; do
+    for src in "$HBE_ROOT/commands/hbe-"*.md; do
         [ -f "$src" ] || continue
         ln -sf "$src" "$USER_CLAUDE/commands/$(basename "$src")"
         ((cmd_count++))
@@ -192,7 +192,7 @@ do_install() {
     # --- 3. Rules ---
     echo -e "\n${BLUE}[3/4] Rules${NC}"
     mkdir -p "$USER_CLAUDE/rules"
-    for src in "$HBE_CLAUDE/rules/"*.md; do
+    for src in "$HBE_ROOT/.claude/rules/"*.md; do
         [ -f "$src" ] || continue
         ln -sf "$src" "$USER_CLAUDE/rules/$(basename "$src")"
         echo -e "  ${GREEN}✓${NC} $(basename "$src")"
@@ -284,11 +284,11 @@ HBESETTINGS
     if [ -n "$TARGET" ]; then
         echo -e "\n${BLUE}[Optional] Project symlinks -> ${TARGET}/.claude/${NC}"
         mkdir -p "$TARGET/.claude/commands" "$TARGET/.claude/rules"
-        for src in "$HBE_CLAUDE/commands/hbe-"*.md; do
+        for src in "$HBE_ROOT/commands/hbe-"*.md; do
             [ -f "$src" ] || continue
             ln -sf "$src" "$TARGET/.claude/commands/$(basename "$src")"
         done
-        for src in "$HBE_CLAUDE/rules/"*.md; do
+        for src in "$HBE_ROOT/.claude/rules/"*.md; do
             [ -f "$src" ] || continue
             ln -sf "$src" "$TARGET/.claude/rules/$(basename "$src")"
         done
