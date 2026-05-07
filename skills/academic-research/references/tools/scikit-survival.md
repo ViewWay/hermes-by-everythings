@@ -159,7 +159,7 @@ plt.legend(); plt.title("Risk-Stratified KM Curves"); plt.savefig("risk_km.png",
 
 ## Integration with HBE
 
-- Use with `/hbe:plan` for designing survival analysis study protocols
+- Use with `/hbe-plan` for designing survival analysis study protocols
 - Pair with `references/tools/pandas.md` for EHR and clinical data wrangling
 - Combine with `references/tools/matplotlib.md` and `references/tools/seaborn.md` for publication-quality KM curves
 - See `references/tools/statsmodels.md` for complementary parametric survival models

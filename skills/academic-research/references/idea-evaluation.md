@@ -166,8 +166,8 @@ Different disciplines prioritize different evaluation dimensions. Adjust weights
 
 ## Integration with HBE / 与 HBE 集成
 
-1. Run `/hbe:academic idea-eval` before any new research project
-   在启动新研究项目前运行 `/hbe:academic idea-eval`
+1. Run `/hbe-academic idea-eval` before any new research project
+   在启动新研究项目前运行 `/hbe-academic idea-eval`
 2. If PROCEED → continue to `workflows/literature-review.md`
    如果通过 → 进入 `workflows/literature-review.md`
 3. If REJECT → use paradigm shift signals to pivot

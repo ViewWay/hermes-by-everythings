@@ -3,10 +3,10 @@ name: command-name
 description: 简短描述（一句话）
 version: 1.0.0
 status: active
-usage: /hbe:command-name [arguments]
+usage: /hbe-command-name [arguments]
 examples:
-  - /hbe:command-name example1
-  - /hbe:command-name example2
+  - /hbe-command-name example1
+  - /hbe-command-name example2
 ---
 
 # Command Name
@@ -16,7 +16,7 @@ examples:
 ## Usage
 
 ```
-/hbe:command-name [required-argument] [optional-argument]
+/hbe-command-name [required-argument] [optional-argument]
 ```
 
 ## Arguments
@@ -38,7 +38,7 @@ examples:
 ### Example 1: 基本使用
 
 ```
-/hbe:command-name "user authentication"
+/hbe-command-name "user authentication"
 ```
 
 **输出**:
@@ -49,7 +49,7 @@ examples:
 ### Example 2: 带选项
 
 ```
-/hbe:command-name "user authentication" --option1
+/hbe-command-name "user authentication" --option1
 ```
 
 **输出**:
@@ -65,7 +65,7 @@ examples:
 
 ## Related Commands
 
-- [`/hbe:related-command`](../commands/related-command.md)
+- [`/hbe-related-command`](../commands/related-command.md)
 
 ## See Also
 

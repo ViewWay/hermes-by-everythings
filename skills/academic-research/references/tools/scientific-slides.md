@@ -133,7 +133,7 @@ Slides must maximize the proportion of ink spent on data versus decoration.
 - Use within `workflows/paper-writing.md` when preparing a conference talk based on a submitted paper.
 - Pair with `references/tools/scientific-visualization.md` to ensure figures are optimized for projection.
 - Combine with `references/tools/venue-templates.md` to use conference-specific slide templates.
-- Use `/hbe:review` to get feedback on slide clarity, pacing, and narrative structure.
+- Use `/hbe-review` to get feedback on slide clarity, pacing, and narrative structure.
 
 ## Resources
 

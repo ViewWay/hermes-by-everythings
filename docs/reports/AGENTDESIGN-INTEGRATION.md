@@ -123,9 +123,9 @@ node scripts/agent-id-manager.js --cleanup 30
 ### Before: HBE v2.3（无编排）
 
 ```
-用户 → /hbe:plan → planner Agent → 输出计划
-用户 → /hbe:architect → architect Agent → 开发
-用户 → /hbe:review → code-reviewer Agent → 审查
+用户 → /hbe-plan → planner Agent → 输出计划
+用户 → /hbe-architect → architect Agent → 开发
+用户 → /hbe-review → code-reviewer Agent → 审查
 用户 → 手动传递反馈 → 修正 → 手动重新验证
 ```
 

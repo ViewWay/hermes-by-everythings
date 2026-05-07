@@ -31,16 +31,16 @@ Extract reusable patterns from coding sessions, auto-generate skills, maintain m
 
 ```bash
 # 提取本次会话的模式
-/hbe:learn
+/hbe-learn
 
 # 提取并验证
-/hbe:learn --validate
+/hbe-learn --validate
 
 # 强制提取（即使无明确模式）
-/hbe:learn --force
+/hbe-learn --force
 
 # 从历史记录提取
-/hbe:learn --from=logs/iteration-*.jsonl
+/hbe-learn --from=logs/iteration-*.jsonl
 ```
 
 ---
@@ -413,12 +413,12 @@ fi
 
 # 检查是否有错误修复
 if git diff HEAD~1 HEAD | grep -q "fix:"; then
-    /hbe:learn --type=error &
+    /hbe-learn --type=error &
 fi
 
 # 检查是否有新模式
 if git diff HEAD~1 HEAD | grep -q "feat:"; then
-    /hbe:learn --type=success &
+    /hbe-learn --type=success &
 fi
 ```
 
@@ -430,7 +430,7 @@ fi
 
 ```bash
 # 查看学习统计
-/hbe:learn --stats
+/hbe-learn --stats
 
 # 输出：
 # 学习统计：
@@ -451,7 +451,7 @@ fi
 
 ```bash
 # 查看最近学习
-/hbe:learn --recent
+/hbe-learn --recent
 
 # 输出：
 # 最近学习（过去 7 天）：
@@ -519,7 +519,7 @@ def build_knowledge_graph():
 
 ```bash
 # 如果学习流程失败
-if ! /hbe:learn; then
+if ! /hbe-learn; then
     # 1. 记录失败
     log_failure "learning failed"
 
@@ -527,7 +527,7 @@ if ! /hbe:learn; then
     save_session_dump()
 
     # 3. 尝试恢复
-    /hbe:learn --recover
+    /hbe-learn --recover
 
     # 4. 如果仍然失败，跳过本次学习
     if [ $? -ne 0 ]; then
@@ -541,7 +541,7 @@ fi
 
 ```bash
 # 如果错误学习了无效模式
-/hbe:learn --rollback [commit-hash]
+/hbe-learn --rollback [commit-hash]
 
 # 或手动回滚
 git revert [commit]
@@ -565,7 +565,7 @@ git revert [commit]
 # 场景：修复了 React useEffect 依赖问题
 
 # 1. 用户触发学习
-/hbe:learn
+/hbe-learn
 
 # 2. 系统分析会话
 # - 检测到错误修复

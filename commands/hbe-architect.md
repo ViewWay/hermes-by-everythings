@@ -1,14 +1,14 @@
 ---
 name: hbe-architect
 description: 系统架构设计 - 设计组件、数据流、API 契约
-trigger: /hbe:architect
+trigger: /hbe-architect
 keywords:
   - architecture
   - 架构设计
   - system design
 ---
 
-# /hbe:architect — 系统架构设计
+# /hbe-architect — 系统架构设计
 
 设计系统架构、组件职责和数据流。
 

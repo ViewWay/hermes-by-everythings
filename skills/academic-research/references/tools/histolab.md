@@ -189,7 +189,7 @@ print(f"Dataset: {len(os.listdir(output_root))} tiles total")
 
 ## Integration with HBE
 
-- Use with `/hbe:plan` for designing histopathology study protocols
+- Use with `/hbe-plan` for designing histopathology study protocols
 - Pair with `references/tools/pathml.md` for alternative WSI processing pipeline
 - Combine with `references/tools/tifffile.md` for reading WSI metadata and multi-resolution pyramids
 - See `references/tools/pillow.md` for custom image transformations and post-processing

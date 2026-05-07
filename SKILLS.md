@@ -49,13 +49,13 @@
 
 | 命令 | 功能 |
 |------|------|
-| `/hbe:plan` | 实现规划 |
-| `/hbe:tdd` | TDD 开发 |
-| `/hbe:review` | 代码审查 |
-| `/hbe:security` | 安全审查 |
-| `/hbe:refactor` | 重构清理 |
-| `/hbe:build-fix` | 构建修复 |
-| `/hbe:ralph` | 自主循环 |
+| `/hbe-plan` | 实现规划 |
+| `/hbe-tdd` | TDD 开发 |
+| `/hbe-review` | 代码审查 |
+| `/hbe-security` | 安全审查 |
+| `/hbe-refactor` | 重构清理 |
+| `/hbe-build-fix` | 构建修复 |
+| `/hbe-ralph` | 自主循环 |
 
 ## 📚 详细索引
 
@@ -65,5 +65,5 @@
 
 ---
 
-**提示**: 使用 `/hbe:plan` 查看完整功能列表
+**提示**: 使用 `/hbe-plan` 查看完整功能列表
 **文档**: 查看 `docs/reports/` 了解完整优化报告

@@ -193,13 +193,13 @@ triggers:
 **恢复命令**：
 ```bash
 # 自动恢复
-/hbe:resume
+/hbe-resume
 
 # 从指定阶段恢复
-/hbe:resume --stage=批次3
+/hbe-resume --stage=批次3
 
 # 查看所有可恢复的会话
-/hbe:resume --list
+/hbe-resume --list
 ```
 
 ---
@@ -427,7 +427,7 @@ async function executeInteractiveAgent(agent, task) {
 
 ```bash
 # 用户触发
-/hbe:refactor --interactive
+/hbe-refactor --interactive
 
 # Agent: 分析
 INFO: 正在分析代码库...
@@ -471,7 +471,7 @@ User: > pause
 → 已完成: 2/5 文件
 → 待处理: 3/5 文件
 → 状态保存: .interactive-state.json
-→ 恢复命令: /hbe:resume
+→ 恢复命令: /hbe-resume
 ```
 
 ---

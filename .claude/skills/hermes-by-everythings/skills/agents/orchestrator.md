@@ -7,7 +7,7 @@ description: |
   触发场景：
   - "编排多Agent开发流程"
   - "大型任务自动化执行"
-  - "/hbe:orchestrate" 命令触发
+  - "/hbe-orchestrate" 命令触发
   - 检测到 PRD 或复杂开发计划时
 
 tools: Read, Write, Edit, Bash, Agent, TaskCreate

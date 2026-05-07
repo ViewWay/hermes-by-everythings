@@ -169,7 +169,7 @@ curl -sO https://icml.cc/Conferences/2025/Style/icml2025.sty
 - Use within `workflows/paper-writing.md` to select the correct template at the start of a writing project.
 - Pair with `references/tools/scientific-writing.md` to ensure content quality matches formatting quality.
 - Combine with `references/tools/scientific-visualization.md` to ensure figures meet venue resolution requirements.
-- Use `/hbe:review` to check manuscript compliance with a specific venue's formatting rules.
+- Use `/hbe-review` to check manuscript compliance with a specific venue's formatting rules.
 
 ## Resources
 

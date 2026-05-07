@@ -36,30 +36,30 @@ bash scripts/install.sh --uninstall           # 卸载
 
 ```bash
 # 规划与设计
-/hbe:plan <需求>          # 实现规划
-/hbe:architect           # 架构设计
-/hbe:prd                 # 生成PRD
+/hbe-plan <需求>          # 实现规划
+/hbe-architect           # 架构设计
+/hbe-prd                 # 生成PRD
 
 # 开发流程
-/hbe:tdd                 # TDD开发
-/hbe:e2e                 # E2E测试
-/hbe:verify              # 五阶段验证
+/hbe-tdd                 # TDD开发
+/hbe-e2e                 # E2E测试
+/hbe-verify              # 五阶段验证
 
 # 代码质量
-/hbe:review              # 代码审查
-/hbe:security            # 安全审查
-/hbe:scan                # 统一安全扫描 (SAST/SCA/密钥/复杂度)
-/hbe:refactor            # 重构清理
+/hbe-review              # 代码审查
+/hbe-security            # 安全审查
+/hbe-scan                # 统一安全扫描 (SAST/SCA/密钥/复杂度)
+/hbe-refactor            # 重构清理
 
 # 自动化
-/hbe:orchestrate <类型>   # 多Agent编排
-/hbe:ralph               # Ralph自主循环
+/hbe-orchestrate <类型>   # 多Agent编排
+/hbe-ralph               # Ralph自主循环
 ```
 
 ## 何时使用
 
 **自动触发**（当检测到）:
-- 用户输入 `/hbe:xxx` 命令
+- 用户输入 `/hbe-xxx` 命令
 - 提到 "hbe", "hermes", "ralph"
 - 需要 "code review", "tdd", "autonomous coding"
 
@@ -107,45 +107,45 @@ bash scripts/install.sh --uninstall           # 卸载
 
 ```bash
 # 1. 规划
-/hbe:plan 实现用户认证功能
+/hbe-plan 实现用户认证功能
 
 # 2. 架构设计
-/hbe:architect
+/hbe-architect
 
 # 3. TDD开发
-/hbe:tdd
+/hbe-tdd
 
 # 4. 代码审查
-/hbe:review
+/hbe-review
 
 # 5. 安全审查
-/hbe:security
+/hbe-security
 
 # 或使用编排一次性完成
-/hbe:orchestrate feature
+/hbe-orchestrate feature
 ```
 
 ### Bug修复
 
 ```bash
 # 1. 修复构建
-/hbe:build-fix
+/hbe-build-fix
 
 # 2. TDD验证
-/hbe:tdd
+/hbe-tdd
 
 # 3. 审查
-/hbe:review
+/hbe-review
 ```
 
 ### 自主开发
 
 ```bash
 # 1. 生成PRD
-/hbe:prd
+/hbe-prd
 
 # 2. Ralph循环
-/hbe:ralph
+/hbe-ralph
 
 # Ralph会自动：
 # - 读取prd.json
@@ -256,4 +256,4 @@ memory/            ← 学习记忆
 
 **欢迎使用 Hermes-by-Everything's！**
 
-开始使用: `/hbe:review` 或 `/hbe:plan`
+开始使用: `/hbe-review` 或 `/hbe-plan`

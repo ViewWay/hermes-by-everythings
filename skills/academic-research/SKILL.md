@@ -77,15 +77,15 @@ Cross-disciplinary end-to-end academic research pipeline: from idea evaluation t
 - User mentions writing a paper, thesis, or academic document / 用户提到写论文、学位论文或学术文档
 - User asks about LaTeX formatting, compilation, or journal templates / 用户询问 LaTeX 排版、编译或期刊模板
 - User requests literature review or citation management / 用户请求文献综述或引文管理
-- User triggers `/hbe:academic` command / 用户触发 `/hbe:academic` 命令
+- User triggers `/hbe-academic` command / 用户触发 `/hbe-academic` 命令
 - User mentions keywords: paper, thesis, latex, bibtex, conference, journal, arxiv, databases, integrity, benchmark, reproduce, vibe, causal, 论文, 学术, 文献综述, 期刊, 开题, rebuttal, 复现, 基准, 研究诚信, 数据库, AI协作
 
 ## Architecture Overview / 架构概览
 
 ```
 ┌───────────────────────────────────────────────────────┐
-│               /hbe:academic Command (22 sub-cmds)     │
-│               /hbe:academic 命令 (22 个子命令)         │
+│               /hbe-academic Command (22 sub-cmds)     │
+│               /hbe-academic 命令 (22 个子命令)         │
 ├───────────────────────────────────────────────────────┤
 │                                                       │
 │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ │
@@ -150,7 +150,7 @@ Outputs / 输出: compilers (pdflatex/xelatex/lualatex/latexmk), bibliography to
 
 ### 2. `lit-review` — Literature Review / 文献综述
 
-**Trigger / 触发**: `/hbe:academic lit-review --topic "..."`
+**Trigger / 触发**: `/hbe-academic lit-review --topic "..."`
 
 **Workflow / 工作流** (see `workflows/literature-review.md`):
 1. Seed paper identification via arXiv API + Semantic Scholar / 通过 arXiv API + Semantic Scholar 确定种子论文
@@ -169,7 +169,7 @@ Outputs / 输出: compilers (pdflatex/xelatex/lualatex/latexmk), bibliography to
 
 ### 3. `paper` — Paper Writing / 论文写作
 
-**Trigger / 触发**: `/hbe:academic paper --venue <venue>`
+**Trigger / 触发**: `/hbe-academic paper --venue <venue>`
 
 **Workflow / 工作流** (see `workflows/paper-writing.md`):
 1. Select template from `templates/<venue>/` / 从模板目录选择目标会议模板
@@ -190,7 +190,7 @@ Outputs / 输出: compilers (pdflatex/xelatex/lualatex/latexmk), bibliography to
 
 ### 4. `experiment` — Experiment Design / 实验设计
 
-**Trigger / 触发**: `/hbe:academic experiment`
+**Trigger / 触发**: `/hbe-academic experiment`
 
 **Workflow / 工作流** (see `workflows/experiment-design.md`):
 1. Claims-to-experiments mapping / 论点到实验的映射
@@ -204,7 +204,7 @@ Outputs / 输出: compilers (pdflatex/xelatex/lualatex/latexmk), bibliography to
 
 ### 5. `rebuttal` — Rebuttal Writing / Rebuttal 写作
 
-**Trigger / 触发**: `/hbe:academic rebuttal`
+**Trigger / 触发**: `/hbe-academic rebuttal`
 
 **Workflow / 工作流** (see `workflows/rebuttal.md`):
 1. Parse reviewer comments into structured items / 将审稿意见解析为结构化条目
@@ -217,7 +217,7 @@ Outputs / 输出: compilers (pdflatex/xelatex/lualatex/latexmk), bibliography to
 
 ### 6. `compile` — LaTeX Compilation / LaTeX 编译
 
-**Trigger / 触发**: `/hbe:academic compile <file.tex>`
+**Trigger / 触发**: `/hbe-academic compile <file.tex>`
 
 **Engine Selection Logic / 引擎选择逻辑**:
 ```
@@ -238,7 +238,7 @@ Auto-runs / 自动执行: multiple passes + bibliography + cross-reference resol
 
 ### 7. `idea-eval` — Idea Evaluation / 构思评估
 
-**Trigger / 触发**: `/hbe:academic idea-eval`
+**Trigger / 触发**: `/hbe-academic idea-eval`
 
 Evaluate research ideas using a four-layer audit (fatal flaws → lifecycle matching → five-dimension scoring → paradigm shift detection). 
 使用四层审计评估研究构思（致命缺陷 → 生命周期匹配 → 五维打分 → 范式跃迁探测）。
@@ -250,7 +250,7 @@ Evaluate research ideas using a four-layer audit (fatal flaws → lifecycle matc
 
 ### 8. `figure-design` — Figure Design Advisor / 图表设计顾问
 
-**Trigger / 触发**: `/hbe:academic figure-design`
+**Trigger / 触发**: `/hbe-academic figure-design`
 
 Design guidance for three load-bearing figures: Motivated Example, Solution Overview, Experimental Results. 
 三张承重图设计指导：动机示例图、方案总览图、实验结果图。
@@ -262,7 +262,7 @@ Design guidance for three load-bearing figures: Motivated Example, Solution Over
 
 ### 9. `de-aigc` — De-AIGC Review / 降 AIGC 审查
 
-**Trigger / 触发**: `/hbe:academic de-aigc`
+**Trigger / 触发**: `/hbe-academic de-aigc`
 
 Five-dimension assessment and rewrite guidance to reduce AI detection rates in academic writing (Chinese and English). 
 五维度评估和改写指导，降低学术论文 AI 检测率（中英文）。
@@ -274,7 +274,7 @@ Five-dimension assessment and rewrite guidance to reduce AI detection rates in a
 
 ### 10. `causal` — Causal Inference / 因果推断
 
-**Trigger / 触发**: `/hbe:academic causal`
+**Trigger / 触发**: `/hbe-academic causal`
 
 Causal inference method selection and analysis pipeline (DID/IV/RDD/PSM/SCM/DML). Integrates with StatsPAI (900+ functions). 
 因果推断方法选择和分析流水线（DID/IV/RDD/PSM/SCM/DML）。集 StatsPAI（900+ 函数）。
@@ -286,7 +286,7 @@ Causal inference method selection and analysis pipeline (DID/IV/RDD/PSM/SCM/DML)
 
 ### 11. `template` — Template Management / 模板管理
 
-**Trigger / 触发**: `/hbe:academic template <venue>`
+**Trigger / 触发**: `/hbe-academic template <venue>`
 
 Copies the appropriate template to the working directory / 将对应模板复制到工作目录。
 
@@ -311,7 +311,7 @@ Copies the appropriate template to the working directory / 将对应模板复制
 
 ### 12. `databases` — Scientific Database Search / 科学数据库检索
 
-**Trigger / 触发**: `/hbe:academic databases`
+**Trigger / 触发**: `/hbe-academic databases`
 
 Unified search across 28+ scientific databases via MCP servers (arXiv, PubMed, OpenAlex, Semantic Scholar, FRED, ADS, etc.). Discipline-specific search strategies for CS, Medicine, Social Science, Physics, Economics.
 通过 MCP 服务器统一检索 28+ 科学数据库。按学科定制搜索策略。
@@ -321,7 +321,7 @@ Unified search across 28+ scientific databases via MCP servers (arXiv, PubMed, O
 
 ### 13. `integrity` — Research Integrity Check / 研究诚信检查
 
-**Trigger / 触发**: `/hbe:academic integrity`
+**Trigger / 触发**: `/hbe-academic integrity`
 
 Four-layer verification: citation integrity (5-step), fact-checking protocol, methodology audit, cross-discipline compliance. Includes hallucination detection and plagiarism prevention.
 四层验证：引文诚信、事实核查、方法论审计、跨学科合规。含幻觉检测和抄袭预防。
@@ -331,7 +331,7 @@ Four-layer verification: citation integrity (5-step), fact-checking protocol, me
 
 ### 14. `pre-submit` — Pre-Submission Review / 投前五维审查
 
-**Trigger / 触发**: `/hbe:academic pre-submit`
+**Trigger / 触发**: `/hbe-academic pre-submit`
 
 Five-dimension pre-submission quality review: Contribution, Technical Soundness, Writing, Experimental Rigor, Ethics. Scoring rubric (1-5 per dimension, ≥3.5 average to pass).
 五维度投前质量审查：贡献、技术可靠性、写作、实验严谨性、伦理。每维度1-5分，均分≥3.5通过。
@@ -341,7 +341,7 @@ Five-dimension pre-submission quality review: Contribution, Technical Soundness,
 
 ### 15. `benchmark` — Benchmark Paper Writing / 基准论文写作
 
-**Trigger / 触发**: `/hbe:academic benchmark`
+**Trigger / 触发**: `/hbe-academic benchmark`
 
 Six-stage benchmark paper workflow: Scope → Data Collection → Metric Design → Baseline Selection → Analysis Framework → Writing.
 六阶段基准论文工作流：范围→数据收集→指标设计→基线选择→分析框架→写作。
@@ -351,7 +351,7 @@ Six-stage benchmark paper workflow: Scope → Data Collection → Metric Design 
 
 ### 16. `reproduce` — Paper Reproduction / 论文复现
 
-**Trigger / 触发**: `/hbe:academic reproduce`
+**Trigger / 触发**: `/hbe-academic reproduce`
 
 Six-phase reproduction: Paper Parsing → Implementation → Component Testing → Debugging → Sensitivity Analysis → Documentation.
 六阶段复现：论文解析→实现→组件测试→调试→敏感性分析→文档化。
@@ -361,7 +361,7 @@ Six-phase reproduction: Paper Parsing → Implementation → Component Testing �
 
 ### 17. `vibe` — AI Collaboration Rules / AI 协作研究
 
-**Trigger / 触发**: `/hbe:academic vibe`
+**Trigger / 触发**: `/hbe-academic vibe`
 
 Human-AI collaboration best practices: Vibe Coding (specify→verify→test), Vibe Writing (outline→expand→rewrite→polish), Vibe Figures (design→render→review).
 人机协作最佳实践：Vibe Coding、Vibe Writing、Vibe Figures。含协作光谱和反模式。
@@ -370,7 +370,7 @@ Human-AI collaboration best practices: Vibe Coding (specify→verify→test), Vi
 **Reference / 参考**: `references/vibe-research-workflow.md`
 ### 18. `deep-read` — Deep Paper Reading / 论文精读
 
-**Trigger / 触发**: `/hbe:academic deep-read`
+**Trigger / 触发**: `/hbe-academic deep-read`
 
 Four-pass systematic single-paper analysis: Bird's Eye (5 min) → Structural Decomposition (30-60 min) → Critical Analysis (60-120 min) → Internalization (30-60 min). Includes assumption audit, claim-evidence gap analysis, and one-page summary template.
 四遍系统化单篇论文分析：全景扫描→结构拆解→批判分析→内化吸收。含假设审计、论点-证据差距分析、一页纸总结模板。
@@ -380,7 +380,7 @@ Four-pass systematic single-paper analysis: Bird's Eye (5 min) → Structural De
 
 ### 19. `data` — Research Data Processing / 研究数据处理
 
-**Trigger / 触发**: `/hbe:academic data`
+**Trigger / 触发**: `/hbe-academic data`
 
 Seven-stage data pipeline: Acquisition → Audit → Cleaning → Feature Engineering → EDA → Splitting & Versioning → Readiness Check. Cross-discipline patterns for CS, Medicine, Social Science, Economics, Physics.
 七阶段数据流水线：获取→审计→清洗→特征工程→探索分析→划分与版本管理→就绪检查。覆盖CS、医学、社科、经济、物理。
@@ -390,7 +390,7 @@ Seven-stage data pipeline: Acquisition → Audit → Cleaning → Feature Engine
 
 ### 20. `tools` — Tool Registry & Recommendation / 工具注册与推荐
 
-**Trigger / 触发**: `/hbe:academic tools`
+**Trigger / 触发**: `/hbe-academic tools`
 
 Curated scientific tool recommendations mapped to research stages and disciplines. Decision tree for tool selection: data acquisition → processing → EDA → modeling → visualization → writing. Covers 60+ tools across CS, biology, chemistry, medicine, physics, economics, social science.
 精选科研工具推荐，按研究阶段和学科映射。工具选择决策树：数据获取→处理→探索→建模→可视化→写作。覆盖 60+ 工具。
@@ -400,7 +400,7 @@ Curated scientific tool recommendations mapped to research stages and discipline
 
 ### 21. `hypothesis` — Hypothesis Generation & Critical Thinking / 假设生成与批判性思维
 
-**Trigger / 触发**: `/hbe:academic hypothesis`
+**Trigger / 触发**: `/hbe-academic hypothesis`
 
 Structured hypothesis generation from research gaps: identify assumptions, formulate testable hypotheses (H1, H2, H3), design falsification criteria, and evaluate hypothesis strength. Applies scientific critical thinking framework to avoid common reasoning fallacies.
 从研究空白出发的结构化假设生成：识别假设、形成可检验假说、设计证伪标准、评估假设强度。应用科学批判性思维框架避免常见推理谬误。
@@ -410,7 +410,7 @@ Structured hypothesis generation from research gaps: identify assumptions, formu
 
 ### 22. `stat-analysis` — Statistical Analysis / 统计分析
 
-**Trigger / 触发**: `/hbe:academic stat-analysis`
+**Trigger / 触发**: `/hbe-academic stat-analysis`
 
 Statistical analysis method selection and execution: hypothesis testing, effect sizes, confidence intervals, multiple comparison correction, power analysis. Integrates Python (scipy/statsmodels), R, and Stata tool recommendations.
 统计分析方法选择与执行：假设检验、效应量、置信区间、多重比较校正、功效分析。集成 Python/R/Stata 工具推荐。
@@ -420,7 +420,7 @@ Statistical analysis method selection and execution: hypothesis testing, effect 
 
 ### 23. `tool-deep` — Per-Package Deep Dive / 单包深度指南
 
-**Trigger / 触发**: `/hbe:academic tool-deep <package-name>`
+**Trigger / 触发**: `/hbe-academic tool-deep <package-name>`
 
 In-depth usage guide for a specific research package: installation, core APIs, academic workflows, best practices, common pitfalls, and integration with the HBE pipeline. Covers 140+ packages across CS/ML, Biology, Chemistry, Physics, Engineering, Social Science, and more.
 单个研究包的深度使用指南：安装、核心 API、学术工作流、最佳实践、常见陷阱、与 HBE 流水线的集成。覆盖 140+ 跨学科包。

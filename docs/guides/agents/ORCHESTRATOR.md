@@ -1,7 +1,7 @@
 # Orchestrator Agent 使用教程
 
 > **版本**: 3.2.0  
-> **触发命令**: `/hbe:orchestrate`  
+> **触发命令**: `/hbe-orchestrate`  
 > **用途**: 多Agent编排
 
 ---
@@ -13,7 +13,7 @@
 ## 快速开始
 
 ```
-/hbe:orchestrate 根据 prd.json 开发用户管理API
+/hbe-orchestrate 根据 prd.json 开发用户管理API
 ```
 
 ## 功能

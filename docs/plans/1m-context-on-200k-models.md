@@ -208,7 +208,7 @@ class ContextManager:
 - [ ] 长上下文评估
 
 **Phase 4: HBE 集成（1-2 周）**
-- [ ] 添加 `/hbe:compress` 命令
+- [ ] 添加 `/hbe-compress` 命令
 - [ ] 集成到现有 workflow
 - [ ] 文档和示例
 - [ ] 用户指南

@@ -1,14 +1,14 @@
 ---
 name: hbe-refactor
 description: 重构清理 - 检测并移除死代码
-trigger: /hbe:refactor
+trigger: /hbe-refactor
 keywords:
   - refactor
   - 重构
   - dead code removal
 ---
 
-# /hbe:refactor — 重构清理
+# /hbe-refactor — 重构清理
 
 检测并安全移除死代码。
 

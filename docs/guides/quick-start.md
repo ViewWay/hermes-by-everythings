@@ -41,7 +41,7 @@ bash install.sh
 在 Claude Code 中输入：
 
 ```
-/hbe:verify --system
+/hbe-verify --system
 ```
 
 应该看到：
@@ -60,7 +60,7 @@ bash install.sh
 ### 1. 创建一个简单的计划
 
 ```
-/hbe:plan 实现用户登录功能
+/hbe-plan 实现用户登录功能
 ```
 
 HBE 将：
@@ -72,7 +72,7 @@ HBE 将：
 ### 2. 使用 TDD 开发
 
 ```
-/hbe:tdd 实现用户认证
+/hbe-tdd 实现用户认证
 ```
 
 HBE 将：
@@ -83,7 +83,7 @@ HBE 将：
 ### 3. 代码审查
 
 ```
-/hbe:review
+/hbe-review
 ```
 
 HBE 将：
@@ -97,25 +97,25 @@ HBE 将：
 
 ```bash
 # 多Agent编排（推荐用于复杂项目）
-/hbe:orchestrate [项目描述]
+/hbe-orchestrate [项目描述]
 
 # 规划功能
-/hbe:plan [功能描述]
+/hbe-plan [功能描述]
 
 # TDD 开发
-/hbe:tdd [功能描述]
+/hbe-tdd [功能描述]
 
 # 代码审查
-/hbe:review
+/hbe-review
 
 # 安全审查
-/hbe:security
+/hbe-security
 
 # 五阶段验证
-/hbe:verify
+/hbe-verify
 
 # Ralph 自主循环
-/hbe:ralph
+/hbe-ralph
 ```
 
 ---

@@ -131,7 +131,7 @@ plt.imshow(data, cmap="viridis")
 - Use within `workflows/paper-writing.md` when preparing figures for manuscript submission.
 - Pair with `references/tools/matplotlib.md` and `references/tools/seaborn.md` for implementation details.
 - Combine with `references/tools/scientific-writing.md` to ensure figures and text are consistent in quality.
-- Use `/hbe:review` to have Claude check figure labels, color choices, and journal compliance.
+- Use `/hbe-review` to have Claude check figure labels, color choices, and journal compliance.
 
 ## Resources
 

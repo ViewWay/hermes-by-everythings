@@ -56,5 +56,5 @@ git diff --stat origin/main...HEAD
 ## 在 HBE 流程中的集成
 
 这些 Hook 检查内置在通用执行流程的 Step 4 中。
-调用 /hbe:verify 时会完整运行所有 Hook 检查。
+调用 /hbe-verify 时会完整运行所有 Hook 检查。
 调用单个 Agent 命令时，只运行相关的 Hook。

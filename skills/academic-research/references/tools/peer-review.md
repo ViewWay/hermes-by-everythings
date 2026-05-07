@@ -158,7 +158,7 @@ When responding to reviews, follow the "ABC" approach:
 - Use within `workflows/paper-writing.md` for the revision cycle after receiving reviews.
 - Pair with `references/tools/scientific-writing.md` to ensure revisions maintain writing quality.
 - Combine with `references/tools/scientific-visualization.md` when adding new figures in response to reviewer requests.
-- Use `/hbe:review` to have Claude simulate a peer review of your manuscript before submission.
+- Use `/hbe-review` to have Claude simulate a peer review of your manuscript before submission.
 
 ## Resources
 

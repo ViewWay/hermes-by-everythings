@@ -41,7 +41,7 @@ ln -s $(pwd)/hermes-by-everythings ~/.claude/skills/hermes-by-everythings
 在 Claude Code 中输入：
 
 ```
-/hbe:verify --system
+/hbe-verify --system
 ```
 
 预期输出：

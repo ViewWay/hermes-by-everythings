@@ -1,14 +1,14 @@
 ---
 name: hbe-orchestrate
 description: 多 Agent 编排 - 全流程自动化开发
-trigger: /hbe:orchestrate
+trigger: /hbe-orchestrate
 keywords:
   - orchestrate
   - 多Agent编排
   - workflow
 ---
 
-# /hbe:orchestrate — 多 Agent 编排
+# /hbe-orchestrate — 多 Agent 编排
 
 运行完整的开发流水线。
 

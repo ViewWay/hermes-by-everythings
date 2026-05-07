@@ -162,7 +162,7 @@ adata.write_h5ad("cross_tissue_atlas.h5ad")
 
 ## Integration with HBE
 
-- Use with `/hbe:plan` for designing single-cell study designs with atlas-level data
+- Use with `/hbe-plan` for designing single-cell study designs with atlas-level data
 - Pair with `references/tools/scanpy.md` for downstream analysis and visualization
 - Combine with `references/tools/scirpy.md` for paired TCR/BCR analysis
 - See `references/tools/anndata.md` for data structure management

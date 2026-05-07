@@ -49,9 +49,9 @@
   本月: 127
 
   命令使用排行:
-    /hbe:review           ██████████ 45
-    /hbe:tdd              ███████   32
-    /hbe:refactor         ████       18
+    /hbe-review           ██████████ 45
+    /hbe-tdd              ███████   32
+    /hbe-refactor         ████       18
 
 💰 成本分析
 ──────────────────────────────────────────────────────────────────
@@ -127,12 +127,12 @@ node scripts/dashboard/dashboard.js timeline
   Tab        → auto-complete (自动补全)
 
 命令别名:
-  /hbe:r      → /hbe:review
-  /hbe:t      → /hbe:tdd
-  /hbe:rf     → /hbe:refactor
-  /hbe:sec    → /hbe:security
-  /hbe:arch   → /hbe:architect
-  /hbe:plan   → /hbe:plan
+  /hbe:r      → /hbe-review
+  /hbe:t      → /hbe-tdd
+  /hbe:rf     → /hbe-refactor
+  /hbe:sec    → /hbe-security
+  /hbe:arch   → /hbe-architect
+  /hbe-plan   → /hbe-plan
 ```
 
 **使用方法**:

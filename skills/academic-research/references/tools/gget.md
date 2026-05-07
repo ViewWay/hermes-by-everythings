@@ -162,7 +162,7 @@ for pathway in enrichment[:5]:
 
 ## Integration with HBE
 
-- Use with `/hbe:plan` for designing genomics study protocols
+- Use with `/hbe-plan` for designing genomics study protocols
 - Pair with `references/tools/biopython.md` for advanced sequence manipulation (reverse complement, ORF finding)
 - Combine with `references/tools/pandas.md` for organizing gene annotation tables
 - See `references/tools/scanpy.md` for combining gene annotations with single-cell expression data

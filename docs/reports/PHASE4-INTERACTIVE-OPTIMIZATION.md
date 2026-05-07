@@ -130,7 +130,7 @@ help           - 显示可用指令
 
 ```bash
 # 场景 1: TDD 开发
-用户: /hbe:tdd
+用户: /hbe-tdd
 
 旧方案:
 1. 加载 SKILL.md (15K tokens)
@@ -243,7 +243,7 @@ x01-ralph-loop, x02-orchestrate, x03-continuous-learning
 
 ```bash
 # 用户触发
-/hbe:refactor --interactive
+/hbe-refactor --interactive
 
 # Agent: 分析
 INFO: 正在分析代码库...
@@ -276,14 +276,14 @@ User: > pause
 # Agent: 暂停
 ⚠ 执行已暂停
 → 状态保存: .interactive-state.json
-→ 恢复命令: /hbe:resume
+→ 恢复命令: /hbe-resume
 ```
 
 ### 示例 2: 问答式架构设计
 
 ```bash
 # 用户触发
-/hbe:architect
+/hbe-architect
 
 # Agent: 收集需求
 Agent: 我需要了解这个新功能的几个关键信息：

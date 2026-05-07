@@ -179,7 +179,7 @@ ALWAYS_KEEP = [
 ### 场景 1: TDD 开发
 
 ```bash
-# 用户: /hbe:tdd
+# 用户: /hbe-tdd
 
 # 1. 加载 SKILL-INDEX (2K tokens)
 # → 找到 c01-tdd-workflow
@@ -220,7 +220,7 @@ ALWAYS_KEEP = [
 
 ```bash
 # 查看当前会话 token 使用
-/hbe:stats
+/hbe-stats
 
 # 输出:
 # Token 使用统计:
@@ -268,20 +268,20 @@ Avg load time: 0.3s vs 1.2s (cold load)
 
 ```bash
 # 清除缓存
-/hbe:cache --clear
+/hbe-cache --clear
 
 # 重建索引
-/hbe:rebuild-index
+/hbe-rebuild-index
 ```
 
 ### 加载失败
 
 ```bash
 # 诊断问题
-/hbe:diagnose --load
+/hbe-diagnose --load
 
 # 降级到完整加载
-/hbe:workaround --use-full-skill
+/hbe-workaround --use-full-skill
 ```
 
 ---

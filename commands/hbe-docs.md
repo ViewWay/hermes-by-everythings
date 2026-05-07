@@ -1,14 +1,14 @@
 ---
 name: hbe-docs
 description: 文档更新 - 同步文档与代码
-trigger: /hbe:docs
+trigger: /hbe-docs
 keywords:
   - documentation
   - 文档更新
   - codemap
 ---
 
-# /hbe:docs — 文档更新
+# /hbe-docs — 文档更新
 
 自动更新文档以保持与代码同步。
 

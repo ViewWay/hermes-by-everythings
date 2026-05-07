@@ -67,7 +67,7 @@ HBE v3.3.0
 │   ├── Domain (19)      → python-patterns, rust-patterns, golang-patterns...
 │   └── Specialized      → academic-research, frontend-design-ultimate, diagram...
 ├── Commands (17)        → User-invoked slash commands
-│   └── /hbe:plan, /hbe:review, /hbe:tdd, /hbe:ralph...
+│   └── /hbe-plan, /hbe-review, /hbe-tdd, /hbe-ralph...
 ├── Hooks (42+)          → Trigger-based automation
 │   ├── Session (2)      → SessionStart, SessionEnd
 │   ├── Tool (3)         → PreToolUse, PostToolUse (Edit|Write, Bash)
@@ -284,23 +284,23 @@ hermes-by-everythings/
 
 | # | Command | Purpose | Key Features |
 |---|---|---|---|
-| 1 | `/hbe:plan` | Implementation planning | Risk assessment, phased breakdown |
-| 2 | `/hbe:architect` | Architecture design | Component diagrams, ADR |
-| 3 | `/hbe:tdd` | TDD development | Red-Green-Refactor cycle |
-| 4 | `/hbe:review` | Code review | Multi-language, quality metrics |
-| 5 | `/hbe:security` | Security audit | OWASP Top 10, dependency check |
-| 6 | `/hbe:build-fix` | Build error resolution | Auto-diagnosis, fix suggestions |
-| 7 | `/hbe:e2e` | E2E testing | Full-stack test execution |
-| 8 | `/hbe:refactor` | Refactoring | Dead code removal, restructuring |
-| 9 | `/hbe:docs` | Documentation | Auto-sync, template generation |
-| 10 | `/hbe:prd` | PRD generation | Requirements extraction |
-| 11 | `/hbe:verify` | 5-stage verification | Full verification cycle |
-| 12 | `/hbe:orchestrate` | Multi-agent orchestration | Batch processing, quality closure |
-| 13 | `/hbe:ralph` | Autonomous loop | prd.json-driven execution |
-| 14 | `/hbe:checkpoint` | Progress snapshot | Save/restore progress |
-| 15 | `/hbe:learn` | Pattern learning | Extract reusable patterns |
-| 16 | `/hbe:eval` | Evaluation-driven | Capability assessment |
-| 17 | `/hbe:academic` | Academic research | 23 sub-commands |
+| 1 | `/hbe-plan` | Implementation planning | Risk assessment, phased breakdown |
+| 2 | `/hbe-architect` | Architecture design | Component diagrams, ADR |
+| 3 | `/hbe-tdd` | TDD development | Red-Green-Refactor cycle |
+| 4 | `/hbe-review` | Code review | Multi-language, quality metrics |
+| 5 | `/hbe-security` | Security audit | OWASP Top 10, dependency check |
+| 6 | `/hbe-build-fix` | Build error resolution | Auto-diagnosis, fix suggestions |
+| 7 | `/hbe-e2e` | E2E testing | Full-stack test execution |
+| 8 | `/hbe-refactor` | Refactoring | Dead code removal, restructuring |
+| 9 | `/hbe-docs` | Documentation | Auto-sync, template generation |
+| 10 | `/hbe-prd` | PRD generation | Requirements extraction |
+| 11 | `/hbe-verify` | 5-stage verification | Full verification cycle |
+| 12 | `/hbe-orchestrate` | Multi-agent orchestration | Batch processing, quality closure |
+| 13 | `/hbe-ralph` | Autonomous loop | prd.json-driven execution |
+| 14 | `/hbe-checkpoint` | Progress snapshot | Save/restore progress |
+| 15 | `/hbe-learn` | Pattern learning | Extract reusable patterns |
+| 16 | `/hbe-eval` | Evaluation-driven | Capability assessment |
+| 17 | `/hbe-academic` | Academic research | 23 sub-commands |
 
 ### 3.4 Hook Requirements
 
@@ -431,14 +431,14 @@ A self-contained skill with 23 sub-commands, 150 tool references, 20 methodology
 All commands follow the pattern `/hbe:<name>` with optional arguments:
 
 ```
-/hbe:plan <description>        # Create implementation plan
-/hbe:review [path]             # Review code at path
-/hbe:tdd <feature>             # Start TDD cycle
-/hbe:ralph                     # Start autonomous loop
-/hbe:orchestrate <task>        # Multi-agent orchestration
-/hbe:learn                     # Extract patterns from session
-/hbe:checkpoint                # Save current progress
-/hbe:verify                    # Run 5-stage verification
+/hbe-plan <description>        # Create implementation plan
+/hbe-review [path]             # Review code at path
+/hbe-tdd <feature>             # Start TDD cycle
+/hbe-ralph                     # Start autonomous loop
+/hbe-orchestrate <task>        # Multi-agent orchestration
+/hbe-learn                     # Extract patterns from session
+/hbe-checkpoint                # Save current progress
+/hbe-verify                    # Run 5-stage verification
 ```
 
 ### 5.2 Hook Interface
@@ -551,7 +551,7 @@ ln -s $(pwd)/skills/academic-research ~/.claude/skills/academic-research
 ### Verification
 
 ```
-You (in Claude Code): /hbe:verify --system
+You (in Claude Code): /hbe-verify --system
 
 Output:
 ✓ 37 agents loaded
@@ -573,7 +573,7 @@ You: I need to implement user authentication for my Express app.
 Claude: [Auto-triggers HBE via "implement" keyword]
 I'll help you implement authentication. Let me plan this out.
 
-[Loads /hbe:plan automatically]
+[Loads /hbe-plan automatically]
 
 ## Implementation Plan
 Phase 1: Setup JWT middleware
@@ -592,48 +592,48 @@ Shall I proceed?
 
 | Command | Purpose | Example |
 |---|---|---|
-| `/hbe:plan` | Create phased implementation plan | `/hbe:plan add OAuth2 login` |
-| `/hbe:architect` | Design system architecture | `/hbe:architect microservices auth` |
-| `/hbe:prd` | Generate PRD from requirements | `/hbe:prd user management system` |
+| `/hbe-plan` | Create phased implementation plan | `/hbe-plan add OAuth2 login` |
+| `/hbe-architect` | Design system architecture | `/hbe-architect microservices auth` |
+| `/hbe-prd` | Generate PRD from requirements | `/hbe-prd user management system` |
 
 ### Development
 
 | Command | Purpose | Example |
 |---|---|---|
-| `/hbe:tdd` | Test-driven development cycle | `/hbe:tdd password validator` |
-| `/hbe:review` | Code quality review | `/hbe:review src/auth/` |
-| `/hbe:security` | Security vulnerability audit | `/hbe:security` |
-| `/hbe:refactor` | Code restructuring | `/hbe:refactor remove dead code` |
+| `/hbe-tdd` | Test-driven development cycle | `/hbe-tdd password validator` |
+| `/hbe-review` | Code quality review | `/hbe-review src/auth/` |
+| `/hbe-security` | Security vulnerability audit | `/hbe-security` |
+| `/hbe-refactor` | Code restructuring | `/hbe-refactor remove dead code` |
 
 ### Testing & Verification
 
 | Command | Purpose | Example |
 |---|---|---|
-| `/hbe:e2e` | End-to-end testing | `/hbe:e2e login flow` |
-| `/hbe:verify` | 5-stage verification cycle | `/hbe:verify` |
-| `/hbe:build-fix` | Resolve build errors | `/hbe:build-fix` |
+| `/hbe-e2e` | End-to-end testing | `/hbe-e2e login flow` |
+| `/hbe-verify` | 5-stage verification cycle | `/hbe-verify` |
+| `/hbe-build-fix` | Resolve build errors | `/hbe-build-fix` |
 
 ### Orchestration & Automation
 
 | Command | Purpose | Example |
 |---|---|---|
-| `/hbe:orchestrate` | Multi-agent task delegation | `/hbe:orchestrate build full app` |
-| `/hbe:ralph` | Autonomous execution loop | `/hbe:ralph` (requires prd.json) |
-| `/hbe:checkpoint` | Save progress snapshot | `/hbe:checkpoint` |
+| `/hbe-orchestrate` | Multi-agent task delegation | `/hbe-orchestrate build full app` |
+| `/hbe-ralph` | Autonomous execution loop | `/hbe-ralph` (requires prd.json) |
+| `/hbe-checkpoint` | Save progress snapshot | `/hbe-checkpoint` |
 
 ### Learning & Documentation
 
 | Command | Purpose | Example |
 |---|---|---|
-| `/hbe:learn` | Extract patterns from session | `/hbe:learn` |
-| `/hbe:docs` | Update documentation | `/hbe:docs` |
-| `/hbe:eval` | Capability evaluation | `/hbe:eval` |
+| `/hbe-learn` | Extract patterns from session | `/hbe-learn` |
+| `/hbe-docs` | Update documentation | `/hbe-docs` |
+| `/hbe-eval` | Capability evaluation | `/hbe-eval` |
 
 ### Domain-Specific
 
 | Command | Purpose | Example |
 |---|---|---|
-| `/hbe:academic` | Academic research (23 sub-cmds) | `/hbe:academic lit-review causal inference` |
+| `/hbe-academic` | Academic research (23 sub-cmds) | `/hbe-academic lit-review causal inference` |
 
 ---
 
@@ -642,12 +642,12 @@ Shall I proceed?
 ### 4.1 Standard Feature Development
 
 ```
-1. /hbe:plan <feature>          → Create implementation plan
-2. /hbe:tdd <feature>           → TDD cycle (Red-Green-Refactor)
-3. /hbe:review                  → Code quality review
-4. /hbe:security                → Security audit (if handling data)
-5. /hbe:docs                    → Update documentation
-6. /hbe:verify                  → Full verification before commit
+1. /hbe-plan <feature>          → Create implementation plan
+2. /hbe-tdd <feature>           → TDD cycle (Red-Green-Refactor)
+3. /hbe-review                  → Code quality review
+4. /hbe-security                → Security audit (if handling data)
+5. /hbe-docs                    → Update documentation
+6. /hbe-verify                  → Full verification before commit
 ```
 
 ### 4.2 Autonomous Development (Ralph)
@@ -661,16 +661,16 @@ Shall I proceed?
      ]
    }
 
-2. /hbe:ralph                   → Ralph starts autonomous execution
+2. /hbe-ralph                   → Ralph starts autonomous execution
 3. Monitor: [████████░░] 80%    → Progress bar in output
-4. /hbe:checkpoint              → Save progress at any point
+4. /hbe-checkpoint              → Save progress at any point
 5. Interrupt & Resume           → Ralph auto-recovers from .ralph-state.json
 ```
 
 ### 4.3 Multi-Agent Orchestration
 
 ```
-1. /hbe:orchestrate <task>      → Orchestrator decomposes task
+1. /hbe-orchestrate <task>      → Orchestrator decomposes task
 2. Agents auto-delegated:
    - architect    → Design
    - planner      → Plan
@@ -685,14 +685,14 @@ Shall I proceed?
 ### 4.4 Academic Research
 
 ```
-1. /hbe:academic idea-eval      → Evaluate research idea
-2. /hbe:academic lit-review     → Structured literature review
-3. /hbe:academic databases      → Search 50+ databases
-4. /hbe:academic experiment     → Design experiments
-5. /hbe:academic paper          → Write paper (3 quality gates)
-6. /hbe:academic compile        → Compile LaTeX
-7. /hbe:academic pre-submit     → Pre-submission review
-8. /hbe:academic rebuttal       → Respond to reviewers
+1. /hbe-academic idea-eval      → Evaluate research idea
+2. /hbe-academic lit-review     → Structured literature review
+3. /hbe-academic databases      → Search 50+ databases
+4. /hbe-academic experiment     → Design experiments
+5. /hbe-academic paper          → Write paper (3 quality gates)
+6. /hbe-academic compile        → Compile LaTeX
+7. /hbe-academic pre-submit     → Pre-submission review
+8. /hbe-academic rebuttal       → Respond to reviewers
 ```
 
 ---
@@ -745,7 +745,7 @@ Output (handoff document or result report)
 
 ### Auto-Learning Triggers
 
-1. **Session end** — Extract patterns via `/hbe:learn`
+1. **Session end** — Extract patterns via `/hbe-learn`
 2. **Ralph iteration** — After each story completion
 3. **Error fix** — Record solution pattern
 4. **User feedback** — Record corrections and preferences
@@ -791,12 +791,12 @@ Without HBE:          With HBE:
 
 ### Tips
 
-1. Start new projects with `/hbe:plan` for structured execution.
-2. Use `/hbe:ralph` for large tasks — it runs autonomously with checkpoints.
-3. Run `/hbe:verify` before every commit — catches issues early.
-4. Use `/hbe:orchestrate` when multiple agents need coordination.
-5. Let `/hbe:learn` run at session end — builds your knowledge base.
-6. For academic research, use `/hbe:academic` — 23 specialized commands.
+1. Start new projects with `/hbe-plan` for structured execution.
+2. Use `/hbe-ralph` for large tasks — it runs autonomously with checkpoints.
+3. Run `/hbe-verify` before every commit — catches issues early.
+4. Use `/hbe-orchestrate` when multiple agents need coordination.
+5. Let `/hbe-learn` run at session end — builds your knowledge base.
+6. For academic research, use `/hbe-academic` — 23 specialized commands.
 7. HBE auto-triggers on keywords — you don't need to remember commands.
 
 ### FAQ
@@ -918,7 +918,7 @@ HBE v3.3.0
 │   ├── 领域 (19)        → python-patterns、rust-patterns、golang-patterns...
 │   └── 专业             → academic-research、frontend-design-ultimate、diagram...
 ├── 命令 (17)            → 用户调用的斜杠命令
-│   └── /hbe:plan、/hbe:review、/hbe:tdd、/hbe:ralph...
+│   └── /hbe-plan、/hbe-review、/hbe-tdd、/hbe-ralph...
 ├── 钩子 (42+)           → 触发式自动化
 │   ├── 会话 (2)         → SessionStart、SessionEnd
 │   ├── 工具 (3)         → PreToolUse、PostToolUse (Edit|Write, Bash)
@@ -1044,23 +1044,23 @@ HBE v3.3.0
 
 | # | 命令 | 功能 | 关键特性 |
 |---|---|---|---|
-| 1 | `/hbe:plan` | 实现规划 | 风险评估、分阶段拆解 |
-| 2 | `/hbe:architect` | 架构设计 | 组件图、ADR |
-| 3 | `/hbe:tdd` | TDD 开发 | 红-绿-重构循环 |
-| 4 | `/hbe:review` | 代码审查 | 多语言、质量指标 |
-| 5 | `/hbe:security` | 安全审计 | OWASP Top 10、依赖检查 |
-| 6 | `/hbe:build-fix` | 构建修复 | 自动诊断、修复建议 |
-| 7 | `/hbe:e2e` | E2E 测试 | 全栈测试执行 |
-| 8 | `/hbe:refactor` | 重构清理 | 死代码清除、结构优化 |
-| 9 | `/hbe:docs` | 文档更新 | 自动同步、模板生成 |
-| 10 | `/hbe:prd` | PRD 生成 | 需求提取 |
-| 11 | `/hbe:verify` | 五阶段验证 | 完整验证循环 |
-| 12 | `/hbe:orchestrate` | 多 Agent 编排 | 批量处理、质量闭环 |
-| 13 | `/hbe:ralph` | 自主循环 | 基于 prd.json 执行 |
-| 14 | `/hbe:checkpoint` | 进度快照 | 保存/恢复进度 |
-| 15 | `/hbe:learn` | 模式学习 | 提取可复用模式 |
-| 16 | `/hbe:eval` | 评估驱动 | 能力评估 |
-| 17 | `/hbe:academic` | 学术研究 | 23 个子命令 |
+| 1 | `/hbe-plan` | 实现规划 | 风险评估、分阶段拆解 |
+| 2 | `/hbe-architect` | 架构设计 | 组件图、ADR |
+| 3 | `/hbe-tdd` | TDD 开发 | 红-绿-重构循环 |
+| 4 | `/hbe-review` | 代码审查 | 多语言、质量指标 |
+| 5 | `/hbe-security` | 安全审计 | OWASP Top 10、依赖检查 |
+| 6 | `/hbe-build-fix` | 构建修复 | 自动诊断、修复建议 |
+| 7 | `/hbe-e2e` | E2E 测试 | 全栈测试执行 |
+| 8 | `/hbe-refactor` | 重构清理 | 死代码清除、结构优化 |
+| 9 | `/hbe-docs` | 文档更新 | 自动同步、模板生成 |
+| 10 | `/hbe-prd` | PRD 生成 | 需求提取 |
+| 11 | `/hbe-verify` | 五阶段验证 | 完整验证循环 |
+| 12 | `/hbe-orchestrate` | 多 Agent 编排 | 批量处理、质量闭环 |
+| 13 | `/hbe-ralph` | 自主循环 | 基于 prd.json 执行 |
+| 14 | `/hbe-checkpoint` | 进度快照 | 保存/恢复进度 |
+| 15 | `/hbe-learn` | 模式学习 | 提取可复用模式 |
+| 16 | `/hbe-eval` | 评估驱动 | 能力评估 |
+| 17 | `/hbe-academic` | 学术研究 | 23 个子命令 |
 
 ### 3.4 钩子需求
 
@@ -1186,14 +1186,14 @@ HBE v3.3.0
 所有命令遵循 `/hbe:<名称>` 模式，支持可选参数：
 
 ```
-/hbe:plan <描述>               # 创建实现规划
-/hbe:review [路径]             # 审查指定路径代码
-/hbe:tdd <功能>                # 启动 TDD 循环
-/hbe:ralph                     # 启动自主循环
-/hbe:orchestrate <任务>        # 多 Agent 编排
-/hbe:learn                     # 提取会话模式
-/hbe:checkpoint                # 保存当前进度
-/hbe:verify                    # 运行五阶段验证
+/hbe-plan <描述>               # 创建实现规划
+/hbe-review [路径]             # 审查指定路径代码
+/hbe-tdd <功能>                # 启动 TDD 循环
+/hbe-ralph                     # 启动自主循环
+/hbe-orchestrate <任务>        # 多 Agent 编排
+/hbe-learn                     # 提取会话模式
+/hbe-checkpoint                # 保存当前进度
+/hbe-verify                    # 运行五阶段验证
 ```
 
 ### 5.2 钩子接口
@@ -1306,7 +1306,7 @@ ln -s $(pwd)/skills/academic-research ~/.claude/skills/academic-research
 ### 验证
 
 ```
-你（在 Claude Code 中）: /hbe:verify --system
+你（在 Claude Code 中）: /hbe-verify --system
 
 输出:
 ✓ 37 个代理已加载
@@ -1328,7 +1328,7 @@ ln -s $(pwd)/skills/academic-research ~/.claude/skills/academic-research
 Claude: [通过"实现"关键词自动触发 HBE]
 我来帮你实现认证功能，先做个规划。
 
-[自动加载 /hbe:plan]
+[自动加载 /hbe-plan]
 
 ## 实现规划
 阶段 1：设置 JWT 中间件
@@ -1347,48 +1347,48 @@ Claude: [通过"实现"关键词自动触发 HBE]
 
 | 命令 | 功能 | 示例 |
 |---|---|---|
-| `/hbe:plan` | 创建分阶段实现规划 | `/hbe:plan 添加 OAuth2 登录` |
-| `/hbe:architect` | 系统架构设计 | `/hbe:architect 微服务认证` |
-| `/hbe:prd` | 从需求生成 PRD | `/hbe:prd 用户管理系统` |
+| `/hbe-plan` | 创建分阶段实现规划 | `/hbe-plan 添加 OAuth2 登录` |
+| `/hbe-architect` | 系统架构设计 | `/hbe-architect 微服务认证` |
+| `/hbe-prd` | 从需求生成 PRD | `/hbe-prd 用户管理系统` |
 
 ### 开发
 
 | 命令 | 功能 | 示例 |
 |---|---|---|
-| `/hbe:tdd` | 测试驱动开发循环 | `/hbe:tdd 密码验证器` |
-| `/hbe:review` | 代码质量审查 | `/hbe:review src/auth/` |
-| `/hbe:security` | 安全漏洞审计 | `/hbe:security` |
-| `/hbe:refactor` | 代码重构 | `/hbe:refactor 清除死代码` |
+| `/hbe-tdd` | 测试驱动开发循环 | `/hbe-tdd 密码验证器` |
+| `/hbe-review` | 代码质量审查 | `/hbe-review src/auth/` |
+| `/hbe-security` | 安全漏洞审计 | `/hbe-security` |
+| `/hbe-refactor` | 代码重构 | `/hbe-refactor 清除死代码` |
 
 ### 测试与验证
 
 | 命令 | 功能 | 示例 |
 |---|---|---|
-| `/hbe:e2e` | 端到端测试 | `/hbe:e2e 登录流程` |
-| `/hbe:verify` | 五阶段验证循环 | `/hbe:verify` |
-| `/hbe:build-fix` | 构建错误修复 | `/hbe:build-fix` |
+| `/hbe-e2e` | 端到端测试 | `/hbe-e2e 登录流程` |
+| `/hbe-verify` | 五阶段验证循环 | `/hbe-verify` |
+| `/hbe-build-fix` | 构建错误修复 | `/hbe-build-fix` |
 
 ### 编排与自动化
 
 | 命令 | 功能 | 示例 |
 |---|---|---|
-| `/hbe:orchestrate` | 多 Agent 任务委派 | `/hbe:orchestrate 构建完整应用` |
-| `/hbe:ralph` | 自主执行循环 | `/hbe:ralph`（需要 prd.json） |
-| `/hbe:checkpoint` | 保存进度快照 | `/hbe:checkpoint` |
+| `/hbe-orchestrate` | 多 Agent 任务委派 | `/hbe-orchestrate 构建完整应用` |
+| `/hbe-ralph` | 自主执行循环 | `/hbe-ralph`（需要 prd.json） |
+| `/hbe-checkpoint` | 保存进度快照 | `/hbe-checkpoint` |
 
 ### 学习与文档
 
 | 命令 | 功能 | 示例 |
 |---|---|---|
-| `/hbe:learn` | 提取会话模式 | `/hbe:learn` |
-| `/hbe:docs` | 更新文档 | `/hbe:docs` |
-| `/hbe:eval` | 能力评估 | `/hbe:eval` |
+| `/hbe-learn` | 提取会话模式 | `/hbe-learn` |
+| `/hbe-docs` | 更新文档 | `/hbe-docs` |
+| `/hbe-eval` | 能力评估 | `/hbe-eval` |
 
 ### 领域专用
 
 | 命令 | 功能 | 示例 |
 |---|---|---|
-| `/hbe:academic` | 学术研究（23 子命令） | `/hbe:academic lit-review 因果推断` |
+| `/hbe-academic` | 学术研究（23 子命令） | `/hbe-academic lit-review 因果推断` |
 
 ---
 
@@ -1397,12 +1397,12 @@ Claude: [通过"实现"关键词自动触发 HBE]
 ### 4.1 标准功能开发
 
 ```
-1. /hbe:plan <功能>             → 创建实现规划
-2. /hbe:tdd <功能>              → TDD 循环（红-绿-重构）
-3. /hbe:review                  → 代码质量审查
-4. /hbe:security                → 安全审计（涉及数据时）
-5. /hbe:docs                    → 更新文档
-6. /hbe:verify                  → 提交前完整验证
+1. /hbe-plan <功能>             → 创建实现规划
+2. /hbe-tdd <功能>              → TDD 循环（红-绿-重构）
+3. /hbe-review                  → 代码质量审查
+4. /hbe-security                → 安全审计（涉及数据时）
+5. /hbe-docs                    → 更新文档
+6. /hbe-verify                  → 提交前完整验证
 ```
 
 ### 4.2 自主开发（Ralph）
@@ -1416,16 +1416,16 @@ Claude: [通过"实现"关键词自动触发 HBE]
      ]
    }
 
-2. /hbe:ralph                   → Ralph 开始自主执行
+2. /hbe-ralph                   → Ralph 开始自主执行
 3. 监控进度：[████████░░] 80%    → 输出中的进度条
-4. /hbe:checkpoint              → 随时保存进度
+4. /hbe-checkpoint              → 随时保存进度
 5. 中断与恢复                    → Ralph 从 .ralph-state.json 自动恢复
 ```
 
 ### 4.3 多 Agent 编排
 
 ```
-1. /hbe:orchestrate <任务>      → 编排器分解任务
+1. /hbe-orchestrate <任务>      → 编排器分解任务
 2. 代理自动委派：
    - architect    → 设计
    - planner      → 规划
@@ -1440,14 +1440,14 @@ Claude: [通过"实现"关键词自动触发 HBE]
 ### 4.4 学术研究
 
 ```
-1. /hbe:academic idea-eval      → 评估研究构想
-2. /hbe:academic lit-review     → 结构化文献综述
-3. /hbe:academic databases      → 搜索 50+ 数据库
-4. /hbe:academic experiment     → 设计实验
-5. /hbe:academic paper          → 写论文（3 道质量关卡）
-6. /hbe:academic compile        → 编译 LaTeX
-7. /hbe:academic pre-submit     → 投前审查
-8. /hbe:academic rebuttal       → 回复审稿人
+1. /hbe-academic idea-eval      → 评估研究构想
+2. /hbe-academic lit-review     → 结构化文献综述
+3. /hbe-academic databases      → 搜索 50+ 数据库
+4. /hbe-academic experiment     → 设计实验
+5. /hbe-academic paper          → 写论文（3 道质量关卡）
+6. /hbe-academic compile        → 编译 LaTeX
+7. /hbe-academic pre-submit     → 投前审查
+8. /hbe-academic rebuttal       → 回复审稿人
 ```
 
 ---
@@ -1500,7 +1500,7 @@ HBE 根据上下文自动激活，无需手动触发。
 
 ### 自动学习触发
 
-1. **会话结束** — 通过 `/hbe:learn` 提取模式
+1. **会话结束** — 通过 `/hbe-learn` 提取模式
 2. **Ralph 迭代** — 每个故事完成后
 3. **错误修复** — 记录解决方案模式
 4. **用户反馈** — 记录校正和偏好
@@ -1546,12 +1546,12 @@ HBE 使用三层加载最小化 token 消耗：
 
 ### 使用技巧
 
-1. 新项目从 `/hbe:plan` 开始，确保结构化执行。
-2. 大型任务用 `/hbe:ralph` — 自主运行，带检查点。
-3. 每次提交前运行 `/hbe:verify` — 提前发现问题。
-4. 需要多个代理协作时用 `/hbe:orchestrate`。
-5. 会话结束让 `/hbe:learn` 运行 — 构建知识库。
-6. 学术研究用 `/hbe:academic` — 23 个专业命令。
+1. 新项目从 `/hbe-plan` 开始，确保结构化执行。
+2. 大型任务用 `/hbe-ralph` — 自主运行，带检查点。
+3. 每次提交前运行 `/hbe-verify` — 提前发现问题。
+4. 需要多个代理协作时用 `/hbe-orchestrate`。
+5. 会话结束让 `/hbe-learn` 运行 — 构建知识库。
+6. 学术研究用 `/hbe-academic` — 23 个专业命令。
 7. HBE 通过关键词自动触发 — 无需记住命令。
 
 ### 常见问题

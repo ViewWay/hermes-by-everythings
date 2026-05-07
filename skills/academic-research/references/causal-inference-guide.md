@@ -596,7 +596,7 @@ result.to_latex()  # LaTeX table
 
 ## Integration with HBE / 与 HBE 集成
 
-1. Run `/hbe:academic experiment` to design experiments with causal identification in mind
+1. Run `/hbe-academic experiment` to design experiments with causal identification in mind
 2. Use `references/tools/linearmodels.md` for panel data estimation details
 3. Use `references/tools/statsmodels.md` for diagnostic test implementations
 4. Use `references/tools/econml.md` for DML and Causal Forest specifications

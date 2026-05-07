@@ -175,7 +175,7 @@ print(f"Total tiles: {len(X)}, shape: {X[0].shape}")
 
 ## Integration with HBE
 
-- Use with `/hbe:plan` for designing computational pathology study protocols
+- Use with `/hbe-plan` for designing computational pathology study protocols
 - Pair with `references/tools/tifffile.md` for reading multi-resolution TIFF images
 - Combine with `references/tools/torch-geometric.md` for graph-based tile classification
 - See `references/tools/histolab.md` for alternative tile extraction and staining tools

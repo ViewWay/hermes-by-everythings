@@ -35,13 +35,13 @@ Production-ready Claude Code plugin with proven workflows:
 bash scripts/test/test-all.sh
 
 # Plan implementation
-/hbe:plan [your feature]
+/hbe-plan [your feature]
 
 # TDD development
-/hbe:tdd
+/hbe-tdd
 
 # Code review
-/hbe:review
+/hbe-review
 ```
 
 ---
@@ -141,19 +141,19 @@ See: `docs/CONTEXT-OPTIMIZATION.md`
 
 | Command | Purpose | Use Case |
 |---------|---------|----------|
-| `/hbe:plan` | Implementation planning | New features |
-| `/hbe:architect` | Architecture design | System design |
-| `/hbe:tdd` | TDD development | Test-driven dev |
-| `/hbe:review` | Code review | Quality checks |
-| `/hbe:security` | Security review | Vulnerability scan |
-| `/hbe:build-fix` | Build fix | Build failures |
-| `/hbe:refactor` | Refactor cleanup | Dead code removal |
-| `/hbe:docs` | Documentation update | Doc sync |
-| `/hbe:verify` | 5-phase verification | Full validation |
-| `/hbe:orchestrate` | Multi-agent orchestration | Full workflow |
-| `/hbe:ralph` | Autonomous loop | Large automation |
-| `/hbe:learn` | Pattern learning | Extract patterns |
-| `/hbe:resume` | Resume session | After interrupt |
+| `/hbe-plan` | Implementation planning | New features |
+| `/hbe-architect` | Architecture design | System design |
+| `/hbe-tdd` | TDD development | Test-driven dev |
+| `/hbe-review` | Code review | Quality checks |
+| `/hbe-security` | Security review | Vulnerability scan |
+| `/hbe-build-fix` | Build fix | Build failures |
+| `/hbe-refactor` | Refactor cleanup | Dead code removal |
+| `/hbe-docs` | Documentation update | Doc sync |
+| `/hbe-verify` | 5-phase verification | Full validation |
+| `/hbe-orchestrate` | Multi-agent orchestration | Full workflow |
+| `/hbe-ralph` | Autonomous loop | Large automation |
+| `/hbe-learn` | Pattern learning | Extract patterns |
+| `/hbe-resume` | Resume session | After interrupt |
 
 ---
 
@@ -197,7 +197,7 @@ Auto-triggers on:
 
 Auto-start conditions:
 - `prd.json` exists with pending stories
-- User input: `/hbe:ralph`
+- User input: `/hbe-ralph`
 - Large task detected (>5 file changes)
 - Keywords: "autonomous", "auto implement"
 
@@ -252,7 +252,7 @@ Create `CLAUDE.md.local` for project-specific rules:
 - Enable Rust clippy strict
 
 ## Custom Commands
-- `/hbe:custom` → Run project script
+- `/hbe-custom` → Run project script
 
 ## Project Patterns
 - Use SQLAlchemy not Django ORM
@@ -265,17 +265,17 @@ Create `CLAUDE.md.local` for project-specific rules:
 
 ```bash
 # Diagnose issues
-/hbe:diagnose
+/hbe-diagnose
 
 # Reset state
-/hbe:reset --soft   # Keep progress.md
-/hbe:reset --hard   # Full reset
+/hbe-reset --soft   # Keep progress.md
+/hbe-reset --hard   # Full reset
 
 # Restore checkpoint
-/hbe:restore --checkpoint=[id]
+/hbe-restore --checkpoint=[id]
 
 # Verify system
-/hbe:verify --system
+/hbe-verify --system
 ```
 
 ---

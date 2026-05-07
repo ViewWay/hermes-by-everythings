@@ -1,14 +1,14 @@
 ---
 name: hbe-build-fix
 description: 构建错误修复 - 最小改动修复构建失败
-trigger: /hbe:build-fix
+trigger: /hbe-build-fix
 keywords:
   - build fix
   - 构建修复
   - compilation error
 ---
 
-# /hbe:build-fix — 构建错误修复
+# /hbe-build-fix — 构建错误修复
 
 最小改动原则修复构建错误。
 

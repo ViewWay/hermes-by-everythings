@@ -101,7 +101,7 @@ AI tools can accelerate drafting but require careful oversight. Follow these pri
 - Use within `workflows/paper-writing.md` for the full manuscript drafting pipeline.
 - Pair with `references/tools/peer-review.md` to systematically review drafts before submission.
 - Combine with `references/tools/scientific-visualization.md` to align figures with writing quality.
-- Use `/hbe:review` to have Claude review manuscript drafts for clarity and structure.
+- Use `/hbe-review` to have Claude review manuscript drafts for clarity and structure.
 
 ## Resources
 

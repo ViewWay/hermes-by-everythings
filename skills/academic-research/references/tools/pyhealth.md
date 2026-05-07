@@ -178,7 +178,7 @@ print(f"Best model: {best[0]} — AUROC: {best[1]['auc']:.4f}")
 
 ## Integration with HBE
 
-- Use with `/hbe:plan` for designing clinical AI study protocols
+- Use with `/hbe-plan` for designing clinical AI study protocols
 - Pair with `references/tools/pandas.md` for custom EHR data preprocessing
 - Combine with `references/tools/scikit-learn.md` for baseline model comparison
 - See `references/tools/statsmodels.md` for statistical hypothesis testing on clinical outcomes

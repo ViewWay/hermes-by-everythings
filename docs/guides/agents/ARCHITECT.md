@@ -2,7 +2,7 @@
 
 > **版本**: 3.2.0  
 > **Agent 类型**: 实现代理  
-> **触发命令**: `/hbe:architect`  
+> **触发命令**: `/hbe-architect`  
 > **Token 大小**: ~9.3KB
 
 ---
@@ -30,7 +30,7 @@
 ### 基础用法
 
 ```
-/hbe:architect 实现 dev-plan.md 中的用户认证功能
+/hbe-architect 实现 dev-plan.md 中的用户认证功能
 ```
 
 Architect会：
@@ -42,7 +42,7 @@ Architect会：
 ### 指定计划文件
 
 ```
-/hbe:architect 根据 docs/plans/api.md 实现 REST API
+/hbe-architect 根据 docs/plans/api.md 实现 REST API
 ```
 
 ---
@@ -88,7 +88,7 @@ Architect会：
 ### 示例 1: TypeScript API
 
 ```
-/hbe:architect 创建用户管理 API
+/hbe-architect 创建用户管理 API
 语言：TypeScript
 框架：Express
 数据库：PostgreSQL
@@ -110,7 +110,7 @@ src/
 ### 示例 2: Python 服务
 
 ```
-/hbe:architect 实现订单处理服务
+/hbe-architect 实现订单处理服务
 语言：Python
 框架：FastAPI
 ```
@@ -118,7 +118,7 @@ src/
 ### 示例 3: Rust 模块
 
 ```
-/hbe:architect 创建缓存模块
+/hbe-architect 创建缓存模块
 语言：Rust
 使用 Redis
 ```
@@ -131,7 +131,7 @@ src/
 
 1. **提供完整上下文**
    ```
-   /hbe:architect 实现 dev-plan.md
+   /hbe-architect 实现 dev-plan.md
    技术栈：TypeScript + Express + PostgreSQL
    认证：JWT
    验证：class-validator
@@ -139,14 +139,14 @@ src/
 
 2. **指定编码标准**
    ```
-   /hbe:architect 实现用户服务
+   /hbe-architect 实现用户服务
    遵循 ESLint 配置
    使用 TypeScript strict 模式
    ```
 
 3. **请求测试**
    ```
-   /hbe:architect 实现支付功能
+   /hbe-architect 实现支付功能
    包含单元测试和集成测试
    测试覆盖率 > 80%
    ```
@@ -155,14 +155,14 @@ src/
 
 1. **跳过规划**
    ```
-   不要：直接 /hbe:architect "写个用户系统"
-   应该：先用 /hbe:plan 规划
+   不要：直接 /hbe-architect "写个用户系统"
+   应该：先用 /hbe-plan 规划
    ```
 
 2. **不指定技术栈**
    ```
-   不要：/hbe:architect "实现API"
-   应该：/hbe:architect "用 Express 实现 API"
+   不要：/hbe-architect "实现API"
+   应该：/hbe-architect "用 Express 实现 API"
    ```
 
 3. **忽略代码质量**
@@ -179,17 +179,17 @@ src/
 
 ```
 # 1. 实现
-/hbe:architect 实现 dev-plan.md
+/hbe-architect 实现 dev-plan.md
 
 # 2. 审查
-/hbe:review 审查刚才实现的代码
+/hbe-review 审查刚才实现的代码
 ```
 
 ### Architect + TDD-Guide
 
 ```
 # 1. 先写测试
-/hbe:tdd 实现用户认证（TDD模式）
+/hbe-tdd 实现用户认证（TDD模式）
 
 # TDD-Guide 会引导 Architect 先写测试
 ```
@@ -198,7 +198,7 @@ src/
 
 ```
 # Orchestrator 自动协调
-/hbe:orchestrate 根据 prd.json 开发
+/hbe-orchestrate 根据 prd.json 开发
 
 # 流程：
 # Planner → Architect → Code-Reviewer → Security-Reviewer → TDD-Guide
@@ -251,7 +251,7 @@ tests/
 
 **解决方案**：
 ```
-/hbe:architect 实现 API
+/hbe-architect 实现 API
 确保所有函数都有类型注解
 使用 TypeScript strict 模式
 ```
@@ -259,7 +259,7 @@ tests/
 ### 问题 3: 测试失败
 
 **解决方案**：
-1. 先用 `/hbe:tdd` 确保测试先行
+1. 先用 `/hbe-tdd` 确保测试先行
 2. 检查Mock配置
 3. 验证依赖项
 
@@ -271,19 +271,19 @@ tests/
 
 ```
 # 第1步：核心功能
-/hbe:architect 实现基础用户模型
+/hbe-architect 实现基础用户模型
 
 # 第2步：业务逻辑
-/hbe:architect 添加用户服务层
+/hbe-architect 添加用户服务层
 
 # 第3步：API层
-/hbe:architect 创建用户API端点
+/hbe-architect 创建用户API端点
 ```
 
 ### 2. 模式指定
 
 ```
-/hbe:architect 实现订单系统
+/hbe-architect 实现订单系统
 使用 Repository 模式
 使用 Service 层
 使用依赖注入
@@ -292,7 +292,7 @@ tests/
 ### 3. 约束条件
 
 ```
-/hbe:architect 实现缓存层
+/hbe-architect 实现缓存层
 约束：
 - 使用 Redis
 - 支持 TTL

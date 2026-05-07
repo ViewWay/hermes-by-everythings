@@ -196,10 +196,10 @@ hermes-by-everythings/
 1. **首次使用**:
    ```bash
    # 验证安装
-   /hbe:verify --system
+   /hbe-verify --system
    
    # 测试触发
-   /hbe:plan "实现用户认证功能"
+   /hbe-plan "实现用户认证功能"
    ```
 
 2. **配置项目**:
@@ -219,7 +219,7 @@ hermes-by-everythings/
 3. **开始使用**:
    ```bash
    # 输入任何 /hbe: 命令
-   /hbe:plan [你的需求]
+   /hbe-plan [你的需求]
    
    # 或使用自动触发
    # - 编辑 .ts 文件 → 自动建议类型检查

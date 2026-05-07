@@ -1,14 +1,14 @@
 ---
 name: hbe-plan
 description: 功能实现规划 - 分析需求并制定实施计划
-trigger: /hbe:plan
+trigger: /hbe-plan
 keywords:
   - planning
   - 规划
   - implementation plan
 ---
 
-# /hbe:plan — 功能实现规划
+# /hbe-plan — 功能实现规划
 
 分析需求并制定详细的实施计划。
 

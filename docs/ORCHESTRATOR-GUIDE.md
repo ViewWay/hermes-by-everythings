@@ -27,10 +27,10 @@ Orchestrator Agent 是 HBE 的主智能体（编排者），负责协调多个�
 ### Before: HBE v2.3（无编排）
 
 ```
-用户 → /hbe:plan → planner Agent → 输出计划
-用户 → /hbe:architect → architect Agent → 开发
-用户 → /hbe:review → code-reviewer Agent → 审查
-用户 → /hbe:security → security-reviewer Agent → 安全审查
+用户 → /hbe-plan → planner Agent → 输出计划
+用户 → /hbe-architect → architect Agent → 开发
+用户 → /hbe-review → code-reviewer Agent → 审查
+用户 → /hbe-security → security-reviewer Agent → 安全审查
 用户 → 手动传递反馈 → 修正 → 手动重新验证
 ```
 
@@ -166,7 +166,7 @@ Batch 4: 任务 10-12
 
 ```bash
 # 用户需求
-/hbe:orchestrate "实现用户认证功能，包含注册、登录、密码重置"
+/hbe-orchestrate "实现用户认证功能，包含注册、登录、密码重置"
 
 # Orchestrator 自动执行
 1. Phase 1: planner → dev-plan.md（3个任务）
@@ -202,7 +202,7 @@ Batch 4: 任务 10-12
 
 ```bash
 # 用户需求
-/hbe:orchestrate --batch-size=3 "开发博客系统：文章管理、评论、标签、搜索、推荐"
+/hbe-orchestrate --batch-size=3 "开发博客系统：文章管理、评论、标签、搜索、推荐"
 
 # Orchestrator 自动执行
 1. Phase 1: planner → dev-plan.md（5个任务）

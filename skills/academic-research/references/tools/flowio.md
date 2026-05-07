@@ -179,7 +179,7 @@ for name, gated in zip(samples.keys(), all_gated):
 
 ## Integration with HBE
 
-- Use with `/hbe:plan` for designing flow cytometry experiment analysis plans
+- Use with `/hbe-plan` for designing flow cytometry experiment analysis plans
 - Pair with `references/tools/pandas.md` for tabulating per-sample statistics
 - Combine with `references/tools/matplotlib.md` for FSC/SSC scatter plots and histogram overlays
 - See `references/tools/scipy.md` for density-based gating (Gaussian mixture models)

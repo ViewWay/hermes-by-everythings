@@ -89,7 +89,7 @@ When activated for a paper writing task / 激活论文写作任务时:
 ## When to Use / 使用时机
 
 - User mentions: paper, thesis, latex, bibtex, conference, journal, arxiv, 论文, 学术, 文献综述, 开题, rebuttal
-- User triggers `/hbe:academic` command / 用户触发命令
+- User triggers `/hbe-academic` command / 用户触发命令
 - User asks to write, format, or compile academic documents / 用户要求写、排版或编译学术文档
 
 ## Output Format / 输出格式

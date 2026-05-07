@@ -12,7 +12,7 @@ End-to-end academic paper writing pipeline with quality checkpoints.
 
 Select venue and load corresponding template:
 ```bash
-/hbe:academic template <venue>
+/hbe-academic template <venue>
 ```
 
 Note: page limit, column format, bibliography style, anonymization requirements, supplementary guidelines.

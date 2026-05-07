@@ -169,7 +169,7 @@ cobra.io.write_sbml_model(model, "engineered_strain.xml")
 
 ## Integration with HBE
 
-- Use with `/hbe:plan` for designing metabolic engineering study designs
+- Use with `/hbe-plan` for designing metabolic engineering study designs
 - Pair with `references/tools/pandas.md` for analyzing FVA and deletion result tables
 - Combine with `references/tools/matplotlib.md` for flux distribution visualizations
 - See `references/tools/biopython.md` for sequence-level analysis of metabolic genes

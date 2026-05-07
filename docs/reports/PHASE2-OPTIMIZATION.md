@@ -137,7 +137,7 @@ replacement: "new-skill-name"
 ## 自动生成技能
 **位置**: `~/.claude/skills/generated/`
 **条件**:
-- 由 `/hbe:learn` 自动生成
+- 由 `/hbe-learn` 自动生成
 - 待人工审核后可提升到核心
 ```
 
@@ -251,7 +251,7 @@ configure_hooks
 verify_installation
 
 echo "✅ Installation complete!"
-echo "Run /hbe:plan to get started"
+echo "Run /hbe-plan to get started"
 ```
 
 ### 目标 7: 技能模板

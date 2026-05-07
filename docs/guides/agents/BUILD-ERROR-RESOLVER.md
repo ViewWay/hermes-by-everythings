@@ -1,7 +1,7 @@
 # Build-Error-Resolver Agent 使用教程
 
 > **版本**: 3.2.0  
-> **触发命令**: `/hbe:build-fix`  
+> **触发命令**: `/hbe-build-fix`  
 > **用途**: 修复构建错误
 
 ---
@@ -9,7 +9,7 @@
 ## 快速开始
 
 ```
-/hbe:build-fix
+/hbe-build-fix
 ```
 
 ## 功能
@@ -31,10 +31,10 @@
 
 ```
 # 修复当前构建错误
-/hbe:build-fix
+/hbe-build-fix
 
 # 修复特定错误
-/hbe:build-fix TS2345
+/hbe-build-fix TS2345
 ```
 
 ---

@@ -178,7 +178,7 @@ print(f"5-fold F1: {scores.mean():.3f} +/- {scores.std():.3f}")
 
 ## Integration with HBE
 
-- Use with `/hbe:plan` for designing protein engineering study protocols
+- Use with `/hbe-plan` for designing protein engineering study protocols
 - Pair with `references/tools/biopython.md` for PDB parsing and structure analysis
 - Combine with `references/tools/scikit-learn.md` for downstream classification/regression on embeddings
 - See `references/tools/torch-geometric.md` for graph-based protein property prediction

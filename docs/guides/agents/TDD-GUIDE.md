@@ -2,7 +2,7 @@
 
 > **版本**: 3.2.0  
 > **Agent 类型**: TDD指导代理  
-> **触发命令**: `/hbe:tdd`  
+> **触发命令**: `/hbe-tdd`  
 > **Token 大小**: ~8.5KB
 
 ---
@@ -30,7 +30,7 @@
 ### 基础用法
 
 ```
-/hbe:tdd 实现用户认证功能
+/hbe-tdd 实现用户认证功能
 ```
 
 TDD-Guide会引导：
@@ -55,7 +55,7 @@ npm test
 ### 阶段 1: RED（写测试）
 
 ```
-/hbe:tdd 实现用户登录
+/hbe-tdd 实现用户登录
 阶段：RED
 ```
 
@@ -67,7 +67,7 @@ TDD-Guide会：
 ### 阶段 2: GREEN（实现）
 
 ```
-/hbe:tdd 实现用户登录
+/hbe-tdd 实现用户登录
 阶段：GREEN
 ```
 
@@ -79,7 +79,7 @@ TDD-Guide会：
 ### 阶段 3: REFACTOR（重构）
 
 ```
-/hbe:tdd 实现用户登录
+/hbe-tdd 实现用户登录
 阶段：REFACTOR
 ```
 
@@ -95,7 +95,7 @@ TDD-Guide会：
 ### 示例 1: TypeScript函数
 
 ```
-/hbe:tdd 实现 add(a, b) 函数
+/hbe-tdd 实现 add(a, b) 函数
 ```
 
 **RED阶段**：
@@ -117,13 +117,13 @@ function add(a: number, b: number): number {
 ### 示例 2: React组件
 
 ```
-/hbe:tdd 创建 UserProfile 组件
+/hbe-tdd 创建 UserProfile 组件
 ```
 
 ### 示例 3: API端点
 
 ```
-/hbe:tdd 实现 POST /api/users
+/hbe-tdd 实现 POST /api/users
 ```
 
 ---
@@ -140,13 +140,13 @@ function add(a: number, b: number): number {
 
 2. **小步快跑**
    ```
-   /hbe:tdd 实现用户验证
+   /hbe-tdd 实现用户验证
    每个测试一个功能点
    ```
 
 3. **测试覆盖率 > 80%**
    ```
-   /hbe:tdd --verify
+   /hbe-tdd --verify
    检查覆盖率
    ```
 
@@ -178,7 +178,7 @@ function add(a: number, b: number): number {
 
 ```
 # 1. TDD模式开发
-/hbe:tdd 实现用户认证
+/hbe-tdd 实现用户认证
 
 # Architect会在TDD-Guide引导下实现
 ```
@@ -187,20 +187,20 @@ function add(a: number, b: number): number {
 
 ```
 # 1. 开发
-/hbe:tdd 实现功能
+/hbe-tdd 实现功能
 
 # 2. 审查
-/hbe:review
+/hbe-review
 
 # 3. 验证测试
-/hbe:tdd --verify
+/hbe-tdd --verify
 ```
 
 ### 在Orchestrator中
 
 ```
 # Orchestrator集成TDD
-/hbe:orchestrate 开发用户API
+/hbe-orchestrate 开发用户API
 
 # 自动包含TDD验证阶段
 ```
@@ -257,7 +257,7 @@ describe('User Flow', () => {
 
 **解决方案**：
 ```
-/hbe:tdd --coverage
+/hbe-tdd --coverage
 查看未覆盖的代码
 添加测试用例
 ```
@@ -277,19 +277,19 @@ describe('User Flow', () => {
 
 ```
 # 1. 为现有代码添加测试
-/hbe:tdd 为 legacy.ts 添加测试
+/hbe-tdd 为 legacy.ts 添加测试
 
 # 2. 确保测试通过
 npm test
 
 # 3. 安全重构
-/hbe:refactor legacy.ts
+/hbe-refactor legacy.ts
 ```
 
 ### 2. 行为驱动开发(BDD)
 
 ```
-/hbe:tdd 用户登录功能
+/hbe-tdd 用户登录功能
 风格：BDD
 Given: 用户已注册
 When: 用户输入正确密码

@@ -1,14 +1,14 @@
 ---
 name: hbe-verify
 description: 五阶段验证循环 - 构建、类型检查、Lint、测试、安全
-trigger: /hbe:verify
+trigger: /hbe-verify
 keywords:
   - verify
   - 验证
   - validation loop
 ---
 
-# /hbe:verify — 五阶段验证循环
+# /hbe-verify — 五阶段验证循环
 
 自动检测项目语言并运行完整的验证流程。
 

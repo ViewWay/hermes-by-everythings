@@ -166,7 +166,7 @@ adata.obs[["clone_id", "clonal_expansion", "cell_type"]].to_csv("clonotype_table
 
 ## Integration with HBE
 
-- Use with `/hbe:plan` for designing immune repertoire analysis studies
+- Use with `/hbe-plan` for designing immune repertoire analysis studies
 - Pair with `references/tools/scanpy.md` for single-cell transcriptomics preprocessing
 - Combine with `references/tools/anndata.md` for data structure management
 - See `references/tools/scvelo.md` for combining repertoire analysis with RNA velocity

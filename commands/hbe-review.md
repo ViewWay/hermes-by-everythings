@@ -1,14 +1,14 @@
 ---
 name: hbe-review
 description: 代码质量审查 - 检查正确性、可读性、性能、安全
-trigger: /hbe:review
+trigger: /hbe-review
 keywords:
   - code review
   - 代码审查
   - 质量检查
 ---
 
-# /hbe:review — 代码质量审查
+# /hbe-review — 代码质量审查
 
 执行代码审查，检查以下维度：
 
@@ -43,6 +43,6 @@ keywords:
 ---
 
 **使用方式**：
-- `/hbe:review` - 审查所有变更
-- `/hbe:review src/file.ts` - 审查特定文件
-- `/hbe:review --security` - 专注安全审查
+- `/hbe-review` - 审查所有变更
+- `/hbe-review src/file.ts` - 审查特定文件
+- `/hbe-review --security` - 专注安全审查

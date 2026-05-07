@@ -83,7 +83,7 @@ npm run test:evaluation
 npm run test:coverage
 
 # 运行安全评估
-/hbe:security
+/hbe-security
 ```
 
 ### 4. 分析结果
@@ -121,7 +121,7 @@ npm run test:coverage
 
 ```bash
 # 第一次评估后保存基线
-/hbe:eval --baseline
+/hbe-eval --baseline
 
 # 生成基线报告
 # -> baseline-2026-05-02.json
@@ -131,7 +131,7 @@ npm run test:coverage
 
 ```bash
 # 代码变更后运行回归测试
-/hbe:eval --regression
+/hbe-eval --regression
 
 # 比较结果
 # -> 2个测试失败 (pass@1 从 100% 降到 75%)
@@ -141,7 +141,7 @@ npm run test:coverage
 
 ```bash
 # 修复问题后重新评估
-/hbe:eval
+/hbe-eval
 
 # 结果: pass@1 恢复到 100%
 ```
@@ -165,7 +165,7 @@ npm run test:coverage
 
 **方法**:
 ```bash
-/hbe:review
+/hbe-review
 ```
 
 **指标**:
@@ -180,7 +180,7 @@ npm run test:coverage
 
 **方法**:
 ```bash
-/hbe:security
+/hbe-security
 ```
 
 **检查项**:
@@ -236,9 +236,9 @@ jobs:
       
       - name: Run evaluation
         run: |
-          /hbe:eval
+          /hbe-eval
           npm run test:coverage
-          /hbe:security
+          /hbe-security
       
       - name: Check thresholds
         run: |
@@ -255,7 +255,7 @@ jobs:
 watch -n 10 'npm run test:evaluation'
 
 # 提交前完整评估
-/hbe:orchestrate feature
+/hbe-orchestrate feature
 ```
 
 ## 评估报告模板
@@ -335,16 +335,16 @@ watch -n 10 'npm run test:evaluation'
 
 ```bash
 # 完整评估
-/hbe:eval
+/hbe-eval
 
 # 评估 + 修复
-/hbe:eval --fix
+/hbe-eval --fix
 
 # 回归测试
-/hbe:eval --regression
+/hbe-eval --regression
 
 # 生成基线
-/hbe:eval --baseline
+/hbe-eval --baseline
 ```
 
 ### 与 Ralph 集成
@@ -352,7 +352,7 @@ watch -n 10 'npm run test:evaluation'
 Ralph 循环中自动运行评估：
 
 ```bash
-/hbe:ralph
+/hbe-ralph
 
 # Ralph 会:
 # 1. 实现功能

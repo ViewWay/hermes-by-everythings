@@ -93,7 +93,7 @@
 **位置**: `~/.claude/skills/generated/`
 
 **来源**:
-- 🤖 由 `/hbe:learn` 自动生成
+- 🤖 由 `/hbe-learn` 自动生成
 - 🤖 从会话中提取模式
 - 🤖 待人工审核后可提升到核心
 

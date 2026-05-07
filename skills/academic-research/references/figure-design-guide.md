@@ -172,8 +172,8 @@ Most top-venue papers are held up by three key figures. Design them deliberately
 
 ## Integration with HBE / 与 HBE 集成
 
-1. Run `/hbe:academic figure-design` to get figure-specific design advice
-   运行 `/hbe:academic figure-design` 获取针对具体图的设计建议
+1. Run `/hbe-academic figure-design` to get figure-specific design advice
+   运行 `/hbe-academic figure-design` 获取针对具体图的设计建议
 2. Use with `workflows/paper-writing.md` Phase 3 (Visual Elements)
    与 `workflows/paper-writing.md` 第三阶段（视觉元素）配合使用
 3. TikZ templates available in `templates/` directories

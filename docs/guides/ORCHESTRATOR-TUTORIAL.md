@@ -52,7 +52,7 @@ cat > prd.json << 'EOF'
 EOF
 
 # 启动 Orchestrator
-/hbe:orchestrate "根据 prd.json 开发待办事项应用"
+/hbe-orchestrate "根据 prd.json 开发待办事项应用"
 ```
 
 ---
@@ -64,7 +64,7 @@ EOF
 最简单的用法是开发单个功能：
 
 ```bash
-/hbe:orchestrate "实现用户登录功能"
+/hbe-orchestrate "实现用户登录功能"
 ```
 
 **Orchestrator 会自动**：
@@ -79,7 +79,7 @@ EOF
 ### 2. 指定输出目录
 
 ```bash
-/hbe:orchestrate "实现用户登录功能" --output ./my-project
+/hbe-orchestrate "实现用户登录功能" --output ./my-project
 ```
 
 ### 3. 查看日志
@@ -103,14 +103,14 @@ cat ./my-project/lessons-learned.md
 
 ```bash
 # 逐个开发，适合复杂任务
-/hbe:orchestrate "开发博客系统" --batch-size 1
+/hbe-orchestrate "开发博客系统" --batch-size 1
 ```
 
 ### 小批量处理（BATCH_SIZE=3）
 
 ```bash
 # 推荐：平衡效率和控制的批量大小
-/hbe:orchestrate "开发博客系统" --batch-size 3
+/hbe-orchestrate "开发博客系统" --batch-size 3
 ```
 
 **工作流程**：
@@ -128,7 +128,7 @@ Batch 3: 任务 7-9
 
 ```bash
 # 适合大量相似任务
-/hbe:orchestrate "开发电商后台" --batch-size 5
+/hbe-orchestrate "开发电商后台" --batch-size 5
 ```
 
 **注意**：批量越大，单个 Agent 的上下文越大，可能影响质量。
@@ -229,10 +229,10 @@ Orchestrator 会按优先级处理。
 
 ```bash
 # 终端1: 开发批次1
-/hbe:orchestrate "开发用户系统" --batch 1-3
+/hbe-orchestrate "开发用户系统" --batch 1-3
 
 # 终端2: 开发批次2（在批次1完成后）
-/hbe:orchestrate "开发内容系统" --batch 4-6
+/hbe-orchestrate "开发内容系统" --batch 4-6
 ```
 
 **注意**：确保批次间没有依赖关系。
@@ -260,7 +260,7 @@ cat > prd.json << 'EOF'
 EOF
 
 # 2. 启动 Orchestrator（批量大小=2，平衡效率和质量）
-/hbe:orchestrate "根据 prd.json 开发用户管理 API" --batch-size 2
+/hbe-orchestrate "根据 prd.json 开发用户管理 API" --batch-size 2
 ```
 
 **结果**：
@@ -286,7 +286,7 @@ cat > components.md << 'EOF'
 EOF
 
 # 启动 Orchestrator
-/hbe:orchestrate "根据 components.md 开发表单组件库" --batch-size 3
+/hbe-orchestrate "根据 components.md 开发表单组件库" --batch-size 3
 ```
 
 **关键经验**：
@@ -315,10 +315,10 @@ cat > auth-prd.json << 'EOF'
 EOF
 
 # 先完成后端（batch-size=1，因为复杂）
-/hbe:orchestrate "根据 auth-prd.json 开发后端认证" --filter scope=backend --batch-size 1
+/hbe-orchestrate "根据 auth-prd.json 开发后端认证" --filter scope=backend --batch-size 1
 
 # 再完成前端（batch-size=2）
-/hbe:orchestrate "根据 auth-prd.json 开发前端认证" --filter scope=frontend --batch-size 2
+/hbe-orchestrate "根据 auth-prd.json 开发前端认证" --filter scope=frontend --batch-size 2
 ```
 
 ---
@@ -340,7 +340,7 @@ Error: Agent ID abc123 not found
 node scripts/agent-id-manager.js --list
 
 # 或者创建新的 Agent
-/hbe:orchestrate "继续之前的任务"
+/hbe-orchestrate "继续之前的任务"
 ```
 
 ### 问题2: 修正循环超过3轮仍不通过
@@ -368,7 +368,7 @@ node scripts/agent-id-manager.js --list
 **解决方案**:
 ```bash
 # 降低批量大小
-/hbe:orchestrate "重新开发" --batch-size 1
+/hbe-orchestrate "重新开发" --batch-size 1
 
 # 或者启用上下文压缩
 export HBE_COMPRESS_THRESHOLD=50000
@@ -465,7 +465,7 @@ cat > prd.json << 'EOF'
 EOF
 
 # 2. 启动 Ralph
-/hbe:ralph
+/hbe-ralph
 
 # 3. Ralph 内部会自动调用 Orchestrator 进行批量开发
 ```

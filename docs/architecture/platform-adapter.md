@@ -28,7 +28,7 @@ Hermes 提供原生能力，直接使用 API:
 ```
 skill_view(name="hermes-by-everythings", file_path="skills/agents/planner.md")
 delegate_task(tasks=[{ prompt: "...", agent: "security-reviewer" }])
-terminal(background=true, command="/hbe:ralph")
+terminal(background=true, command="/hbe-ralph")
 process(action="poll")
 ```
 

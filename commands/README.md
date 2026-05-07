@@ -8,33 +8,33 @@
 
 | 命令 | 功能 | 文件 |
 |------|------|------|
-| `/hbe:plan` | 功能实现规划 | `hbe-plan.md` |
-| `/hbe:architect` | 系统架构设计 | `hbe-architect.md` |
-| `/hbe:tdd` | TDD 开发流程 | `hbe-tdd.md` |
-| `/hbe:orchestrate` | 多 Agent 编排 | `hbe-orchestrate.md` |
+| `/hbe-plan` | 功能实现规划 | `hbe-plan.md` |
+| `/hbe-architect` | 系统架构设计 | `hbe-architect.md` |
+| `/hbe-tdd` | TDD 开发流程 | `hbe-tdd.md` |
+| `/hbe-orchestrate` | 多 Agent 编排 | `hbe-orchestrate.md` |
 
 ### 代码质量
 
 | 命令 | 功能 | 文件 |
 |------|------|------|
-| `/hbe:review` | 代码质量审查 | `hbe-review.md` |
-| `/hbe:security` | 安全审查 | `hbe-security.md` |
-| `/hbe:refactor` | 重构清理 | `hbe-refactor.md` |
-| `/hbe:verify` | 五阶段验证循环 | `hbe-verify.md` |
+| `/hbe-review` | 代码质量审查 | `hbe-review.md` |
+| `/hbe-security` | 安全审查 | `hbe-security.md` |
+| `/hbe-refactor` | 重构清理 | `hbe-refactor.md` |
+| `/hbe-verify` | 五阶段验证循环 | `hbe-verify.md` |
 
 ### 修复和维护
 
 | 命令 | 功能 | 文件 |
 |------|------|------|
-| `/hbe:build-fix` | 构建错误修复 | `hbe-build-fix.md` |
-| `/hbe:docs` | 文档更新 | `hbe-docs.md` |
+| `/hbe-build-fix` | 构建错误修复 | `hbe-build-fix.md` |
+| `/hbe-docs` | 文档更新 | `hbe-docs.md` |
 
 ### 自主开发
 
 | 命令 | 功能 | 文件 |
 |------|------|------|
-| `/hbe:prd` | PRD 生成 | `hbe-prd.md` |
-| `/hbe:ralph` | Ralph 自主循环 | `hbe-ralph.md` |
+| `/hbe-prd` | PRD 生成 | `hbe-prd.md` |
+| `/hbe-ralph` | Ralph 自主循环 | `hbe-ralph.md` |
 
 ## 命令文件格式
 
@@ -44,13 +44,13 @@
 ---
 name: hbe-command-name
 description: 简短描述
-trigger: /hbe:command-name
+trigger: /hbe-command-name
 keywords:
   - keyword1
   - keyword2
 ---
 
-# /hbe:command-name — 命令标题
+# /hbe-command-name — 命令标题
 
 命令描述和使用说明...
 

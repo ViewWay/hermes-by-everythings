@@ -8,16 +8,16 @@
 
 | # | Agent | 命令 | 类型 | 教程 |
 |---|-------|------|------|------|
-| 1 | **Orchestrator** | `/hbe:orchestrate` | 主智能体 | [教程](ORCHESTRATOR.md) |
-| 2 | **Planner** | `/hbe:plan` | 规划代理 | [教程](PLANNER.md) |
-| 3 | **Architect** | `/hbe:architect` | 实现代理 | [教程](ARCHITECT.md) |
-| 4 | **Code-Reviewer** | `/hbe:review` | 代码审查 | [教程](CODE-REVIEWER.md) |
-| 5 | **Security-Reviewer** | `/hbe:security` | 安全审查 | [教程](SECURITY-REVIEWER.md) |
-| 6 | **TDD-Guide** | `/hbe:tdd` | TDD指导 | [教程](TDD-GUIDE.md) |
-| 7 | **Build-Error-Resolver** | `/hbe:build-fix` | 构建修复 | [教程](BUILD-ERROR-RESOLVER.md) |
-| 8 | **E2E-Runner** | `/hbe:e2e` | E2E测试 | [教程](E2E-RUNNER.md) |
-| 9 | **Refactor-Cleaner** | `/hbe:refactor` | 重构清理 | [教程](REFACTOR-CLEANER.md) |
-| 10 | **Doc-Updater** | `/hbe:docs` | 文档更新 | [教程](DOC-UPDATER.md) |
+| 1 | **Orchestrator** | `/hbe-orchestrate` | 主智能体 | [教程](ORCHESTRATOR.md) |
+| 2 | **Planner** | `/hbe-plan` | 规划代理 | [教程](PLANNER.md) |
+| 3 | **Architect** | `/hbe-architect` | 实现代理 | [教程](ARCHITECT.md) |
+| 4 | **Code-Reviewer** | `/hbe-review` | 代码审查 | [教程](CODE-REVIEWER.md) |
+| 5 | **Security-Reviewer** | `/hbe-security` | 安全审查 | [教程](SECURITY-REVIEWER.md) |
+| 6 | **TDD-Guide** | `/hbe-tdd` | TDD指导 | [教程](TDD-GUIDE.md) |
+| 7 | **Build-Error-Resolver** | `/hbe-build-fix` | 构建修复 | [教程](BUILD-ERROR-RESOLVER.md) |
+| 8 | **E2E-Runner** | `/hbe-e2e` | E2E测试 | [教程](E2E-RUNNER.md) |
+| 9 | **Refactor-Cleaner** | `/hbe-refactor` | 重构清理 | [教程](REFACTOR-CLEANER.md) |
+| 10 | **Doc-Updater** | `/hbe-docs` | 文档更新 | [教程](DOC-UPDATER.md) |
 
 ---
 
@@ -77,34 +77,34 @@
 ### 场景 1: 新功能开发
 
 ```
-1. /hbe:plan "实现用户认证"
-2. /hbe:architect "实现 dev-plan.md"
-3. /hbe:review
-4. /hbe:security
-5. /hbe:tdd --verify
+1. /hbe-plan "实现用户认证"
+2. /hbe-architect "实现 dev-plan.md"
+3. /hbe-review
+4. /hbe-security
+5. /hbe-tdd --verify
 ```
 
 ### 场景 2: Bug修复
 
 ```
-1. /hbe:build-fix
-2. /hbe:review
-3. /hbe:tdd "添加回归测试"
+1. /hbe-build-fix
+2. /hbe-review
+3. /hbe-tdd "添加回归测试"
 ```
 
 ### 场景 3: 代码重构
 
 ```
-1. /hbe:refactor
-2. /hbe:review
-3. /hbe:tdd --verify
-4. /hbe:docs
+1. /hbe-refactor
+2. /hbe-review
+3. /hbe-tdd --verify
+4. /hbe-docs
 ```
 
 ### 场景 4: 全流程自动化
 
 ```
-/hbe:orchestrate "根据 prd.json 开发"
+/hbe-orchestrate "根据 prd.json 开发"
 ```
 
 ---

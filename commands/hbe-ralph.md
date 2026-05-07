@@ -1,7 +1,7 @@
 ---
 name: hbe-ralph
 description: Ralph 自主循环 - 突破上下文限制的自主开发
-trigger: /hbe:ralph
+trigger: /hbe-ralph
 keywords:
   - ralph
   - autonomous coding
@@ -9,7 +9,7 @@ keywords:
   - 自主循环
 ---
 
-# /hbe:ralph — Ralph 自主循环
+# /hbe-ralph — Ralph 自主循环
 
 突破上下文限制，完全自主完成大型任务。
 
@@ -18,7 +18,7 @@ keywords:
 1. **初始化**
    ```bash
    # 检查 prd.json 是否存在
-   # 不存在则先运行 /hbe:prd
+   # 不存在则先运行 /hbe-prd
    ```
 
 2. **Token 优化策略**

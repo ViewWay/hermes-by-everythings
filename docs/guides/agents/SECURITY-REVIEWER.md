@@ -2,7 +2,7 @@
 
 > **版本**: 3.2.0  
 > **Agent 类型**: 安全审查代理  
-> **触发命令**: `/hbe:security`  
+> **触发命令**: `/hbe-security`  
 > **Token 大小**: ~5.4KB
 
 ---
@@ -30,7 +30,7 @@
 ### 基础用法
 
 ```
-/hbe:security
+/hbe-security
 ```
 
 Security-Reviewer会：
@@ -41,7 +41,7 @@ Security-Reviewer会：
 ### 指定文件
 
 ```
-/hbe:security src/api/users.ts
+/hbe-security src/api/users.ts
 ```
 
 ---
@@ -87,7 +87,7 @@ Security-Reviewer会：
 ### 示例 1: 审查登录功能
 
 ```
-/hbe:security 审查用户登录代码
+/hbe-security 审查用户登录代码
 ```
 
 输出：
@@ -107,13 +107,13 @@ Security-Reviewer会：
 ### 示例 2: 审查PR
 
 ```
-/hbe:security --pr 45
+/hbe-security --pr 45
 ```
 
 ### 示例 3: 全面扫描
 
 ```
-/hbe:security --full
+/hbe-security --full
 ```
 
 ---
@@ -125,19 +125,19 @@ Security-Reviewer会：
 1. **提交前审查**
    ```
    git add .
-   /hbe:security
+   /hbe-security
    git commit -m "feat: 添加用户功能"
    ```
 
 2. **处理用户数据**
    ```
-   /hbe:security 审查用户注册流程
+   /hbe-security 审查用户注册流程
    确保密码正确哈希
    ```
 
 3. **第三方集成**
    ```
-   /hbe:security 审查Stripe集成
+   /hbe-security 审查Stripe集成
    检查API密钥保护
    ```
 
@@ -215,17 +215,17 @@ console.log('User:', { id: user.id, name: user.name });
 
 ```
 # 1. 代码质量
-/hbe:review
+/hbe-review
 
 # 2. 安全审查
-/hbe:security
+/hbe-security
 ```
 
 ### 在Orchestrator中
 
 ```
 # Orchestrator自动包含安全审查
-/hbe:orchestrate 开发支付功能
+/hbe-orchestrate 开发支付功能
 
 # 流程：
 # Architect → Code-Reviewer → Security-Reviewer → TDD-Guide

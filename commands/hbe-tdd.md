@@ -1,14 +1,14 @@
 ---
 name: hbe-tdd
 description: TDD 开发流程 - 红-绿-重构循环
-trigger: /hbe:tdd
+trigger: /hbe-tdd
 keywords:
   - tdd
   - test-driven development
   - 测试驱动开发
 ---
 
-# /hbe:tdd — TDD 开发流程
+# /hbe-tdd — TDD 开发流程
 
 遵循严格的 TDD 红-绿-重构循环。
 

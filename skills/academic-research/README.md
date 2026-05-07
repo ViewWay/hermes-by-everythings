@@ -15,16 +15,16 @@ Comprehensive academic research toolkit for HBE — from literature review to ca
 
 ```bash
 # Check LaTeX environment
-/hbe:academic check-env
+/hbe-academic check-env
 
 # Start a new paper project
-/hbe:academic paper --venue neurips --title "Your Paper Title"
+/hbe-academic paper --venue neurips --title "Your Paper Title"
 
 # Literature review
-/hbe:academic lit-review --topic "your research topic"
+/hbe-academic lit-review --topic "your research topic"
 
 # Compile LaTeX
-/hbe:academic compile --engine xelatex --template neurips
+/hbe-academic compile --engine xelatex --template neurips
 ```
 
 ## Directory Structure

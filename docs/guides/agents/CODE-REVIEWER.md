@@ -2,7 +2,7 @@
 
 > **版本**: 3.2.0  
 > **Agent 类型**: 代码审查代理  
-> **触发命令**: `/hbe:review`  
+> **触发命令**: `/hbe-review`  
 > **Token 大小**: ~5.4KB
 
 ---
@@ -30,7 +30,7 @@
 ### 基础用法
 
 ```
-/hbe:review
+/hbe-review
 ```
 
 Code-Reviewer会：
@@ -41,7 +41,7 @@ Code-Reviewer会：
 ### 指定文件
 
 ```
-/hbe:review src/services/userService.ts
+/hbe-review src/services/userService.ts
 ```
 
 ---
@@ -88,7 +88,7 @@ Code-Reviewer会：
 ### 示例 1: 审查单个文件
 
 ```
-/hbe:review src/api/users.ts
+/hbe-review src/api/users.ts
 ```
 
 输出：
@@ -108,7 +108,7 @@ Code-Reviewer会：
 ### 示例 2: 审查所有变更
 
 ```
-/hbe:review
+/hbe-review
 ```
 
 自动审查所有未提交的变更。
@@ -116,7 +116,7 @@ Code-Reviewer会：
 ### 示例 3: 审查PR
 
 ```
-/hbe:review --pr 123
+/hbe-review --pr 123
 ```
 
 审查GitHub PR #123的变更。
@@ -130,14 +130,14 @@ Code-Reviewer会：
 1. **提交前审查**
    ```
    git add .
-   /hbe:review
+   /hbe-review
    git commit -m "feat: 添加用户功能"
    ```
 
 2. **PR前审查**
    ```
    # 创建PR前
-   /hbe:review
+   /hbe-review
    
    # 修复问题后
    git push
@@ -146,7 +146,7 @@ Code-Reviewer会：
 3. **定期审查**
    ```
    # 每天结束前
-   /hbe:review
+   /hbe-review
    ```
 
 ### ❌ 避免做法
@@ -154,7 +154,7 @@ Code-Reviewer会：
 1. **跳过审查**
    ```
    不要：直接提交代码
-   应该：先 /hbe:review
+   应该：先 /hbe-review
    ```
 
 2. **忽略警告**
@@ -177,7 +177,7 @@ Code-Reviewer会：
 
 ```
 # Orchestrator 自动调用
-/hbe:orchestrate 开发用户API
+/hbe-orchestrate 开发用户API
 
 # 流程：
 # Architect → Code-Reviewer → [如有问题] → 修正循环
@@ -187,20 +187,20 @@ Code-Reviewer会：
 
 ```
 # 1. 代码质量审查
-/hbe:review
+/hbe-review
 
 # 2. 安全审查
-/hbe:security
+/hbe-security
 ```
 
 ### 与TDD-Guide
 
 ```
 # 1. 审查代码
-/hbe:review
+/hbe-review
 
 # 2. 审查测试
-/hbe:tdd --verify
+/hbe-tdd --verify
 ```
 
 ---
@@ -279,10 +279,10 @@ Code-Reviewer会：
 
 ```bash
 # 审查特定目录
-/hbe:review src/services/
+/hbe-review src/services/
 
 # 审查特定类型
-/hbe:review "**/*.test.ts"
+/hbe-review "**/*.test.ts"
 ```
 
 ### 3. CI集成
@@ -292,7 +292,7 @@ Code-Reviewer会：
 - name: Code Review
   run: |
     npm install
-    npx claude /hbe:review
+    npx claude /hbe-review
 ```
 
 ---

@@ -4,28 +4,28 @@ description: 学术研究工作流 / Academic research workflow — 文献综述
 allowed_tools: ["Read", "Write", "Edit", "Bash", "WebSearch", "Agent"]
 ---
 
-# /hbe:academic
+# /hbe-academic
 
 学术研究综合命令 / Comprehensive academic research command for HBE.
 
 ## Usage / 用法
 
 ```
-/hbe:academic <子命令> [选项 / options]
+/hbe-academic <子命令> [选项 / options]
 ```
 
 ## Sub-Commands / 子命令
 
 | Command 命令 | Description 说明 | Example 示例 |
 |---------|-------------|---------|
-| `check-env` | 检测 LaTeX 环境 / Detect LaTeX env | `/hbe:academic check-env` |
-| `lit-review` | 文献综述 / Literature review | `/hbe:academic lit-review --topic "transformer"` |
-| `paper` | 写论文 / Write a paper | `/hbe:academic paper --venue neurips` |
-| `experiment` | 实验设计 / Design experiments | `/hbe:academic experiment` |
-| `rebuttal` | 写 Rebuttal / Write rebuttal | `/hbe:academic rebuttal` |
-| `compile` | 编译 LaTeX / Compile LaTeX | `/hbe:academic compile main.tex` |
-| `template` | 复制模板 / Copy venue template | `/hbe:academic template neurips` |
-| `search` | 搜索 arXiv / Search arXiv | `/hbe:academic search "attention mechanism"` |
+| `check-env` | 检测 LaTeX 环境 / Detect LaTeX env | `/hbe-academic check-env` |
+| `lit-review` | 文献综述 / Literature review | `/hbe-academic lit-review --topic "transformer"` |
+| `paper` | 写论文 / Write a paper | `/hbe-academic paper --venue neurips` |
+| `experiment` | 实验设计 / Design experiments | `/hbe-academic experiment` |
+| `rebuttal` | 写 Rebuttal / Write rebuttal | `/hbe-academic rebuttal` |
+| `compile` | 编译 LaTeX / Compile LaTeX | `/hbe-academic compile main.tex` |
+| `template` | 复制模板 / Copy venue template | `/hbe-academic template neurips` |
+| `search` | 搜索 arXiv / Search arXiv | `/hbe-academic search "attention mechanism"` |
 
 ## Goal / 目标
 
@@ -73,20 +73,20 @@ Report what was done, files created/modified, and next steps.
 
 ```bash
 # 检查 LaTeX 安装 / Check LaTeX installation
-/hbe:academic check-env
+/hbe-academic check-env
 
 # 写 NeurIPS 论文 / Start a NeurIPS paper
-/hbe:academic paper --venue neurips
+/hbe-academic paper --venue neurips
 
 # 文献综述 / Literature review
-/hbe:academic lit-review --topic "large language models"
+/hbe-academic lit-review --topic "large language models"
 
 # 搜索 arXiv / Search arXiv
-/hbe:academic search "scaling laws" --max 10 --bibtex
+/hbe-academic search "scaling laws" --max 10 --bibtex
 
 # 用 xelatex 编译 / Compile with xelatex
-/hbe:academic compile main.tex --engine xelatex
+/hbe-academic compile main.tex --engine xelatex
 
 # 复制 IEEE 模板 / Copy IEEE template
-/hbe:academic template ieee
+/hbe-academic template ieee
 ```

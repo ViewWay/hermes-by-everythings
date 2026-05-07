@@ -315,7 +315,7 @@ bash install.sh
 
 在 Claude Code 中：
 ```
-/hbe:verify --system
+/hbe-verify --system
 ```
 
 ### 3. 测试
@@ -334,9 +334,9 @@ bash scripts/test/validate-prompts.sh
 ### 4. 开始使用
 
 ```
-/hbe:plan "实现用户登录功能"
-/hbe:tdd "编写用户认证测试"
-/hbe:review
+/hbe-plan "实现用户登录功能"
+/hbe-tdd "编写用户认证测试"
+/hbe-review
 ```
 
 ---

@@ -111,12 +111,12 @@ Different disciplines face distinct AIGC detection challenges and require tailor
 
 1. Apply de-AIGC checks in **Gate 2: Writing Quality** of the quality gate system
    在质量关卡系统的**第二关：写作质量**中应用降 AIGC 检查
-2. Use as post-processing step after `/hbe:academic paper` completes drafting
-   作为 `/hbe:academic paper` 完成草稿后的后处理步骤
+2. Use as post-processing step after `/hbe-academic paper` completes drafting
+   作为 `/hbe-academic paper` 完成草稿后的后处理步骤
 3. Combine with `workflows/paper-writing.md` Phase 4 (Quality Gates)
    与 `workflows/paper-writing.md` 第四阶段（质量关卡）结合使用
-4. Run `/hbe:academic de-aigc` for targeted de-AIGC review
-   运行 `/hbe:academic de-aigc` 进行专项降 AIGC 审查
+4. Run `/hbe-academic de-aigc` for targeted de-AIGC review
+   运行 `/hbe-academic de-aigc` 进行专项降 AIGC 审查
 
 ## Important Note / 重要说明
 

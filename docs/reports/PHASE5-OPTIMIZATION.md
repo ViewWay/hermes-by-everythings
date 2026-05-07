@@ -15,14 +15,14 @@
 **文件**: `.claude/config/aliases.json`
 
 **效果**:
-- `/hbe:r` 代替 `/hbe:review`
+- `/hbe:r` 代替 `/hbe-review`
 - 节省 70% 打字时间
 - 19 个快捷别名
 
 **示例**:
 ```bash
 # 之前
-/hbe:review src/utils.ts
+/hbe-review src/utils.ts
 
 # 现在
 /hbe:r src/utils.ts
@@ -134,9 +134,9 @@ node scripts/utils/history.js clear
   本月: 127
 
 命令使用:
-  /hbe:review          ██████████ 45
-  /hbe:tdd            ███████   32
-  /hbe:refactor       ████       18
+  /hbe-review          ██████████ 45
+  /hbe-tdd            ███████   32
+  /hbe-refactor       ████       18
 ```
 
 ---

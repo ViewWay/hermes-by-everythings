@@ -572,7 +572,7 @@ fi
 - 启用 Rust clippy strict
 
 ## 自定义命令
-- `/hbe:custom` → 运行项目特定脚本
+- `/hbe-custom` → 运行项目特定脚本
 
 ## 项目特定模式
 - 使用 SQLAlchemy 而非 Django ORM
@@ -629,14 +629,14 @@ skills/
 
 ```bash
 # 1. 诊断问题
-/hbe:diagnose
+/hbe-diagnose
 
 # 2. 重置状态
-/hbe:reset --soft   # 保留 progress.md
-/hbe:reset --hard   # 完全重置
+/hbe-reset --soft   # 保留 progress.md
+/hbe-reset --hard   # 完全重置
 
 # 3. 恢复检查点
-/hbe:restore --checkpoint=[checkpoint-id]
+/hbe-restore --checkpoint=[checkpoint-id]
 
 # 4. 验证系统
 /hbe-verify --system

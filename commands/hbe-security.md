@@ -1,14 +1,14 @@
 ---
 name: hbe-security
 description: 安全审查 - 检测 OWASP Top 10 漏洞
-trigger: /hbe:security
+trigger: /hbe-security
 keywords:
   - security
   - 安全审查
   - vulnerability scan
 ---
 
-# /hbe:security — 安全审查
+# /hbe-security — 安全审查
 
 检测和修复安全漏洞。
 

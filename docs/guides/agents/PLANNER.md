@@ -2,7 +2,7 @@
 
 > **版本**: 3.2.0  
 > **Agent 类型**: 规划代理  
-> **触发命令**: `/hbe:plan`  
+> **触发命令**: `/hbe-plan`  
 > **Token 大小**: ~4.4KB
 
 ---
@@ -41,7 +41,7 @@
 ### 基础用法
 
 ```
-/hbe:plan 实现用户登录功能
+/hbe-plan 实现用户登录功能
 ```
 
 Planner会：
@@ -92,7 +92,7 @@ Planner会自动：
 ### 示例 1: REST API 端点
 
 ```
-/hbe:plan 添加用户管理 REST API
+/hbe-plan 添加用户管理 REST API
 ```
 
 输出：
@@ -122,13 +122,13 @@ Planner会自动：
 ### 示例 2: 前端组件
 
 ```
-/hbe:plan 创建用户表单组件
+/hbe-plan 创建用户表单组件
 ```
 
 ### 示例 3: 数据库迁移
 
 ```
-/hbe:plan 添加用户表到数据库
+/hbe-plan 添加用户表到数据库
 ```
 
 ---
@@ -139,35 +139,35 @@ Planner会自动：
 
 1. **明确需求**
    ```
-   /hbe:plan 实现 JWT 认证，包含刷新令牌机制
+   /hbe-plan 实现 JWT 认证，包含刷新令牌机制
    ```
 
 2. **提供上下文**
    ```
-   /hbe:plan 在现有的 auth 系统基础上添加 OAuth2 支持
+   /hbe-plan 在现有的 auth 系统基础上添加 OAuth2 支持
    ```
 
 3. **指定约束**
    ```
-   /hbe:plan 重构用户服务，保持 API 兼容性
+   /hbe-plan 重构用户服务，保持 API 兼容性
    ```
 
 ### ❌ 避免做法
 
 1. **过于模糊**
    ```
-   /hbe:plan 添加一些功能
+   /hbe-plan 添加一些功能
    ```
 
 2. **一次性规划太多**
    ```
-   /hbe:plan 重构整个应用
+   /hbe-plan 重构整个应用
    ```
 
 3. **跳过规划直接编码**
    ```
    不要：直接写代码
-   应该：先用 /hbe:plan 规划
+   应该：先用 /hbe-plan 规划
    ```
 
 ---
@@ -178,20 +178,20 @@ Planner会自动：
 
 ```
 # 1. 先规划
-/hbe:plan 实现用户认证
+/hbe-plan 实现用户认证
 
 # 2. 再实现
-/hbe:architect 按照 dev-plan.md 实现用户认证
+/hbe-architect 按照 dev-plan.md 实现用户认证
 ```
 
 ### Planner → Orchestrator
 
 ```
 # 1. 创建 PRD
-/hbe:prd 完整的用户管理系统
+/hbe-prd 完整的用户管理系统
 
 # 2. Orchestrator 会自动调用 Planner
-/hbe:orchestrate 根据 prd.json 开发
+/hbe-orchestrate 根据 prd.json 开发
 ```
 
 ---
@@ -232,7 +232,7 @@ Planner会自动：
 
 **解决方案**:
 ```
-/hbe:plan 实现用户登录
+/hbe-plan 实现用户登录
        使用 email + password
        支持 JWT 认证
        包含密码重置功能
@@ -244,7 +244,7 @@ Planner会自动：
 
 **解决方案**:
 - 明确指定依赖项
-- 使用 `/hbe:plan` 时提供完整上下文
+- 使用 `/hbe-plan` 时提供完整上下文
 - 查看输出后手动补充
 
 ### 问题 3: Token 消耗过大
@@ -264,20 +264,20 @@ Planner会自动：
 
 ```
 # 第1阶段：核心功能
-/hbe:plan 用户认证（登录/注册）
+/hbe-plan 用户认证（登录/注册）
 
 # 第2阶段：扩展功能
-/hbe:plan 添加密码重置
+/hbe-plan 添加密码重置
 
 # 第3阶段：高级功能
-/hbe:plan 添加双因素认证
+/hbe-plan 添加双因素认证
 ```
 
 ### 2. 规划验证
 
 ```
 # 1. 规划
-/hbe:plan 实现缓存层
+/hbe-plan 实现缓存层
 
 # 2. 验证计划可行性
 cat dev-plan.md
@@ -290,7 +290,7 @@ cat dev-plan.md
 
 ```
 # 1. 生成计划
-/hbe:plan 添加支付功能
+/hbe-plan 添加支付功能
 
 # 2. 分享计划
 git add dev-plan.md

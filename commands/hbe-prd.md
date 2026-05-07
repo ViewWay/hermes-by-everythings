@@ -1,14 +1,14 @@
 ---
 name: hbe-prd
 description: PRD 生成 - 将需求转换为结构化产品需求文档
-trigger: /hbe:prd
+trigger: /hbe-prd
 keywords:
   - prd
   - 产品需求文档
   - requirement
 ---
 
-# /hbe:prd — PRD 生成
+# /hbe-prd — PRD 生成
 
 将用户需求转换为结构化 PRD。
 

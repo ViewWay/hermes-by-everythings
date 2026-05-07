@@ -1,7 +1,7 @@
 ---
 name: code-review
 description: Systematic code review patterns covering security, performance, maintainability, correctness, and testing
-trigger: "/hbe:review"
+trigger: "/hbe-review"
 keywords:
   - code review
   - 代码审查
