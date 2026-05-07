@@ -35,80 +35,52 @@ keywords:
 git clone https://github.com/ViewWay/hermes-by-everythings.git
 ```
 
-### Claude Code（推荐安装方式）
+### Claude Code
 
-HBE 的组件需要**部署到你的项目中**，而非仅安装 Skill 目录：
+安装脚本将 HBE 的 commands、rules、hooks 通过**软链接**注册到 `~/.claude/`。
+安装后，**任何项目**（即使没有 `.claude/` 目录）都能使用 `/hbe-*` 命令。
+更新 HBE 仓库后，所有项目自动生效。
 
-| 组件 | 部署位置 | 作用 | 缺失影响 |
-|------|----------|------|----------|
-| Skill | `~/.claude/skills/` | 全局技能入口 + 关键词触发 | 自动触发失效 |
-| Commands | **`项目/.claude/commands/`** | 18 个斜杠命令 | `/hbe-review` 等全部失效 |
-| Rules | **`项目/.claude/rules/`** | 安全护栏规则 | 护栏检查失效 |
-| Hooks | **`项目/scripts/hooks/`** | 自动化钩子 | 自动化失效 |
-| Settings | **`项目/.claude/settings.json`** | 钩子注册 | 钩子不触发 |
-
-> Claude Code 从**项目的** `.claude/` 目录发现 commands、rules 和 settings。
-> 仅复制 Skill 到 `~/.claude/skills/` 会缺失约 60% 功能。
-
-**一键部署（推荐）**：
 ```bash
-# 方式 1: 从 HBE 仓库部署到目标项目
 cd hermes-by-everythings
-bash scripts/install.sh --project ~/github/my-project
-
-# 方式 2: 在目标项目内运行
-cd ~/github/my-project
-bash ~/.claude/skills/hermes-by-everythings/scripts/install.sh --project .
+bash scripts/install.sh                # 全局安装（推荐）
+bash scripts/install.sh --project .     # 同时在当前项目创建软链接
+bash scripts/install.sh --verify        # 验证安装
+bash scripts/install.sh --uninstall      # 卸载
 ```
 
-安装脚本会自动：
-1. 安装 Skill 到 `~/.claude/skills/`（全局，用于关键词触发）
-2. 部署 Commands/Rules/Hooks/Settings 到目标项目
-
-**开发模式（软链接，改动实时生效）**：
+安装后合并 settings：
 ```bash
-bash scripts/install.sh --project ~/github/my-project --link
+jq -s '.[0]*.[1]' ~/.claude/settings.json ~/.claude/settings.hbe.json > /tmp/h.json
+mv /tmp/h.json ~/.claude/settings.json
 ```
 
-**验证安装**：
-```bash
-bash scripts/install.sh --project ~/github/my-project --verify
+#### 安装后的目录结构
+
+```
+~/.claude/
+├── skills/hermes-by-everythings  -> HBE仓库 (全局 Skill + 关键词触发)
+├── commands/hbe-*.md             -> HBE仓库 (全局 18 个斜杠命令)
+├── rules/*-guardrails.md         -> HBE仓库 (全局护栏规则)
+├── settings.hbe.json             (hooks 绝对路径注册)
+└── settings.json                 (合并后生效)
+
+~/.hbe/scripts/
+├── hooks/                        -> HBE仓库 (全局 hook 脚本)
+└── lib/                          -> HBE仓库 (共享库)
 ```
 
-**卸载**：
+### Hermes Agent
+
 ```bash
-bash scripts/install.sh --project ~/github/my-project --uninstall
+cp -r hermes-by-everythings ~/.hermes/skills/hermes-by-everythings
 ```
 
-**全局安装（所有项目，`--global`）**：
-```bash
-bash scripts/install.sh --global
-```
-
-#### 手动部署（不推荐）
+### OpenClaw / OpenCode
 
 ```bash
-TARGET=~/github/my-project
-
-# 1. Skill（全局，只需一次）
-cp -r .claude/skills/hermes-by-everythings ~/.claude/skills/
-
-# 2. Commands → 项目
-mkdir -p $TARGET/.claude/commands
-cp .claude/commands/hbe-*.md $TARGET/.claude/commands/
-
-# 3. Rules → 项目
-mkdir -p $TARGET/.claude/rules
-cp .claude/rules/*.md $TARGET/.claude/rules/
-
-# 4. Hooks → 项目（使用相对路径，Claude Code 以项目根为 CWD）
-mkdir -p $TARGET/scripts/hooks
-cp -r scripts/hooks/* $TARGET/scripts/hooks/
-chmod +x $TARGET/scripts/hooks/*.sh 2>/dev/null || true
-[ -d scripts/lib ] && mkdir -p $TARGET/scripts/lib && cp -r scripts/lib/* $TARGET/scripts/lib/
-
-# 5. 合并 Settings → 项目
-# 将 .claude/settings.hbe.json 的 hooks 合并到 $TARGET/.claude/settings.json
+cp -r hermes-by-everythings ~/.openclaw/skills/hermes-by-everythings
+cp -r hermes-by-everythings ~/.opencode/skills/hermes-by-everythings
 ```
 
 ### Hermes Agent

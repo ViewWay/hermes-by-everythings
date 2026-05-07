@@ -22,17 +22,12 @@ version: 3.3.0
 
 ## 安装
 
-HBE 的 Commands/Rules/Hooks 需要部署到**你的项目中**，仅安装 Skill 会缺失 60% 功能。
+HBE 通过软链接安装到 `~/.claude/`，任何项目（无 `.claude/` 也能用）都能使用 `/hbe-*` 命令。
 
 ```bash
-# 部署到目标项目（推荐）
-bash scripts/install.sh --project ~/github/my-project
-bash scripts/install.sh --project ~/github/my-project --link  # 开发模式
-bash scripts/install.sh --project ~/github/my-project --verify # 验证
-bash scripts/install.sh --project ~/github/my-project --uninstall # 卸载
-
-# 全局安装（所有项目）
-bash scripts/install.sh --global
+bash scripts/install.sh          # 全局安装（推荐）
+bash scripts/install.sh --project . --verify  # 验证
+bash scripts/install.sh --uninstall           # 卸载
 ```
 
 ## 快速开始

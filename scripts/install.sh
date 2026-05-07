@@ -2,20 +2,14 @@
 #
 # HBE Installation Script v3.3.0
 #
-# Deploys Hermes-by-Everything's to a target project.
-# Claude Code discovers commands/rules/settings from the PROJECT's .claude/ directory.
+# Symlinks HBE into ~/.claude/ so ALL projects can use HBE commands,
+# even projects without their own .claude/ directory.
 #
 # Usage:
-#   cd ~/github/my-project
-#   bash path/to/hermes-by-everythings/scripts/install.sh
-#
-#   # Or specify target explicitly:
-#   bash scripts/install.sh --project ~/github/my-project
-#
-#   bash scripts/install.sh --project . --link    # Symlink mode (development)
-#   bash scripts/install.sh --project . --uninstall
-#   bash scripts/install.sh --project . --verify
-#   bash scripts/install.sh --global              # Legacy: install to ~/.claude/
+#   bash scripts/install.sh                # Symlink to ~/.claude/ (recommended)
+#   bash scripts/install.sh --project .     # Also symlink into current project
+#   bash scripts/install.sh --uninstall
+#   bash scripts/install.sh --verify
 #
 
 set -e
@@ -30,116 +24,72 @@ NC='\033[0m'
 HBE_VERSION="3.3.0"
 HBE_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 HBE_CLAUDE="$HBE_ROOT/.claude"
-HBE_COMMANDS="$HBE_CLAUDE/commands"
-HBE_RULES="$HBE_CLAUDE/rules"
-HBE_HOOKS="$HBE_ROOT/scripts/hooks"
-HBE_SKILL="$HBE_CLAUDE/skills/hermes-by-everythings"
+USER_CLAUDE="$HOME/.claude"
+HBE_HOME="$HOME/.hbe"
 
 MODE="install"
 TARGET=""
-GLOBAL=false
 
-# Parse arguments
 while [[ $# -gt 0 ]]; do
     case "$1" in
         --project) TARGET="$(cd "$2" && pwd)"; shift 2 ;;
-        --global)  GLOBAL=true; shift ;;
-        --link)    MODE="link"; shift ;;
         --uninstall) MODE="uninstall"; shift ;;
-        --verify)  MODE="verify"; shift ;;
+        --verify) MODE="verify"; shift ;;
         --help|-h)
-            echo "HBE v${HBE_VERSION} Installer"
+            echo "HBE v${HBE_VERSION} Installer (Symlink Mode)"
             echo ""
-            echo "Deploys HBE to a target project so commands, rules, and hooks work there."
+            echo "All commands, rules, and hooks are SYMLINKED from the HBE repo."
+            echo "Update HBE repo once -> all projects reflect changes."
             echo ""
             echo "Usage:"
-            echo "  bash scripts/install.sh --project <path>   Deploy to project"
-            echo "  bash scripts/install.sh --project <path> --link   Symlink mode"
-            echo "  bash scripts/install.sh --project <path> --uninstall"
-            echo "  bash scripts/install.sh --project <path> --verify"
-            echo "  bash scripts/install.sh --global             Deploy to ~/.claude/ (legacy)"
-            echo "  bash scripts/install.sh --help"
-            echo ""
-            echo "Examples:"
-            echo "  # From HBE repo, deploy to a project:"
-            echo "  bash scripts/install.sh --project ~/github/my-project"
-            echo ""
-            echo "  # From inside the target project:"
-            echo "  bash ~/.claude/skills/hermes-by-everythings/scripts/install.sh --project ."
-            echo ""
-            echo "  # Global install (all projects):"
-            echo "  bash scripts/install.sh --global"
+            echo "  bash scripts/install.sh                    Symlink to ~/.claude/ (global)"
+            echo "  bash scripts/install.sh --project <path>   Also symlink into a project"
+            echo "  bash scripts/install.sh --uninstall         Remove all HBE symlinks"
+            echo "  bash scripts/install.sh --verify            Check installation"
             exit 0
             ;;
         *) echo "Unknown option: $1"; exit 1 ;;
     esac
 done
 
-# Default: if no --project and no --global, use PWD
-if [ -z "$TARGET" ] && ! $GLOBAL; then
-    TARGET="$(pwd)"
-fi
-
-# Determine deployment directories
-if $GLOBAL; then
-    DEPLOY_DIR="$HOME/.claude"
-    HOOKS_DEPLOY_DIR="$HOME/.hbe/scripts"
-else
-    DEPLOY_DIR="$TARGET/.claude"
-    HOOKS_DEPLOY_DIR="$TARGET/scripts"
-fi
-
-DEPLOY_COMMANDS="$DEPLOY_DIR/commands"
-DEPLOY_RULES="$DEPLOY_DIR/rules"
-DEPLOY_SETTINGS="$DEPLOY_DIR/settings.json"
-DEPLOY_HOOKS="$HOOKS_DEPLOY_DIR/hooks"
-
-count_files() {
-    find "$1" -maxdepth 1 -type f -name "$2" 2>/dev/null | wc -l | tr -d ' '
-}
-
 ###############################################################################
 # UNINSTALL
 ###############################################################################
 do_uninstall() {
-    echo -e "${YELLOW}Uninstalling HBE from: ${CYAN}${TARGET}${NC}"
-    echo ""
+    echo -e "${YELLOW}Uninstalling HBE symlinks...${NC}"
 
-    # Remove commands
-    local cmd_count=0
-    for f in "$DEPLOY_COMMANDS/hbe-"*.md; do
-        [ -f "$f" ] && rm "$f" && ((cmd_count++)) || true
-    done
-    [ -f "$DEPLOY_COMMANDS/validate.sh" ] && rm "$DEPLOY_COMMANDS/validate.sh"
-    [ "$cmd_count" -gt 0 ] && echo -e "  ${GREEN}✓${NC} Removed ${cmd_count} command files"
-
-    # Remove rules
-    for f in "$DEPLOY_RULES/hermes-by-everythings-guardrails.md" "$DEPLOY_RULES/everything-claude-code-guardrails.md"; do
-        [ -f "$f" ] && rm "$f" && echo -e "  ${GREEN}✓${NC} Removed $(basename "$f")"
-    done
-
-    # Remove hook scripts (only if we put them there)
-    if [ -f "$DEPLOY_HOOKS/session-start.js" ]; then
-        for f in "$DEPLOY_HOOKS"/*.js "$DEPLOY_HOOKS"/*.sh; do
-            [ -f "$f" ] && rm "$f" 2>/dev/null || true
-        done
-        echo -e "  ${GREEN}✓${NC} Removed hook scripts"
+    if [ -L "$USER_CLAUDE/skills/hermes-by-everythings" ]; then
+        rm "$USER_CLAUDE/skills/hermes-by-everythings"
+        echo -e "  ${GREEN}✓${NC} Removed skill symlink"
+    elif [ -d "$USER_CLAUDE/skills/hermes-by-everythings" ]; then
+        rm -rf "$USER_CLAUDE/skills/hermes-by-everythings"
+        echo -e "  ${GREEN}✓${NC} Removed skill directory"
     fi
 
-    # Remove settings.hbe.json if exists
-    [ -f "$DEPLOY_DIR/settings.hbe.json" ] && rm "$DEPLOY_DIR/settings.hbe.json"
-    echo -e "  ${GREEN}✓${NC} Removed settings.hbe.json"
+    local count=0
+    for f in "$USER_CLAUDE/commands/hbe-"*.md; do
+        [ -L "$f" ] && rm "$f" && ((count++))
+        [ -f "$f" ] && ! [ -L "$f" ] && rm "$f" && ((count++))
+    done
+    [ -L "$USER_CLAUDE/commands/validate.sh" ] && rm "$USER_CLAUDE/commands/validate.sh"
+    [ "$count" -gt 0 ] && echo -e "  ${GREEN}✓${NC} Removed ${count} commands"
 
-    # Remove empty directories
-    rmdir "$DEPLOY_COMMANDS" 2>/dev/null || true
-    rmdir "$DEPLOY_RULES" 2>/dev/null || true
-    rmdir "$DEPLOY_HOOKS" 2>/dev/null || true
-    rmdir "$DEPLOY_DIR" 2>/dev/null || true
+    for f in "$USER_CLAUDE/rules/hermes-by-everythings-guardrails.md" "$USER_CLAUDE/rules/everything-claude-code-guardrails.md"; do
+        [ -L "$f" ] && rm "$f" && echo -e "  ${GREEN}✓${NC} Removed $(basename "$f")"
+        [ -f "$f" ] && ! [ -L "$f" ] && rm "$f" && echo -e "  ${GREEN}✓${NC} Removed $(basename "$f")"
+    done
+
+    [ -L "$HBE_HOME/scripts/hooks" ] && rm "$HBE_HOME/scripts/hooks" && echo -e "  ${GREEN}✓${NC} Removed hooks symlink"
+    [ -d "$HBE_HOME/scripts/hooks" ] && rm -rf "$HBE_HOME/scripts/hooks" && echo -e "  ${GREEN}✓${NC} Removed hooks dir"
+    [ -L "$HBE_HOME/scripts/lib" ] && rm "$HBE_HOME/scripts/lib"
+    [ -d "$HBE_HOME/scripts/lib" ] && rm -rf "$HBE_HOME/scripts/lib"
+
+    [ -f "$USER_CLAUDE/settings.hbe.json" ] && rm "$USER_CLAUDE/settings.hbe.json" && \
+        echo -e "  ${GREEN}✓${NC} Removed settings.hbe.json"
 
     echo ""
-    echo -e "${GREEN}HBE uninstalled from: ${CYAN}${TARGET}${NC}"
-    echo -e "${YELLOW}Note: If you merged settings.hbe.json hooks into settings.json,${NC}"
-    echo -e "${YELLOW}      remove those entries manually.${NC}"
+    echo -e "${GREEN}HBE uninstalled.${NC}"
+    echo -e "${YELLOW}Remove HBE hook entries from ~/.claude/settings.json manually if merged.${NC}"
 }
 
 ###############################################################################
@@ -147,70 +97,60 @@ do_uninstall() {
 ###############################################################################
 do_verify() {
     local errors=0
-    local scope="project: ${CYAN}${TARGET}${NC}"
 
     echo -e "${CYAN}Verifying HBE installation...${NC}"
-    echo -e "  Scope: $scope"
     echo ""
 
-    # Check skill (global only)
-    local skill_path="$HOME/.claude/skills/hermes-by-everythings"
-    if [ -d "$skill_path" ] || [ -L "$skill_path" ]; then
-        echo -e "  ${GREEN}✓${NC} Skill installed at ~/.claude/skills/hermes-by-everythings"
+    if [ -L "$USER_CLAUDE/skills/hermes-by-everythings" ]; then
+        echo -e "  ${GREEN}✓${NC} Skill: symlink -> $(readlink "$USER_CLAUDE/skills/hermes-by-everythings")"
+    elif [ -d "$USER_CLAUDE/skills/hermes-by-everythings" ]; then
+        echo -e "  ${YELLOW}⚠${NC} Skill: directory (not symlink, updates won't propagate)"
     else
-        echo -e "  ${YELLOW}⚠${NC} Skill NOT at ~/.claude/skills/ (auto-trigger disabled)"
-    fi
-
-    # Check commands in target project
-    local cmd_count=$(count_files "$DEPLOY_COMMANDS" "hbe-*.md")
-    if [ "$cmd_count" -ge 18 ]; then
-        echo -e "  ${GREEN}✓${NC} Commands: ${cmd_count}/18 in ${DEPLOY_COMMANDS}/"
-    elif [ "$cmd_count" -gt 0 ]; then
-        echo -e "  ${YELLOW}⚠${NC} Commands: ${cmd_count}/18 (incomplete) in ${DEPLOY_COMMANDS}/"
-        ((errors++))
-    else
-        echo -e "  ${RED}✗${NC} Commands: 0/18 — NOT found in ${DEPLOY_COMMANDS}/"
+        echo -e "  ${RED}✗${NC} Skill: NOT installed"
         ((errors++))
     fi
 
-    # Check rules in target project
-    local rule_count=0
-    [ -f "$DEPLOY_RULES/hermes-by-everythings-guardrails.md" ] && ((rule_count++)) || true
-    [ -f "$DEPLOY_RULES/everything-claude-code-guardrails.md" ] && ((rule_count++)) || true
-    if [ "$rule_count" -ge 2 ]; then
-        echo -e "  ${GREEN}✓${NC} Rules: ${rule_count}/2 in ${DEPLOY_RULES}/"
+    local cmd_linked=0 cmd_total=0
+    for f in "$USER_CLAUDE/commands/hbe-"*.md; do
+        [ -L "$f" ] && ((cmd_linked++))
+        [ -f "$f" ] && ((cmd_total++))
+    done
+    if [ "$cmd_total" -ge 18 ]; then
+        echo -e "  ${GREEN}✓${NC} Commands: ${cmd_total}/18 (${cmd_linked} symlinked)"
     else
-        echo -e "  ${RED}✗${NC} Rules: ${rule_count}/2 — NOT found in ${DEPLOY_RULES}/"
+        echo -e "  ${RED}✗${NC} Commands: ${cmd_total}/18"
         ((errors++))
     fi
 
-    # Check hooks in target project
-    if [ -d "$DEPLOY_HOOKS" ] && [ -f "$DEPLOY_HOOKS/session-start.js" ]; then
-        local hook_count=$(find "$DEPLOY_HOOKS" -maxdepth 1 -type f -name "*.js" 2>/dev/null | wc -l | tr -d ' ')
-        echo -e "  ${GREEN}✓${NC} Hooks: ${hook_count} .js files in ${DEPLOY_HOOKS}/"
+    local rule_ok=0
+    for f in "$USER_CLAUDE/rules/hermes-by-everythings-guardrails.md" "$USER_CLAUDE/rules/everything-claude-code-guardrails.md"; do
+        [ -f "$f" ] && ((rule_ok++))
+    done
+    if [ "$rule_ok" -ge 2 ]; then
+        echo -e "  ${GREEN}✓${NC} Rules: ${rule_ok}/2"
     else
-        echo -e "  ${YELLOW}⚠${NC} Hooks: NOT found at ${DEPLOY_HOOKS}/"
+        echo -e "  ${RED}✗${NC} Rules: ${rule_ok}/2"
+        ((errors++))
     fi
 
-    # Check settings
-    if [ -f "$DEPLOY_SETTINGS" ]; then
-        if grep -q "session-start.js" "$DEPLOY_SETTINGS" 2>/dev/null; then
-            echo -e "  ${GREEN}✓${NC} Settings: hooks registered in ${DEPLOY_SETTINGS}"
-        else
-            echo -e "  ${YELLOW}⚠${NC} Settings: exists but no HBE hooks found"
-        fi
-    elif [ -f "$DEPLOY_DIR/settings.hbe.json" ]; then
-        echo -e "  ${YELLOW}⚠${NC} Settings: settings.hbe.json exists but NOT merged into settings.json"
+    if [ -d "$HBE_HOME/scripts/hooks" ] || [ -L "$HBE_HOME/scripts/hooks" ]; then
+        local hook_count=$(find "$HBE_HOME/scripts/hooks" -maxdepth 1 -type f -name "*.js" 2>/dev/null | wc -l | tr -d ' ')
+        echo -e "  ${GREEN}✓${NC} Hooks: ${hook_count} .js files"
     else
-        echo -e "  ${YELLOW}⚠${NC} Settings: no HBE settings found"
+        echo -e "  ${RED}✗${NC} Hooks: NOT found"
+        ((errors++))
+    fi
+
+    if [ -f "$USER_CLAUDE/settings.json" ] && grep -q "session-start.js" "$USER_CLAUDE/settings.json" 2>/dev/null; then
+        echo -e "  ${GREEN}✓${NC} Settings: HBE hooks active"
+    elif [ -f "$USER_CLAUDE/settings.hbe.json" ]; then
+        echo -e "  ${YELLOW}⚠${NC} Settings: settings.hbe.json not yet merged"
+    else
+        echo -e "  ${YELLOW}⚠${NC} Settings: no HBE settings"
     fi
 
     echo ""
-    if [ "$errors" -eq 0 ]; then
-        echo -e "${GREEN}All checks passed.${NC}"
-    else
-        echo -e "${RED}${errors} error(s) found. Run: bash scripts/install.sh --project ${TARGET}${NC}"
-    fi
+    [ "$errors" -eq 0 ] && echo -e "${GREEN}All checks passed.${NC}" || echo -e "${RED}${errors} error(s).${NC}"
     return $errors
 }
 
@@ -221,140 +161,63 @@ do_install() {
     echo -e "${BLUE}"
     echo "╔═══════════════════════════════════════════════════════════╗"
     echo "║   Hermes-by-Everything's v${HBE_VERSION} Installer                  ║"
+    echo "║   Symlink Mode — update once, all projects reflect         ║"
     echo "╚═══════════════════════════════════════════════════════════╝"
     echo -e "${NC}"
 
-    # Validate source
-    if [ ! -d "$HBE_COMMANDS" ]; then
-        echo -e "${RED}Error: HBE commands not found at ${HBE_COMMANDS}${NC}"
-        exit 1
+    [ ! -d "$HBE_CLAUDE/commands" ] && { echo -e "${RED}Error: HBE source not found at ${HBE_ROOT}${NC}"; exit 1; }
+    echo -e "${GREEN}✓${NC} HBE source: ${CYAN}${HBE_ROOT}${NC}"
+
+    # --- 1. Skill ---
+    echo -e "\n${BLUE}[1/4] Skill${NC}"
+    mkdir -p "$USER_CLAUDE/skills"
+    [ -L "$USER_CLAUDE/skills/hermes-by-everythings" ] && rm "$USER_CLAUDE/skills/hermes-by-everythings"
+    if [ -d "$USER_CLAUDE/skills/hermes-by-everythings" ]; then
+        [ -f "$USER_CLAUDE/skills/hermes-by-everythings/SKILL.md" ] && rm -rf "$USER_CLAUDE/skills/hermes-by-everythings"
     fi
-    echo -e "${GREEN}✓${NC} HBE source: ${HBE_ROOT}"
+    ln -s "$HBE_ROOT" "$USER_CLAUDE/skills/hermes-by-everythings"
+    echo -e "  ${GREEN}✓${NC} ~/.claude/skills/hermes-by-everythings -> ${HBE_ROOT}"
 
-    # Validate target
-    if $GLOBAL; then
-        echo -e "${GREEN}✓${NC} Target: ${CYAN}~/.claude/ (global)${NC}"
-    else
-        if [ ! -d "$TARGET" ]; then
-            echo -e "${RED}Error: Target directory not found: ${TARGET}${NC}"
-            exit 1
-        fi
-        echo -e "${GREEN}✓${NC} Target project: ${CYAN}${TARGET}${NC}"
-    fi
-
-    # Backup
-    BACKUP_DIR="$TARGET/.hbe-backup-$(date +%Y%m%d-%H%M%S)"
-    local needs_backup=false
-    [ -d "$DEPLOY_COMMANDS" ] && [ -f "$DEPLOY_COMMANDS/hbe-plan.md" ] && needs_backup=true
-
-    if $needs_backup; then
-        mkdir -p "$BACKUP_DIR"
-        cp -r "$DEPLOY_COMMANDS" "$BACKUP_DIR/commands" 2>/dev/null || true
-        [ -d "$DEPLOY_RULES" ] && cp -r "$DEPLOY_RULES" "$BACKUP_DIR/rules" 2>/dev/null || true
-        [ -f "$DEPLOY_SETTINGS" ] && cp "$DEPLOY_SETTINGS" "$BACKUP_DIR/settings.json" 2>/dev/null || true
-        echo -e "${YELLOW}⚠${NC} Backup: ${BACKUP_DIR}"
-    fi
-
-    # --- 1. Install Skill (global only) ---
-    echo ""
-    echo -e "${BLUE}[1/4] Installing Skill...${NC}"
-
-    local global_skill="$HOME/.claude/skills/hermes-by-everythings"
-    mkdir -p "$(dirname "$global_skill")"
-
-    if [ "$MODE" == "link" ]; then
-        [ -L "$global_skill" ] && rm "$global_skill"
-        [ -d "$global_skill" ] && rm -rf "$global_skill"
-        ln -s "$HBE_ROOT" "$global_skill"
-        echo -e "  ${GREEN}✓${NC} Symlinked → ~/.claude/skills/hermes-by-everythings"
-    else
-        if [ -d "$global_skill" ]; then
-            [ -f "$global_skill/SKILL.md" ] && rm -rf "$global_skill" || \
-                echo -e "  ${YELLOW}⚠${NC} Skipping: existing dir doesn't look like HBE"
-        fi
-        [ ! -d "$global_skill" ] && cp -r "$HBE_SKILL" "$global_skill"
-        [ -d "$global_skill" ] && echo -e "  ${GREEN}✓${NC} Skill → ~/.claude/skills/hermes-by-everythings/"
-    fi
-
-    # --- 2. Deploy Commands to target project ---
-    echo ""
-    echo -e "${BLUE}[2/4] Deploying Commands to ${DEPLOY_COMMANDS}/...${NC}"
-    mkdir -p "$DEPLOY_COMMANDS"
-
+    # --- 2. Commands ---
+    echo -e "\n${BLUE}[2/4] Commands${NC}"
+    mkdir -p "$USER_CLAUDE/commands"
     local cmd_count=0
-    for src in "$HBE_COMMANDS/hbe-"*.md; do
+    for src in "$HBE_CLAUDE/commands/hbe-"*.md; do
         [ -f "$src" ] || continue
-        local name=$(basename "$src")
-        if [ "$MODE" == "link" ]; then
-            ln -sf "$src" "$DEPLOY_COMMANDS/$name"
-        else
-            cp "$src" "$DEPLOY_COMMANDS/$name"
-        fi
+        ln -sf "$src" "$USER_CLAUDE/commands/$(basename "$src")"
         ((cmd_count++))
     done
+    echo -e "  ${GREEN}✓${NC} ${cmd_count} commands symlinked"
 
-    if [ -f "$HBE_COMMANDS/validate.sh" ]; then
-        if [ "$MODE" == "link" ]; then
-            ln -sf "$HBE_COMMANDS/validate.sh" "$DEPLOY_COMMANDS/validate.sh"
-        else
-            cp "$HBE_COMMANDS/validate.sh" "$DEPLOY_COMMANDS/validate.sh"
-            chmod +x "$DEPLOY_COMMANDS/validate.sh"
-        fi
-    fi
-
-    echo -e "  ${GREEN}✓${NC} ${cmd_count} commands → ${DEPLOY_COMMANDS}/"
-
-    # --- 3. Deploy Rules to target project ---
-    echo ""
-    echo -e "${BLUE}[3/4] Deploying Rules to ${DEPLOY_RULES}/...${NC}"
-    mkdir -p "$DEPLOY_RULES"
-
-    for src in "$HBE_RULES/"*.md; do
+    # --- 3. Rules ---
+    echo -e "\n${BLUE}[3/4] Rules${NC}"
+    mkdir -p "$USER_CLAUDE/rules"
+    for src in "$HBE_CLAUDE/rules/"*.md; do
         [ -f "$src" ] || continue
-        local name=$(basename "$src")
-        if [ "$MODE" == "link" ]; then
-            ln -sf "$src" "$DEPLOY_RULES/$name"
-        else
-            cp "$src" "$DEPLOY_RULES/$name"
-        fi
-        echo -e "  ${GREEN}✓${NC} $name"
+        ln -sf "$src" "$USER_CLAUDE/rules/$(basename "$src")"
+        echo -e "  ${GREEN}✓${NC} $(basename "$src")"
     done
 
-    # --- 4. Deploy Hooks + Settings to target project ---
-    echo ""
-    echo -e "${BLUE}[4/4] Deploying Hooks to ${HOOKS_DEPLOY_DIR}/...${NC}"
-    mkdir -p "$DEPLOY_HOOKS"
+    # --- 4. Hooks + Settings ---
+    echo -e "\n${BLUE}[4/4] Hooks${NC}"
+    mkdir -p "$HBE_HOME/scripts"
+    [ -L "$HBE_HOME/scripts/hooks" ] && rm "$HBE_HOME/scripts/hooks"
+    [ -d "$HBE_HOME/scripts/hooks" ] && rm -rf "$HBE_HOME/scripts/hooks"
+    [ -L "$HBE_HOME/scripts/lib" ] && rm "$HBE_HOME/scripts/lib"
+    [ -d "$HBE_HOME/scripts/lib" ] && rm -rf "$HBE_HOME/scripts/lib"
 
-    if [ -d "$HBE_HOOKS" ]; then
-        if [ "$MODE" == "link" ]; then
-            rm -rf "$DEPLOY_HOOKS"
-            ln -s "$HBE_HOOKS" "$DEPLOY_HOOKS"
-            echo -e "  ${GREEN}✓${NC} Symlinked hooks → ${DEPLOY_HOOKS}/"
-        else
-            cp -r "$HBE_HOOKS/"* "$DEPLOY_HOOKS/"
-            chmod +x "$DEPLOY_HOOKS/"*.sh 2>/dev/null || true
-            # Copy shared libs
-            if [ -d "$HBE_ROOT/scripts/lib" ]; then
-                mkdir -p "$HOOKS_DEPLOY_DIR/lib"
-                cp -r "$HBE_ROOT/scripts/lib/"* "$HOOKS_DEPLOY_DIR/lib/" 2>/dev/null || true
-            fi
-            echo -e "  ${GREEN}✓${NC} Copied hooks → ${DEPLOY_HOOKS}/"
-        fi
-    fi
+    ln -s "$HBE_ROOT/scripts/hooks" "$HBE_HOME/scripts/hooks"
+    echo -e "  ${GREEN}✓${NC} ~/.hbe/scripts/hooks -> ${HBE_ROOT}/scripts/hooks"
 
-    # Generate settings with project-relative hook paths
-    echo ""
-    echo -e "${BLUE}Generating Settings...${NC}"
+    [ -d "$HBE_ROOT/scripts/lib" ] && ln -s "$HBE_ROOT/scripts/lib" "$HBE_HOME/scripts/lib"
 
-    # Use relative paths for hooks (Claude Code runs hooks with project root as CWD)
-    local HOOK_REL="scripts/hooks"
-
-    cat > "$DEPLOY_DIR/settings.hbe.json" <<HBESETTINGS
+    local HOOKS_DIR="$HBE_HOME/scripts/hooks"
+    cat > "$USER_CLAUDE/settings.hbe.json" <<HBESETTINGS
 {
   "permissions": {
     "allow": [
-      "Bash(node scripts/hooks/*)",
-      "Bash(bash scripts/hooks/*)",
+      "Bash(node \"$HOOKS_DIR\"/*)",
+      "Bash(bash \"$HOOKS_DIR\"/*)",
       "Read(*)"
     ]
   },
@@ -365,7 +228,7 @@ do_install() {
         "hooks": [
           {
             "type": "command",
-            "command": "node ${HOOK_REL}/session-start.js"
+            "command": "node \"$HOOKS_DIR/session-start.js\""
           }
         ]
       }
@@ -376,7 +239,7 @@ do_install() {
         "hooks": [
           {
             "type": "command",
-            "command": "node ${HOOK_REL}/session-end.js"
+            "command": "node \"$HOOKS_DIR/session-end.js\""
           }
         ]
       }
@@ -387,7 +250,7 @@ do_install() {
         "hooks": [
           {
             "type": "command",
-            "command": "bash ${HOOK_REL}/file-type-detect.sh 2>/dev/null || true"
+            "command": "bash \"$HOOKS_DIR/file-type-detect.sh\" 2>/dev/null || true"
           }
         ]
       },
@@ -396,7 +259,7 @@ do_install() {
         "hooks": [
           {
             "type": "command",
-            "command": "node ${HOOK_REL}/post-tool.js 2>/dev/null || true"
+            "command": "node \"$HOOKS_DIR/post-tool.js\" 2>/dev/null || true"
           }
         ]
       }
@@ -407,7 +270,7 @@ do_install() {
         "hooks": [
           {
             "type": "command",
-            "command": "node ${HOOK_REL}/pre-bash-dispatcher.js 2>/dev/null || true"
+            "command": "node \"$HOOKS_DIR/pre-bash-dispatcher.js\" 2>/dev/null || true"
           }
         ]
       }
@@ -415,44 +278,40 @@ do_install() {
   }
 }
 HBESETTINGS
+    echo -e "  ${GREEN}✓${NC} ~/.claude/settings.hbe.json generated"
 
-    echo -e "  ${GREEN}✓${NC} Generated ${DEPLOY_DIR}/settings.hbe.json"
+    # Optional: project-level symlinks
+    if [ -n "$TARGET" ]; then
+        echo -e "\n${BLUE}[Optional] Project symlinks -> ${TARGET}/.claude/${NC}"
+        mkdir -p "$TARGET/.claude/commands" "$TARGET/.claude/rules"
+        for src in "$HBE_CLAUDE/commands/hbe-"*.md; do
+            [ -f "$src" ] || continue
+            ln -sf "$src" "$TARGET/.claude/commands/$(basename "$src")"
+        done
+        for src in "$HBE_CLAUDE/rules/"*.md; do
+            [ -f "$src" ] || continue
+            ln -sf "$src" "$TARGET/.claude/rules/$(basename "$src")"
+        done
+        echo -e "  ${GREEN}✓${NC} Symlinked into ${TARGET}/.claude/"
+    fi
 
-    # --- Summary ---
-    echo ""
-    echo -e "${GREEN}╔═══════════════════════════════════════════════════════════╗"
+    # Summary
+    echo -e "\n${GREEN}╔═══════════════════════════════════════════════════════════╗"
     echo "║                   Installation Complete!                          ║"
     echo "╚═══════════════════════════════════════════════════════════════════════╝${NC}"
-    echo ""
-    echo -e "${CYAN}Deployed to: ${TARGET}${NC}"
-    echo -e "  .claude/commands/hbe-*.md     (${cmd_count} slash commands)"
-    echo -e "  .claude/rules/*-guardrails.md  (guardrail rules)"
-    echo -e "  scripts/hooks/                 (automation hooks)"
-    echo -e "  .claude/settings.hbe.json      (hook registration)"
-    echo ""
-    echo -e "  ~/.claude/skills/hermes-by-everythings/  (global skill for auto-trigger)"
-    echo ""
-    echo -e "${YELLOW}Important: Merge settings.hbe.json into your .claude/settings.json${NC}"
-    echo ""
-    echo -e "  No existing settings.json:"
-    echo -e "    ${GREEN}cp .claude/settings.hbe.json .claude/settings.json${NC}"
-    echo ""
-    echo -e "  Already have one? Merge hooks section:"
-    echo -e "    ${GREEN}jq -s '.[0] * .[1]' .claude/settings.json .claude/settings.hbe.json > /tmp/hbe-merged.json${NC}"
-    echo -e "    ${GREEN}mv /tmp/hbe-merged.json .claude/settings.json${NC}"
-    echo ""
-    echo -e "${CYAN}Verify:${NC}  bash scripts/install.sh --project ${TARGET} --verify"
-    echo -e "${CYAN}Start:${NC}    Restart Claude Code in ${TARGET}, then ${GREEN}/hbe-review${NC}"
-    echo ""
-    [ -n "$BACKUP_DIR" ] && echo -e "${YELLOW}Backup: ${BACKUP_DIR}${NC}"
+    echo -e "\n${CYAN}All symlinks -> ${HBE_ROOT}:${NC}"
+    echo -e "  ~/.claude/skills/hermes-by-everythings"
+    echo -e "  ~/.claude/commands/hbe-*.md (${cmd_count})"
+    echo -e "  ~/.claude/rules/*-guardrails.md"
+    echo -e "  ~/.hbe/scripts/hooks/"
+    echo -e "  ~/.claude/settings.hbe.json"
+    echo -e "\n${GREEN}Any project (even without .claude/) can now use /hbe-* commands.${NC}"
+    echo -e "${GREEN}Pull updates to HBE repo -> all projects auto-reflect.${NC}"
+    echo -e "\n${YELLOW}Merge settings: jq -s '.[0]*.[1]' ~/.claude/settings.json ~/.claude/settings.hbe.json > /tmp/h.json && mv /tmp/h.json ~/.claude/settings.json${NC}"
 }
 
-###############################################################################
-# MAIN
-###############################################################################
-
 case "$MODE" in
-    install|link) do_install ;;
+    install) do_install ;;
     uninstall) do_uninstall ;;
     verify) do_verify ;;
 esac
