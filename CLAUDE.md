@@ -55,7 +55,7 @@ bash scripts/test/test-hooks.sh
 
 1. **内部翻译**: 自动将中文翻译成英文进行内部处理
 2. **英文思考**: 在英文状态下思考和推理（token 效率提升 40%+）
-3. **技术术语保护**: 保留原文（tokens, agents, hooks, /hbe:plan 等）
+3. **技术术语保护**: 保留原文（tokens, agents, hooks, /hbe-plan 等）
 4. **智能输出**: 根据内容类型选择中英文输出
    - 技术内容：英文输出
    - 交互反馈：中文输出
@@ -185,21 +185,21 @@ HBE v2.4+ 采用三层加载架构，大幅减少 token 消耗：
 
 | 命令 | 功能 | 使用场景 |
 |------|------|----------|
-| `/hbe:plan` | 实现规划 | 新功能开发 |
-| `/hbe:architect` | 架构设计 | 系统设计 |
-| `/hbe:tdd` | TDD 开发 | 测试驱动开发 |
-| `/hbe:review` | 代码审查 | 代码质量检查 |
-| `/hbe:security` | 安全审查 | 安全漏洞扫描 |
-| `/hbe:build-fix` | 构建修复 | 构建失败时 |
-| `/hbe:e2e` | E2E 测试 | 端到端测试 |
-| `/hbe:refactor` | 重构清理 | 死代码清理 |
-| `/hbe:docs` | 文档更新 | 文档同步 |
-| `/hbe:prd` | PRD 生成 | 需求文档 |
-| `/hbe:verify` | 五阶段验证 | 完整验证循环 |
-| `/hbe:orchestrate` | 多 Agent 编排 | 全流程开发 |
-| `/hbe:ralph` | 自主循环 | 大型任务自动化 |
-| `/hbe:checkpoint` | 进度快照 | 保存进度 |
-| `/hbe:learn` | 模式学习 | 提取可复用模式 |
+| `/hbe-plan` | 实现规划 | 新功能开发 |
+| `/hbe-architect` | 架构设计 | 系统设计 |
+| `/hbe-tdd` | TDD 开发 | 测试驱动开发 |
+| `/hbe-review` | 代码审查 | 代码质量检查 |
+| `/hbe-security` | 安全审查 | 安全漏洞扫描 |
+| `/hbe-build-fix` | 构建修复 | 构建失败时 |
+| `/hbe-e2e` | E2E 测试 | 端到端测试 |
+| `/hbe-refactor` | 重构清理 | 死代码清理 |
+| `/hbe-docs` | 文档更新 | 文档同步 |
+| `/hbe-prd` | PRD 生成 | 需求文档 |
+| `/hbe-verify` | 五阶段验证 | 完整验证循环 |
+| `/hbe-orchestrate` | 多 Agent 编排 | 全流程开发 |
+| `/hbe-ralph` | 自主循环 | 大型任务自动化 |
+| `/hbe-checkpoint` | 进度快照 | 保存进度 |
+| `/hbe-learn` | 模式学习 | 提取可复用模式 |
 
 ---
 
@@ -314,7 +314,7 @@ Markdown with clear sections：
 
 - **核心技能**：`skills/active/` - 经过验证、跨项目通用
 - **项目特定**：`~/.claude/skills/project-specific/` - 项目团队维护
-- **自动生成**：`~/.claude/skills/generated/` - 由 `/hbe:learn` 生成
+- **自动生成**：`~/.claude/skills/generated/` - 由 `/hbe-learn` 生成
 
 详见：`docs/SKILL-PLACEMENT-POLICY.md`
 
@@ -369,8 +369,8 @@ cp docs/adr/0000-template.md docs/adr/0001-your-decision.md
    - `git push` 前 → 建议完整验证
    - PR 创建 → 建议安全审查
 5. **失败触发**:
-   - 构建失败 → 自动触发 `/hbe:build-fix`
-   - 测试失败 → 自动触发 `/hbe:tdd`
+   - 构建失败 → 自动触发 `/hbe-build-fix`
+   - 测试失败 → 自动触发 `/hbe-tdd`
    - 类型检查失败 → 自动修复建议
 
 ### 触发后的行为流程
@@ -397,7 +397,7 @@ Handoff/输出 (生成交接文档或结果报告)
 
 ### 学习触发时机
 
-1. **会话结束时**: 自动调用 `/hbe:learn` 提取模式
+1. **会话结束时**: 自动调用 `/hbe-learn` 提取模式
 2. **每次迭代后**: Ralph 循环中每个 story 完成后
 3. **错误修复后**: 提取错误模式和解决方案
 4. **用户反馈后**: 记录用户校正和偏好
@@ -493,7 +493,7 @@ def learning_loop():
 
 Ralph 自动启动的条件：
 1. 存在 `prd.json` 且有未完成的 story
-2. 用户明确输入 `/hbe:ralph`
+2. 用户明确输入 `/hbe-ralph`
 3. 检测到大型任务（>5 个相关文件变更）
 4. 用户输入"自主完成"/"自动实现"等关键词
 
@@ -515,7 +515,7 @@ Ralph 自动启动的条件：
 
 ```bash
 # 实时进度追踪
-/hbe:ralph-status
+/hbe-ralph-status
 
 # 输出格式
 [████████████████████░░░░] 80% (12/15 stories)
@@ -595,13 +595,13 @@ fi
 
 ```bash
 # 1. 提取候选模式
-/hbe:learn --extract
+/hbe-learn --extract
 
 # 2. 验证模式有效性
-/hbe:learn --validate
+/hbe-learn --validate
 
 # 3. 生成/更新 skill
-/hbe:learn --apply
+/hbe-learn --apply
 
 # 4. 记录变更
 git add skills/
@@ -639,7 +639,7 @@ skills/
 /hbe:restore --checkpoint=[checkpoint-id]
 
 # 4. 验证系统
-/hbe:verify --system
+/hbe-verify --system
 ```
 
 ### 回滚机制
@@ -677,22 +677,22 @@ git checkout HEAD~1 -- skills/
 
 | 命令 | 功能 | 使用场景 |
 |------|------|----------|
-| `/hbe:plan` | 实现规划 | 新功能开发 |
-| `/hbe:architect` | 架构设计 | 系统设计 |
-| `/hbe:tdd` | TDD 开发 | 测试驱动开发 |
-| `/hbe:review` | 代码审查 | 代码质量检查 |
-| `/hbe:security` | 安全审查 | 安全漏洞扫描 |
-| `/hbe:build-fix` | 构建修复 | 构建失败时 |
-| `/hbe:e2e` | E2E 测试 | 端到端测试 |
-| `/hbe:refactor` | 重构清理 | 死代码清理 |
-| `/hbe:docs` | 文档更新 | 文档同步 |
-| `/hbe:prd` | PRD 生成 | 需求文档 |
-| `/hbe:verify` | 五阶段验证 | 完整验证循环 |
-| `/hbe:orchestrate` | 多 Agent 编排 | 全流程开发 |
-| `/hbe:ralph` | 自主循环 | 大型任务自动化 |
-| `/hbe:checkpoint` | 进度快照 | 保存进度 |
-| `/hbe:learn` | 模式学习 | 提取可复用模式 |
-| `/hbe:eval` | 评估驱动 | 能力评估 |
+| `/hbe-plan` | 实现规划 | 新功能开发 |
+| `/hbe-architect` | 架构设计 | 系统设计 |
+| `/hbe-tdd` | TDD 开发 | 测试驱动开发 |
+| `/hbe-review` | 代码审查 | 代码质量检查 |
+| `/hbe-security` | 安全审查 | 安全漏洞扫描 |
+| `/hbe-build-fix` | 构建修复 | 构建失败时 |
+| `/hbe-e2e` | E2E 测试 | 端到端测试 |
+| `/hbe-refactor` | 重构清理 | 死代码清理 |
+| `/hbe-docs` | 文档更新 | 文档同步 |
+| `/hbe-prd` | PRD 生成 | 需求文档 |
+| `/hbe-verify` | 五阶段验证 | 完整验证循环 |
+| `/hbe-orchestrate` | 多 Agent 编排 | 全流程开发 |
+| `/hbe-ralph` | 自主循环 | 大型任务自动化 |
+| `/hbe-checkpoint` | 进度快照 | 保存进度 |
+| `/hbe-learn` | 模式学习 | 提取可复用模式 |
+| `/hbe-eval` | 评估驱动 | 能力评估 |
 
 ---
 
@@ -702,12 +702,12 @@ git checkout HEAD~1 -- skills/
 
 | 文件 | 技能 | 说明 |
 |------|------|------|
-| `README.md` | `/hbe:docs` | 文档更新技能 |
-| `.github/workflows/*.yml` | `/hbe:verify` | CI/CD 验证 |
-| `package.json` | `/hbe:security` | 依赖安全审查 |
-| `**/test/*.spec.ts` | `/hbe:tdd` | TDD 测试开发 |
-| `**/*.test.ts` | `/hbe:tdd` | TDD 测试开发 |
-| `prd.json` | `/hbe:ralph` | Ralph 自主循环 |
+| `README.md` | `/hbe-docs` | 文档更新技能 |
+| `.github/workflows/*.yml` | `/hbe-verify` | CI/CD 验证 |
+| `package.json` | `/hbe-security` | 依赖安全审查 |
+| `**/test/*.spec.ts` | `/hbe-tdd` | TDD 测试开发 |
+| `**/*.test.ts` | `/hbe-tdd` | TDD 测试开发 |
+| `prd.json` | `/hbe-ralph` | Ralph 自主循环 |
 
 ** spawning 子代理时**，始终将相应技能的约定传递到代理的提示中。
 
@@ -715,9 +715,9 @@ git checkout HEAD~1 -- skills/
 
 ## 下一步
 
-1. **首次使用**: 运行 `/hbe:verify --system` 验证安装
+1. **首次使用**: 运行 `/hbe-verify --system` 验证安装
 2. **配置项目**: 创建项目特定的 `CLAUDE.md.local`
-3. **开始使用**: 输入 `/hbe:plan [你的需求]` 开始
+3. **开始使用**: 输入 `/hbe-plan [你的需求]` 开始
 4. **监控学习**: 定期检查 `MEMORY.md` 和 `memory/` 目录
 
 ---

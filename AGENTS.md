@@ -98,10 +98,10 @@
 
 ```bash
 # 使用特定代理
-/hbe:review      # 调用 code-reviewer
-/hbe:plan        # 调用 planner
-/hbe:tdd         # 调用 tdd-guide
-/hbe:security    # 调用 security-reviewer
+/hbe-review      # 调用 code-reviewer
+/hbe-plan        # 调用 planner
+/hbe-tdd         # 调用 tdd-guide
+/hbe-security    # 调用 security-reviewer
 hbe-scan         # 调用 scanner (SAST/SCA/密钥/复杂度)
 ```
 
@@ -109,8 +109,8 @@ hbe-scan         # 调用 scanner (SAST/SCA/密钥/复杂度)
 
 ```bash
 # 多代理工作流
-/hbe:orchestrate feature   # planner → tdd → review → security
-/hbe:orchestrate bugfix    # build-fix → tdd → review
+/hbe-orchestrate feature   # planner → tdd → review → security
+/hbe-orchestrate bugfix    # build-fix → tdd → review
 ```
 
 ## 安全指南

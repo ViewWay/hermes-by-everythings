@@ -36,16 +36,16 @@ Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [
 
 | 代理 | 命令 | 说明 |
 |------|------|------|
-| **orchestrator** | `/hbe:orchestrate` | 多Agent编排 |
-| **planner** | `/hbe:plan` | 实现规划 |
-| **architect** | `/hbe:architect` | 架构设计 |
-| **code-reviewer** | `/hbe:review` | 代码审查 |
-| **security-reviewer** | `/hbe:security` | 安全审查 |
-| **tdd-guide** | `/hbe:tdd` | TDD 开发 |
-| **build-error-resolver** | `/hbe:build-fix` | 构建修复 |
-| **e2e-runner** | `/hbe:e2e` | E2E 测试 |
-| **refactor-cleaner** | `/hbe:refactor` | 重构清理 |
-| **doc-updater** | `/hbe:docs` | 文档更新 |
+| **orchestrator** | `/hbe-orchestrate` | 多Agent编排 |
+| **planner** | `/hbe-plan` | 实现规划 |
+| **architect** | `/hbe-architect` | 架构设计 |
+| **code-reviewer** | `/hbe-review` | 代码审查 |
+| **security-reviewer** | `/hbe-security` | 安全审查 |
+| **tdd-guide** | `/hbe-tdd` | TDD 开发 |
+| **build-error-resolver** | `/hbe-build-fix` | 构建修复 |
+| **e2e-runner** | `/hbe-e2e` | E2E 测试 |
+| **refactor-cleaner** | `/hbe-refactor` | 重构清理 |
+| **doc-updater** | `/hbe-docs` | 文档更新 |
 
 ### 🛠️ 核心技能（13 个）
 
@@ -66,22 +66,22 @@ Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [
 ### ⚡ 快捷命令（15 个）
 
 ```bash
-/hbe:plan           # 实现规划
-/hbe:architect      # 架构设计
-/hbe:tdd            # TDD 开发流程
-/hbe:review         # 代码审查
-/hbe:security       # 安全审查
+/hbe-plan           # 实现规划
+/hbe-architect      # 架构设计
+/hbe-tdd            # TDD 开发流程
+/hbe-review         # 代码审查
+/hbe-security       # 安全审查
 hbe-scan         # 统一安全扫描 (SAST/SCA/密钥/复杂度)
-/hbe:build-fix      # 构建修复
-/hbe:e2e            # E2E 测试生成
-/hbe:refactor       # 重构清理
-/hbe:docs           # 文档/Codemap 更新
-/hbe:prd            # PRD 生成
-/hbe:verify         # 五阶段验证
-/hbe:orchestrate    # 多 Agent 流水线
-/hbe:ralph          # 自主执行循环
-/hbe:checkpoint     # 保存进度快照
-/hbe:learn          # 模式学习提取
+/hbe-build-fix      # 构建修复
+/hbe-e2e            # E2E 测试生成
+/hbe-refactor       # 重构清理
+/hbe-docs           # 文档/Codemap 更新
+/hbe-prd            # PRD 生成
+/hbe-verify         # 五阶段验证
+/hbe-orchestrate    # 多 Agent 流水线
+/hbe-ralph          # 自主执行循环
+/hbe-checkpoint     # 保存进度快照
+/hbe-learn          # 模式学习提取
 ```
 
 ---
@@ -166,7 +166,7 @@ ln -s $(pwd)/hermes-by-everythings ~/.claude/skills/hermes-by-everythings
 在 Claude Code 中输入：
 
 ```
-/hbe:verify --system
+/hbe-verify --system
 ```
 
 ---
@@ -176,26 +176,26 @@ ln -s $(pwd)/hermes-by-everythings ~/.claude/skills/hermes-by-everythings
 ### 1. 规划功能
 
 ```
-/hbe:plan 实现用户登录功能
+/hbe-plan 实现用户登录功能
 ```
 
 ### 2. TDD 开发
 
 ```
-/hbe:tdd 实现用户认证
+/hbe-tdd 实现用户认证
 ```
 
 ### 3. 代码审查
 
 ```
-/hbe:review
+/hbe-review
 ```
 
 ### 4. Ralph 自主循环
 
 ```
-/hbe:prd 实现完整的用户管理模块
-/hbe:ralph
+/hbe-prd 实现完整的用户管理模块
+/hbe-ralph
 ```
 
 ---

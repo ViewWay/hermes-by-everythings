@@ -49,16 +49,16 @@ Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [
 
 | 代理 | 命令 | 说明 | 专长 |
 |------|------|------|------|
-| **orchestrator** | `/hbe:orchestrate` | 多Agent编排 | 任务分解、批量开发、质量闭环、Agent resume |
-| **planner** | `/hbe:plan` | 实现规划 | 需求分析、任务拆解、风险评估 |
-| **architect** | `/hbe:architect` | 架构设计 | 系统设计、组件职责、数据模型 |
-| **code-reviewer** | `/hbe:review` | 代码审查 | 质量检查、性能优化、安全审查 |
-| **security-reviewer** | `/hbe:security` | 安全审查 | OWASP Top 10、漏洞扫描、合规检查 |
-| **tdd-guide** | `/hbe:tdd` | TDD 开发 | 红-绿-重构、测试驱动、覆盖率保证 |
-| **build-error-resolver** | `/hbe:build-fix` | 构建修复 | 错误诊断、最小修复、验证回归 |
-| **e2e-runner** | `/hbe:e2e` | E2E 测试 | 端到端测试、Playwright、用户流程 |
-| **refactor-cleaner** | `/hbe:refactor` | 重构清理 | 死代码检测、安全移除、依赖清理 |
-| **doc-updater** | `/hbe:docs` | 文档更新 | Codemap 生成、文档同步、依赖图 |
+| **orchestrator** | `/hbe-orchestrate` | 多Agent编排 | 任务分解、批量开发、质量闭环、Agent resume |
+| **planner** | `/hbe-plan` | 实现规划 | 需求分析、任务拆解、风险评估 |
+| **architect** | `/hbe-architect` | 架构设计 | 系统设计、组件职责、数据模型 |
+| **code-reviewer** | `/hbe-review` | 代码审查 | 质量检查、性能优化、安全审查 |
+| **security-reviewer** | `/hbe-security` | 安全审查 | OWASP Top 10、漏洞扫描、合规检查 |
+| **tdd-guide** | `/hbe-tdd` | TDD 开发 | 红-绿-重构、测试驱动、覆盖率保证 |
+| **build-error-resolver** | `/hbe-build-fix` | 构建修复 | 错误诊断、最小修复、验证回归 |
+| **e2e-runner** | `/hbe-e2e` | E2E 测试 | 端到端测试、Playwright、用户流程 |
+| **refactor-cleaner** | `/hbe-refactor` | 重构清理 | 死代码检测、安全移除、依赖清理 |
+| **doc-updater** | `/hbe-docs` | 文档更新 | Codemap 生成、文档同步、依赖图 |
 
 ### 🛠️ 核心技能（13 个）
 
@@ -81,22 +81,22 @@ Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [
 ### ⚡ 快捷命令（15 个）
 
 ```bash
-/hbe:plan           # 实现规划
-/hbe:architect      # 架构设计
-/hbe:tdd            # TDD 开发流程
-/hbe:review         # 代码审查
-/hbe:security       # 安全审查
+/hbe-plan           # 实现规划
+/hbe-architect      # 架构设计
+/hbe-tdd            # TDD 开发流程
+/hbe-review         # 代码审查
+/hbe-security       # 安全审查
 hbe-scan         # 统一安全扫描 (SAST/SCA/密钥/复杂度)
-/hbe:build-fix      # 构建修复
-/hbe:e2e            # E2E 测试生成
-/hbe:refactor       # 重构清理
-/hbe:docs           # 文档/Codemap 更新
-/hbe:prd            # PRD 生成
-/hbe:verify         # 五阶段验证
-/hbe:orchestrate    # 多 Agent 流水线
-/hbe:ralph          # 自主执行循环
-/hbe:checkpoint     # 保存进度快照
-/hbe:learn          # 模式学习提取
+/hbe-build-fix      # 构建修复
+/hbe-e2e            # E2E 测试生成
+/hbe-refactor       # 重构清理
+/hbe-docs           # 文档/Codemap 更新
+/hbe-prd            # PRD 生成
+/hbe-verify         # 五阶段验证
+/hbe-orchestrate    # 多 Agent 流水线
+/hbe-ralph          # 自主执行循环
+/hbe-checkpoint     # 保存进度快照
+/hbe-learn          # 模式学习提取
 ```
 
 ### 📜 规则文件（8 个）
@@ -222,7 +222,7 @@ ls -la ~/.claude/skills/hermes-by-everythings
 在 Claude Code 中输入：
 
 ```
-/hbe:verify --system
+/hbe-verify --system
 ```
 
 预期输出：
@@ -258,7 +258,7 @@ ls -la ~/.claude/skills/hermes-by-everythings
 #### 1. 创建一个简单的计划
 
 ```
-/hbe:plan 实现用户登录功能
+/hbe-plan 实现用户登录功能
 ```
 
 HBE 将：
@@ -270,7 +270,7 @@ HBE 将：
 #### 2. 使用 TDD 开发
 
 ```
-/hbe:tdd 实现用户认证
+/hbe-tdd 实现用户认证
 ```
 
 HBE 将：
@@ -281,7 +281,7 @@ HBE 将：
 #### 3. 代码审查
 
 ```
-/hbe:review
+/hbe-review
 ```
 
 HBE 将：
@@ -336,7 +336,7 @@ HBE 将：
 
 ### 模式 A: 单阶段按需使用
 
-用户只调用某个子命令，如 `/hbe:plan`：
+用户只调用某个子命令，如 `/hbe-plan`：
 
 1. 从路由表找到对应 Agent
 2. 加载 skills/agents/NAME.md
@@ -345,7 +345,7 @@ HBE 将：
 
 ### 模式 B: 半自动流水线
 
-用户依次调用多个阶段，如 `/hbe:plan` → `/hbe:tdd` → `/hbe:review`：
+用户依次调用多个阶段，如 `/hbe-plan` → `/hbe-tdd` → `/hbe-review`：
 
 1. 每个阶段输出 handoff 文档
 2. 下一阶段读取上一阶段的 handoff
@@ -355,21 +355,21 @@ HBE 将：
 
 | 工作流 | 触发 | 流水线 |
 |--------|------|--------|
-| **feature** | `/hbe:orchestrate feature` | planner → tdd → review → security |
-| **bugfix** | `/hbe:orchestrate bugfix` | build-fix → tdd → review |
-| **refactor** | `/hbe:orchestrate refactor` | architect → review → refactor-cleaner → tdd |
-| **security** | `/hbe:orchestrate security` | security-reviewer → review → architect |
-| **full** | `/hbe:orchestrate full` | plan → architect → tdd → review → security → docs |
+| **feature** | `/hbe-orchestrate feature` | planner → tdd → review → security |
+| **bugfix** | `/hbe-orchestrate bugfix` | build-fix → tdd → review |
+| **refactor** | `/hbe-orchestrate refactor` | architect → review → refactor-cleaner → tdd |
+| **security** | `/hbe-orchestrate security` | security-reviewer → review → architect |
+| **full** | `/hbe-orchestrate full` | plan → architect → tdd → review → security → docs |
 
 ### 模式 D: Ralph 自主循环
 
-用户调用 `/hbe:ralph`，进入完全自主模式：
+用户调用 `/hbe-ralph`，进入完全自主模式：
 
-1. 读取 prd.json（如无则先生成: `/hbe:prd`）
+1. 读取 prd.json（如无则先生成: `/hbe-prd`）
 2. 循环：
    - a. 选最高优先级 passes=false 的 story
    - b. TDD 实现（RED → GREEN → REFACTOR）
-   - c. 运行验证循环 (`/hbe:verify`)
+   - c. 运行验证循环 (`/hbe-verify`)
    - d. 全部通过 → git commit
    - e. 更新 prd.json passes=true
    - f. 追加到 progress.md
@@ -432,7 +432,7 @@ HBE 支持 macOS/Windows/Linux，兼容 Claude Code、OpenCode、OpenClaw、Herm
 | **delegate_task 并行子代理** | 多 Agent 真正并行执行 |
 | **memory 持久化记忆** | 跨会话记住项目知识 |
 | **skill_manage 动态技能** | 运行时创建/更新 skill |
-| **cronjob 定时任务** | 定时触发 /hbe:ralph 自主开发 |
+| **cronjob 定时任务** | 定时触发 /hbe-ralph 自主开发 |
 | **execute_code 批量操作** | 一次执行多个工具调用 + 中间逻辑 |
 | **多平台通知** | 微信/Telegram/飞书/Discord 推送 |
 | **browser 内置浏览器** | 无需外部 MCP 做 UI 验证 |
@@ -544,7 +544,7 @@ hermes-by-everythings/
 
 | 模式 | 预估 tokens |
 |------|-------------|
-| 单命令（如 `/hbe:plan`） | 5-15k input + 2-5k output |
+| 单命令（如 `/hbe-plan`） | 5-15k input + 2-5k output |
 | 三阶段流水线 | 30-50k total |
 | Ralph 1 次迭代（优化后） | 10-18k |
 | Ralph 全流程 10 次（优化后） | 100-180k |
@@ -645,7 +645,7 @@ bash scripts/test/validate-prompts.sh
 
 **A**: 有三种方式：
 1. **手动创建**: 在 `skills/active/` 创建符合模板的 Skill
-2. **自动学习**: 使用 `/hbe:learn` 自动提取模式
+2. **自动学习**: 使用 `/hbe-learn` 自动提取模式
 3. **项目特定**: 在 `~/.claude/skills/project-specific/` 创建项目专属技能
 
 详见 [技能放置策略](docs/SKILL-PLACEMENT-POLICY.md)。
