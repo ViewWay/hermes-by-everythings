@@ -40,7 +40,7 @@ hermes-by-everythings/
 ├── .claude/               # Claude Code 配置
 ├── .claude-plugin/        # 插件元数据
 │   └── marketplace.json   # Marketplace 配置
-├── SKILL.md               # 主技能文件（路由入口）
+├── .claude/skills/        # Claude Code 技能入口
 ├── SKILLS.md              # 技能索引
 ├── CLAUDE.md              # 项目级持久上下文
 ├── README.md              # 项目说明
@@ -117,7 +117,7 @@ hermes-by-everythings/
 1. 在 `commands/` 创建新文件
 2. 更新 `commands/README.md`
 3. 在 `.claude-plugin/marketplace.json` 注册
-4. 在 `SKILL.md` 添加路由
+4. 在 `.claude/skills/hermes-by-everythings/SKILL.md` 添加路由
 
 ### 添加新 Agent
 
@@ -128,7 +128,7 @@ hermes-by-everythings/
 ### 添加新规则
 
 1. 在 `skills/rules/` 创建规则文件
-2. 在 `SKILL.md` 引用规则
+2. 在 `.claude/skills/hermes-by-everythings/SKILL.md` 引用规则
 3. 更新 `SKILLS.md` 索引
 
 ---

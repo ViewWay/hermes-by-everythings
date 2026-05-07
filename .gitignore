@@ -10,3 +10,4 @@ tasks/
 prd.json
 progress.md
 __pycache__/
+memory/sessions/
