@@ -1,28 +1,36 @@
 ---
 name: hbe-prd
-description: PRD 生成 - 将需求转换为结构化产品需求文档
-trigger: /hbe-prd
-keywords:
-  - prd
-  - 产品需求文档
-  - requirement
+description: 生成结构化产品需求文档 PRD / Generate structured Product Requirements Document
+allowed_tools: ["Read", "Write", "Edit"]
 ---
 
-# /hbe-prd — PRD 生成
+# /hbe-prd
 
-将用户需求转换为结构化 PRD。
+Generate a structured PRD from feature description.
 
-## 执行流程
+## Steps
 
-1. **收集需求**
-   - 用户功能描述
-   - 问 3-5 个澄清问题
+1. **Ask Clarifying Questions**
+   Present 3-5 key questions with options:
+   - Scope: MVP vs full feature?
+   - Platform: web, mobile, both?
+   - Timeline: when needed?
+   - Constraints: budget, resources?
 
-2. **生成 PRD**
-   - 保存到 `prd.json`
-   - 创建 `progress.md`
+2. **Generate PRD Structure**
+   - Feature overview
+   - User stories with acceptance criteria
+   - Technical requirements
+   - Success metrics
+   - Dependencies and risks
 
-3. **输出格式**
-   参考: `templates/prd-json.json`
+3. **Save to File**
+   Create `prd.json` in project root with structured data.
 
----
+4. **Create Progress Tracker**
+   Create empty `progress.md` for tracking implementation.
+
+## Output
+
+- `prd.json` - Structured product requirements
+- `progress.md` - Implementation progress tracker

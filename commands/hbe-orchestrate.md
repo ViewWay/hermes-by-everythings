@@ -1,37 +1,52 @@
 ---
 name: hbe-orchestrate
-description: 多 Agent 编排 - 全流程自动化开发
-trigger: /hbe-orchestrate
-keywords:
-  - orchestrate
-  - 多Agent编排
-  - workflow
+description: 多 Agent 工作流编排 (plan → tdd → review → security) / Multi-agent workflow orchestration
+allowed_tools: ["Read", "Write", "Edit", "Bash", "Agent"]
 ---
 
-# /hbe-orchestrate — 多 Agent 编排
+# /hbe-orchestrate
 
-运行完整的开发流水线。
+Orchestrate multiple agents in a workflow pipeline.
 
-## 工作流类型
+## Workflows
 
-| 工作流 | 流水线 |
-|--------|--------|
-| feature | planner → tdd → review → security |
-| bugfix | build-fix → tdd → review |
-| refactor | architect → review → refactor → tdd |
-| security | security-reviewer → review → architect |
-| full | plan → architect → tdd → review → security → docs |
+### Feature Workflow
+```
+planner → architect → tdd-guide → code-reviewer → security-reviewer → doc-updater
+```
 
-## 执行流程
+### Bugfix Workflow
+```
+build-error-resolver → tdd-guide → code-reviewer
+```
 
-1. **加载编排配置**
-   ```
-   读取: references/orchestration.md
-   ```
+### Refactor Workflow
+```
+architect → code-reviewer → refactor-cleaner → tdd-guide
+```
 
-2. **执行 Agent 链**
-   - 每个 Agent 输出 handoff
-   - 下一个读取 handoff 继续
-   - 最终聚合报告
+### Security Workflow
+```
+security-reviewer → code-reviewer → architect
+```
 
----
+### Full Workflow
+```
+planner → architect → tdd-guide → code-reviewer → security-reviewer → doc-updater
+```
+
+## Steps
+
+1. Select appropriate workflow based on task type
+2. Execute agents sequentially
+3. Each agent generates handoff document
+4. Next agent reads previous handoff
+5. Aggregate final report
+
+## Handoff Format
+
+Each handoff includes:
+- Context: What was done
+- Findings: Key discoveries
+- Files Modified: Change list
+- Open Questions: Unresolved issues
