@@ -1,11 +1,35 @@
 {
   "permissions": {
     "allow": [
-      "Bash(*)",
       "Read(*)",
       "Write(*)",
       "Edit(*)",
-      "Agent(*)"
+      "Agent(*)",
+      "Bash(git *)",
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(node *)",
+      "Bash(python*)",
+      "Bash(pytest*)",
+      "Bash(pip*)",
+      "Bash(bash *)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(grep *)",
+      "Bash(find *)",
+      "Bash(mkdir *)",
+      "Bash(mv *)",
+      "Bash(cp *)",
+      "Bash(ln *)",
+      "Bash(chmod *)",
+      "Bash(wc *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(diff *)",
+      "Bash(echo *)",
+      "Bash(rg *)",
+      "Bash(realpath *)",
+      "Bash(file *)"
     ]
   },
   "hooks": {

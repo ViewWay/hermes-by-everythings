@@ -37,7 +37,7 @@
 
 **多平台多语言编码增强套件 - 整合 everything-claude-code 和 ralph 的最佳能力**
 
-Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [everything-claude-code](https://github.com/affaan-m/everything-claude-code) 的全面能力和 [ralph](https://github.com/snarktank/ralph) 的自主循环特性。它提供 37 个专业代理、33 个核心技能、18 个快捷命令、77 个规则文件，以及突破上下文限制的 Ralph 自主执行系统。
+Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [everything-claude-code](https://github.com/affaan-m/everything-claude-code) 的全面能力和 [Ralph 模式](https://github.com/frankbria/ralph-claude-code)的会话内自主循环工作流。它提供 37 个专业代理、33 个核心技能、18 个快捷命令、77 个规则文件，以及基于 Ralph 模式的自主循环工作流（通过 `/hbe-ralph` 命令在会话内执行 TDD 循环，规避上下文窗口限制）。
 
 支持 **10 种主流编程语言**（TypeScript/JavaScript、Python、Rust、Go、Java、Kotlin、C#、Ruby、PHP、Swift），可通过 **插件市场** 安装到 **Claude Code、ZCode、Codex** 三大平台（也兼容 Hermes、OpenCode、OpenClaw），运行在 **3 种操作系统**（macOS、Windows、Linux）上。
 
@@ -336,7 +336,7 @@ HBE 将：
 - [Agent系统](skills/agents/) - 37个专业Agent
 - [Skill系统](SKILL-INDEX.md) - 技能索引和路由
 - [Orchestrator](docs/ORCHESTRATOR-GUIDE.md) - 多Agent编排
-- [Ralph循环](skills/active/ralph-loop.md) - 自主执行系统
+- [Ralph循环](commands/hbe-ralph.md) - 会话内自主循环工作流
 - [Memory系统](docs/MEMORY-SYSTEM.md) - 持久化记忆
 
 **开发工作流**:
@@ -516,11 +516,12 @@ hermes-by-everythings/
 │   └── progress.md                   # 进度追踪模板
 ├── scripts/
 │   ├── hooks/                        # Hook 脚本
-│   │   ├── auto-learn.sh              # 自动学习
-│   │   └── file-type-detect.sh        # 文件类型检测
-│   ├── ralph/                        # Ralph 系统
-│   │   ├── ralph.sh                   # Ralph 执行脚本
-│   │   └── view-logs.sh               # 日志查看脚本
+│   │   ├── session-start.js           # 会话启动
+│   │   ├── block-no-verify.js         # 拦截 git --no-verify
+│   │   └── _ecc/, _optional/          # 分类 hook 子目录
+│   ├── core/                         # 核心子系统
+│   │   ├── ralph/ralph.js             # Ralph 编排器骨架
+│   │   └── hooks/                     # auto-learn.sh, file-type-detect.sh
 │   ├── test/                         # 测试套件
 │   │   ├── test-all.sh                # 运行所有测试
 │   │   ├── test-skills.sh             # 测试技能格式
@@ -652,9 +653,9 @@ bash scripts/test/validate-prompts.sh
 
 **A**: HBE 整合了 everything-claude-code 的全面能力和 ralph 的自主循环特性，专注于提供一个更加精简、高效的多平台多语言编码增强套件。HBE v2.1+ 新增了闭环学习系统、百分百触发机制、无人值守推进等特性。
 
-### Q: Ralph 是如何突破上下文限制的？
+### Q: Ralph 是如何规避上下文限制的？
 
-**A**: Ralph 通过每次迭代使用全新的上下文起点，并将记忆通过文件系统持久化（prd.json, progress.md, git history）来突破单次会话的 200K token 限制。这使得 Ralph 可以处理任意大小的任务。
+**A**: Ralph 通过每次迭代使用全新的上下文起点，并将任务状态通过文件系统持久化（prd.json, progress.md, git history）来规避单次会话的 200K token 限制。真实入口是 `/hbe-ralph` 命令——它在 Claude Code 会话内执行 WHILE 循环（读取未完成 story → TDD 实现 → 增量验证 → commit → 更新状态）。`scripts/core/ralph/ralph.js` 是一个 Node 编排器骨架，预留了 cron/无人值守场景的接入点。
 
 ### Q: 如何在不同平台间迁移？
 

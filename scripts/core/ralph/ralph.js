@@ -129,13 +129,21 @@ function executeStory(storyJson) {
   log(`执行 Story #${storyId}: ${storyTitle}`);
   log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   
-  // 这里应该调用 Claude Code 来执行
-  // 由于脚本环境限制，这里只是框架
+  // ⚠️ 脚手架说明（2026-06 审查）:
+  // 这个 Node 编排器目前是骨架，不会真正执行 story。要让它工作，
+  // 需在此处调用 `claude -p` CLI 子进程来驱动每个 story 的 TDD 循环。
+  // 由于 claude CLI 仍在快速变化，暂未集成。
+  //
+  // 真实的 Ralph 自主循环由 /hbe-ralph 命令承载（prompt 层），
+  // 它在 Claude Code 会话内执行 WHILE 循环（读 prd.json → TDD →
+  // commit → 更新状态），这是标准的 Ralph 模式实现。
+  //
+  // 本脚本的价值：提供 cron/无人值守编排的骨架（检查点、进度追踪、
+  // prd.json 解析已实现），待 claude CLI 稳定后可在此处接入。
   logWarning('Story 执行需要 Claude Code 环境');
   logInfo(`Story JSON: ${storyJson}`);
-  
-  // 模拟执行
-  // 实际应该通过 Claude Code API 调用 /hbe:tdd
+
+  // 模拟执行（骨架占位，见上方说明）
   const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
   delay(1000);
   
