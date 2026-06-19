@@ -152,6 +152,54 @@ class TestDocConsistency:
         assert f"{_actual_command_count()} Command" in line
         assert f"{_actual_rule_count()} Rules" in line
 
+    @pytest.mark.parametrize("installer", ["install.py", "install.ps1"],
+                             ids=lambda p: p)
+    def test_installers_version_matches_version_json(self, installer):
+        """install.py 和 install.ps1 的 VERSION 必须与 version.json 一致。
+
+        回归保护：这两个跨平台安装器曾落后一个版本（3.2.0 vs 3.3.1），
+        且 banner 数字严重漂移（10 Agent vs 实际 37）。bash install.sh
+        已有独立测试覆盖，本测试覆盖 Python 和 PowerShell 两个。
+        """
+        path = PROJECT_ROOT / installer
+        if not path.exists():
+            pytest.skip(f"{installer} not found")
+        content = path.read_text()
+        current = _actual_version()
+
+        # install.py: VERSION = "3.3.1"  /  install.ps1: $VERSION = "3.3.1"
+        match = re.search(r'VERSION\s*=\s*["\'](\d+\.\d+\.\d+)["\']', content)
+        assert match, f"{installer}: no VERSION assignment found"
+        assert match.group(1) == current, (
+            f"{installer} VERSION is {match.group(1)!r}, "
+            f"version.json is {current!r}. Update {installer}."
+        )
+
+    @pytest.mark.parametrize("installer", ["install.sh", "install.py", "install.ps1"],
+                             ids=lambda p: p)
+    def test_installers_banner_counts_match_reality(self, installer):
+        """三个安装器的 banner 数字必须与实际数量一致。
+
+        回归保护：install.py/ps1 banner 曾写 10/13/15/8（实际 37/33/18/77）。
+        """
+        path = PROJECT_ROOT / installer
+        if not path.exists():
+            pytest.skip(f"{installer} not found")
+        content = path.read_text()
+        banner = re.search(
+            r"(\d+)\s+Agent\s*\+\s*(\d+)\s+Skill\s*\+\s*(\d+)\s+Command\s*\+\s*(\d+)\s+Rules",
+            content,
+        )
+        if not banner:
+            pytest.skip(f"{installer}: no banner line found")
+        a, s, c, r = int(banner.group(1)), int(banner.group(2)), int(banner.group(3)), int(banner.group(4))
+        expected = (_actual_agent_count(), _actual_skill_count(),
+                    _actual_command_count(), _actual_rule_count())
+        assert (a, s, c, r) == expected, (
+            f"{installer} banner: {a}/{s}/{c}/{r} (A/S/C/R), "
+            f"actual: {expected}. Drift between installer and codebase."
+        )
+
     @pytest.mark.parametrize("doc_path", ENTRY_DOCS, ids=lambda p: str(p.relative_to(PROJECT_ROOT)))
     def test_no_known_stale_counts(self, doc_path):
         """入口文档不得包含已知的陈旧数字组合。

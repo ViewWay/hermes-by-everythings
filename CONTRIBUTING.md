@@ -178,7 +178,7 @@ bash scripts/test/test-skills.sh
 
 ## 获取帮助
 
-- 查看 [文档](../docs/)
+- 查看 [文档](docs/)
 - 提交 [Issue](https://github.com/ViewWay/hermes-by-everythings/issues)
 - 加入 [Discussions](https://github.com/ViewWay/hermes-by-everythings/discussions)
 

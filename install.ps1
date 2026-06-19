@@ -17,7 +17,7 @@ function Print-Banner {
 ╔════════════════════════════════════════════════════════════╗
 ║     Hermes-by-Everything (HBE) Installation Script         ║
 ║                 Version 3.3.1                              ║
-║     37 Agent + 33 Skill + 18 Command + 77 Rules            ║
+║     37 Agent + 33 Skill + 18 Command + 83 Rules            ║
 ║     Ralph + Orchestrator 编排系统                           ║
 ╚════════════════════════════════════════════════════════════╝
 
