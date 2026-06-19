@@ -9,8 +9,9 @@
   "homepage": "https://github.com/ViewWay/hermes-by-everythings",
   "repository": "https://github.com/ViewWay/hermes-by-everythings",
   "license": "MIT",
-  "skills": "skills",
-  "commands": "commands",
+  "skills": "./skills/",
+  "commands": "./commands/",
+  "hooks": "./hooks/hooks.json",
   "categories": [
     "development",
     "testing",

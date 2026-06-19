@@ -312,6 +312,31 @@ class TestPluginManifests:
                     f'"{field}": "{rel}" but {resolved} is not a directory'
                 )
 
+    @pytest.mark.parametrize("manifest", PLUGIN_MANIFESTS,
+                             ids=lambda p: p.parent.name)
+    def test_plugin_manifest_paths_use_official_format(self, manifest):
+        """skills/commands/hooks 路径必须用官方格式 './xxx/' 或 './xxx/yyy.json'。
+
+        回归保护：曾用裸字符串 'skills'/'commands'，被 Claude Code schema
+        校验拒绝（commands: Invalid input, skills: Invalid input）。
+        官方格式见 superpowers 插件：'./skills/'、'./commands/'、'./hooks/hooks.json'。
+        裸目录名或数组外的字符串会导致三平台安装失败。
+        """
+        data = json.loads(manifest.read_text())
+        for field in ("skills", "commands", "hooks"):
+            if field not in data:
+                continue
+            val = data[field]
+            assert isinstance(val, str), (
+                f"{manifest.parent.name}: '{field}' must be a string path, "
+                f"got {type(val).__name__}"
+            )
+            assert val.startswith("./"), (
+                f"{manifest.parent.name}: '{field}': '{val}' must start with './' "
+                f"(official format, e.g. './skills/'). Bare names like 'skills' "
+                f"are rejected by Claude Code's schema validation."
+            )
+
     @pytest.mark.parametrize("marketplace", MARKETPLACES,
                              ids=lambda p: str(p.relative_to(PROJECT_ROOT)))
     def test_marketplace_valid_and_references_plugin(self, marketplace):
