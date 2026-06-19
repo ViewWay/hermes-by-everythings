@@ -301,41 +301,57 @@ class TestPluginManifests:
     @pytest.mark.parametrize("manifest", PLUGIN_MANIFESTS,
                              ids=lambda p: p.parent.name)
     def test_plugin_manifest_content_dirs_exist(self, manifest):
-        """plugin.json 声明的 skills/commands 目录必须真实存在。"""
-        data = json.loads(manifest.read_text())
-        for field, dir_path in PLUGIN_CONTENT_DIRS.items():
-            if field in data:
-                rel = data[field]
-                resolved = PROJECT_ROOT / rel
-                assert resolved.is_dir(), (
-                    f"{manifest.parent.name}/plugin.json declares "
-                    f'"{field}": "{rel}" but {resolved} is not a directory'
-                )
+        """plugin.json 声明的 skills/commands 路径必须指向真实存在的目录/文件。
 
-    @pytest.mark.parametrize("manifest", PLUGIN_MANIFESTS,
-                             ids=lambda p: p.parent.name)
-    def test_plugin_manifest_paths_use_official_format(self, manifest):
-        """skills/commands/hooks 路径必须用官方格式 './xxx/' 或 './xxx/yyy.json'。
-
-        回归保护：曾用裸字符串 'skills'/'commands'，被 Claude Code schema
-        校验拒绝（commands: Invalid input, skills: Invalid input）。
-        官方格式见 superpowers 插件：'./skills/'、'./commands/'、'./hooks/hooks.json'。
-        裸目录名或数组外的字符串会导致三平台安装失败。
+        支持两种官方格式：字符串 './skills/' 或数组 ['./skills/']。
         """
         data = json.loads(manifest.read_text())
         for field in ("skills", "commands", "hooks"):
             if field not in data:
                 continue
             val = data[field]
-            assert isinstance(val, str), (
-                f"{manifest.parent.name}: '{field}' must be a string path, "
-                f"got {type(val).__name__}"
-            )
-            assert val.startswith("./"), (
-                f"{manifest.parent.name}: '{field}': '{val}' must start with './' "
-                f"(official format, e.g. './skills/'). Bare names like 'skills' "
-                f"are rejected by Claude Code's schema validation."
-            )
+            # 归一化为路径列表
+            paths = val if isinstance(val, list) else [val]
+            for rel in paths:
+                assert isinstance(rel, str), (
+                    f"{manifest.parent.name}: '{field}' contains non-string {rel!r}"
+                )
+                resolved = PROJECT_ROOT / rel
+                assert resolved.exists(), (
+                    f"{manifest.parent.name}/plugin.json declares "
+                    f'"{field}": "{rel}" but {resolved} does not exist'
+                )
+
+    @pytest.mark.parametrize("manifest", PLUGIN_MANIFESTS,
+                             ids=lambda p: p.parent.name)
+    def test_plugin_manifest_paths_use_official_format(self, manifest):
+        """skills/commands/hooks 路径必须用官方格式 './xxx/'。
+
+        回归保护：曾用裸字符串 'skills'/'commands'（无 './' 前缀），被
+        Claude Code schema 校验拒绝（commands: Invalid input, skills:
+        Invalid input）。
+
+        官方格式（本机成功安装的插件范本）：
+          - lazy-report:      "skills": ["./skills/"]            (数组)
+          - claude-hud:       "commands": ["./commands/setup.md"](数组)
+          - marketing-skills: "skills": "./skills"               (字符串)
+          - superpowers:      "skills": "./skills/"              (字符串)
+
+        所有成功范本的共同点：路径以 './' 开头。裸目录名（如 'skills'）
+        会被拒绝。本测试接受字符串或数组，但每个元素必须以 './' 开头。
+        """
+        data = json.loads(manifest.read_text())
+        for field in ("skills", "commands", "hooks"):
+            if field not in data:
+                continue
+            val = data[field]
+            paths = val if isinstance(val, list) else [val]
+            for rel in paths:
+                assert isinstance(rel, str) and rel.startswith("./"), (
+                    f"{manifest.parent.name}: '{field}': {rel!r} must start with "
+                    f"'./' (official format). Bare names like 'skills'/'commands' "
+                    f"are rejected by Claude Code's schema validation."
+                )
 
     @pytest.mark.parametrize("marketplace", MARKETPLACES,
                              ids=lambda p: str(p.relative_to(PROJECT_ROOT)))
