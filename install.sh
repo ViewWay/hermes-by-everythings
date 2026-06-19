@@ -7,7 +7,10 @@ set -euo pipefail
 # 配置
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_NAME="hermes-by-everythings"
-VERSION="2.1.0"
+VERSION="3.3.0"
+REPO_URL="https://github.com/ViewWay/hermes-by-everythings.git"
+INSTALL_DIR="$HOME/.claude/skills"
+TEMP_DIR="/tmp/${PROJECT_NAME}-install-$$"
 
 # 颜色输出
 RED='\033[0;31m'
@@ -31,7 +34,7 @@ show_banner() {
     echo "║       Hermes-by-Everything v$VERSION 安装程序                    ║"
     echo "║                                                               ║"
     echo "║       多平台多语言编码增强套件                                   ║"
-    echo "║       10 Agent + 13 Skill + 15 Command + 8 Rules              ║"
+    echo "║       37 Agent + 32 Skill + 18 Command + 77 Rules              ║"
     echo "║       Ralph + Orchestrator 编排系统                             ║"
     echo "║                                                               ║"
     echo "╚═══════════════════════════════════════════════════════════════╝"
@@ -271,10 +274,10 @@ show_next_steps() {
     echo "下一步："
     echo ""
     echo "1. 在 Claude Code 中验证安装："
-    echo "   /hbe:verify --system"
+    echo "   /hbe-verify --system"
     echo ""
     echo "2. 开始使用："
-    echo "   /hbe:plan \"实现用户登录功能\""
+    echo "   /hbe-plan \"实现用户登录功能\""
     echo ""
     echo "3. 查看文档："
     echo "   cat $HOME/.claude/skills/$PROJECT_NAME/docs/guides/quick-start.md"

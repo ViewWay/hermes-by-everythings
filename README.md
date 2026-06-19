@@ -19,7 +19,7 @@
 ![PHP](https://img.shields.io/badge/-PHP-777BB4?logo=php&logoColor=white)
 ![Swift](https://img.shields.io/badge/-Swift-F05138?logo=swift&logoColor=white)
 
-> **10 专业代理** | **13 核心技能** | **18 快捷命令** | **8 规则文件** | **Ralph 自主循环** | **Orchestrator 编排**
+> **37 专业代理** | **32 核心技能** | **18 快捷命令** | **77 规则文件** | **Ralph 自主循环** | **Orchestrator 编排**
 
 ---
 
@@ -35,7 +35,7 @@
 
 **多平台多语言编码增强套件 - 整合 everything-claude-code 和 ralph 的最佳能力**
 
-Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [everything-claude-code](https://github.com/affaan-m/everything-claude-code) 的全面能力和 [ralph](https://github.com/snarktank/ralph) 的自主循环特性。它提供 9 个专业代理、13 个核心技能、18 个快捷命令、8 个规则文件，以及突破上下文限制的 Ralph 自主执行系统。
+Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [everything-claude-code](https://github.com/affaan-m/everything-claude-code) 的全面能力和 [ralph](https://github.com/snarktank/ralph) 的自主循环特性。它提供 37 个专业代理、32 个核心技能、18 个快捷命令、77 个规则文件，以及突破上下文限制的 Ralph 自主执行系统。
 
 支持 **10 种主流编程语言**（TypeScript/JavaScript、Python、Rust、Go、Java、Kotlin、C#、Ruby、PHP、Swift），兼容 **4 个 AI 编码平台**（Claude Code、Hermes、OpenCode、OpenClaw），运行在 **3 种操作系统**（macOS、Windows、Linux）上。
 
@@ -151,9 +151,9 @@ hermes-by-everythings/
 │
 ├── skills/            # 🎯 统一技能目录
 │   ├── active/        #   活跃技能
-│   ├── agents/        #   10 个 agent 定义
-│   ├── rules/         #   8 个规则定义
-│   └── templates/     #   6 个模板
+│   ├── agents/        #   37 个 agent 定义
+│   ├── rules/         #   77 个规则定义
+│   └── templates/     #   5 个模板
 │
 ├── docs/              # 📚 文档目录
 │   ├── reports/       #   11 个优化报告
@@ -228,8 +228,8 @@ ls -la ~/.claude/skills/hermes-by-everythings
 预期输出：
 ```
 ✓ HBE 系统验证通过
-✓ 10 个 Agent 可用
-✓ 13 个 Skill 可用
+✓ 37 个 Agent 可用
+✓ 31 个 Skill 可用
 ✓ 18 个 Command 可用
 ✓ Orchestrator 编排系统可用
 ```
@@ -238,7 +238,7 @@ ls -la ~/.claude/skills/hermes-by-everythings
 
 - **[安装指南](docs/guides/INSTALLATION.md)** - 完整的安装教程和故障排除
 - **[快速开始](docs/guides/quick-start.md)** - 5分钟上手指南
-- **[Agent教程](docs/guides/agents/)** - 10个Agent的详细使用教程
+- **[Agent教程](docs/guides/agents/)** - 核心 Agent 的详细使用教程
 - **[Orchestrator教程](docs/guides/ORCHESTRATOR-TUTORIAL.md)** - 多Agent编排系统教程
 - **[文档索引](docs/INDEX.md)** - 完整的文档导航
 
@@ -246,8 +246,8 @@ ls -la ~/.claude/skills/hermes-by-everythings
 
 ```
 ✓ HBE 系统验证通过
-✓ 10 个 Agent 可用
-✓ 13 个 Skill 可用
+✓ 37 个 Agent 可用
+✓ 31 个 Skill 可用
 ✓ 18 个 Command 可用
 ✓ Orchestrator 编排系统可用
 ✓ Ralph 自主循环就绪
@@ -301,7 +301,7 @@ HBE 将：
 |------|------|----------|
 | **[安装指南](docs/guides/INSTALLATION.md)** | 完整安装教程（skillhub/git/manual） | 所有用户 |
 | **[快速开始](docs/guides/quick-start.md)** | 5分钟上手指南 | 所有用户 |
-| **[Agent教程](docs/guides/agents/)** | 10个Agent详细使用教程 | 开发者 |
+| **[Agent教程](docs/guides/agents/)** | 核心 Agent 详细使用教程 | 开发者 |
 | **[Orchestrator教程](docs/guides/ORCHESTRATOR-TUTORIAL.md)** | 多Agent编排系统教程 | 开发者 |
 | **[集成指南](docs/ORCHESTRATOR-GUIDE.md)** | Orchestrator深度集成 | 架构师 |
 | **[文档索引](docs/INDEX.md)** | 完整的文档导航 | 所有用户 |
@@ -310,7 +310,7 @@ HBE 将：
 ### 按主题查找
 
 **核心概念**:
-- [Agent系统](skills/agents/) - 10个专业Agent
+- [Agent系统](skills/agents/) - 37个专业Agent
 - [Skill系统](SKILL-INDEX.md) - 技能索引和路由
 - [Orchestrator](docs/ORCHESTRATOR-GUIDE.md) - 多Agent编排
 - [Ralph循环](skills/active/ralph-loop.md) - 自主执行系统
@@ -318,7 +318,7 @@ HBE 将：
 
 **开发工作流**:
 - [TDD工作流](skills/active/tdd-workflow.md) - 测试驱动开发
-- [Agent教程](docs/guides/agents/) - 10个Agent使用教程
+- [Agent教程](docs/guides/agents/) - 核心 Agent 使用教程
 - [代码审查](docs/guides/agents/CODE-REVIEWER.md) - 代码质量检查
 - [安全审查](docs/guides/agents/SECURITY-REVIEWER.md) - 安全漏洞扫描
 - [重构清理](docs/guides/agents/REFACTOR-CLEANER.md) - 死代码清理
@@ -456,7 +456,7 @@ hermes-by-everythings/
 ├── .claude/
 │   └── settings.json                 # Hooks 和配置
 ├── references/
-│   ├── agents/                       # 9 个专业代理
+│   ├── agents/                       # 参考代理实现
 │   │   ├── planner.md
 │   │   ├── architect.md
 │   │   ├── code-reviewer.md
@@ -467,7 +467,7 @@ hermes-by-everythings/
 │   │   ├── refactor-cleaner.md
 │   │   ├── doc-updater.md
 │   │   └── continuous-learning.md   # 闭环学习系统
-│   ├── rules/                        # 8 个规则文件
+│   ├── rules/                        # 77 个规则文件
 │   │   ├── security.md
 │   │   ├── coding-style.md
 │   │   ├── testing.md
@@ -701,10 +701,10 @@ bash scripts/test/validate-prompts.sh
 
 ### v2.0.0 (2026-04-22) - 初始版本
 
-- 9 个专业代理
-- 13 个核心技能
+- 37 个专业代理
+- 32 个核心技能
 - 18 个快捷命令
-- 8 个规则文件
+- 77 个规则文件
 - Ralph 自主循环
 
 ---

@@ -1,6 +1,6 @@
 # HBE 文档索引
 
-> **版本**: 3.2.0
+> **版本**: 3.3.0
 > **更新时间**: 2026-05-02
 
 完整的 Hermes-by-Everything 文档导航。
@@ -18,7 +18,7 @@
 ### 核心功能
 1. [Orchestrator 教程](guides/ORCHESTRATOR-TUTORIAL.md) - 多Agent编排系统教程
 2. [Orchestrator 集成指南](ORCHESTRATOR-GUIDE.md) - 深度集成指南
-3. [Agent定义](../skills/agents/) - 10个专业Agent详细说明
+3. [Agent定义](../skills/agents/) - 37个专业Agent详细说明
 
 ### 参考文档
 1. [Skill索引](../SKILL-INDEX.md) - 所有技能的快速索引
@@ -37,7 +37,7 @@
 
 **核心功能**:
 - [Orchestrator教程](guides/ORCHESTRATOR-TUTORIAL.md) - 学习多Agent编排
-- [Agent教程索引](guides/agents/README.md) - 10个Agent使用教程
+- [Agent教程索引](guides/agents/README.md) - 核心Agent使用教程
 - [TDD工作流](../skills/active/tdd-workflow.md) - 测试驱动开发
 - [代码审查](../skills/active/code-review.md) - 代码质量检查
 
@@ -89,7 +89,7 @@
 
 | 主题 | 文档 | 描述 |
 |------|------|------|
-| **Agent系统** | [skills/agents/](../skills/agents/) | 10个专业Agent定义 |
+| **Agent系统** | [skills/agents/](../skills/agents/) | 37个专业Agent定义 |
 | **Skill系统** | [SKILL-INDEX.md](../SKILL-INDEX.md) | 技能索引和路由 |
 | **Orchestrator** | [ORCHESTRATOR-GUIDE.md](ORCHESTRATOR-GUIDE.md) | 多Agent编排系统 |
 | **Ralph循环** | [skills/active/ralph-loop.md](../skills/active/ralph-loop.md) | 自主执行系统 |
@@ -163,15 +163,15 @@ hermes-by-everythings/
 │       └── ...
 │
 ├── skills/                        # 技能和Agent
-│   ├── agents/                    # Agent定义（10个）
+│   ├── agents/                    # Agent定义（37个）
 │   │   ├── orchestrator.md        # ⭐ 主智能体
 │   │   ├── planner.md
 │   │   ├── architect.md
 │   │   └── ...
 │   │
-│   ├── rules/                     # 规则文件（8个）
+│   ├── rules/                     # 规则文件（77个）
 │   ├── active/                    # 活跃技能
-│   └── templates/                 # 模板（6个）
+│   └── templates/                 # 模板（5个）
 │
 ├── scripts/                       # 脚本工具
 │   ├── agent-id-manager.js        # ⭐ Agent ID管理工具
@@ -267,6 +267,6 @@ hermes-by-everythings/
 
 ---
 
-**文档索引版本**: 3.2.0
+**文档索引版本**: 3.3.0
 **最后更新**: 2026-05-02
 **维护者**: HBE 团队

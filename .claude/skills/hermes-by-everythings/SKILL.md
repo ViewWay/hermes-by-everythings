@@ -2,7 +2,7 @@
 name: hermes-by-everythings
 description: >
   多平台多语言编码增强套件。整合 ECC + Ralph 最佳能力。
-  18 Command + 11 Agent + 自动化 Hooks + 学习系统。
+  18 Command + 37 Agent + 自动化 Hooks + 学习系统。
   支持 TypeScript/Python/Rust/Go/Java/Kotlin 等10种语言。
 trigger: "/hbe:,hbe,hermes,hermes-by-everythings,autonomous coding,ralph"
 keywords:
@@ -78,7 +78,7 @@ bash scripts/install.sh --uninstall           # 卸载
 - 质量保证: review, security, refactor
 - 自动化: orchestrate, ralph
 
-### 2. 专业代理 (11个)
+### 2. 专业代理 (37个)
 
 - **规划**: planner, architect
 - **质量**: code-reviewer, security-reviewer
@@ -86,6 +86,10 @@ bash scripts/install.sh --uninstall           # 卸载
 - **测试**: e2e-runner
 - **维护**: refactor-cleaner, doc-updater
 - **学习**: continuous-learning
+- **语言审查**: 12 个语言专属 reviewer
+- **语言构建修复**: 8 个语言专属 build-resolver
+- **编排**: orchestrator, loop-operator
+- **完整清单见**: `skills/agents/` 与 `skills/INDEX.md`
 
 ### 3. 自动化Hooks
 
@@ -247,7 +251,7 @@ memory/            ← 学习记忆
 
 ## 版本信息
 
-- **当前版本**: v3.2.0
+- **当前版本**: v3.3.0
 - **基于架构**: ECC v2.0
 - **兼容平台**: Claude Code, OpenCode, OpenClaw, Hermes
 - **更新日期**: 2026-05-02

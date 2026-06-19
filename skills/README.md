@@ -14,7 +14,7 @@ skills/
 └── INDEX.md             # 完整索引
 ```
 
-## 🤖 Agents (36个)
+## 🤖 Agents (37个)
 
 专业代理按功能分类：
 

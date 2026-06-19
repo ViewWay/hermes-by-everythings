@@ -1,6 +1,6 @@
 # Agent 使用教程索引
 
-> **Hermes-by-Everything (HBE)** - 10个专业Agent完整教程
+> **Hermes-by-Everything (HBE)** - 核心 Agent 完整教程（共 37 个 Agent，以下为有教程的核心 Agent）
 
 ---
 
@@ -127,5 +127,5 @@
 
 ---
 
-**Agent教程索引版本**: 3.2.0  
+**Agent教程索引版本**: 3.3.0  
 **最后更新**: 2026-05-02

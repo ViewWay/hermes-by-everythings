@@ -175,10 +175,10 @@ def get_all_skills() -> list[Path]:
 
 
 def get_all_rules() -> list[Path]:
-    """Get all rule files."""
+    """Get all rule files (recursive — rules live in rules/<lang>/*.md)."""
     rules = []
     if RULES_DIR.exists():
-        rules.extend(RULES_DIR.glob("*.md"))
+        rules.extend(RULES_DIR.rglob("*.md"))
     return rules
 
 

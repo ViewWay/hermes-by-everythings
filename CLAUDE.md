@@ -9,7 +9,7 @@
 **名称**: Hermes by Everything's (HBE)
 **版本**: 3.3.0
 **类型**: 多平台多语言编码增强套件 + 自主闭环学习系统
-**核心能力**: 10 Agent + 13 Skill + 18 Command + 8 Rules + Ralph + Orchestrator + 交互引擎 + 上下文优化
+**核心能力**: 37 Agent + 32 Skill + 18 Command + 77 Rules + Ralph + Orchestrator + 交互引擎 + 上下文优化
 **目标**: 实现 100% 自动触发的编码增强系统，无人值守持续推进，自我更新学习，极致 token 效率
 
 ---
@@ -19,11 +19,11 @@
 Hermes-by-Everything 是一个**Claude Code插件**，提供了生产就绪的代理、技能、钩子、命令和规则配置。该项目为使用Claude Code进行软件开发提供了经过实战验证的工作流。
 
 **核心特性**：
-- 🤖 **10个专业代理** - 用于委派的子代理（orchestrator、planner、code-reviewer、tdd-guide等）
-- 🛠️ **13个技能** - 工作流定义和领域知识（编码标准、模式、测试）
-- ⚡ **18个命令** - 用户调用的斜杠命令（/tdd、/plan、/e2e等）
+- 🤖 **37个专业代理** - 用于委派的子代理（orchestrator、planner、code-reviewer、tdd-guide等 + 语言专属 reviewer/build-resolver）
+- 🛠️ **31个技能** - 工作流定义和领域知识（编码标准、模式、测试）
+- ⚡ **18个命令** - 用户调用的斜杠命令（/hbe-tdd、/hbe-plan、/hbe-e2e等）
 - 🔄 **6个钩子** - 基于触发的自动化（会话持久化、前后工具钩子）
-- 📜 **8个规则** - 始终遵循的指导原则（安全、编码风格、测试要求）
+- 📜 **77个规则** - 始终遵循的指导原则（安全、编码风格、测试要求 + 语言专属规则）
 - 🎯 **Ralph循环** - 自主执行系统，突破上下文限制
 - 🎭 **Orchestrator** - 多Agent编排系统，批量处理，质量闭环
 - 💬 **交互引擎** - 可控、透明、可中断的执行体验
@@ -724,4 +724,4 @@ git checkout HEAD~1 -- skills/
 
 **最后更新**: 2026-05-02
 **维护者**: HBE 自主维护系统
-**版本**: 2.1.0
+**版本**: 3.3.0

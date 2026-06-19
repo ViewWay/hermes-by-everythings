@@ -7,7 +7,9 @@
 
 ---
 
-## 🤖 Agents (10 个)
+## 🤖 Agents (37 个)
+
+> 核心代理如下；语言专属 reviewer（12）与 build-resolver（8）见 `skills/INDEX.md`。
 
 | Agent | 文件 | 用途 |
 |-------|------|------|
@@ -21,6 +23,8 @@
 | E2E Runner | `skills/agents/e2e-runner.md` | E2E 测试 |
 | Doc Updater | `skills/agents/doc-updater.md` | 文档更新 |
 | Continuous Learning | `skills/agents/continuous-learning.md` | 闭环学习 |
+| Orchestrator | `skills/agents/orchestrator.md` | 多代理编排 |
+| Loop Operator | `skills/agents/loop-operator.md` | 自主循环操作 |
 
 ## 📜 Rules (8 个)
 
