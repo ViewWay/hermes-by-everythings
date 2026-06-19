@@ -30,7 +30,7 @@
           },
           {
             "type": "command",
-            "command": "bash scripts/hooks/auto-learn.sh"
+            "command": "bash scripts/core/hooks/auto-learn.sh"
           }
         ]
       }
@@ -41,7 +41,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash scripts/hooks/file-type-detect.sh"
+            "command": "bash scripts/core/hooks/file-type-detect.sh"
           }
         ]
       },
@@ -126,9 +126,8 @@
       ]
     },
     "failures": {
-      "build": "hbe:build-fix",
-      "test": "hbe:tdd",
-      "type-check": "hbe:fix-types"
+      "build": "hbe-build-fix",
+      "test": "hbe-tdd"
     }
   },
   "learning": {

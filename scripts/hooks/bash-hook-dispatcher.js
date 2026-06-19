@@ -5,13 +5,13 @@ const { isHookEnabled } = require('../lib/hook-flags');
 
 const { run: runBlockNoVerify } = require('./block-no-verify');
 const { run: runAutoTmuxDev } = require('./auto-tmux-dev');
-const { run: runTmuxReminder } = require('./pre-bash-tmux-reminder');
-const { run: runGitPushReminder } = require('./pre-bash-git-push-reminder');
-const { run: runCommitQuality } = require('./pre-bash-commit-quality');
-const { run: runGateGuard } = require('./gateguard-fact-force');
-const { run: runCommandLog } = require('./post-bash-command-log');
-const { run: runPrCreated } = require('./post-bash-pr-created');
-const { run: runBuildComplete } = require('./post-bash-build-complete');
+const { run: runTmuxReminder } = require('./_optional/pre-bash-tmux-reminder');
+const { run: runGitPushReminder } = require('./_optional/pre-bash-git-push-reminder');
+const { run: runCommitQuality } = require('./_optional/pre-bash-commit-quality');
+const { run: runGateGuard } = require('./_ecc/gateguard-fact-force');
+const { run: runCommandLog } = require('./_ecc/post-bash-command-log');
+const { run: runPrCreated } = require('./_optional/post-bash-pr-created');
+const { run: runBuildComplete } = require('./_optional/post-bash-build-complete');
 
 const MAX_STDIN = 1024 * 1024;
 
