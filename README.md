@@ -1,6 +1,8 @@
 # Hermes-by-Everything
 
-![Hermes-by-Everything — 多平台多语言编码增强套件](assets/hero.png)
+<p align="center">
+  <img src="assets/logo.svg" alt="Hermes-by-Everything — 多平台多语言编码增强套件" width="320">
+</p>
 
 [![Stars](https://img.shields.io/github/stars/ViewWay/hermes-by-everythings?style=flat)](https://github.com/ViewWay/hermes-by-everythings/stargazers)
 [![Forks](https://img.shields.io/github/forks/ViewWay/hermes-by-everythings?style=flat)](https://github.com/ViewWay/hermes-by-everythings/network/members)
@@ -19,7 +21,7 @@
 ![PHP](https://img.shields.io/badge/-PHP-777BB4?logo=php&logoColor=white)
 ![Swift](https://img.shields.io/badge/-Swift-F05138?logo=swift&logoColor=white)
 
-> **37 专业代理** | **32 核心技能** | **18 快捷命令** | **77 规则文件** | **Ralph 自主循环** | **Orchestrator 编排**
+> **37 专业代理** | **33 核心技能** | **18 快捷命令** | **77 规则文件** | **Ralph 自主循环** | **Orchestrator 编排**
 
 ---
 
@@ -35,9 +37,9 @@
 
 **多平台多语言编码增强套件 - 整合 everything-claude-code 和 ralph 的最佳能力**
 
-Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [everything-claude-code](https://github.com/affaan-m/everything-claude-code) 的全面能力和 [ralph](https://github.com/snarktank/ralph) 的自主循环特性。它提供 37 个专业代理、32 个核心技能、18 个快捷命令、77 个规则文件，以及突破上下文限制的 Ralph 自主执行系统。
+Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [everything-claude-code](https://github.com/affaan-m/everything-claude-code) 的全面能力和 [ralph](https://github.com/snarktank/ralph) 的自主循环特性。它提供 37 个专业代理、33 个核心技能、18 个快捷命令、77 个规则文件，以及突破上下文限制的 Ralph 自主执行系统。
 
-支持 **10 种主流编程语言**（TypeScript/JavaScript、Python、Rust、Go、Java、Kotlin、C#、Ruby、PHP、Swift），兼容 **4 个 AI 编码平台**（Claude Code、Hermes、OpenCode、OpenClaw），运行在 **3 种操作系统**（macOS、Windows、Linux）上。
+支持 **10 种主流编程语言**（TypeScript/JavaScript、Python、Rust、Go、Java、Kotlin、C#、Ruby、PHP、Swift），可通过 **插件市场** 安装到 **Claude Code、ZCode、Codex** 三大平台（也兼容 Hermes、OpenCode、OpenClaw），运行在 **3 种操作系统**（macOS、Windows、Linux）上。
 
 **核心特性**：百分百触发机制、闭环学习系统、无人值守推进、自我更新学习、纯净上下文管理。
 
@@ -45,7 +47,7 @@ Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [
 
 ## 核心特性
 
-### 🤖 专业代理（10 个）
+### 🤖 专业代理（37 个）
 
 | 代理 | 命令 | 说明 | 专长 |
 |------|------|------|------|
@@ -737,7 +739,7 @@ bash scripts/test/validate-prompts.sh
 ### v2.0.0 (2026-04-22) - 初始版本
 
 - 37 个专业代理
-- 32 个核心技能
+- 33 个核心技能
 - 18 个快捷命令
 - 77 个规则文件
 - Ralph 自主循环
