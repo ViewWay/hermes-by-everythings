@@ -10,7 +10,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-3.3.1-green.svg)](https://github.com/ViewWay/hermes-by-everythings/releases)
 
-> **37 个专业代理** | **33 个核心技能** | **18 个快捷命令** | **83 个规则文件** | **Ralph 自主循环** | **Orchestrator 编排**
+> **39 个专业代理** | **33 个核心技能** | **18 个快捷命令** | **83 个规则文件** | **Ralph 自主循环** | **Orchestrator 编排**
 
 ---
 
@@ -211,7 +211,7 @@ hermes-by-everythings/
 ├── README.md                         # 英文文档
 ├── README.zh-CN.md                   # 中文文档
 ├── skills/
-│   ├── agents/                       # 37 个专业代理
+│   ├── agents/                       # 39 个专业代理
 │   ├── rules/                        # 83 个规则文件
 │   └── ...
 ├── skills/                           # 技能分类目录

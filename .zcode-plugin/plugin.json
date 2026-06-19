@@ -1,7 +1,7 @@
 {
   "name": "hermes-by-everythings",
   "version": "3.3.1",
-  "description": "多平台多语言编码增强套件。37 Agent + 33 Skill + 18 Command + 83 Rules + Ralph 自主循环。支持 TS/Python/Rust/Go/Java/Kotlin 等 10 种语言。",
+  "description": "多平台多语言编码增强套件。39 Agent + 33 Skill + 22 Command + 83 Rules + Ralph 自主循环。支持 TS/Python/Rust/Go/Java/Kotlin 等 10 种语言。",
   "author": {
     "name": "ViewWay",
     "url": "https://github.com/ViewWay"

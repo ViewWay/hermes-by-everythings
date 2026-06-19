@@ -2,7 +2,7 @@
 name: hermes-by-everythings
 description: >
   多平台多语言编码增强套件。整合 ECC + Ralph 最佳能力。
-  18 Command + 37 Agent + 自动化 Hooks + 学习系统。
+  22 Command + 39 Agent + 自动化 Hooks + 学习系统。
   支持 TypeScript/Python/Rust/Go/Java/Kotlin 等10种语言。
 trigger: "/hbe:,hbe,hermes,hermes-by-everythings,autonomous coding,ralph"
 keywords:

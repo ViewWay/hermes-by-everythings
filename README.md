@@ -21,7 +21,7 @@
 ![PHP](https://img.shields.io/badge/-PHP-777BB4?logo=php&logoColor=white)
 ![Swift](https://img.shields.io/badge/-Swift-F05138?logo=swift&logoColor=white)
 
-> **37 专业代理** | **33 核心技能** | **18 快捷命令** | **77 规则文件** | **Ralph 自主循环** | **Orchestrator 编排**
+> **37 专业代理** | **33 核心技能** | **22 快捷命令** | **77 规则文件** | **Ralph 自主循环** | **Orchestrator 编排**
 
 ---
 
@@ -37,7 +37,7 @@
 
 **多平台多语言编码增强套件 - 整合 everything-claude-code 和 ralph 的最佳能力**
 
-Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [everything-claude-code](https://github.com/affaan-m/everything-claude-code) 的全面能力和 [Ralph 模式](https://github.com/frankbria/ralph-claude-code)的会话内自主循环工作流。它提供 37 个专业代理、33 个核心技能、18 个快捷命令、83 个规则文件，以及基于 Ralph 模式的自主循环工作流（通过 `/hbe-ralph` 命令在会话内执行 TDD 循环，规避上下文窗口限制）。
+Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [everything-claude-code](https://github.com/affaan-m/everything-claude-code) 的全面能力和 [Ralph 模式](https://github.com/frankbria/ralph-claude-code)的会话内自主循环工作流。它提供 39 个专业代理、33 个核心技能、18 个快捷命令、83 个规则文件，以及基于 Ralph 模式的自主循环工作流（通过 `/hbe-ralph` 命令在会话内执行 TDD 循环，规避上下文窗口限制）。
 
 支持 **10 种主流编程语言**（TypeScript/JavaScript、Python、Rust、Go、Java、Kotlin、C#、Ruby、PHP、Swift），可通过 **插件市场** 安装到 **Claude Code、ZCode、Codex** 三大平台（也兼容 Hermes、OpenCode、OpenClaw），运行在 **3 种操作系统**（macOS、Windows、Linux）上。
 
@@ -204,7 +204,7 @@ codex plugin marketplace add ViewWay/hermes-by-everythings
 codex plugin install hermes-by-everythings
 ```
 
-安装后即可使用全部 37 个 Agent、33 个 Skill、18 个 `/hbe-*` 命令。
+安装后即可使用全部 39 个 Agent、33 个 Skill、18 个 `/hbe-*` 命令。
 
 #### 方式 2: 使用 skillhub
 
@@ -251,9 +251,9 @@ ls -la ~/.claude/skills/hermes-by-everythings
 预期输出：
 ```
 ✓ HBE 系统验证通过
-✓ 37 个 Agent 可用
+✓ 39 个 Agent 可用
 ✓ 31 个 Skill 可用
-✓ 18 个 Command 可用
+✓ 22 个 Command 可用
 ✓ Orchestrator 编排系统可用
 ```
 
@@ -269,9 +269,9 @@ ls -la ~/.claude/skills/hermes-by-everythings
 
 ```
 ✓ HBE 系统验证通过
-✓ 37 个 Agent 可用
+✓ 39 个 Agent 可用
 ✓ 31 个 Skill 可用
-✓ 18 个 Command 可用
+✓ 22 个 Command 可用
 ✓ Orchestrator 编排系统可用
 ✓ Ralph 自主循环就绪
 ```
@@ -739,7 +739,7 @@ bash scripts/test/validate-prompts.sh
 
 ### v2.0.0 (2026-04-22) - 初始版本
 
-- 37 个专业代理
+- 39 个专业代理
 - 33 个核心技能
 - 18 个快捷命令
 - 83 个规则文件

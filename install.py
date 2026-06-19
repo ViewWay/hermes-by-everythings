@@ -40,7 +40,7 @@ def print_banner():
 ╔════════════════════════════════════════════════════════════╗
 ║     Hermes-by-Everything (HBE) Installation Script         ║
 ║                 Version {VERSION}                              ║
-║     37 Agent + 33 Skill + 18 Command + 83 Rules            ║
+║     39 Agent + 33 Skill + 22 Command + 83 Rules            ║
 ║     Ralph + Orchestrator 编排系统                           ║
 ╚════════════════════════════════════════════════════════════╝
 """

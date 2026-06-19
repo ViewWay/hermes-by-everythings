@@ -52,7 +52,13 @@ class TestSymlinkIntegrity:
 
     def test_commands_canonical_source_has_all_commands(self):
         cmds = list(COMMANDS_DIR.glob("hbe-*.md"))
-        assert len(cmds) == 18, f"Expected 18 commands, found {len(cmds)}"
+        # 不硬编码数量——命令会随功能增长。只检查数量合理 (>15) 且与 .claude/commands 一致
+        assert len(cmds) >= 15, f"Too few commands: {len(cmds)}"
+        claude_cmds = list((PROJECT_ROOT / ".claude" / "commands").glob("hbe-*.md"))
+        assert len(claude_cmds) == len(cmds), (
+            f"commands/ ({len(cmds)}) != .claude/commands/ ({len(claude_cmds)}): "
+            f"new command symlinks may be missing"
+        )
 
 
 class TestCommandCompleteness:
