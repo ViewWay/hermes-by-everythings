@@ -675,7 +675,21 @@ bash scripts/test/validate-prompts.sh
 
 ## 更新日志
 
-### v3.3.1 (2026-05-02) - 市场安装 + 完整测试框架
+### v3.3.1 (2026-06-19) - 三平台插件市场 + Drift 修复
+
+**重大更新**：
+- ✅ **三平台插件市场支持** - Claude Code / ZCode / Codex 可通过 `/plugin marketplace add` + `/plugin install` 安装
+- ✅ **插件清单** - 新增 `.claude-plugin/`、`.zcode-plugin/`、`.codex-plugin/` 三套清单（共享 skills/commands/hooks）
+- ✅ **命令 frontmatter 适配** - 18 个命令补全 `argument-hint` + `skills` 标准字段
+- ✅ **hooks 重写** - 基于真实 hooks 重写 `hooks/hooks.json` 为三平台标准格式
+
+**修复**：
+- 🔧 **文档 drift** - 统一 agent(37)/skill(33)/command(18)/rule(77) 实际数量到所有入口文档
+- 🔧 **断链修复** - `.claude/skills` 和 `skills/academic-research` 断链（硬编码 `~/github/` 旧路径）
+- 🔧 **install.sh** - 补全未定义变量 `TEMP_DIR/REPO_URL/INSTALL_DIR`，清理旧命名残留
+- 🔧 **drift 检查测试** - 新增 33 个测试防止版本号/数量/断链 drift 复发
+
+### v3.3.0 (2026-05-02) - 市场安装 + 完整测试框架
 
 **重大更新**：
 - ✅ **npm 市场支持** - 可通过 `npm install -g hermes-by-everythings` 安装
@@ -699,14 +713,14 @@ bash scripts/test/validate-prompts.sh
 **文档更新**：
 - ✅ AGENTS.md - 完整的 36 个 agents 目录
 - ✅ COMMANDS-QUICK-REF.md - 命令快速参考
-- ✅ CHANGELOG.md - v3.3.1 详细变更记录
+- ✅ CHANGELOG.md - v3.3.0 详细变更记录
 - ✅ docs/marketplace/ - 市场安装指南
 - ✅ docs/testing/ - 测试框架文档
 
 **项目整洁**：
 - ✅ 删除所有备份文件
 - ✅ 添加 .npmignore 和 .gitignore
-- ✅ 统一版本号到 v3.3.1
+- ✅ 统一版本号到 v3.3.0
 - ✅ 更新仓库地址到 ViewWay/hermes-by-everythings
 
 ### v2.1.0 (2026-05-02) - Phase 1 优化完成

@@ -1,6 +1,6 @@
 # Security-Reviewer Agent 使用教程
 
-> **版本**: 3.2.0  
+> **版本**: 3.3.1  
 > **Agent 类型**: 安全审查代理  
 > **触发命令**: `/hbe-security`  
 > **Token 大小**: ~5.4KB
@@ -296,5 +296,5 @@ console.log('User:', { id: user.id, name: user.name });
 
 ---
 
-**Security-Reviewer 教程版本**: 3.2.0  
+**Security-Reviewer 教程版本**: 3.3.1  
 **最后更新**: 2026-05-02

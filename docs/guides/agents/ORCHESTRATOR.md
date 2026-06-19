@@ -1,6 +1,6 @@
 # Orchestrator Agent 使用教程
 
-> **版本**: 3.2.0  
+> **版本**: 3.3.1  
 > **触发命令**: `/hbe-orchestrate`  
 > **用途**: 多Agent编排
 
@@ -31,4 +31,4 @@ Planner → Architect → Code-Reviewer → Security-Reviewer → TDD-Guide
 
 ---
 
-**版本**: 3.2.0
+**版本**: 3.3.1
