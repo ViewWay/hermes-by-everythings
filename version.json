@@ -1,7 +1,7 @@
 {
   "name": "hermes-by-everythings",
-  "version": "3.3.0",
-  "displayName": "HBE v3.3.0",
+  "version": "3.3.1",
+  "displayName": "HBE v3.3.1",
   "codename": "Marketplace Edition",
   "description": "中文编码增强套件 - 基于 ECC v2.0",
   "repository": {
@@ -14,5 +14,5 @@
     "name": "ViewWay"
   },
   "license": "MIT",
-  "releaseDate": "2026-05-02"
+  "releaseDate": "2026-06-19"
 }

@@ -1,6 +1,6 @@
 # HBE 文档索引
 
-> **版本**: 3.3.0
+> **版本**: 3.3.1
 > **更新时间**: 2026-05-02
 
 完整的 Hermes-by-Everything 文档导航。
@@ -200,7 +200,7 @@ hermes-by-everythings/
 
 ### 按更新时间查找
 
-- **2026-05-02** (v3.3.0):
+- **2026-05-02** (v3.3.1):
   - [Orchestrator教程](guides/ORCHESTRATOR-TUTORIAL.md) - 新增
   - [Orchestrator集成指南](ORCHESTRATOR-GUIDE.md) - 新增
   - [agentdesign集成报告](reports/AGENTDESIGN-INTEGRATION.md) - 新增
@@ -267,6 +267,6 @@ hermes-by-everythings/
 
 ---
 
-**文档索引版本**: 3.3.0
+**文档索引版本**: 3.3.1
 **最后更新**: 2026-05-02
 **维护者**: HBE 团队

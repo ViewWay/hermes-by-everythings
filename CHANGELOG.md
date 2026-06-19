@@ -5,6 +5,33 @@ All notable changes to Hermes-by-Everything (HBE) will be documented in this fil
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.3.1] - 2026-06-19
+
+### Added
+
+- **三平台插件市场支持**: HBE 现可被 Claude Code / ZCode / Codex 通过插件市场安装
+  - 新增 `.claude-plugin/plugin.json` + `marketplace.json` (Claude Code)
+  - 新增 `.zcode-plugin/plugin.json` (ZCode, marketplace 安装时自动生成)
+  - 新增 `.codex-plugin/plugin.json` + `.agents/plugins/marketplace.json` (Codex)
+  - 三平台共享同一套 `skills/`、`commands/`、`hooks/`，仅清单目录名不同
+- **插件入口技能**: `skills/hermes-by-everythings/SKILL.md` (软链到主入口)
+- **hooks 重写**: `hooks/hooks.json` 改为三平台标准格式 (`${CLAUDE_PLUGIN_ROOT}`)，基于 `.claude/settings.json` 真实 hooks，修正 2 处脚本路径错误
+- **命令 frontmatter 适配**: 18 个命令补全 `argument-hint` + `skills` 标准字段 (保留旧字段向后兼容)
+
+### Fixed
+
+- **plugin.json 格式**: skills/commands 必须为数组格式 `["./skills/"]` (Claude Code schema 要求，曾用字符串被拒)
+- **文档 drift 修复**: 统一 agent(37)/skill(33)/command(18)/rule(77) 实际数量到所有入口文档
+- **断链修复**: `.claude/skills/.../skills` 和 `skills/academic-research` 断链 (硬编码 `~/github/` 旧路径)
+- **install.sh**: 补全未定义变量 `TEMP_DIR/REPO_URL/INSTALL_DIR` (曾导致选项 1/2/3 崩溃)
+- **install.sh**: 清理旧命名残留 (hbe 冒号格式 → hbe 连字符格式)
+- **conftest.py**: `get_all_rules()` 非递归 glob bug (漏计 69 个规则)
+
+### Changed
+
+- 版本号 3.3.0 → 3.3.1
+- skill 数量 32 → 33 (新增插件入口技能)
+
 ## [3.3.0] - 2026-05-02
 
 ### Added

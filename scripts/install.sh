@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# HBE Installation Script v3.3.0
+# HBE Installation Script v3.3.1
 #
 # Symlinks HBE into ~/.claude/ so ALL projects can use HBE commands,
 # even projects without their own .claude/ directory.
@@ -21,7 +21,7 @@ BLUE='\033[0;34m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-HBE_VERSION="3.3.0"
+HBE_VERSION="3.3.1"
 HBE_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 HBE_CLAUDE="$HBE_ROOT/.claude"
 USER_CLAUDE="$HOME/.claude"

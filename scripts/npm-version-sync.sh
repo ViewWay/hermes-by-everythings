@@ -11,7 +11,7 @@ case $1 in
     ;;
   check)
     echo "Checking version consistency..."
-    grep -r "v3\.[2-3]\." --include="*.md" . | grep -v "v3.3.0" || echo "✓ All versions are v3.3.0"
+    grep -r "v3\.[2-3]\." --include="*.md" . | grep -v "v3.3.1" || echo "✓ All versions are v3.3.1"
     ;;
   *)
     echo "Usage: npm run version [show|sync|check]"

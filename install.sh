@@ -7,7 +7,7 @@ set -euo pipefail
 # 配置
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_NAME="hermes-by-everythings"
-VERSION="3.3.0"
+VERSION="3.3.1"
 REPO_URL="https://github.com/ViewWay/hermes-by-everythings.git"
 INSTALL_DIR="$HOME/.claude/skills"
 TEMP_DIR="/tmp/${PROJECT_NAME}-install-$$"

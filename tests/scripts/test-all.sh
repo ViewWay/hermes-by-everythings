@@ -18,7 +18,7 @@ PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$PROJECT_ROOT"
 
 echo "=================================="
-echo "HBE v3.3.0 - Test Suite"
+echo "HBE v3.3.1 - Test Suite"
 echo "=================================="
 echo ""
 

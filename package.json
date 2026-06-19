@@ -1,6 +1,6 @@
 {
   "name": "hermes-by-everythings",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "description": "中文编码增强套件 - 基于 ECC v2.0,提供 30+ 专业代理、完整测试框架和自主闭环学习系统",
   "publishConfig": {
     "access": "public"
@@ -53,7 +53,7 @@
     "hbe-install": "scripts/install.sh"
   },
   "scripts": {
-    "postinstall": "echo '\\n  🎉 Hermes-by-Everything\\'s v3.3.0 installed!\\n  📚 Docs: https://github.com/ViewWay/hermes-by-everythings\\n  🚀 Run: hbe --help\\n'",
+    "postinstall": "echo '\\n  🎉 Hermes-by-Everything\\'s v3.3.1 installed!\\n  📚 Docs: https://github.com/ViewWay/hermes-by-everythings\\n  🚀 Run: hbe --help\\n'",
     "test": "bash tests/scripts/test-all.sh --fast",
     "test:full": "bash tests/scripts/test-all.sh",
     "test:agents": "bash tests/scripts/test-agents.sh",

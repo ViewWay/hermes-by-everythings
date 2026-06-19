@@ -1,6 +1,6 @@
 # HBE Test Suite
 
-Complete test framework for Hermes-by-Everything's v3.3.0.
+Complete test framework for Hermes-by-Everything's v3.3.1.
 
 ## Quick Start
 
@@ -228,4 +228,4 @@ When adding new features:
 
 ---
 
-**HBE v3.3.0** | Based on ECC v2.0 test framework
+**HBE v3.3.1** | Based on ECC v2.0 test framework

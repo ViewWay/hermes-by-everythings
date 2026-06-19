@@ -1,6 +1,6 @@
 # HBE 市场安装指南
 
-Hermes-by-Everything's v3.3.0 现已支持 npm 和 Claude Code 插件市场安装！
+Hermes-by-Everything's v3.3.1 现已支持 npm 和 Claude Code 插件市场安装！
 
 ## 🚀 安装方式
 
@@ -34,4 +34,4 @@ npm publish --access public
 
 ---
 
-**HBE v3.3.0** | 基于 ECC v2.0
+**HBE v3.3.1** | 基于 ECC v2.0

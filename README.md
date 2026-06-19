@@ -6,7 +6,7 @@
 [![Forks](https://img.shields.io/github/forks/ViewWay/hermes-by-everythings?style=flat)](https://github.com/ViewWay/hermes-by-everythings/network/members)
 [![Contributors](https://img.shields.io/github/contributors/ViewWay/hermes-by-everythings?style=flat)](https://github.com/ViewWay/hermes-by-everythings/graphs/contributors)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-3.3.0-green.svg)](https://github.com/ViewWay/hermes-by-everythings/releases)
+[![Version](https://img.shields.io/badge/version-3.3.1-green.svg)](https://github.com/ViewWay/hermes-by-everythings/releases)
 ![Shell](https://img.shields.io/badge/-Shell-4EAA25?logo=gnu-bash&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
 ![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white)
@@ -675,7 +675,7 @@ bash scripts/test/validate-prompts.sh
 
 ## 更新日志
 
-### v3.3.0 (2026-05-02) - 市场安装 + 完整测试框架
+### v3.3.1 (2026-05-02) - 市场安装 + 完整测试框架
 
 **重大更新**：
 - ✅ **npm 市场支持** - 可通过 `npm install -g hermes-by-everythings` 安装
@@ -699,14 +699,14 @@ bash scripts/test/validate-prompts.sh
 **文档更新**：
 - ✅ AGENTS.md - 完整的 36 个 agents 目录
 - ✅ COMMANDS-QUICK-REF.md - 命令快速参考
-- ✅ CHANGELOG.md - v3.3.0 详细变更记录
+- ✅ CHANGELOG.md - v3.3.1 详细变更记录
 - ✅ docs/marketplace/ - 市场安装指南
 - ✅ docs/testing/ - 测试框架文档
 
 **项目整洁**：
 - ✅ 删除所有备份文件
 - ✅ 添加 .npmignore 和 .gitignore
-- ✅ 统一版本号到 v3.3.0
+- ✅ 统一版本号到 v3.3.1
 - ✅ 更新仓库地址到 ViewWay/hermes-by-everythings
 
 ### v2.1.0 (2026-05-02) - Phase 1 优化完成

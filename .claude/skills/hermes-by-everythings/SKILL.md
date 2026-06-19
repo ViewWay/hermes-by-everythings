@@ -13,7 +13,7 @@ keywords:
   - ralph
   - code-review
   - tdd
-version: 3.3.0
+version: 3.3.1
 ---
 
 # Hermes-by-Everything's
@@ -251,7 +251,7 @@ memory/            ← 学习记忆
 
 ## 版本信息
 
-- **当前版本**: v3.3.0
+- **当前版本**: v3.3.1
 - **基于架构**: ECC v2.0
 - **兼容平台**: Claude Code, OpenCode, OpenClaw, Hermes
 - **更新日期**: 2026-05-02
