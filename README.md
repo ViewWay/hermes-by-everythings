@@ -47,7 +47,7 @@ Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [
 
 ## 核心特性
 
-### 🤖 专业代理（37 个）
+### 🤖 专业代理（39 个）
 
 | 代理 | 命令 | 说明 | 专长 |
 |------|------|------|------|
@@ -80,9 +80,10 @@ Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [
 | **project-guidelines** | 项目特定规范 | 团队约定、项目规范 |
 | **orchestration** | 多 Agent 编排 | 复杂工作流、端到端自动化 |
 
-### ⚡ 快捷命令（15 个）
+### ⚡ 快捷命令（22 个）
 
 ```bash
+# 规划与开发
 /hbe-plan           # 实现规划
 /hbe-architect      # 架构设计
 /hbe-tdd            # TDD 开发流程
@@ -93,15 +94,25 @@ hbe-scan         # 统一安全扫描 (SAST/SCA/密钥/复杂度)
 /hbe-e2e            # E2E 测试生成
 /hbe-refactor       # 重构清理
 /hbe-docs           # 文档/Codemap 更新
+
+# Git 工作流
+/hbe-commit         # 生成 Conventional Commit 提交消息
+/hbe-pr-create      # 创建 Pull Request + 自动生成描述
+/hbe-pr-review      # 审查 Pull Request
+/hbe-branch         # 分支管理 + 清理
+
+# 编排与自动化
 /hbe-prd            # PRD 生成
 /hbe-verify         # 五阶段验证
 /hbe-orchestrate    # 多 Agent 流水线
 /hbe-ralph          # 自主执行循环
 /hbe-checkpoint     # 保存进度快照
 /hbe-learn          # 模式学习提取
+/hbe-eval           # 评估驱动开发
+/hbe-academic       # 学术研究工作流
 ```
 
-### 📜 规则文件（8 个）
+### 📜 规则文件（83 个）
 
 | 规则 | 文件 | 何时生效 |
 |------|------|----------|
@@ -113,6 +124,24 @@ hbe-scan         # 统一安全扫描 (SAST/SCA/密钥/复杂度)
 | **性能规则** | skills/rules/performance.md | 性能优化时 |
 | **设计模式** | skills/rules/patterns.md | 架构设计时 |
 | **Hook 规则** | skills/rules/hooks.md | Hook 触发时 |
+
+> 💡 规则覆盖 13 种语言（TS/Python/Rust/Go/Java/Kotlin/C#/C++/Dart/Swift/PHP/Perl），可通过 **MCP 规则查询服务** 按需获取，无需全部加载。
+
+### 🔌 MCP 规则查询服务
+
+HBE 内置一个 MCP server，让 LLM **按需查询** 83 条编码规则，而非全部塞进上下文：
+
+```bash
+# 构建 MCP server（首次或更新规则后）
+npm run build:mcp
+```
+
+**3 个工具**（LLM 自动调用）：
+- `list_languages` — 列出支持的语言和规则类别（L0 索引，~50 tokens）
+- `get_rules(language, category)` — 获取特定语言的规则全文（L2 详情）
+- `search_rules(query)` — 跨语言全文搜索规则
+
+**效果**：LLM 写 Python 代码前调 `get_rules("python", "security")` 只取相关规则，而非加载全部 5600 行。插件安装后 MCP server 自动注册（见 `.mcp.json` 和各平台 `plugin.json` 的 `mcpServers`）。
 
 ### 🔄 Ralph 自主循环
 

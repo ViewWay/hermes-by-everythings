@@ -16,6 +16,13 @@
     "./commands/"
   ],
   "hooks": "./hooks/hooks.json",
+  "mcpServers": {
+    "hbe-rules": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/dist/mcp/rules-server.js"],
+      "cwd": "${CLAUDE_PROJECT_DIR}"
+    }
+  },
   "categories": [
     "development",
     "testing",

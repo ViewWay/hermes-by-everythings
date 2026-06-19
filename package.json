@@ -53,7 +53,7 @@
     "hbe-install": "scripts/install.sh"
   },
   "scripts": {
-    "postinstall": "echo '\\n  🎉 Hermes-by-Everything\\'s v3.3.1 installed!\\n  📚 Docs: https://github.com/ViewWay/hermes-by-everythings\\n  🚀 Run: hbe --help\\n'",
+    "postinstall": "node -e \"console.log('\\n  🎉 Hermes-by-Everything v3.3.1 installed!\\n  📚 Docs: https://github.com/ViewWay/hermes-by-everythings\\n')\"",
     "test": "bash tests/scripts/test-all.sh --fast",
     "test:full": "bash tests/scripts/test-all.sh",
     "test:agents": "bash tests/scripts/test-agents.sh",
@@ -61,11 +61,19 @@
     "test:docs": "bash tests/scripts/test-docs.sh",
     "install": "bash scripts/install.sh",
     "update": "bash scripts/update.sh",
-    "status": "node scripts/hbe.js status"
+    "status": "node scripts/hbe.js status",
+    "build:mcp": "node scripts/build-mcp.mjs",
+    "mcp:start": "node dist/mcp/rules-server.js",
+    "mcp:inspect": "npx @modelcontextprotocol/inspector node src/mcp/rules-server.js"
   },
   "engines": {
     "node": ">=18"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  }
 }
