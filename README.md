@@ -37,7 +37,7 @@
 
 **多平台多语言编码增强套件 - 整合 everything-claude-code 和 ralph 的最佳能力**
 
-Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [everything-claude-code](https://github.com/affaan-m/everything-claude-code) 的全面能力和 [Ralph 模式](https://github.com/frankbria/ralph-claude-code)的会话内自主循环工作流。它提供 37 个专业代理、33 个核心技能、18 个快捷命令、77 个规则文件，以及基于 Ralph 模式的自主循环工作流（通过 `/hbe-ralph` 命令在会话内执行 TDD 循环，规避上下文窗口限制）。
+Hermes-by-Everything (HBE) 是一个生产级的编码增强系统，整合了 [everything-claude-code](https://github.com/affaan-m/everything-claude-code) 的全面能力和 [Ralph 模式](https://github.com/frankbria/ralph-claude-code)的会话内自主循环工作流。它提供 37 个专业代理、33 个核心技能、18 个快捷命令、83 个规则文件，以及基于 Ralph 模式的自主循环工作流（通过 `/hbe-ralph` 命令在会话内执行 TDD 循环，规避上下文窗口限制）。
 
 支持 **10 种主流编程语言**（TypeScript/JavaScript、Python、Rust、Go、Java、Kotlin、C#、Ruby、PHP、Swift），可通过 **插件市场** 安装到 **Claude Code、ZCode、Codex** 三大平台（也兼容 Hermes、OpenCode、OpenClaw），运行在 **3 种操作系统**（macOS、Windows、Linux）上。
 
@@ -340,7 +340,7 @@ HBE 将：
 - [Memory系统](docs/MEMORY-SYSTEM.md) - 持久化记忆
 
 **开发工作流**:
-- [TDD工作流](skills/active/tdd-workflow.md) - 测试驱动开发
+- [TDD工作流](commands/hbe-tdd.md) - 测试驱动开发
 - [Agent教程](docs/guides/agents/) - 核心 Agent 使用教程
 - [代码审查](docs/guides/agents/CODE-REVIEWER.md) - 代码质量检查
 - [安全审查](docs/guides/agents/SECURITY-REVIEWER.md) - 安全漏洞扫描
@@ -348,10 +348,10 @@ HBE 将：
 - [E2E测试](docs/guides/agents/E2E-RUNNER.md) - 端到端测试
 
 **报告和参考**:
-- [agentdesign集成报告](docs/reports/AGENTDESIGN-INTEGRATION.md) - 最新集成
-- [文档更新报告](docs/reports/DOCUMENTATION-UPDATE-2026-05-02.md) - 文档变更
-- [脚本迁移报告](docs/reports/SCRIPT-MIGRATION.md) - 跨平台脚本
-- [上下文优化](docs/CONTEXT-OPTIMIZATION.md) - Token优化
+- [agentdesign集成报告](docs/reports-archive/PHASE2-OPTIMIZATION.md) - 最新集成
+- [文档更新报告](docs/reports-archive/DOCUMENTATION-UPDATE-2026-05-02.md) - 文档变更
+- [脚本迁移报告](docs/reports-archive/PHASE4-INTERACTIVE-OPTIMIZATION.md) - 跨平台脚本
+- [上下文优化](docs/architecture/CONTEXT-OPTIMIZATION.md) - Token优化
 
 ---
 
@@ -490,7 +490,7 @@ hermes-by-everythings/
 │   │   ├── refactor-cleaner.md
 │   │   ├── doc-updater.md
 │   │   └── continuous-learning.md   # 闭环学习系统
-│   ├── rules/                        # 77 个规则文件
+│   ├── rules/                        # 83 个规则文件
 │   │   ├── security.md
 │   │   ├── coding-style.md
 │   │   ├── testing.md
@@ -735,14 +735,14 @@ bash scripts/test/validate-prompts.sh
 - ✅ 自我更新学习
 - ✅ 纯净上下文管理
 
-详见 [IMPLEMENTATION-SUMMARY.md](IMPLEMENTATION-SUMMARY.md)。
+详见 [IMPLEMENTATION-SUMMARY.md](docs/reports-archive/IMPLEMENTATION-SUMMARY.md)。
 
 ### v2.0.0 (2026-04-22) - 初始版本
 
 - 37 个专业代理
 - 33 个核心技能
 - 18 个快捷命令
-- 77 个规则文件
+- 83 个规则文件
 - Ralph 自主循环
 
 ---
@@ -763,7 +763,7 @@ bash scripts/test/validate-prompts.sh
 3. [affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code) - 全功能套件
 4. [hellangleZ/burn-in-cceverywhere-ralph](https://github.com/hellangleZ/burn-in-cceverythings-ralph) - Ralph 集成
 
-详见 [仓库分析报告](docs/repo-analysis-report.md)。
+详见 [仓库分析报告](docs/research/repo-analysis-report.md)。
 
 ---
 

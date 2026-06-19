@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Hermes-by-Everything (HBE) Installation Script
-Version: 3.2.0
+Version: 3.3.1
 Cross-platform installation support
 """
 
@@ -14,7 +14,7 @@ from datetime import datetime
 
 # Configuration
 REPO_URL = "https://github.com/ViewWay/hermes-by-everythings.git"
-VERSION = "3.2.0"
+VERSION = "3.3.1"
 INSTALL_DIR = Path.home() / ".claude" / "skills"
 TEMP_DIR = Path("/tmp") / "hbe-install"
 
@@ -40,7 +40,7 @@ def print_banner():
 ╔════════════════════════════════════════════════════════════╗
 ║     Hermes-by-Everything (HBE) Installation Script         ║
 ║                 Version {VERSION}                              ║
-║     10 Agent + 13 Skill + 15 Command + 8 Rules             ║
+║     37 Agent + 33 Skill + 18 Command + 83 Rules            ║
 ║     Ralph + Orchestrator 编排系统                           ║
 ╚════════════════════════════════════════════════════════════╝
 """

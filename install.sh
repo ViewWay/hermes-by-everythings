@@ -34,7 +34,7 @@ show_banner() {
     echo "║       Hermes-by-Everything v$VERSION 安装程序                    ║"
     echo "║                                                               ║"
     echo "║       多平台多语言编码增强套件                                   ║"
-    echo "║       37 Agent + 33 Skill + 18 Command + 77 Rules              ║"
+    echo "║       37 Agent + 33 Skill + 18 Command + 83 Rules              ║"
     echo "║       Ralph + Orchestrator 编排系统                             ║"
     echo "║                                                               ║"
     echo "╚═══════════════════════════════════════════════════════════════╝"
@@ -176,7 +176,7 @@ create_directories() {
     
     mkdir -p "$HOME/.claude/skills"
     mkdir -p "$HOME/.claude/hooks"
-    mkdir -p "$HOME/claude/memory"
+    mkdir -p "$HOME/.claude/memory"
     
     log_success "目录已创建"
 }

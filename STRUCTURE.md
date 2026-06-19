@@ -67,7 +67,7 @@ hermes-by-everythings/
 
 **子目录**：
 - `agents/` - 9 个专业 Agent（planner, architect, code-reviewer 等）
-- `rules/` - 77 个规则文件（安全、测试、Git 工作流、语言专属规则等）
+- `rules/` - 83 个规则文件（安全、测试、Git 工作流、语言专属规则等）
 - `templates/` - 输出模板（PRD、Handoff、Progress）
 - `active/` - 推荐的通用技能
 

@@ -68,7 +68,7 @@
 
 8. [Refactor-Cleaner](REFACTOR-CLEANER.md) - 重构
 9. [Orchestrator](ORCHESTRATOR.md) - 自动化编排
-10. [Ralf循环](../../ORCHESTRATOR-TUTORIAL.md) - 自主执行
+10. [Ralf循环](../ORCHESTRATOR-TUTORIAL.md) - 自主执行
 
 ---
 

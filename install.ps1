@@ -1,12 +1,12 @@
 # Hermes-by-Everything (HBE) Installation Script
-# Version: 3.2.0
+# Version: 3.3.1
 # Platform: Windows (PowerShell)
 
 $ErrorActionPreference = "Stop"
 
 # Configuration
 $REPO_URL = "https://github.com/ViewWay/hermes-by-everythings.git"
-$VERSION = "3.2.0"
+$VERSION = "3.3.1"
 $INSTALL_DIR = "$env:USERPROFILE\.claude\skills"
 $TEMP_DIR = "$env:TEMP\hbe-install"
 
@@ -16,8 +16,8 @@ function Print-Banner {
 
 ╔════════════════════════════════════════════════════════════╗
 ║     Hermes-by-Everything (HBE) Installation Script         ║
-║                 Version 3.2.0                              ║
-║     10 Agent + 13 Skill + 15 Command + 8 Rules             ║
+║                 Version 3.3.1                              ║
+║     37 Agent + 33 Skill + 18 Command + 77 Rules            ║
 ║     Ralph + Orchestrator 编排系统                           ║
 ╚════════════════════════════════════════════════════════════╝
 

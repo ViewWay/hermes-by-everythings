@@ -123,7 +123,7 @@ HBE 将：
 ## 下一步
 
 1. 阅读 [Orchestrator 教程](ORCHESTRATOR-TUTORIAL.md) - 学习多Agent编排
-2. 阅读 [完整用户指南](user-guide.md)
+2. 阅读 [项目 README](../../README.md) - 完整功能介绍
 3. 了解 [Agent 列表](../../skills/agents/)
 4. 探索 [Skill 列表](../../skills/)
 5. 查看 [示例](../../examples/)
@@ -132,7 +132,7 @@ HBE 将：
 
 ## 需要帮助？
 
-- 查看 [常见问题](../faq.md)
+- 查看 [常见问题](../../README.md#faq) - README 中的 FAQ 章节
 - 提交 [Issue](https://github.com/ViewWay/hermes-by-everythings/issues)
 - 加入 [讨论](https://github.com/ViewWay/hermes-by-everythings/discussions)
 

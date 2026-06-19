@@ -38,8 +38,8 @@
 **核心功能**:
 - [Orchestrator教程](guides/ORCHESTRATOR-TUTORIAL.md) - 学习多Agent编排
 - [Agent教程索引](guides/agents/README.md) - 核心Agent使用教程
-- [TDD工作流](../skills/active/tdd-workflow.md) - 测试驱动开发
-- [代码审查](../skills/active/code-review.md) - 代码质量检查
+- [TDD工作流](../commands/hbe-tdd.md) - 测试驱动开发
+- [代码审查](../commands/hbe-review.md) - 代码质量检查
 
 **参考手册**:
 - [Agent列表](../skills/agents/) - 所有Agent定义
@@ -50,30 +50,30 @@
 ### 🏢 团队负责人
 
 **项目管理**:
-- [Ralph自主循环](../skills/active/ralph-loop.md) - 大型任务自动化
+- [Ralph自主循环](../commands/hbe-ralph.md) - 大型任务自动化
 - [Orchestrator编排](ORCHESTRATOR-GUIDE.md) - 多Agent协作管理
-- [PRD生成](../skills/templates/prd.md) - 需求文档生成
+- [PRD生成](../skills/templates/prd-json.json) - 需求文档生成
 
 **质量保证**:
-- [五阶段验证](../skills/rules/verification.md) - 完整验证循环
-- [安全审查](../skills/active/security-review.md) - 安全漏洞检查
-- [性能优化](../skills/rules/performance.md) - 性能最佳实践
+- [五阶段验证](../tests/README.md) - 完整验证循环
+- [安全审查](../commands/hbe-security.md) - 安全漏洞检查
+- [性能优化](../skills/rules/web/performance.md) - 性能最佳实践
 
 ### 🔧 系统集成者
 
 **集成指南**:
 - [Orchestrator集成](ORCHESTRATOR-GUIDE.md) - 完整的集成方案
-- [agentdesign集成报告](reports/AGENTDESIGN-INTEGRATION.md) - agentdesign集成详情
+- [agentdesign集成报告](reports-archive/PHASE2-OPTIMIZATION.md) - agentdesign集成详情
 - [Memory系统](MEMORY-SYSTEM.md) - 记忆系统文档
 
 **工具脚本**:
-- [Agent ID管理器](../scripts/agent-id-manager.js) - Agent ID管理工具
+- [Agent ID管理器](../scripts/_archive/agent-id-manager.js) - Agent ID管理工具
 - [跨平台脚本](../scripts/) - Bash/Node.js/Python/PowerShell脚本
 
 ### 📝 文档维护者
 
 **文档管理**:
-- [文档更新报告](reports/DOCUMENTATION-UPDATE-2026-05-02.md) - 最新文档更新
+- [文档更新报告](reports-archive/DOCUMENTATION-UPDATE-2026-05-02.md) - 最新文档更新
 - [贡献指南](../CONTRIBUTING.md) - 如何贡献文档
 - [Skill放置策略](SKILL-PLACEMENT-POLICY.md) - Skill组织规范
 
@@ -92,14 +92,14 @@
 | **Agent系统** | [skills/agents/](../skills/agents/) | 37个专业Agent定义 |
 | **Skill系统** | [SKILL-INDEX.md](../SKILL-INDEX.md) | 技能索引和路由 |
 | **Orchestrator** | [ORCHESTRATOR-GUIDE.md](ORCHESTRATOR-GUIDE.md) | 多Agent编排系统 |
-| **Ralph循环** | [skills/active/ralph-loop.md](../skills/active/ralph-loop.md) | 自主执行系统 |
+| **Ralph循环** | [skills/active/ralph-loop.md](../commands/hbe-ralph.md) | 自主执行系统 |
 | **Memory系统** | [MEMORY-SYSTEM.md](MEMORY-SYSTEM.md) | 持久化记忆系统 |
 
 ### 开发工作流
 
 | 工作流 | 文档 | 用途 |
 |--------|------|------|
-| **TDD** | [skills/active/tdd-workflow.md](../skills/active/tdd-workflow.md) | 测试驱动开发 |
+| **TDD** | [skills/active/tdd-workflow.md](../commands/hbe-tdd.md) | 测试驱动开发 |
 | **代码审查** | [skills/agents/code-reviewer.md](../skills/agents/code-reviewer.md) | 代码质量审查 |
 | **安全审查** | [skills/agents/security-reviewer.md](../skills/agents/security-reviewer.md) | 安全漏洞检查 |
 | **重构** | [skills/agents/refactor-cleaner.md](../skills/agents/refactor-cleaner.md) | 死代码清理 |
@@ -109,18 +109,18 @@
 
 | 平台/语言 | 文档 | 说明 |
 |-----------|------|------|
-| **TypeScript** | [skills/rules/typescript.md](../skills/rules/typescript.md) | TypeScript规范 |
-| **Python** | [skills/rules/python.md](../skills/rules/python.md) | Python规范 |
-| **Rust** | [skills/rules/rust.md](../skills/rules/rust.md) | Rust规范 |
-| **Go** | [skills/rules/go.md](../skills/rules/go.md) | Go规范 |
-| **跨平台** | [reports/SCRIPT-MIGRATION.md](reports/SCRIPT-MIGRATION.md) | 跨平台脚本 |
+| **TypeScript** | [skills/rules/typescript.md](../skills/rules/typescript/coding-style.md) | TypeScript规范 |
+| **Python** | [skills/rules/python.md](../skills/rules/python/coding-style.md) | Python规范 |
+| **Rust** | [skills/rules/rust.md](../skills/rules/rust/coding-style.md) | Rust规范 |
+| **Go** | [skills/rules/go.md](../skills/rules/golang/coding-style.md) | Go规范 |
+| **跨平台** | [reports-archive/PHASE4-INTERACTIVE-OPTIMIZATION.md](reports-archive/PHASE4-INTERACTIVE-OPTIMIZATION.md) | 跨平台脚本 |
 
 ### 高级主题
 
 | 主题 | 文档 | 难度 |
 |------|------|------|
-| **上下文优化** | [CONTEXT-OPTIMIZATION.md](CONTEXT-OPTIMIZATION.md) | 高级 |
-| **自主循环** | [skills/active/ralph-loop.md](../skills/active/ralph-loop.md) | 高级 |
+| **上下文优化** | [CONTEXT-OPTIMIZATION.md](architecture/CONTEXT-OPTIMIZATION.md) | 高级 |
+| **自主循环** | [skills/active/ralph-loop.md](../commands/hbe-ralph.md) | 高级 |
 | **Agent编排** | [ORCHESTRATOR-GUIDE.md](ORCHESTRATOR-GUIDE.md) | 中级 |
 | **Hook系统** | [skills/rules/hooks.md](../skills/rules/hooks.md) | 中级 |
 | **闭包学习** | [research-findings.md](research-findings.md) | 高级 |
@@ -147,7 +147,7 @@ hermes-by-everythings/
 │   │   ├── quick-start.md         # 快速开始
 │   │   └── ORCHESTRATOR-TUTORIAL.md # Orchestrator教程
 │   │
-│   ├── reports/                   # 报告和总结
+│   ├── reports-archive/           # 报告归档
 │   │   ├── AGENTDESIGN-INTEGRATION.md     # agentdesign集成报告
 │   │   ├── DOCUMENTATION-UPDATE-2026-05-02.md # 文档更新报告
 │   │   ├── SCRIPT-MIGRATION.md            # 脚本迁移报告
@@ -194,7 +194,7 @@ hermes-by-everythings/
 - **技能文档**: [skills/](../skills/)
 - **规则文件**: [skills/rules/](../skills/rules/)
 - **指南教程**: [docs/guides/](guides/)
-- **报告文档**: [docs/reports/](reports/)
+- **报告文档**: [docs/reports/](reports-archive/)
 - **架构文档**: [docs/architecture/](architecture/)
 - **ADR**: [docs/adr/](adr/)
 
@@ -203,8 +203,8 @@ hermes-by-everythings/
 - **2026-05-02** (v3.3.1):
   - [Orchestrator教程](guides/ORCHESTRATOR-TUTORIAL.md) - 新增
   - [Orchestrator集成指南](ORCHESTRATOR-GUIDE.md) - 新增
-  - [agentdesign集成报告](reports/AGENTDESIGN-INTEGRATION.md) - 新增
-  - [文档更新报告](reports/DOCUMENTATION-UPDATE-2026-05-02.md) - 新增
+  - [agentdesign集成报告](reports-archive/PHASE2-OPTIMIZATION.md) - 新增
+  - [文档更新报告](reports-archive/DOCUMENTATION-UPDATE-2026-05-02.md) - 新增
 
 - **历史版本**: 查看 [CHANGELOG.md](../CHANGELOG.md)
 
@@ -231,7 +231,7 @@ hermes-by-everythings/
 
 1. 完成进阶路径
 2. 研究 [架构ADR](adr/) - 理解设计决策
-3. 学习 [上下文优化](CONTEXT-OPTIMIZATION.md) - 优化性能
+3. 学习 [上下文优化](architecture/CONTEXT-OPTIMIZATION.md) - 优化性能
 4. 探索 [源码](../skills/agents/) - 深入实现
 
 ---

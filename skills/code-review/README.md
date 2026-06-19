@@ -70,9 +70,9 @@ cp -r ~/.ai-skills/skills/testing/code-review ~/.claude/skills/code-review
 
 ## Related Skills
 
-- [clean-code](../clean-code/) — Coding standards that reviews enforce
-- [quality-gates](../quality-gates/) — Automated quality checkpoints in CI/CD
-- [testing-patterns](../testing-patterns/) — Testing standards to check during review
+- Coding standards (enforced via `skills/rules/*/coding-style.md`) — reviews check language-specific style
+- Quality gates (hooks in `scripts/hooks/`) — automated checks run on commit/edit
+- Testing standards (`skills/rules/*/testing.md`) — reviews verify test coverage and quality
 
 ---
 
