@@ -6,6 +6,8 @@ keywords:
   - security
   - 安全审查
   - vulnerability scan
+argument-hint: "[安全审查目标]"
+skills: hermes-by-everythings
 ---
 
 # /hbe-security — 安全审查

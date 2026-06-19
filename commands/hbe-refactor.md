@@ -6,6 +6,8 @@ keywords:
   - refactor
   - 重构
   - dead code removal
+argument-hint: "[重构目标文件或模块]"
+skills: hermes-by-everythings
 ---
 
 # /hbe-refactor — 重构清理

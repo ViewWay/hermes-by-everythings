@@ -1,0 +1,34 @@
+{
+  "name": "hermes-by-everythings",
+  "version": "3.3.0",
+  "description": "多平台多语言编码增强套件。37 Agent + 33 Skill + 18 Command + 77 Rules + Ralph 自主循环。支持 TS/Python/Rust/Go/Java/Kotlin 等 10 种语言。",
+  "author": {
+    "name": "ViewWay",
+    "url": "https://github.com/ViewWay"
+  },
+  "homepage": "https://github.com/ViewWay/hermes-by-everythings",
+  "repository": "https://github.com/ViewWay/hermes-by-everythings",
+  "license": "MIT",
+  "skills": "skills",
+  "commands": "commands",
+  "categories": [
+    "development",
+    "testing",
+    "security",
+    "code-quality"
+  ],
+  "keywords": [
+    "coding-enhancement",
+    "multi-language",
+    "multi-platform",
+    "tdd",
+    "code-review",
+    "security-review",
+    "ralph",
+    "autonomous-coding",
+    "multi-agent"
+  ],
+  "interface": {
+    "shortDescription": "多平台多语言编码增强套件：37 代理 + 33 技能 + 18 命令 + Ralph 循环"
+  }
+}

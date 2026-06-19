@@ -2,6 +2,8 @@
 name: hbe-eval
 description: 评估驱动开发，pass@k 指标度量 / Evaluation-driven development with pass@k metrics
 allowed_tools: ["Read", "Write", "Edit", "Bash", "Agent"]
+argument-hint: "[评估目标或指标定义]"
+skills: hermes-by-everythings
 ---
 
 # /hbe-eval

@@ -10,6 +10,7 @@ HBE Documentation Consistency Tests
 当 agent/command/rule 数量有合理增减时，更新 EXPECTED_* 常量即可。
 """
 
+import json
 import re
 from pathlib import Path
 
@@ -237,3 +238,192 @@ class TestDocConsistency:
             if link.is_symlink() and not link.exists():
                 broken.append(str(link.relative_to(PROJECT_ROOT)))
         assert not broken, f"Broken symlinks under .claude/skills/: {broken}"
+
+
+# === 插件清单一致性 (v3.3.0 三平台插件化) ===================================
+
+# 三平台的 plugin.json 清单路径
+PLUGIN_MANIFESTS = [
+    PROJECT_ROOT / ".claude-plugin" / "plugin.json",
+    PROJECT_ROOT / ".zcode-plugin" / "plugin.json",
+    PROJECT_ROOT / ".codex-plugin" / "plugin.json",
+]
+
+# 两个 marketplace.json（ZCode 的在安装时自动生成，不需作者维护）
+MARKETPLACES = [
+    PROJECT_ROOT / ".claude-plugin" / "marketplace.json",
+    PROJECT_ROOT / ".agents" / "plugins" / "marketplace.json",
+]
+
+# 清单中声明的所有内容目录（插件加载时必须存在）
+PLUGIN_CONTENT_DIRS = {
+    "skills": PROJECT_ROOT / "skills",
+    "commands": PROJECT_ROOT / "commands",
+}
+
+
+@pytest.mark.integration
+class TestPluginManifests:
+    """三平台插件清单 (.claude-plugin/.zcode-plugin/.codex-plugin) 一致性。
+
+    确保 HBE 能被 Claude Code / ZCode / Codex 三平台通过
+    /plugin marketplace add + /plugin install 安装。
+    """
+
+    @pytest.mark.parametrize("manifest", PLUGIN_MANIFESTS,
+                             ids=lambda p: p.parent.name)
+    def test_plugin_manifest_exists_and_valid(self, manifest):
+        """每个平台的 plugin.json 必须存在且是合法 JSON。"""
+        assert manifest.exists(), f"{manifest} missing — platform won't install"
+        data = json.loads(manifest.read_text())
+        for required in ("name", "version", "description"):
+            assert required in data, f"{manifest.name} missing required field: {required}"
+
+    @pytest.mark.parametrize("manifest", PLUGIN_MANIFESTS,
+                             ids=lambda p: p.parent.name)
+    def test_plugin_manifest_version_matches_version_json(self, manifest):
+        """三平台 plugin.json 的 version 必须与 version.json 一致。"""
+        data = json.loads(manifest.read_text())
+        assert data["version"] == _actual_version(), (
+            f"{manifest.parent.name}/plugin.json version {data['version']!r} "
+            f"!= version.json {_actual_version()!r}"
+        )
+
+    @pytest.mark.parametrize("manifest", PLUGIN_MANIFESTS,
+                             ids=lambda p: p.parent.name)
+    def test_plugin_manifest_name_consistent(self, manifest):
+        """三平台 plugin.json 的 name 必须一致。"""
+        data = json.loads(manifest.read_text())
+        assert data["name"] == "hermes-by-everythings", (
+            f"{manifest.parent.name}/plugin.json name is {data['name']!r}"
+        )
+
+    @pytest.mark.parametrize("manifest", PLUGIN_MANIFESTS,
+                             ids=lambda p: p.parent.name)
+    def test_plugin_manifest_content_dirs_exist(self, manifest):
+        """plugin.json 声明的 skills/commands 目录必须真实存在。"""
+        data = json.loads(manifest.read_text())
+        for field, dir_path in PLUGIN_CONTENT_DIRS.items():
+            if field in data:
+                rel = data[field]
+                resolved = PROJECT_ROOT / rel
+                assert resolved.is_dir(), (
+                    f"{manifest.parent.name}/plugin.json declares "
+                    f'"{field}": "{rel}" but {resolved} is not a directory'
+                )
+
+    @pytest.mark.parametrize("marketplace", MARKETPLACES,
+                             ids=lambda p: str(p.relative_to(PROJECT_ROOT)))
+    def test_marketplace_valid_and_references_plugin(self, marketplace):
+        """marketplace.json 必须是合法 JSON 且引用 hermes-by-everythings 插件。"""
+        assert marketplace.exists(), f"{marketplace} missing"
+        data = json.loads(marketplace.read_text())
+        assert "plugins" in data, f"{marketplace.name} has no 'plugins' array"
+        names = [p["name"] for p in data["plugins"]]
+        assert "hermes-by-everythings" in names, (
+            f"{marketplace.name} plugins {names} missing 'hermes-by-everythings'"
+        )
+
+    def test_commands_have_platform_standard_frontmatter(self):
+        """所有命令必须含三平台标准字段 argument-hint + skills。
+
+        否则插件安装后斜杠命令无法正确关联技能/接收参数。
+        """
+        commands_dir = PROJECT_ROOT / "commands"
+        offenders = []
+        for cmd_file in sorted(commands_dir.glob("hbe-*.md")):
+            content = cmd_file.read_text()
+            # 提取 frontmatter
+            match = re.match(r"^---\n(.*?)\n---", content, re.DOTALL)
+            if not match:
+                offenders.append(f"{cmd_file.name}: no frontmatter")
+                continue
+            fm = match.group(1)
+            if "argument-hint:" not in fm:
+                offenders.append(f"{cmd_file.name}: missing argument-hint")
+            if "skills:" not in fm:
+                offenders.append(f"{cmd_file.name}: missing skills")
+        assert not offenders, (
+            f"Commands missing platform-standard frontmatter:\n  "
+            + "\n  ".join(offenders)
+        )
+
+    def test_command_skills_references_resolve(self):
+        """命令 frontmatter 的 skills 字段必须指向真实存在的技能目录。
+
+        防止 'skills: hermes-by-everythings' 但 skills/hermes-by-everythings/
+        不存在的情况。
+        """
+        commands_dir = PROJECT_ROOT / "commands"
+        skills_dir = PROJECT_ROOT / "skills"
+        offenders = []
+        for cmd_file in sorted(commands_dir.glob("hbe-*.md")):
+            content = cmd_file.read_text()
+            match = re.match(r"^---\n(.*?)\n---", content, re.DOTALL)
+            if not match:
+                continue
+            fm = match.group(1)
+            skill_match = re.search(r"^skills:\s*(.+)$", fm, re.MULTILINE)
+            if not skill_match:
+                continue
+            skill_name = skill_match.group(1).strip()
+            skill_path = skills_dir / skill_name
+            if not skill_path.is_dir():
+                offenders.append(
+                    f"{cmd_file.name}: skills '{skill_name}' -> "
+                    f"{skill_path} does not exist"
+                )
+        assert not offenders, (
+            "Command skill references point to non-existent skills:\n  "
+            + "\n  ".join(offenders)
+        )
+
+    def test_hooks_json_references_valid_scripts(self):
+        """hooks/hooks.json 引用的每个脚本必须真实存在。
+
+        回归保护：hooks.json 曾引用 8 个不存在的脚本（drift）。
+        脚本路径以 ${CLAUDE_PLUGIN_ROOT} 开头，对应项目根下的相对路径。
+        """
+        hooks_file = PROJECT_ROOT / "hooks" / "hooks.json"
+        if not hooks_file.exists():
+            pytest.skip("hooks/hooks.json not found")
+        data = json.loads(hooks_file.read_text())
+
+        missing = []
+        # 递归遍历 hooks 结构，提取所有 command 字段
+        def extract_commands(obj):
+            if isinstance(obj, dict):
+                if "command" in obj:
+                    yield obj["command"]
+                for v in obj.values():
+                    yield from extract_commands(v)
+            elif isinstance(obj, list):
+                for item in obj:
+                    yield from extract_commands(item)
+
+        for command in extract_commands(data):
+            # 解析 ${CLAUDE_PLUGIN_ROOT}/path/to/script -> path/to/script
+            script_rel = re.sub(r"\$\{[^}]+\}/?", "", command).strip().strip('"')
+            # 去掉 node / bash 前缀
+            script_rel = re.sub(r"^(node|bash)\s+", "", script_rel).strip().strip('"')
+            script_path = PROJECT_ROOT / script_rel
+            if not script_path.exists():
+                missing.append(f"{command} -> {script_path}")
+
+        assert not missing, (
+            "hooks/hooks.json references non-existent scripts:\n  "
+            + "\n  ".join(missing)
+        )
+
+    def test_plugin_entry_skill_exists(self):
+        """插件入口技能 skills/hermes-by-everythings/SKILL.md 必须存在。
+
+        命令的 skills 字段普遍引用 hermes-by-everythings，该技能目录
+        必须存在才能被三平台正确加载。
+        """
+        entry = PROJECT_ROOT / "skills" / "hermes-by-everythings" / "SKILL.md"
+        assert entry.exists(), (
+            f"Plugin entry skill {entry} missing. "
+            f"Commands reference 'skills: hermes-by-everythings' but no "
+            f"matching skill directory exists."
+        )

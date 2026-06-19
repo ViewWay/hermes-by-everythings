@@ -6,6 +6,8 @@ keywords:
   - planning
   - 规划
   - implementation plan
+argument-hint: "[功能描述]"
+skills: hermes-by-everythings
 ---
 
 # /hbe-plan — 功能实现规划

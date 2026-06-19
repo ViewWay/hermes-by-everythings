@@ -6,6 +6,8 @@ keywords:
   - code review
   - 代码审查
   - 质量检查
+argument-hint: "[文件或审查范围]"
+skills: hermes-by-everythings
 ---
 
 # /hbe-review — 代码质量审查

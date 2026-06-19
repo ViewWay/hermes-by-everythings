@@ -183,14 +183,35 @@ hermes-by-everythings/
 
 ### 安装
 
-#### 方式 1: 使用 skillhub（推荐）
+#### 方式 1: 插件市场安装（推荐，支持 Claude Code / ZCode / Codex）
+
+**Claude Code / ZCode:**
+
+```bash
+# 1. 添加市场
+/plugin marketplace add ViewWay/hermes-by-everythings
+
+# 2. 安装插件
+/plugin install hermes-by-everythings
+```
+
+**Codex (OpenAI):**
+
+```bash
+codex plugin marketplace add ViewWay/hermes-by-everythings
+codex plugin install hermes-by-everythings
+```
+
+安装后即可使用全部 37 个 Agent、33 个 Skill、18 个 `/hbe-*` 命令。
+
+#### 方式 2: 使用 skillhub
 
 ```bash
 npm install -g @anthropics/skillhub
 skillhub install hermes-by-everythings
 ```
 
-#### 方式 2: 使用安装脚本（跨平台）
+#### 方式 3: 使用安装脚本（跨平台）
 
 ```bash
 git clone https://github.com/ViewWay/hermes-by-everythings.git
@@ -202,7 +223,7 @@ python3 install.py     # 跨平台（推荐）
 powershell install.ps1  # Windows
 ```
 
-#### 方式 3: 手动安装（开发模式）
+#### 方式 4: 手动安装（开发模式）
 
 ```bash
 # 1. 克隆仓库

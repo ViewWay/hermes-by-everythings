@@ -2,6 +2,8 @@
 name: hbe-scan
 description: 统一静态安全扫描 (SAST/SCA/密钥/复杂度) / Unified static security scanning (SAST/SCA/secrets/complexity)
 allowed_tools: ["Read", "Bash", "Grep", "Glob"]
+argument-hint: "[扫描目标路径或范围]"
+skills: hermes-by-everythings
 ---
 
 # /hbe-scan

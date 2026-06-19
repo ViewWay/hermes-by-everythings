@@ -6,6 +6,8 @@ keywords:
   - tdd
   - test-driven development
   - 测试驱动开发
+argument-hint: "[测试目标或功能描述]"
+skills: hermes-by-everythings
 ---
 
 # /hbe-tdd — TDD 开发流程

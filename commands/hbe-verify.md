@@ -6,6 +6,8 @@ keywords:
   - verify
   - 验证
   - validation loop
+argument-hint: "[可选：验证阶段 build|types|lint|test|security]"
+skills: hermes-by-everythings
 ---
 
 # /hbe-verify — 五阶段验证循环

@@ -2,6 +2,8 @@
 name: hbe-checkpoint
 description: 保存进度快照，支持会话恢复 / Save progress snapshot for resumable work sessions
 allowed_tools: ["Read", "Write", "Bash"]
+argument-hint: "[可选：快照描述]"
+skills: hermes-by-everythings
 ---
 
 # /hbe-checkpoint

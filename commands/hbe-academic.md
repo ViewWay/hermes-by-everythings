@@ -2,6 +2,8 @@
 name: hbe-academic
 description: 学术研究工作流 / Academic research workflow — 文献综述、论文写作、LaTeX 编译、期刊排版 / Literature review, paper writing, LaTeX compilation, journal formatting
 allowed_tools: ["Read", "Write", "Edit", "Bash", "WebSearch", "Agent"]
+argument-hint: "[子命令 check-env|lit-review|paper|experiment|rebuttal|compile|template|search]"
+skills: academic-research
 ---
 
 # /hbe-academic

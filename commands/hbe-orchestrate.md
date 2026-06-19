@@ -2,6 +2,8 @@
 name: hbe-orchestrate
 description: 多 Agent 工作流编排 (plan → tdd → review → security) / Multi-agent workflow orchestration
 allowed_tools: ["Read", "Write", "Edit", "Bash", "Agent"]
+argument-hint: "<feature|bugfix> [任务描述]"
+skills: hermes-by-everythings
 ---
 
 # /hbe-orchestrate

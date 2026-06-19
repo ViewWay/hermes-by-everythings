@@ -2,6 +2,8 @@
 name: hbe-prd
 description: 生成结构化产品需求文档 PRD / Generate structured Product Requirements Document
 allowed_tools: ["Read", "Write", "Edit"]
+argument-hint: "[产品或功能描述]"
+skills: hermes-by-everythings
 ---
 
 # /hbe-prd

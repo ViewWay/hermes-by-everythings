@@ -6,6 +6,8 @@ keywords:
   - documentation
   - 文档更新
   - codemap
+argument-hint: "[文档更新范围]"
+skills: hermes-by-everythings
 ---
 
 # /hbe-docs — 文档更新

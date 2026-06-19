@@ -6,6 +6,8 @@ keywords:
   - architecture
   - 架构设计
   - system design
+argument-hint: "[架构需求或设计目标]"
+skills: hermes-by-everythings
 ---
 
 # /hbe-architect — 系统架构设计

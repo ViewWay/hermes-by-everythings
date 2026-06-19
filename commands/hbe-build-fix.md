@@ -6,6 +6,8 @@ keywords:
   - build fix
   - 构建修复
   - compilation error
+argument-hint: "[构建错误信息]"
+skills: hermes-by-everythings
 ---
 
 # /hbe-build-fix — 构建错误修复

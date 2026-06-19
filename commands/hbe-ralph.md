@@ -7,6 +7,8 @@ keywords:
   - autonomous coding
   - 自主编码
   - 自主循环
+argument-hint: "[开发任务目标]"
+skills: hermes-by-everythings
 ---
 
 # /hbe-ralph — Ralph 自主循环

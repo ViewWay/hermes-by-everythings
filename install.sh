@@ -34,7 +34,7 @@ show_banner() {
     echo "║       Hermes-by-Everything v$VERSION 安装程序                    ║"
     echo "║                                                               ║"
     echo "║       多平台多语言编码增强套件                                   ║"
-    echo "║       37 Agent + 32 Skill + 18 Command + 77 Rules              ║"
+    echo "║       37 Agent + 33 Skill + 18 Command + 77 Rules              ║"
     echo "║       Ralph + Orchestrator 编排系统                             ║"
     echo "║                                                               ║"
     echo "╚═══════════════════════════════════════════════════════════════╝"
